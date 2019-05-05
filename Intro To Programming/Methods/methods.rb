@@ -19,4 +19,8 @@ def calc_average(num1, num2)
   return avg
 end
 
-puts calc_average(5,10)
+# the return keyword lets a method call evaluate to a value
+
+result = calc_average(5,10)
+
+puts result + 1
