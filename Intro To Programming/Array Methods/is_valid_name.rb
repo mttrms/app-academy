@@ -9,18 +9,15 @@ def is_valid_name(str)
   end
 
   name_parts.each do |name|
-    if name[0] == name[0].upcase && name[1..-1] == name[1..-1].downcase
-      return true
-    else
+    if !(name[0] == name[0].upcase && name[1..-1] == name[1..-1].downcase)
       return false
     end
 
   end
+  return true
 end
 
 puts is_valid_name("Kush Patel")       # => true
 puts is_valid_name("Daniel")           # => false
 puts is_valid_name("Robert Downey Jr") # => true
 puts is_valid_name("ROBERT DOWNEY JR") # => false
-
-test = "Matt"
