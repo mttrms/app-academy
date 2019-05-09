@@ -17,7 +17,6 @@ def is_valid_email(str)
     return false
   end
   
-  
   return true
 end
 
