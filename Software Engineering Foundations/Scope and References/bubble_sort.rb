@@ -9,7 +9,7 @@ def bubble_sort(array)
   while !sorted
     sorted = true
     
-    (0...array.length - 1).each do |i|
+    (0...array.length - 1).each do |i| # end at 2nd to last element for comparison to last ele
       if array[i] > array[i + 1]
         array[i], array[i + 1] = array[i + 1], array[i]
         sorted = false
