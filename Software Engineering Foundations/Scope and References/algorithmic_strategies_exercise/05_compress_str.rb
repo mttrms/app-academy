@@ -5,16 +5,21 @@
 def compress_str(str)
   compressed = ""
 
+  count = 1
   i = 0
   while i < str.length
     char = str[i]
     
-    count = 0
-    while char == str[i]
+    
+    if char == str[i + 1]
       count += 1
       i +=1
+      next
     end
+
     compressed += count > 1 ? count.to_s + char : char
+    i += 1
+    count = 1
   end
 
   compressed
