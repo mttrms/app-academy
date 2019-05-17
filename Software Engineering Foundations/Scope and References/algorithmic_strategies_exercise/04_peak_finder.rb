@@ -5,13 +5,15 @@
 
 def peak_finder(arr)
   peaks = arr.select.with_index do |num, idx|
-    if idx == 0 && num > arr[idx + 1] || idx == arr.length - 1 && num > arr[idx - 1] 
+    left = arr[idx - 1]
+    right = arr[idx + 1]
+
+    if idx == 0 && num > right || idx == arr.length - 1 && num > left
       true
-    elsif num > arr[idx - 1] && num > arr[idx + 1]
+    elsif num > left && num > right
       true
     end
   end
-
   peaks
 end
 
