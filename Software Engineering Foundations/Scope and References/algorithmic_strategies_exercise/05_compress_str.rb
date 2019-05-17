@@ -9,11 +9,10 @@ def compress_str(str)
   i = 0
   while i < str.length
     char = str[i]
-    
-    
+
     if char == str[i + 1]
       count += 1
-      i +=1
+      i += 1
       next
     end
 
