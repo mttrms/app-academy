@@ -1,14 +1,15 @@
 def hipsterfy(word)
   vowels = "aeiou"
-  word.reverse!
-  word.each_char.with_index do |char, idx|
-    if vowels.include?(char)
-      word = word[0...idx] + word[idx + 1..-1]
-      return word.reverse
+
+  i = word.length - 1
+  while i >= 0
+    if vowels.include?(word[i])
+      return word[0...i] + word[i+1..-1]
     end
+    i -= 1
   end
 
-  word.reverse
+  word
 end
 
 def vowel_counts(str)
@@ -22,7 +23,7 @@ def vowel_counts(str)
 end
 
 def caesar_cipher(str, num)
-  alphabet = "abcdefghijklmnopqrstuvwxyz"
+  alphabet = ("a".."z").to_a
   new_string = ""
 
   str.each_char do |char|
