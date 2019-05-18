@@ -18,3 +18,21 @@ def merge(hash1, hash2)
 
   merged_hash
 end
+
+def censor(sentence, filter)
+  filtered = sentence.split.map do |word|
+    if filter.include?(word.downcase)
+      censored_word = ""
+
+      word.each_char do |char|
+        "aeiou".include?(char.downcase) ? censored_word << "*" : censored_word << char
+      end
+
+      censored_word
+    else
+      word
+    end
+  end
+  
+  return filtered.join(" ")
+end
