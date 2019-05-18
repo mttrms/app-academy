@@ -3,7 +3,7 @@ def average(num1, num2)
 end
 
 def average_array(arr)
-  arr.reduce { |acc, num| num + acc } / arr.length.to_f
+  arr.sum / (arr.length * 1.00)
 end
 
 def repeat(str, num)
