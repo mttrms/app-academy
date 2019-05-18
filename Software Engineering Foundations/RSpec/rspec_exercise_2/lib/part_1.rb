@@ -36,3 +36,8 @@ def censor(sentence, filter)
   
   return filtered.join(" ")
 end
+
+def power_of_two?(num)
+  (0..num).each { |i| return true if 2 ** i == num }
+  false
+end
