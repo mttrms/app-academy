@@ -4,12 +4,14 @@ def palindrome?(str)
   reversed_str == str
 end
 
+# palindrome alternative solution: str[i] != str[-i - 1]
+
 def substrings(str)
   subs = []
 
-  (0...str.length).each do |i|
-    (i...str.length).each do |j|
-      subs << str[i..j]
+  (0...str.length).each do |start_idx|
+    (start_idx...str.length).each do |end_idx|
+      subs << str[start_idx..end_idx]
     end
   end
 
