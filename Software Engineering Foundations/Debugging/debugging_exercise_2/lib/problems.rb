@@ -24,3 +24,20 @@ def unique_chars?(str)
   str.each_char { |char| char_map[char] += 1 }
   !(char_map.values.max > 1)
 end
+
+def dupe_indices(arr)
+  # Count the chars
+  index_map = Hash.new(0)
+  arr.each { |ele| index_map[ele] += 1 } 
+
+  # Remove single use chars, add indices
+  index_map.each { |k, v| v > 1 ? index_map[k] = get_indices(k, arr) : index_map.delete(k) }
+  
+  index_map
+end
+
+def get_indices(char, arr)
+  arr.each_with_index.select{ |ele, idx| ele == char }.map{ |ele, idx| idx if ele == char }
+end
+
+# p get_indices("a", ["a", "b", "c", "a"])
