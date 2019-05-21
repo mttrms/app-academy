@@ -15,9 +15,12 @@ def is_prime?(num)
   (2...num).each do |factor|
     return false if num % factor == 0
   end
-    
+
   true
 end
 
-# p largest_prime_factor(15)
-# p is_prime?(16)
+def unique_chars?(str)
+  char_map = Hash.new(0)
+  str.each_char { |char| char_map[char] += 1 }
+  !(char_map.values.max > 1)
+end
