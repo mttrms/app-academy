@@ -27,8 +27,7 @@ end
 
 def dupe_indices(arr)
   # Count the chars
-  index_map = Hash.new(0)
-  arr.each { |ele| index_map[ele] += 1 } 
+  index_map = char_map(arr)
 
   # Remove single use chars, add indices
   index_map.each { |k, v| v > 1 ? index_map[k] = get_indices(k, arr) : index_map.delete(k) }
@@ -40,4 +39,12 @@ def get_indices(char, arr)
   arr.each_with_index.select{ |ele, idx| ele == char }.map{ |ele, idx| idx if ele == char }
 end
 
-# p get_indices("a", ["a", "b", "c", "a"])
+def ana_array(arr1, arr2)
+  char_map(arr1) == char_map(arr2)
+end
+
+def char_map(arr)
+  map = Hash.new(0)
+  arr.each { |ele| map[ele] += 1 } 
+  map
+end
