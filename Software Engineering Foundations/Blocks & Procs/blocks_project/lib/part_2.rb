@@ -9,10 +9,9 @@ def no_valid_url?(urls)
   end
 end
 
-def any_passing_students?(arr)
-  arr.any? { |student| passing?(student) }
-end
-
-def passing?(student)
-  student[:grades].sum / student[:grades].length >= 75
+def any_passing_students?(students)
+  students.any? do |student|
+    grades = student[:grades]
+    grades.sum / grades.length * 1.0 >= 75  
+  end
 end
