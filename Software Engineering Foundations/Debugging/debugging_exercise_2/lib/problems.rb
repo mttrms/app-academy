@@ -15,9 +15,15 @@ def is_prime?(num)
 end
 
 def unique_chars?(str)
-  char_map = Hash.new(0)
-  str.each_char { |char| char_map[char] += 1 }
-  !(char_map.values.max > 1)
+  chars = []
+  str.each_char do |char|
+    if chars.include?(char)
+      return false
+    end
+    chars << char
+  end
+  
+  true
 end
 
 def dupe_indices(arr)
