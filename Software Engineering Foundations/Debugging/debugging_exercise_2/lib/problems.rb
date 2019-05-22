@@ -2,21 +2,16 @@
 # You should implement your methods in this file.
 # Feel free to use the debugger when you get stuck.
 
-require "byebug"
-
 def largest_prime_factor(num)
-  # debugger
-  divisors = (1..num).each.select {|i| num % i == 0 && is_prime?(i)}
-  divisors.max
+  num.downto(2) do |factor|
+    return factor if num % factor == 0 && is_prime?(factor)
+  end
 end
 
 def is_prime?(num)
   return false if num < 2
-  (2...num).each do |factor|
-    return false if num % factor == 0
-  end
 
-  true
+  (2...num).none? { |i| num % i == 0 }
 end
 
 def unique_chars?(str)
