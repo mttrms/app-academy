@@ -22,7 +22,7 @@ def unique_chars?(str)
     end
     chars << char
   end
-  
+
   true
 end
 
@@ -32,15 +32,11 @@ def dupe_indices(arr)
   indices
 end
 
-def get_indices(char, arr)
-  arr.each_with_index.select{ |ele, idx| ele == char }.map{ |ele, idx| idx if ele == char }
-end
-
 def ana_array(arr1, arr2)
-  char_map(arr1) == char_map(arr2)
+  ele_map(arr1) == ele_map(arr2)
 end
 
-def char_map(arr)
+def ele_map(arr)
   map = Hash.new(0)
   arr.each { |ele| map[ele] += 1 } 
   map
