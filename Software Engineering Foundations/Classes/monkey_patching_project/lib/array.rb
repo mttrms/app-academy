@@ -44,24 +44,18 @@ class Array
       acc
     end
   end
-
+  
   def my_transpose
-    arr_length = self.length
     transposed = []
-    (arr_length).times { transposed << [] }
+    self.length.times { transposed << [] }
 
-    i = 0
-    while i < arr_length
-      
-      j = 0
-      while j < arr_length
-        transposed[i][j] = self[j][i]
-        j += 1
+    (0...self.length).each do |row|
+      (0...self.length).each do |col|
+        transposed[row][col] = self[col][row]
       end
-
-      i += 1
     end
-    
+
     transposed
   end
+
 end
