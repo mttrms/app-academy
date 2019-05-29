@@ -29,4 +29,26 @@ class Array
     count
   end
 
+  def my_count(target)
+    self.select { |ele| ele == target }.count
+  end
+
+  def my_index(target)
+    self.each_with_index { |ele, idx| return idx if ele == target }
+    nil
+  end
+
+  def my_uniq
+    self.reduce([]) do |acc, ele|
+      acc << ele if !acc.include?(ele)
+      acc
+    end
+  end
+
+  def my_transpose
+    transposed = []
+    (self.length).times { transposed << [] }
+    transposed
+  end
+
 end
