@@ -46,9 +46,22 @@ class Array
   end
 
   def my_transpose
+    arr_length = self.length
     transposed = []
-    (self.length).times { transposed << [] }
+    (arr_length).times { transposed << [] }
+
+    i = 0
+    while i < arr_length
+      
+      j = 0
+      while j < arr_length
+        transposed[i][j] = self[j][i]
+        j += 1
+      end
+
+      i += 1
+    end
+    
     transposed
   end
-
 end
