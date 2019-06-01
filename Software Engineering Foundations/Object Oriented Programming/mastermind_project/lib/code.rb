@@ -41,7 +41,7 @@ class Code
 
   def num_exact_matches(guess)
     count = 0
-    
+
     (0...guess.length).each do |i|
       count += 1 if guess[i] == self[i]
     end
@@ -51,19 +51,11 @@ class Code
 
   def num_near_matches(guess)
     count = 0
-    peg_search = @pegs.dup
 
-    # remove exact match pegs
-    guess.pegs.each_with_index do |peg, idx|
-      peg_search[idx] = 'match' if peg_search[idx] == peg
+    (0...guess.length).each do |i|
+      count +=1 if guess[i] != self[i] && self.pegs.include?(guess[i])
     end
-
-    guess.pegs.each do |peg|
-      if peg_search.include?(peg)
-        count += 1
-      end
-    end
-
+    
     count
   end
 
