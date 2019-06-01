@@ -11,15 +11,15 @@ class Startup
   end
 
   def valid_title?(title)
-    @salaries.has_key?(title) ? true : false
+    @salaries.has_key?(title)
   end
 
   def >(startup)
-    @funding > startup.funding ? true : false
+    @funding > startup.funding
   end
 
   def hire(name, title)
-    raise "Invalid title." if !@salaries.has_key?(title)
+    raise "Invalid title." if !valid_title?(title)
     @employees << Employee.new(name, title)
   end
 
@@ -43,10 +43,10 @@ class Startup
   end
 
   def average_salary
-    salaries = []
-    @employees.each { |employee| salaries << @salaries[employee.title] }
+    salary = 0
+    @employees.each { |employee| salary += @salaries[employee.title] }
 
-    salaries.sum / salaries.length
+    salary / employees.length
   end
 
   def close
@@ -61,8 +61,7 @@ class Startup
       @salaries[title] = salary if !@salaries.has_key?(title)
     end
 
-    @employees.concat(startup.employees)
+    @employees += startup.employees
     startup.close
   end
-
 end
