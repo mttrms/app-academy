@@ -40,9 +40,13 @@ class Code
   end
 
   def num_exact_matches(guess)
-    guess.pegs.each_with_index.reduce(0) do |acc, (peg, idx)|
-      @pegs[idx] == peg ? acc + 1 : acc
+    count = 0
+    
+    (0...guess.length).each do |i|
+      count += 1 if guess[i] == self[i]
     end
+    
+    count
   end
 
   def num_near_matches(guess)
