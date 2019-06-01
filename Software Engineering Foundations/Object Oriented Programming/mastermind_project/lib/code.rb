@@ -39,4 +39,32 @@ class Code
     self.pegs.length
   end
 
+  def num_exact_matches(guess)
+    guess.pegs.each_with_index.reduce(0) do |acc, (peg, idx)|
+      @pegs[idx] == peg ? acc + 1 : acc
+    end
+  end
+
+  def num_near_matches(guess)
+    count = 0
+    peg_search = @pegs.dup
+
+    # remove exact match pegs
+    guess.pegs.each_with_index do |peg, idx|
+      peg_search[idx] = 'match' if peg_search[idx] == peg
+    end
+
+    guess.pegs.each do |peg|
+      if peg_search.include?(peg)
+        count += 1
+      end
+    end
+
+    count
+  end
+
+  def ==(other_code)
+    self.pegs == other_code.pegs
+  end
+
 end
