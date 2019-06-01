@@ -42,4 +42,27 @@ class Startup
     @employees.each { |employee| pay_employee(employee) }
   end
 
+  def average_salary
+    salaries = []
+    @employees.each { |employee| salaries << @salaries[employee.title] }
+
+    salaries.sum / salaries.length
+  end
+
+  def close
+    @employees = []
+    @funding = 0
+  end
+
+  def acquire(startup)
+    @funding += startup.funding
+
+    startup.salaries.each do |title, salary|
+      @salaries[title] = salary if !@salaries.has_key?(title)
+    end
+
+    @employees.concat(startup.employees)
+    startup.close
+  end
+
 end
