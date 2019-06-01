@@ -1,29 +1,18 @@
 class Board
   attr_reader :size
 
-  def initialize(num)
-    @grid = []
-
-    num.times do
-      row = []
-      num.times { row << :N } 
-      @grid << row
-    end
-
-    @size = num * num
+  def initialize(n)
+    @grid = Array.new(n) { Array.new(n, :N) }
+    @size = n * n
   end
 
   def [](coords)
-    row = coords[0]
-    col = coords[1]
-
+    row, col = coords
     @grid[row][col]
   end
 
   def []=(coords, value)
-    row = coords[0]
-    col = coords[1]
-
+    row, col = coords
     @grid[row][col] = value
   end
 
