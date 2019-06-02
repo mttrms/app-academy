@@ -6,7 +6,30 @@
 #
 # all_vowel_pairs(["goat", "action", "tear", "impromptu", "tired", "europe"])   # => ["action europe", "tear impromptu"]
 def all_vowel_pairs(words)
+    vowel_pairs = []
+    
+    words.each_with_index do |word, idx|
+        ((idx + 1)...words.length).each do |n|
+            found_vowels = []
+            found_vowels << get_vowels(word)
+            found_vowels << get_vowels(words[n])
+            vowel_pairs << "#{words[idx]} #{words[n]}" if contains_all_vowels?(found_vowels.flatten)
+        end
+    end
 
+    vowel_pairs
+end
+
+def get_vowels(word)
+    vowels = "aeiou"
+    word.each_char.select do |char|
+        vowels.include?(char)
+    end
+end
+
+def contains_all_vowels?(arr)
+    vowels = "aeiou"
+    arr.uniq.sort == vowels.split("").sort
 end
 
 
@@ -18,7 +41,7 @@ end
 # composite?(9)     # => true
 # composite?(13)    # => false
 def composite?(num)
-
+    (2...num).any? { |factor| num % factor == 0}
 end
 
 
@@ -32,7 +55,19 @@ end
 # find_bigrams("the theater is empty", ["cy", "em", "ty", "ea", "oo"])  # => ["em", "ty", "ea"]
 # find_bigrams("to the moon and back", ["ck", "oo", "ha", "at"])        # => ["ck", "oo"]
 def find_bigrams(str, bigrams)
+    all_bigrams = []
+    found = []
+    chars = str.split.join("")
+    
+    chars.each_char.with_index do |char, idx|
+        all_bigrams << "#{char}#{chars[idx + 1]}"
+    end
 
+    bigrams.each do |bigram|
+        found << bigram if all_bigrams.include?(bigram)
+    end
+
+    found
 end
 
 class Hash
