@@ -47,15 +47,11 @@ class Board
   end
 
   def hidden_ships_grid
-    hidden_grid = []
-    @grid.count.times do |i|
-      row = @grid[i].map do |ele|
+    @grid.map do |row|
+      row.map do |ele|
         ele == :S ? :N : ele
       end
-      hidden_grid << row
     end
-
-    hidden_grid
   end
 
   def cheat
