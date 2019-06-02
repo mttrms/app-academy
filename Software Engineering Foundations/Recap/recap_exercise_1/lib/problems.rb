@@ -97,29 +97,43 @@ class Hash
 end
 
 class String
-    # Write a method, String#substrings, that takes in a optional length argument
-    # The method should return an array of the substrings that have the given length.
-    # If no length is given, return all substrings.
-    #
-    # Examples:
-    #
-    # "cats".substrings     # => ["c", "ca", "cat", "cats", "a", "at", "ats", "t", "ts", "s"]
-    # "cats".substrings(2)  # => ["ca", "at", "ts"]
-    def substrings(length = nil)
+  # Write a method, String#substrings, that takes in a optional length argument
+  # The method should return an array of the substrings that have the given length.
+  # If no length is given, return all substrings.
+  #
+  # Examples:
+  #
+  # "cats".substrings     # => ["c", "ca", "cat", "cats", "a", "at", "ats", "t", "ts", "s"]
+  # "cats".substrings(2)  # => ["ca", "at", "ts"]
+  def substrings(length = nil)
+    subs = []
+    length ||= 1
+    
+      (0..self.length - length).each do |i|
+        if length > 1
+          subs.push(self[i...i + length])
+        else
+          (i...self.length).each do |j|
+            subs.push(self[i..j])
+          end
+        end
+        
+      end
+      
+    subs
+  end
 
-    end
 
+  # Write a method, String#caesar_cipher, that takes in an a number.
+  # The method should return a new string where each char of the original string is shifted
+  # the given number of times in the alphabet.
+  #
+  # Examples:
+  #
+  # "apple".caesar_cipher(1)    #=> "bqqmf"
+  # "bootcamp".caesar_cipher(2) #=> "dqqvecor"
+  # "zebra".caesar_cipher(4)    #=> "difve"
+  def caesar_cipher(num)
 
-    # Write a method, String#caesar_cipher, that takes in an a number.
-    # The method should return a new string where each char of the original string is shifted
-    # the given number of times in the alphabet.
-    #
-    # Examples:
-    #
-    # "apple".caesar_cipher(1)    #=> "bqqmf"
-    # "bootcamp".caesar_cipher(2) #=> "dqqvecor"
-    # "zebra".caesar_cipher(4)    #=> "difve"
-    def caesar_cipher(num)
-
-    end
+  end
 end
