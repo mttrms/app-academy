@@ -15,7 +15,7 @@ def most_frequent_bigram(str)
         bigram = str[i] + str[i + 1]
         bigrams[bigram] += 1
     end
-    
+
     bigrams.key(bigrams.values.max)
 end
 
@@ -23,7 +23,12 @@ end
 class Hash
     # Write a method, Hash#inverse, that returns a new hash where the key-value pairs are swapped
     def inverse
+        inversed = {}
+        self.each do |k, v|
+            inversed[v] = k
+        end
 
+        inversed
     end
 end
 
@@ -31,7 +36,14 @@ end
 class Array
     # Write a method, Array#pair_sum_count, that takes in a target number returns the number of pairs of elements that sum to the given target
     def pair_sum_count(num)
+        count = 0
+        (0...self.length).each do |num_1|
+            (num_1 + 1...self.length).each do |num_2|
+                count += 1 if (self[num_1] + self[num_2]) == num
+            end
+        end
 
+        count
     end
 
 
