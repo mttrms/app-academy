@@ -1,14 +1,22 @@
 # Write a method, least_common_multiple, that takes in two numbers and returns the smallest number that is a mutiple 
 # of both of the given numbers
 def least_common_multiple(num_1, num_2)
-
+    (num_1..(num_1 * num_2)).each do |i|
+        return i if i % num_1 == 0 && i % num_2 == 0
+    end
 end
 
 
 # Write a method, most_frequent_bigram, that takes in a string and returns the two adjacent letters that appear the
 # most in the string.
 def most_frequent_bigram(str)
-
+    bigrams = Hash.new(0)
+    (0...str.length - 1).each do |i|
+        bigram = str[i] + str[i + 1]
+        bigrams[bigram] += 1
+    end
+    
+    bigrams.key(bigrams.values.max)
 end
 
 
