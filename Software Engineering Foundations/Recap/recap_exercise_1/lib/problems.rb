@@ -82,20 +82,19 @@ class String
   # "cats".substrings(2)  # => ["ca", "at", "ts"]
   def substrings(length = nil)
     subs = []
-    length ||= 1
     
-      (0..self.length - length).each do |i|
-        if length > 1
-          subs.push(self[i...i + length])
-        else
-          (i...self.length).each do |j|
-            subs.push(self[i..j])
-          end
-        end
-        
+    (0...self.length).each do |start_idx|
+      (start_idx...self.length).each do |end_idx|
+        sub = self[start_idx..end_idx]
+        subs << sub
       end
+    end
 
-    subs
+    if length.nil?
+      subs
+    else
+      subs.select { |sub| sub.length == length }
+    end
   end
 
 
