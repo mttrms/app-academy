@@ -55,6 +55,23 @@ class Array
 
     flattened
   end
+
+  def my_zip(*args)
+    merged = [[self], args].my_flatten
+    zipped = Array.new(self.length) { Array.new(args.length + 1) }
+
+    p merged
+
+    count = 0
+    (0...zipped.length).each do |outer|
+      (0...zipped[outer].length).each do |inner|
+        zipped[inner][outer] = merged[count]
+        count += 1
+      end
+    end
+
+    zipped
+  end
 end
 
 puts "My Each"
@@ -104,3 +121,21 @@ puts "My Flatten"
 # one-dimensional array. Hint: use recursion!
 
 p [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten # => [1, 2, 3, 4, 5, 6, 7, 8]
+
+puts "My Zip"
+# My Zip
+# Write my_zip to take any number of arguments. It should return a new array
+# containing self.length elements. Each element of the new array should be an
+# array with a length of the input arguments + 1 and contain the merged elements
+# at that index. If the size of any argument is less than self, nil is returned
+# for that location.
+
+a = [ 4, 5, 6 ]
+b = [ 7, 8, 9 ]
+p [1, 2, 3].my_zip(a, b) # => [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+p a.my_zip([1,2], [8])   # => [[4, 1, 8], [5, 2, nil], [6, nil, nil]]
+# [1, 2].my_zip(a, b)    # => [[1, 4, 7], [2, 5, 8]]
+
+# c = [10, 11, 12]
+# d = [13, 14, 15]
+# [1, 2].my_zip(a, b, c, d)    # => [[1, 4, 7, 10, 13], [2, 5, 8, 11, 14]]
