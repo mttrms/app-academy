@@ -57,17 +57,16 @@ class Array
   end
 
   def my_zip(*args)
-    merged = [[self], args].my_flatten
-    zipped = Array.new(self.length) { Array.new(args.length + 1) }
+    zipped = []
 
-    p merged
-
-    count = 0
-    (0...zipped.length).each do |outer|
-      (0...zipped[outer].length).each do |inner|
-        zipped[inner][outer] = merged[count]
-        count += 1
+    self.length.times do |i|
+      sub_zip = [self[i]]
+      
+      args.each do |array|
+        sub_zip << array[i]
       end
+
+      zipped << sub_zip
     end
 
     zipped
