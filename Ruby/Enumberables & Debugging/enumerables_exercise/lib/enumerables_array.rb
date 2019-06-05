@@ -105,6 +105,3 @@ class Array
     duped.bubble_sort!
   end
 end
-
-
-# p [5,1,2,6,7].bubble_sort! { |a, b| a <=> b }
