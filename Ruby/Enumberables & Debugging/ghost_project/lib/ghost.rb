@@ -24,13 +24,8 @@ class Game
   end
 
   def play_round
-    if take_turn(current_player)
-      next_player!
-      play_round
-    else
-      @fragment = ""
-      puts "this round is over!"
-    end
+    take_turn(current_player)
+    next_player!
   end
 
   def run
@@ -49,23 +44,29 @@ class Game
   end
   
   def take_turn(player)
-    puts "Make your guess"
+    puts "Make your guess #{player.name}, current fragment is '#{@fragment}'"
     char = gets.chomp
-    player_guess = @fragment + char
-    
-    if valid_play?(player_guess) && char.length == 1
+
+    if valid_play?(char)
       @fragment += char
-      p "The new fragment is #{@fragment}"
-      true
     else
-      # puts "no word includes #{player_guess}.. so you lose, #{@current_player.name}"
-      @losses[@current_player] += 1
-      puts "you have #{@losses[@current_player]} losses" 
-      false
+      puts "invalid, your guess was #{char}, the fragment is #{@fragment}"
+      take_turn(@current_player)
     end
+
+    if @dictionary.include?(@fragment)
+      @losses[player] += 1
+      @fragment = ""
+      puts "#{player.name} loses. Their loss count is: #{@losses[player]}"
+    end
+
+    false
   end
 
-  def valid_play?(guess)
+  def valid_play?(char)
+    return false if char.length > 1
+    guess = @fragment + char
+
     @dictionary.each do |word|
       if word.include?(guess)
         return true
@@ -78,12 +79,5 @@ end
 
 
 my_game = Game.new
-
 my_game.build_wordlist
-
-# my_game.previous_player = "hi"
-# p my_game.valid_play?("")
-
-
-# my_game.run
-p my_game.valid_play?("test")
+my_game.run
