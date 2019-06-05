@@ -24,7 +24,10 @@ class Game
   end
 
   def play_round
-
+    if take_turn(current_player)
+      next_player!
+      play_round
+    end
   end
 
   def next_player!
@@ -35,8 +38,6 @@ class Game
     end
   end
   
-  
-
   def take_turn(player)
     puts "Make your guess"
     char = gets.chomp
@@ -45,13 +46,11 @@ class Game
     if valid_play?(player_guess) && char.length == 1
       @fragment += char
       p "The new fragment is #{@fragment}"
-      take_turn(next_player!)
+      true
     else
-      puts "you lose"
+      puts "no word includes #{player_guess}.. so you lose, #{@current_player.name}"
+      false
     end
-    
-
-
   end
 
   def valid_play?(guess)
@@ -74,8 +73,8 @@ my_game = Game.new
 my_game.build_wordlist
 
 # my_game.previous_player = "hi"
-p my_game.valid_play?("")
+# p my_game.valid_play?("")
 
 
-my_game.take_turn(my_game.current_player.name)
+my_game.play_round
 
