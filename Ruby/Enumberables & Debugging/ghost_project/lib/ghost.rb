@@ -4,13 +4,18 @@ require_relative "player"
 class Game
   attr_accessor :current_player, :previous_player
 
-  def initialize
-    @player_1 = Player.new("Matt")
-    @player_2 = Player.new("Other Person")
+  def initialize (*players)
+    @players = []
     @dictionary = build_wordlist
     @fragment = ""
     @losses = Hash.new(0)
-    @current_player = @player_1
+    
+    players.each do |name|
+      @players << Player.new(name)
+    end
+
+    @active_players = @players.dup
+    @current_player = @active_players[0]
   end
 
   def build_wordlist
@@ -29,18 +34,22 @@ class Game
   end
 
   def run
-    until @losses.values.max == 5 do
+    until @active_players.length == 1 do
       play_round
+      @active_players.each do |player|
+        if @losses[player] == 2
+          puts "#{player.name} has been eliminated from the game with 5 losses."
+          @active_players.delete(player)
+        end
+      end
     end
     
+    puts "#{@current_player.name} wins!"
   end
 
   def next_player!
-    if @current_player == @player_1
-      @current_player = @player_2
-    else
-      @current_player = @player_1
-    end
+    current_player_idx = @active_players.index(@current_player)
+    @current_player = @active_players[(current_player_idx + 1) % @active_players.length]
   end
   
   def take_turn(player)
@@ -78,6 +87,6 @@ class Game
 end
 
 
-my_game = Game.new
+my_game = Game.new("Matt", "Other Player", "Third Player")
 my_game.build_wordlist
 my_game.run
