@@ -9,7 +9,7 @@ class Game
     @player_2 = Player.new("Other Person")
     @dictionary = build_wordlist
     @fragment = ""
-    @losses = {}
+    @losses = Hash.new(0)
     @current_player = @player_1
   end
 
@@ -27,7 +27,17 @@ class Game
     if take_turn(current_player)
       next_player!
       play_round
+    else
+      @fragment = ""
+      puts "this round is over!"
     end
+  end
+
+  def run
+    until @losses.values.max == 5 do
+      play_round
+    end
+    
   end
 
   def next_player!
@@ -48,17 +58,16 @@ class Game
       p "The new fragment is #{@fragment}"
       true
     else
-      puts "no word includes #{player_guess}.. so you lose, #{@current_player.name}"
+      # puts "no word includes #{player_guess}.. so you lose, #{@current_player.name}"
+      @losses[@current_player] += 1
+      puts "you have #{@losses[@current_player]} losses" 
       false
     end
   end
 
   def valid_play?(guess)
     @dictionary.each do |word|
-      if word == guess
-        puts "#{guess} is a word!"
-        return false
-      elsif word.include?(guess)
+      if word.include?(guess)
         return true
       end
     end
@@ -76,5 +85,5 @@ my_game.build_wordlist
 # p my_game.valid_play?("")
 
 
-my_game.play_round
-
+# my_game.run
+p my_game.valid_play?("test")
