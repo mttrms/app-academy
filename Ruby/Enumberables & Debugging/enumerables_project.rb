@@ -101,6 +101,16 @@ class Array
 
     joined
   end
+
+  def my_reverse
+    rotated = []
+    
+    self.each do |ele|
+      rotated.unshift(ele)
+    end
+
+    rotated
+  end
 end
 
 puts "My Each"
@@ -188,3 +198,10 @@ puts "My Join"
 a = [ "a", "b", "c", "d" ]
 p a.my_join         # => "abcd"
 p a.my_join("$")    # => "a$b$c$d"
+
+puts "My Reverse"
+# Write a method that returns a new array containing all the elements of the
+# original array in reverse order.
+
+p [ "a", "b", "c" ].my_reverse   #=> ["c", "b", "a"]
+p [ 1 ].my_reverse               #=> [1]
