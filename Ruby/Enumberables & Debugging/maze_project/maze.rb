@@ -1,28 +1,38 @@
 class Maze
-    def initialize(puzzle)
-        @puzzle = []
-        File.open(File.dirname(__FILE__) + "/#{puzzle}").each do |line|
-            
-            parsed_line = []
-            line.each_char do |char|
-                puts char
+  def initialize(maze_name)
+      @puzzle = generate_maze(maze_name)
+      print_maze(@puzzle)
+  end
 
-                if char == "*"
-                    parsed_line << "#"
-                elsif char == " "
-                    parsed_line << "."
-                elsif char == "S" || char == "E"
-                    parsed_line << char
-                end
+  def generate_maze(puzzle)
+      @maze = []
+      File.open(File.dirname(__FILE__) + "/#{puzzle}").each do |line|
+          
+          parsed_line = []
+          line.each_char do |char|
+              # puts char
 
-            end
-            @puzzle << parsed_line
-            
-        end
-        @puzzle.each do |line|
-            p line
-        end
+              if char == "*"
+                  parsed_line << "#"
+              elsif char == " "
+                  parsed_line << "."
+              elsif char == "S" || char == "E"
+                  parsed_line << char
+              end
+
+          end
+          @maze << parsed_line
+          
+      end
+
+      @maze
+  end
+
+  def print_maze(maze)
+    maze.each do |row|
+      p row
     end
+  end
 
 end
 
