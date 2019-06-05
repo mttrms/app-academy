@@ -71,6 +71,22 @@ class Array
 
     zipped
   end
+
+  def my_rotate(num = 1)
+    rotated = self.dup
+
+    if num < 0
+      num.abs.times do
+        rotated.unshift(rotated.pop)
+      end
+    else
+      num.times do
+        rotated.push(rotated.shift)
+      end
+    end
+
+    rotated
+  end
 end
 
 puts "My Each"
@@ -138,3 +154,14 @@ p a.my_zip([1,2], [8])   # => [[4, 1, 8], [5, 2, nil], [6, nil, nil]]
 # c = [10, 11, 12]
 # d = [13, 14, 15]
 # [1, 2].my_zip(a, b, c, d)    # => [[1, 4, 7, 10, 13], [2, 5, 8, 11, 14]]
+
+puts "My Rotate"
+# Write a method my_rotate that returns self rotated. By default, the array
+# should rotate by one element. If a negative value is given, the array is rotated
+# in the opposite direction.
+
+a = [ "a", "b", "c", "d" ]
+p a.my_rotate         #=> ["b", "c", "d", "a"]
+p a.my_rotate(2)      #=> ["c", "d", "a", "b"]
+p a.my_rotate(-3)     #=> ["b", "c", "d", "a"]
+p a.my_rotate(15)     #=> ["d", "a", "b", "c"]
