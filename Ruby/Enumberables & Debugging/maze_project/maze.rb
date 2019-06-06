@@ -2,11 +2,11 @@ require 'set'
 
 class Maze
   def initialize(maze_name)
-      @puzzle = generate_maze(maze_name)
-      @simple_puzzle = [
-        ["#",".",".",".",".",".",".","E"],
-        ["#",".",".",".",".",".","S","."]
-      ]
+      @simple_puzzle = generate_maze(maze_name)
+      # @simple_puzzle = [
+      #   ["#",".",".",".",".",".",".","E"],
+      #   ["#",".",".",".",".",".","S","."]
+      # ]
       @current_position = find_start(@simple_puzzle)
       @end_position = find_end(@simple_puzzle)
     
