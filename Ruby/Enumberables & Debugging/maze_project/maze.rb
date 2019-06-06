@@ -1,7 +1,12 @@
 class Maze
   def initialize(maze_name)
       @puzzle = generate_maze(maze_name)
-      print_maze(@puzzle)
+      @simple_puzzle = [
+        ["#","#","#","#","#","#","#","#"],
+        ["#",".",".",".",".",".","S","."]
+      ]
+      print_maze(@simple_puzzle)
+      p find_start(@simple_puzzle)
   end
 
   def generate_maze(puzzle)
@@ -32,6 +37,18 @@ class Maze
     maze.each do |row|
       p row
     end
+  end
+
+  def find_start(maze)
+    maze.each_with_index do |row, idx|
+      if row.include?("S")
+        start_pos = [idx, row.index("S")]
+        return start_pos
+      end
+    end
+  end
+
+  def make_move(current_position)
   end
 
 end
