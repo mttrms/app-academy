@@ -83,4 +83,4 @@ class Maze
   end
 end
 
- Maze.new("maze_01.txt")
+Maze.new("maze_01.txt")
