@@ -1,5 +1,6 @@
 # An A* pathfinding algorithm to solve ASCII mazes.
 
+require 'byebug'
 require 'set'
 require_relative 'node'
 
@@ -88,24 +89,36 @@ def generate_children(node)
   if is_valid?(up)
     child_node = Node.new([y - 1, x])
     child_node.parent = node
+    child_node.h_value = calculate_h_value(child_node)
+    child_node.movement_cost = calculate_movement_cost(child_node)
+    child_node.f_value = child_node.h_value + child_node.movement_cost
     $open_list << child_node if is_favorite_child?(child_node)
   end
 
   if is_valid?(down)
     child_node = Node.new([y + 1, x])
     child_node.parent = node
+    child_node.h_value = calculate_h_value(child_node)
+    child_node.movement_cost = calculate_movement_cost(child_node)
+    child_node.f_value = child_node.h_value + child_node.movement_cost
     $open_list << child_node if is_favorite_child?(child_node)
   end
 
   if is_valid?(left)
     child_node = Node.new([y, x - 1])
     child_node.parent = node
+    child_node.h_value = calculate_h_value(child_node)
+    child_node.movement_cost = calculate_movement_cost(child_node)
+    child_node.f_value = child_node.h_value + child_node.movement_cost
     $open_list << child_node if is_favorite_child?(child_node)
   end
 
   if is_valid?(right)
     child_node = Node.new([y, x + 1])
     child_node.parent = node
+    child_node.h_value = calculate_h_value(child_node)
+    child_node.movement_cost = calculate_movement_cost(child_node)
+    child_node.f_value = child_node.h_value + child_node.movement_cost
     $open_list << child_node if is_favorite_child?(child_node)
   end
 end
@@ -141,26 +154,19 @@ def calculate_movement_cost(node)
   node.movement_cost = parent_movement_cost + 1
 end
 
-# until $open_list.length == 0
-current_node = find_best_node($open_list)
-generate_children(current_node)
-  
-$closed_list << current_node
-$open_list.delete(current_node)
-# end
-
-$open_list.each do |node|
-  if !node.h_value
-    node.h_value = calculate_h_value(node)
-    node.movement_cost = calculate_movement_cost(node)
-    node.f_value = node.h_value + node.movement_cost
-  end
-  # p node
+20.times do
+  # debugger
+  current_node = find_best_node($open_list)
+  $closed_list << current_node
+  $open_list.delete(current_node)
+  generate_children(current_node)
 end
+
+
 
 
 # is_favorite_child?(a)
 
 $open_list.each do |node|
-  p node
+  
 end
