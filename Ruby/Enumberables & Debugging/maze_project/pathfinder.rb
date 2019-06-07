@@ -28,7 +28,7 @@ MAZE = generate_maze("maze_01.txt")
 # The open list contains squares that need to be checked out
 $open_list = Set.new
 
-# The closed list doesn't need to be looked at again (for now)
+# The closed list doesn't need to be looked at again
 $closed_list = Set.new
 
 def find_end_coordinates(maze)
@@ -88,37 +88,25 @@ def generate_children(node)
 
   if is_valid?(up)
     child_node = Node.new([y - 1, x])
-    child_node.parent = node
-    child_node.h_value = calculate_h_value(child_node)
-    child_node.movement_cost = calculate_movement_cost(child_node)
-    child_node.f_value = child_node.h_value + child_node.movement_cost
+    child_node.build_path_values(node)
     $open_list << child_node if is_favorite_child?(child_node)
   end
 
   if is_valid?(down)
     child_node = Node.new([y + 1, x])
-    child_node.parent = node
-    child_node.h_value = calculate_h_value(child_node)
-    child_node.movement_cost = calculate_movement_cost(child_node)
-    child_node.f_value = child_node.h_value + child_node.movement_cost
+    child_node.build_path_values(node)
     $open_list << child_node if is_favorite_child?(child_node)
   end
 
   if is_valid?(left)
     child_node = Node.new([y, x - 1])
-    child_node.parent = node
-    child_node.h_value = calculate_h_value(child_node)
-    child_node.movement_cost = calculate_movement_cost(child_node)
-    child_node.f_value = child_node.h_value + child_node.movement_cost
+    child_node.build_path_values(node)
     $open_list << child_node if is_favorite_child?(child_node)
   end
 
   if is_valid?(right)
     child_node = Node.new([y, x + 1])
-    child_node.parent = node
-    child_node.h_value = calculate_h_value(child_node)
-    child_node.movement_cost = calculate_movement_cost(child_node)
-    child_node.f_value = child_node.h_value + child_node.movement_cost
+    child_node.build_path_values(node)
     $open_list << child_node if is_favorite_child?(child_node)
   end
 end
@@ -151,22 +139,15 @@ end
 
 def calculate_movement_cost(node)
   parent_movement_cost = node.parent.movement_cost
-  node.movement_cost = parent_movement_cost + 1
+  movement_cost = parent_movement_cost + 1
+
+  movement_cost
 end
 
-20.times do
-  # debugger
-  current_node = find_best_node($open_list)
-  $closed_list << current_node
-  $open_list.delete(current_node)
-  generate_children(current_node)
-end
-
-
-
-
-# is_favorite_child?(a)
-
-$open_list.each do |node|
-  
-end
+# 20.times do
+#   # debugger
+#   current_node = find_best_node($open_list)
+#   $closed_list << current_node
+#   $open_list.delete(current_node)
+#   generate_children(current_node)
+# end

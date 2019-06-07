@@ -11,4 +11,11 @@ class Node
     @parent
     @children = []
   end
+
+  def build_path_values(parent_node)
+    @parent = parent_node 
+    @h_value = calculate_h_value(self)
+    @movement_cost = calculate_movement_cost(self)
+    @f_value = h_value + movement_cost
+  end
 end
