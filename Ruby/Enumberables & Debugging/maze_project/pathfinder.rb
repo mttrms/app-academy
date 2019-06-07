@@ -30,6 +30,16 @@ $open_list = Set.new
 # The closed list doesn't need to be looked at again (for now)
 $closed_list = Set.new
 
+def find_end_coordinates(maze)
+  end_coordinates = []
+
+  maze.each_with_index do |row, row_idx|
+    end_coordinates = [row_idx, row.index("E")] if row.include?("E")
+  end
+
+  end_coordinates
+end
+
 def generate_start_node(maze)
   starting_coordinates = []
 
@@ -44,6 +54,7 @@ def generate_start_node(maze)
 end
 
 start_node = generate_start_node(MAZE)
+$end_coords = find_end_coordinates(MAZE)
 $open_list << start_node
 
 def find_best_node(list)
@@ -102,6 +113,16 @@ def is_valid?(node_value)
   true
 end
 
+def calculate_h_value(node)
+  y_end = $end_coords[0]
+  x_end = $end_coords[1]
+  y_now = node.y
+  x_now = node.x
+  h_value = (x_now - x_end).abs + (y_now - y_end).abs
+  
+  h_value
+end
+
 # until $open_list.length == 0
 current_node = find_best_node($open_list)
 generate_children(current_node)
@@ -112,5 +133,10 @@ generate_children(current_node)
 # end
 
 $open_list.each do |node|
-  p node
+  node.h_value = calculate_h_value(node)
 end
+
+a = Node.new([3, 0])
+p $open_list
+
+calculate_h_value(a)
