@@ -39,6 +39,7 @@ def generate_start_node(maze)
 
   start = Node.new(starting_coordinates)
   start.f_value = 0
+
   start
 end
 
@@ -62,3 +63,54 @@ def find_best_node(list)
   best_node
 end
 
+def generate_children(node)
+  y = node.y
+  x = node.x
+
+  up    = MAZE[y - 1][x]
+  down  = MAZE[y + 1][x]
+  left  = MAZE[y][x - 1]
+  right = MAZE[y][x + 1]
+
+  if is_valid?(up)
+    child_node = Node.new([y - 1, x])
+    child_node.parent = node
+    $open_list << child_node
+  end
+
+  if is_valid?(down)
+    child_node = Node.new([y + 1, x])
+    child_node.parent = node
+    $open_list << child_node
+  end
+
+  if is_valid?(left)
+    child_node = Node.new([y, x - 1])
+    child_node.parent = node
+    $open_list << child_node
+  end
+
+  if is_valid?(right)
+    child_node = Node.new([y, x + 1])
+    child_node.parent = node
+    $open_list << child_node
+  end
+end
+
+def is_valid?(node_value)
+  return false if node_value == nil || node_value == "#"
+  true
+end
+
+# until $open_list.length == 0
+current_node = find_best_node($open_list)
+generate_children(current_node)
+  
+# $closed_list << current_node
+# $open_list.delete(current_node)
+
+# end
+
+$open_list.each do |node|
+  p node
+end
