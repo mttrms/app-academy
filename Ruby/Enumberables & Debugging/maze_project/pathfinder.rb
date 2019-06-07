@@ -48,6 +48,8 @@ def generate_start_node(maze)
   end
 
   start = Node.new(starting_coordinates)
+  start.movement_cost = 0
+  start.h_value = 0
   start.f_value = 0
 
   start
@@ -123,20 +125,22 @@ def calculate_h_value(node)
   h_value
 end
 
+def calculate_movement_cost(node)
+  parent_movement_cost = node.parent.movement_cost
+  node.movement_cost = parent_movement_cost + 1
+end
+
 # until $open_list.length == 0
 current_node = find_best_node($open_list)
 generate_children(current_node)
   
-# $closed_list << current_node
-# $open_list.delete(current_node)
-
+$closed_list << current_node
+$open_list.delete(current_node)
 # end
 
 $open_list.each do |node|
   node.h_value = calculate_h_value(node)
+  node.movement_cost = calculate_movement_cost(node)
+  node.f_value = node.h_value + node.movement_cost
+  p node
 end
-
-a = Node.new([3, 0])
-p $open_list
-
-calculate_h_value(a)
