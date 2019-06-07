@@ -88,30 +88,41 @@ def generate_children(node)
   if is_valid?(up)
     child_node = Node.new([y - 1, x])
     child_node.parent = node
-    $open_list << child_node
+    $open_list << child_node if is_favorite_child?(child_node)
   end
 
   if is_valid?(down)
     child_node = Node.new([y + 1, x])
     child_node.parent = node
-    $open_list << child_node
+    $open_list << child_node if is_favorite_child?(child_node)
   end
 
   if is_valid?(left)
     child_node = Node.new([y, x - 1])
     child_node.parent = node
-    $open_list << child_node
+    $open_list << child_node if is_favorite_child?(child_node)
   end
 
   if is_valid?(right)
     child_node = Node.new([y, x + 1])
     child_node.parent = node
-    $open_list << child_node
+    $open_list << child_node if is_favorite_child?(child_node)
   end
 end
 
 def is_valid?(node_value)
   return false if node_value == nil || node_value == "#"
+  true
+end
+
+def is_favorite_child?(child_node)
+  $open_list.each do |node|
+    if node.coordinates == child_node.coordinates && node.movement_cost < child_node.movement_cost
+      $open_list.delete(node)
+      return false
+    end
+  end
+
   true
 end
 
@@ -139,8 +150,17 @@ $open_list.delete(current_node)
 # end
 
 $open_list.each do |node|
-  node.h_value = calculate_h_value(node)
-  node.movement_cost = calculate_movement_cost(node)
-  node.f_value = node.h_value + node.movement_cost
+  if !node.h_value
+    node.h_value = calculate_h_value(node)
+    node.movement_cost = calculate_movement_cost(node)
+    node.f_value = node.h_value + node.movement_cost
+  end
+  # p node
+end
+
+
+# is_favorite_child?(a)
+
+$open_list.each do |node|
   p node
 end
