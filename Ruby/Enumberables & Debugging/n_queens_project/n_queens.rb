@@ -1,3 +1,6 @@
+puts "What size board should we solve?"
+size = gets.chomp.to_i
+
 def create_board(n)
   board = []
   n.times do
@@ -65,10 +68,16 @@ def valid_diagonal?(pos)
   true
 end
 
-
-
-
-
-@board = create_board(12)
+# create board, solve with timer
+@board = create_board(size)
+start_time = Time.now
 place_queen(0)
-pp @board
+end_time = Time.now
+elapsed = end_time - start_time
+
+# print the solved board
+@board.each do |row|
+  p row
+end
+
+puts "That took #{elapsed} seconds!"
