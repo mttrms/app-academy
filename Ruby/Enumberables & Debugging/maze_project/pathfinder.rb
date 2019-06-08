@@ -1,6 +1,4 @@
 # An A* pathfinding algorithm to solve ASCII mazes.
-
-require 'byebug'
 require 'set'
 require_relative 'node'
 
@@ -22,14 +20,6 @@ def generate_maze(puzzle)
 
   maze
 end
-
-MAZE = generate_maze("maze_01.txt")
-
-# The open list contains squares that need to be checked out
-$open_list = Set.new
-
-# The closed list doesn't need to be looked at again
-$closed_list = Set.new
 
 def find_end_coordinates(maze)
   end_coordinates = []
@@ -55,10 +45,6 @@ def generate_start_node(maze)
 
   start
 end
-
-start_node = generate_start_node(MAZE)
-$end_coords = find_end_coordinates(MAZE)
-$open_list << start_node
 
 def find_best_node(list)
   best_node = nil
@@ -183,18 +169,36 @@ def calculate_movement_cost(node)
   movement_cost
 end
 
+MAZE = generate_maze("maze_03.txt")
+
+# The open list contains squares that need to be checked out
+$open_list = Set.new
+
+# The closed list doesn't need to be looked at again
+$closed_list = Set.new
+
+start_node = generate_start_node(MAZE)
+$end_coords = find_end_coordinates(MAZE)
+$open_list << start_node
+
+# Solve it!
 until $open_list.length == 0 do
-  # debugger
   current_node = find_best_node($open_list)
+
+  if current_node.coordinates == $end_coords
+    path = []
+    current = current_node
+
+    while current.parent != nil
+      path << current.coordinates
+      current = current.parent
+    end
+
+    p path.reverse
+    return path
+  end
+
   $closed_list << current_node
   $open_list.delete(current_node)
   generate_children(current_node)
-end
-
-$open_list.each do |node|
-  p node.coordinates
-end
-
-$closed_list.each do |node|
-  p node.coordinates
 end
