@@ -81,50 +81,89 @@ def generate_children(node)
   y = node.y
   x = node.x
 
-  up    = MAZE[y - 1][x]
-  down  = MAZE[y + 1][x]
-  left  = MAZE[y][x - 1]
-  right = MAZE[y][x + 1]
+  up    = [y - 1, x]
+  down  = [y + 1, x]
+  left  = [y, x - 1]
+  right = [y, x + 1]
 
   if is_valid?(up)
-    child_node = Node.new([y - 1, x])
+    child_node = Node.new(up)
     child_node.build_path_values(node)
-    $open_list << child_node if is_favorite_child?(child_node)
+
+    if !in_open_list?(up)
+      $open_list << child_node
+    elsif is_favorite_child?(child_node)
+      $open_list << child_node
+    end
   end
 
   if is_valid?(down)
-    child_node = Node.new([y + 1, x])
+    child_node = Node.new(down)
     child_node.build_path_values(node)
-    $open_list << child_node if is_favorite_child?(child_node)
+
+    if !in_open_list?(down)
+      $open_list << child_node
+    elsif is_favorite_child?(child_node)
+      $open_list << child_node
+    end
   end
 
   if is_valid?(left)
-    child_node = Node.new([y, x - 1])
+    child_node = Node.new(left)
     child_node.build_path_values(node)
-    $open_list << child_node if is_favorite_child?(child_node)
+
+    if !in_open_list?(left)
+      $open_list << child_node
+    elsif is_favorite_child?(child_node)
+      $open_list << child_node
+    end
   end
 
   if is_valid?(right)
-    child_node = Node.new([y, x + 1])
+    child_node = Node.new(right)
     child_node.build_path_values(node)
-    $open_list << child_node if is_favorite_child?(child_node)
+
+    if !in_open_list?(right)
+      $open_list << child_node
+    elsif is_favorite_child?(child_node)
+      $open_list << child_node
+    end
   end
 end
 
-def is_valid?(node_value)
-  return false if node_value == nil || node_value == "#"
+def is_valid?(node_coordinates)
+  y = node_coordinates[0]
+  x = node_coordinates[1]
+  return false if MAZE[y][x] == nil || MAZE[y][x] == "#" || in_closed_list?(node_coordinates)
+
   true
+end
+
+def in_closed_list?(node_coordinates)
+  $closed_list.each do |node|
+    return true if node.coordinates == node_coordinates
+  end
+
+  false
+end
+
+def in_open_list?(node_coordinates)
+  $open_list.each do |node|
+    return true if node.coordinates == node_coordinates
+  end
+
+  false
 end
 
 def is_favorite_child?(child_node)
   $open_list.each do |node|
-    if node.coordinates == child_node.coordinates && node.movement_cost < child_node.movement_cost
+    if node.coordinates == child_node.coordinates && node.movement_cost > child_node.movement_cost
       $open_list.delete(node)
-      return false
+      return true
     end
   end
 
-  true
+  false
 end
 
 def calculate_h_value(node)
@@ -144,10 +183,18 @@ def calculate_movement_cost(node)
   movement_cost
 end
 
-# 20.times do
-#   # debugger
-#   current_node = find_best_node($open_list)
-#   $closed_list << current_node
-#   $open_list.delete(current_node)
-#   generate_children(current_node)
-# end
+until $open_list.length == 0 do
+  # debugger
+  current_node = find_best_node($open_list)
+  $closed_list << current_node
+  $open_list.delete(current_node)
+  generate_children(current_node)
+end
+
+$open_list.each do |node|
+  p node.coordinates
+end
+
+$closed_list.each do |node|
+  p node.coordinates
+end
