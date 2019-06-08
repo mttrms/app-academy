@@ -21,12 +21,14 @@ def place_queen(col)
   (0...@board.length).each do |row|
     if is_valid?([row, col])
       @board[row][col] = "Q"
+      @queens << [row, col]
 
       # check if this leads to a solution
       return true if place_queen(col + 1)
 
       # remove the last placed queen because this wasn't a solution
       @board[row][col] = "_"
+      @queens.pop
     end
   end
   
@@ -57,12 +59,14 @@ end
 
 def valid_diagonal?(pos)
   row, col = pos[0], pos[1]
-  (0...@board.length).each do |y|
-    (0...@board.length).each do |x|
-      delta_row = (row - y).abs
-      delta_col = (col - x).abs
-      return false if @board[y][x] == "Q" && delta_col == delta_row
-    end
+  @queens.each do |queen|
+    queen_row = queen[0]
+    queen_col = queen[1]
+
+    delta_row = (row - queen_row).abs
+    delta_col = (col - queen_col).abs
+    return false if delta_col == delta_row
+
   end
 
   true
@@ -70,6 +74,8 @@ end
 
 # create board, solve with timer
 @board = create_board(size)
+@queens = []
+
 start_time = Time.now
 place_queen(0)
 end_time = Time.now
@@ -81,3 +87,4 @@ elapsed = end_time - start_time
 end
 
 puts "That took #{elapsed} seconds!"
+puts "The queens were placed here: #{@queens}"
