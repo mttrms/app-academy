@@ -12,7 +12,7 @@ def create_board(n)
 end
 
 def place_queen(col)
-  @queens = []
+  # @queens = []
   (0...@board.length).each do |row|
     if is_valid?([row, col])
       p "yes"
@@ -24,7 +24,7 @@ def place_queen(col)
 end
 
 def is_valid?(pos)
-  valid_column?(pos) && valid_row?(pos) && valid_diaganol?(pos)
+  valid_column?(pos) && valid_row?(pos) && valid_diagonal?(pos)
 end
 
 def valid_column?(pos)
@@ -45,15 +45,19 @@ def valid_row?(pos)
   true
 end
 
-def valid_diaganol?(pos)
+def valid_diagonal?(pos)
   row, col = pos[0], pos[1]
-  @queens.each do |queen|
-    q_row, q_col = queen[0], queen[1]
-    delta_row = (row - q_row)
-    delta_col = (col - q_col)
-    return false if delta_row == delta_col  
+  (0...@board.length).each do |y|
+    (0...@board.length).each do |x|
+      delta_row = (row - y).abs
+      delta_col = (col - x).abs
+      return false if @board[y][x] == "Q" && delta_col == delta_row
+      # p "false"
+    end
+
+    true
   end
-  
+
   true
 end
 
@@ -62,10 +66,10 @@ end
 
 
 @board = create_board(4)
-# @board[2][2] = "Q"
+@board[1][3] = "Q"
 pp @board
 
-place_queen(1)
+place_queen(0)
 
 
 
