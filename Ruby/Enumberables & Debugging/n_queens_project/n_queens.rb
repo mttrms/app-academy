@@ -12,15 +12,22 @@ def create_board(n)
 end
 
 def place_queen(col)
-  # @queens = []
+  # base case
+  return true if col >= @board.length
+
   (0...@board.length).each do |row|
     if is_valid?([row, col])
-      p "yes"
-    else
-      p "not safe"
+      @board[row][col] = "Q"
+
+      # check if this leads to a solution
+      return true if place_queen(col + 1)
+
+      # remove the last placed queen because this wasn't a solution
+      @board[row][col] = "_"
     end
   end
   
+  false
 end
 
 def is_valid?(pos)
@@ -52,10 +59,7 @@ def valid_diagonal?(pos)
       delta_row = (row - y).abs
       delta_col = (col - x).abs
       return false if @board[y][x] == "Q" && delta_col == delta_row
-      # p "false"
     end
-
-    true
   end
 
   true
@@ -65,22 +69,6 @@ end
 
 
 
-@board = create_board(4)
-@board[1][3] = "Q"
-pp @board
-
+@board = create_board(12)
 place_queen(0)
-
-
-
-# Pseudocode
-# Place a Q in row 0, column 0
-# Move to (column 0 + 1), place Q in first available row
-# Move to (column 1 + 1), place Q in first available row
-# Identify no available rows, return false up to initial placement, increase row by 1, restart placement
-# When last column has a queen placed, return true
-
-# Queen rules
-# Cannot share a column
-# Cannot share a row
-# Cannot share a diagonal
+pp @board
