@@ -13,3 +13,10 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 
 ### Ruby
 * [Enumerables & Debugging](https://github.com/mttrms/app-academy/tree/master/Ruby/Enumberables%20%26%20Debugging)
+* [Reference](https://github.com/mttrms/app-academy/tree/master/Ruby/Reference)
+
+## Completed Projects
+View some of my completed projects
+* [Ghost](https://github.com/mttrms/app-academy/tree/master/Ruby/Enumberables%20%26%20Debugging/ghost_project) – a word game
+* [Maze Solvers](https://github.com/mttrms/app-academy/tree/master/Ruby/Enumberables%20%26%20Debugging/maze_project) – One recursive sover, and one A* implementation
+* [N-Queens](https://github.com/mttrms/app-academy/tree/master/Ruby/Enumberables%20%26%20Debugging/n_queens_project) – Simple backtracking algorithm to solve N-Queens 
