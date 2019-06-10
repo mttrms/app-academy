@@ -5,7 +5,7 @@ class Board
   def initialize
     @grid = create_grid(3)
     populate
-    p grid_full?
+    render
   end
 
   def create_grid(n)
@@ -17,7 +17,24 @@ class Board
   end
 
   def populate
-    
+    card = cards.sample
+    cards_placed = 0
+
+    until grid_full?
+      row = rand(@grid.length)
+      col = rand(@grid.length)
+
+      if @grid[row][col] == nil
+        @grid[row][col] = Card.new(card)
+        cards_placed += 1
+      end
+
+      if cards_placed == 2
+        card = cards.sample
+        cards_placed = 0
+      end
+
+    end
   end
 
   def grid_full?
@@ -27,8 +44,18 @@ class Board
 
     true
   end
+  
+  def render
+    @grid.each do |row|
+      pretty_row = []
+      row.each do |card|
+        pretty_row << card.value
+      end
+      p pretty_row
+    end
+  end
 
 end
 
-b = Board.new
-pp b.grid
+play = Board.new
+# pp b.grid
