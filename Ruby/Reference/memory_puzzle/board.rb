@@ -45,6 +45,8 @@ class Board
   end
   
   def render
+    puts `clear`
+
     puts "  0 1 2 3"
     @grid.each_with_index do |row, idx|
       pretty_row = [idx]
@@ -60,6 +62,8 @@ class Board
     @grid.each do |row|
       return false if row.any? { |card| card.face_up == false }
     end
+    puts "Congrats, you won!"
+    render
   end
   
   true
