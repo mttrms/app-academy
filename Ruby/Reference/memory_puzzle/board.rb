@@ -5,7 +5,6 @@ class Board
   def initialize
     @grid = create_grid(3)
     populate
-    render
   end
 
   def create_grid(n)
