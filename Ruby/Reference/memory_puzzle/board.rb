@@ -1,7 +1,7 @@
 require_relative "card"
 
 class Board
-  attr_reader :grid
+  attr_reader :grid, :render
   def initialize
     @grid = create_grid(3)
     populate
@@ -46,12 +46,14 @@ class Board
   end
   
   def render
-    @grid.each do |row|
-      pretty_row = []
+    puts "  0 1 2 3"
+    @grid.each_with_index do |row, idx|
+      pretty_row = [idx]
       row.each do |card|
-        pretty_row << card.value
+        card.face_up ? pretty_row << card.value : pretty_row << " "
       end
-      p pretty_row
+
+      puts pretty_row.join(" ")
     end
   end
 
@@ -65,4 +67,3 @@ class Board
 end
 
 play = Board.new
-# pp b.grid
