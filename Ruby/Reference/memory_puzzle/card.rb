@@ -5,4 +5,8 @@ class Card
     @value = value
     @face_up = false
   end
+
+  def reveal
+    @face_up = !@face_up
+  end
 end
