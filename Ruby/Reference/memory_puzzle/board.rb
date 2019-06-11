@@ -55,6 +55,13 @@ class Board
     end
   end
 
+  def won?
+    @grid.each do |row|
+      return false if row.any? { |card| card.face_up == false }
+    end
+  end
+  
+  true
 end
 
 play = Board.new
