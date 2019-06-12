@@ -1,7 +1,7 @@
 require "colorize"
 
 class Tile
-  attr_reader :value, :given
+  attr_reader :value, :given, :to_s
 
   def initialize(value, given = false)
     @value = value
@@ -13,7 +13,3 @@ class Tile
     "#{self.value}".colorize(color)
   end
 end
-
-b = Tile.new(2, false)
-puts b.to_s
-
