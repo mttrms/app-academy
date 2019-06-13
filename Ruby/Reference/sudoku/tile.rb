@@ -9,7 +9,7 @@ class Tile
   end
   
   def to_s
-    self.given == true ? color = :white : color = :light_magenta
+    self.value == 0 ? color = :white : color = :light_magenta
     "#{self.value}".colorize(color)
   end
 end

@@ -1,6 +1,7 @@
 require_relative "tile"
 
 class Board
+  attr_reader :grid
 
   def self.from_file(filename)
     rows = File.readlines("#{filename}").map(&:chomp)
@@ -13,6 +14,10 @@ class Board
   end
 
   def initialize(grid)
+    @grid = grid
+  end
+
+  def render
     grid.each do |row|
       row.each do |tile|
         print tile.to_s
@@ -20,6 +25,8 @@ class Board
       puts ""
     end
   end
+
 end
 
 b = Board.from_file("sudoku1_almost.txt")
+b.render
