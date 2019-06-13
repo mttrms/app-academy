@@ -15,7 +15,6 @@ class Board
 
   def initialize(grid)
     @grid = grid
-    p solved?
   end
 
   def render
@@ -81,6 +80,3 @@ class Board
     tiles
   end
 end
-
-b = Board.from_file("sudoku1_almost.txt")
-b.render
