@@ -32,7 +32,8 @@ class Board
 
   def []=(pos, val)
     row, col = pos
-    @grid[row][col].value = val
+    tile = @grid[row][col]
+    tile.value = val if tile.given == false
   end
 
 end
