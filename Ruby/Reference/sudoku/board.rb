@@ -18,6 +18,7 @@ class Board
   end
 
   def render
+    puts `clear`
     @grid.each do |row|
       row.each do |tile|
         print tile.to_s
