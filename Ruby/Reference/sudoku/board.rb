@@ -25,6 +25,16 @@ class Board
     end
   end
 
+  def [](pos)
+    row, col = pos
+    @grid[row][col]
+  end
+
+  def []=(pos, val)
+    row, col = pos
+    @grid[row][col].value = val
+  end
+
 end
 
 b = Board.from_file("sudoku1_almost.txt")
