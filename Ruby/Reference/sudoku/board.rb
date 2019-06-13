@@ -1,7 +1,6 @@
 require_relative "tile"
 
 class Board
-  attr_reader :grid
 
   def self.from_file(filename)
     rows = File.readlines("#{filename}").map(&:chomp)
@@ -18,7 +17,7 @@ class Board
   end
 
   def render
-    grid.each do |row|
+    @grid.each do |row|
       row.each do |tile|
         print tile.to_s
       end
