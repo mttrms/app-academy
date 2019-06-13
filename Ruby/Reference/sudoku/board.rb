@@ -1,4 +1,5 @@
 require_relative "tile"
+require "pry"
 
 class Board
 
@@ -14,7 +15,6 @@ class Board
 
   def initialize(grid)
     @grid = grid
-    p check_nums(columns)
   end
 
   def render
@@ -55,6 +55,25 @@ class Board
     @grid.transpose.map do |col|
       col.map { |tile| tile.value }
     end
+  end
+
+  def squares
+    
+  end
+
+  def square(idx)
+    tiles = []
+
+    x = (idx / 3) * 3
+    y = (idx % 3) * 3
+
+    (x...x + 3).each do |i|
+      (y...y + 3).each do |j|
+        tiles << self[[i,j]].value
+      end
+    end
+
+    tiles
   end
 end
 
