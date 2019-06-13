@@ -58,17 +58,19 @@ class Board
   end
 
   def squares
-    
+    (0..8).to_a.map do |idx|
+      square(idx)
+    end
   end
 
   def square(idx)
     tiles = []
 
-    x = (idx / 3) * 3
-    y = (idx % 3) * 3
+    row_idx = (idx / 3) * 3
+    col_idx = (idx % 3) * 3
 
-    (x...x + 3).each do |i|
-      (y...y + 3).each do |j|
+    (row_idx...row_idx + 3).each do |i|
+      (col_idx...col_idx + 3).each do |j|
         tiles << self[[i,j]].value
       end
     end
