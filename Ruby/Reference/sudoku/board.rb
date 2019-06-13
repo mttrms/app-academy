@@ -19,7 +19,9 @@ class Board
 
   def render
     puts `clear`
-    @grid.each do |row|
+    puts "  #{(0..8).to_a.join("")}".colorize(:green)
+    @grid.each.each_with_index do |row, idx|
+      print "#{idx} ".colorize(:green)
       row.each do |tile|
         print tile.to_s
       end

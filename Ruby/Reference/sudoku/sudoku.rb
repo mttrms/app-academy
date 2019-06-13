@@ -50,10 +50,10 @@ class Sudoku
 
   def valid_val?(val)
     return false if val == nil || !(1..8).to_a.include?(val.to_i)
-    
+
     true
   end
 
 end
 
-game = Sudoku.new("sudoku2.txt")
+game = Sudoku.new("sudoku1_almost.txt")
