@@ -15,6 +15,7 @@ class Board
 
   def initialize(grid)
     @grid = grid
+    p solved?
   end
 
   def render
@@ -38,6 +39,8 @@ class Board
   end
 
   def solved?
+    sections = [rows, columns, squares]
+    sections.all? { |section| check_nums(section) }
   end
 
   def check_nums(sections)
