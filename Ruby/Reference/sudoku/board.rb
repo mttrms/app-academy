@@ -36,6 +36,21 @@ class Board
     tile.value = val if tile.given == false
   end
 
+  def solved?
+  end
+
+  def check_nums(sections)
+    solution = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    sections.all? { |section| section.sort == solution }
+  end
+
+  def rows
+    @grid.map do |row|
+      row.map { |tile| tile.value }
+    end
+  end
+
 end
 
 b = Board.from_file("sudoku1_almost.txt")
