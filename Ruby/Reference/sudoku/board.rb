@@ -14,6 +14,7 @@ class Board
 
   def initialize(grid)
     @grid = grid
+    p check_nums(columns)
   end
 
   def render
@@ -41,7 +42,6 @@ class Board
 
   def check_nums(sections)
     solution = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
     sections.all? { |section| section.sort == solution }
   end
 
@@ -51,6 +51,11 @@ class Board
     end
   end
 
+  def columns
+    @grid.transpose.map do |col|
+      col.map { |tile| tile.value }
+    end
+  end
 end
 
 b = Board.from_file("sudoku1_almost.txt")
