@@ -6,7 +6,7 @@ class Board
     rows = File.readlines("#{filename}").map(&:chomp)
     grid = rows.map do |row|
       numbers = row.split("").map { |num| num.to_i }
-      numbers.map { |num| Tile.new(num, true) }
+      numbers.map { |num| Tile.new(num, num != 0) }
     end
 
     self.new(grid)
