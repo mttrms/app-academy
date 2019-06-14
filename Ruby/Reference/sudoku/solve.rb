@@ -6,7 +6,7 @@ class Solve
     @board = Board.from_file(filename)
     @grid = Board.build_grid(@board)
     @board.render
-    fill(@grid)
+    p is_valid_placement?(@grid, 0, 1, 3)
   end
 
   def find_cell(grid, cell)
@@ -26,7 +26,17 @@ class Solve
   end
 
   def is_valid_placement?(grid, row, col, num)
-  
+    is_valid_row?(grid, row, num) && is_valid_col?(grid, col, num)
+  end
+
+  def is_valid_row?(grid, row, num)
+    return false if grid[row].include?(num)
+    true
+  end
+
+  def is_valid_col?(grid, col, num)
+    return false if grid.transpose[col].include?(num)
+    true
   end
 
   def fill(grid)
