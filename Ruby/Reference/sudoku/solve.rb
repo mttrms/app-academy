@@ -4,16 +4,18 @@ class Solve
   
   def initialize(filename)
     @board = Board.from_file(filename)
-    @grid = Board.build_grid(@board)
+    @grid = @board.grid
     @board.render
+    puts "Attempting to solve.."
+    sleep(1)
     fill(@grid)
   end
 
   def find_cell(grid, cell)
     (0..8).each do |row_idx|
       (0..8).each do |col_idx|
-
-        if grid[row_idx][col_idx] == 0
+        
+        if grid[row_idx][col_idx].value == 0
           cell[0] = row_idx
           cell[1] = col_idx
           return true
@@ -30,12 +32,16 @@ class Solve
   end
 
   def is_valid_row?(grid, row, num)
-    return false if grid[row].include?(num)
+    row_values = grid[row].map { |tile| tile.value }
+    return false if row_values.include?(num)
+
     true
   end
 
   def is_valid_col?(grid, col, num)
-    return false if grid.transpose[col].include?(num)
+    col_values = grid.transpose[col].map { |tile| tile.value }
+    return false if col_values.include?(num)
+
     true
   end
 
@@ -52,7 +58,7 @@ class Solve
 
     (row_idx...row_idx + 3).each do |i|
       (col_idx...col_idx + 3).each do |j|
-        tiles << grid[i][j]
+        tiles << grid[i][j].value
       end
     end
 
@@ -64,8 +70,8 @@ class Solve
     
     # base case
     if find_cell(grid, cell) == false
-      p "solved!"
-      pp grid
+      @board.render
+      puts "Solved!"
       return true
     end
 
@@ -75,9 +81,9 @@ class Solve
     
     (1..9).each do |num|
       if is_valid_placement?(grid, row, col, num)
-        grid[row][col] = num
+        grid[row][col].value = num
         return true if fill(grid)
-        grid[row][col] = 0
+        grid[row][col].value = 0
       end
     end
 
@@ -86,4 +92,4 @@ class Solve
   end
 end
 
-my_solve = Solve.new("sudoku1.txt")
+Solve.new("sudoku3.txt")
