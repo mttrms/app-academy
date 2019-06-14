@@ -6,7 +6,7 @@ class Solve
     @board = Board.from_file(filename)
     @grid = Board.build_grid(@board)
     @board.render
-    p is_valid_placement?(@grid, 0, 1, 3)
+    fill(@grid)
   end
 
   def find_cell(grid, cell)
@@ -43,17 +43,26 @@ class Solve
     cell = [0,0]
     
     # base case
-    if find_cell(@grid, cell) == false
+    if find_cell(grid, cell) == false
       p "solved!"
+      pp grid
       return true
     end
 
+    # set row and col to match first empty cell
     row = cell[0]
     col = cell[1]
     
     (1..9).each do |num|
-
+      if is_valid_placement?(grid, row, col, num)
+        grid[row][col] = num
+        return true if fill(grid)
+        grid[row][col] = 0
+      end
     end
+
+    # not a valid solution, backtrack
+    false
   end
 end
 
