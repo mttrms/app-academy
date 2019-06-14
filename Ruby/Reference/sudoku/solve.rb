@@ -26,7 +26,7 @@ class Solve
   end
 
   def is_valid_placement?(grid, row, col, num)
-    is_valid_row?(grid, row, num) && is_valid_col?(grid, col, num)
+    is_valid_row?(grid, row, num) && is_valid_col?(grid, col, num) && is_valid_square?(grid, row, col, num)
   end
 
   def is_valid_row?(grid, row, num)
@@ -37,6 +37,26 @@ class Solve
   def is_valid_col?(grid, col, num)
     return false if grid.transpose[col].include?(num)
     true
+  end
+
+  def is_valid_square?(grid, row, col, num)
+    return false if square(grid, row, col).include?(num)
+    true
+  end
+
+  def square(grid, row, col)
+    tiles = []
+
+    row_idx = (row / 3) * 3
+    col_idx = (col / 3) * 3
+
+    (row_idx...row_idx + 3).each do |i|
+      (col_idx...col_idx + 3).each do |j|
+        tiles << grid[i][j]
+      end
+    end
+
+    tiles
   end
 
   def fill(grid)
@@ -66,4 +86,4 @@ class Solve
   end
 end
 
-my_solve = Solve.new("sudoku2.txt")
+my_solve = Solve.new("sudoku1.txt")
