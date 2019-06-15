@@ -3,6 +3,11 @@ require "pry"
 
 class Board
   attr_reader :grid
+
+  def initialize(grid)
+    @grid = grid
+  end
+
   def self.from_file(filename)
     rows = File.readlines("#{filename}").map(&:chomp)
     grid = rows.map do |row|
@@ -11,16 +16,6 @@ class Board
     end
 
     self.new(grid)
-  end
-
-  def self.build_grid(board)
-    board.grid.map do |row|
-      row.map { |tile| tile.value }
-    end
-  end
-
-  def initialize(grid)
-    @grid = grid
   end
 
   def render

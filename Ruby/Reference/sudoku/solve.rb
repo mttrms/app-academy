@@ -47,6 +47,7 @@ class Solve
 
   def is_valid_square?(grid, row, col, num)
     return false if square(grid, row, col).include?(num)
+
     true
   end
 
@@ -68,11 +69,12 @@ class Solve
   def fill(grid)
     cell = [0,0]
     
-    # base case
+    # find next unfilled cell. `cell` is upated here as well.
     if find_cell(grid, cell) == false
       @board.render
       puts "Solved!"
-      return true
+
+      true
     end
 
     # set row and col to match first empty cell
