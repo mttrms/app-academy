@@ -20,3 +20,4 @@ View some of my completed projects
 * [Ghost](https://github.com/mttrms/app-academy/tree/master/Ruby/Enumberables%20%26%20Debugging/ghost_project) – a word game
 * [Maze Solvers](https://github.com/mttrms/app-academy/tree/master/Ruby/Enumberables%20%26%20Debugging/maze_project) – One recursive sover, and one A* implementation
 * [N-Queens](https://github.com/mttrms/app-academy/tree/master/Ruby/Enumberables%20%26%20Debugging/n_queens_project) – Simple backtracking algorithm to solve N-Queens 
+* [Sudoku](https://github.com/mttrms/app-academy/tree/master/Ruby/Reference/sudoku) – Playable Sudoku game (CLI), brute force solver
