@@ -55,7 +55,7 @@ p gamma_fnc(8)  # => returns 5040
 def ice_cream_shop(flavors, favorite)
   return true if flavors.first == favorite
   return false if flavors.empty?
-  
+
   ice_cream_shop(flavors[1..-1], favorite)
 end
 
@@ -66,3 +66,19 @@ p ice_cream_shop(['pistachio', 'green tea', 'chocolate', 'mint chip'], 'green te
 p ice_cream_shop(['cookies n cream', 'blue moon', 'superman', 'honey lavender', 'sea salt caramel'], 'pistachio')  # => returns false
 p ice_cream_shop(['moose tracks'], 'moose tracks')  # => returns true
 p ice_cream_shop([], 'honey lavender')  # => returns false
+
+# Write a function reverse(string) that takes in a string and returns it reversed.
+
+def reverse(str)
+  return str if str.length <= 1
+  str[-1] + reverse(str[0...-1])
+end
+
+puts "reverse"
+# Test Cases
+p reverse("house") # => "esuoh"
+p reverse("dog") # => "god"
+p reverse("atom") # => "mota"
+p reverse("q") # => "q"
+p reverse("id") # => "di"
+p reverse("") # => ""
