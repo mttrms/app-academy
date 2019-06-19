@@ -1,4 +1,19 @@
-def bsearch(arr, target, left = 0, right = nil)
+def bsearch(arr, target)
+  mid_point = arr.length / 2
+  return nil if arr.length <= 1 && arr[0] != target
+  
+  if arr[mid_point] == target
+    mid_point
+  elsif arr[mid_point] > target
+    bsearch(arr[0...mid_point], target)
+  elsif arr[mid_point] < target
+    upper_bsearch = bsearch(arr[mid_point..-1], target)
+    upper_bsearch == nil ? nil : upper_bsearch + mid_point
+  end
+end
+
+def bsearch2(arr, target, left = 0, right = nil)
+  debugger
   right = arr.length - 1 if right == nil
   
   if right >= left
@@ -17,19 +32,7 @@ def bsearch(arr, target, left = 0, right = nil)
   end
 end
 
-def bsearch_alt(arr, target)
-  mid_point = arr.length / 2
-  lower = arr[0...mid_point]
-  upper = arr[mid_point..-1]
-  
-  if arr[mid_point] == target
-    mid_point
-  elsif arr[mid_point] > target
-    bsearch(lower, target)
-  elsif arr[mid_point] < target
-    bsearch(upper, target) + mid_point
-  end
-end
+
 
 # Test Cases
 p bsearch([1, 2, 3], 1) # => 0
