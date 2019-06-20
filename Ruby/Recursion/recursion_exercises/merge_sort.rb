@@ -1,5 +1,12 @@
-def merge_sort(arr)
+require "byebug"
 
+def merge_sort(arr)
+  debugger
+  return arr.first if arr.length == 1
+  mid = (arr.length - 1) / 2
+  
+  merge_sort(arr[0..mid])
+  merge_sort(arr[mid + 1..-1])  
 end
 
 # Test cases
