@@ -1,30 +1,14 @@
-require "byebug"
-
 def subsets(arr)
-  # debugger
-  # subs = []
-
-  if arr.empty?
-    return [[]]
-  end
-
+  return [[]] if arr.empty?
   subs = subsets(arr[0...-1])
-  subs << [arr[-1]]
-
-  new_subs = []
 
   subs.each do |element|
     if !element.include?(arr[-1])
-      a = element.dup
-      a << arr[-1]
-      new_subs << a
+      subs << element.dup.push(arr[-1])
     end
   end
 
-  subs += new_subs
-
-  subs.uniq
-  
+  subs
 end
 
 # Test Cases
