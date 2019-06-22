@@ -1,16 +1,18 @@
 def permutations(arr)
-  return [[]] if arr.empty?
-  perms = permutations(arr[0...-1])
+  debugger
+  return [arr] if arr.length == 1
+  perms = []
 
-  perms.each do |perm|
-    if !perm.include?(arr[-1])
-      perms << perm.dup.push(arr[-1])
-      perm.unshift(arr[-1])
-      
+  arr.each_with_index do |ele, idx|
+    other_eles = arr[0...idx] + arr[idx + 1..-1]
+    other_ele_permutations = permutations(other_eles)
+
+    other_ele_permutations.each do |sub_perm|
+      perms << [ele] + sub_perm
     end
   end
 
-  perms.select { |perm| perm.length == arr.length }.uniq
+  perms
 end
 
 # Test Case
