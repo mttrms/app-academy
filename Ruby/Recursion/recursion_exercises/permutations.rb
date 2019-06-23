@@ -1,5 +1,5 @@
 def permutations(arr)
-  debugger
+  # debugger
   return [arr] if arr.length == 1
   perms = []
 
