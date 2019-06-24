@@ -17,24 +17,24 @@ class WordChainer
   end
 
   def adjacent_words(word)
-    same_size_words = []
     adjacent_words = []
-
     @dictionary.each do |dict_word|
-      if word.length == dict_word.length
-        same_size_words << dict_word
-      end
-    end
-
-    same_size_words.each do |dict_word|
-      (0...dict_word.length).each do |i|
-        dict_frag = dict_word[0...i] + dict_word[i + 1..-1]
-        word_frag = word[0...i] + word[i + 1..-1]
-        adjacent_words << dict_word if dict_frag == word_frag && dict_word != word
+      if word.length == dict_word.length && is_adjacent?(word, dict_word) && word != dict_word
+        adjacent_words << dict_word
       end
     end
 
     adjacent_words
+  end
+
+  def is_adjacent?(word, test_word)
+    (0...test_word.length).each do |i|
+      word_frag = word[0...i] + word[i + 1..-1]
+      test_frag = test_word[0...i] + test_word[i + 1..-1]
+      return true if word_frag == test_frag
+    end
+
+    false
   end
 end
 
