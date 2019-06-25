@@ -23,7 +23,13 @@ p includes?([1,2,3,4], 5)
 
 # Problem 3: You have an unsorted array of integers. Write a recursive solution to count the number of occurrences of a specific value.
 def num_occur(array, target)
+  count = 0
+  return 0 if array.empty?
+  count += 1 if array.first == target
+  count += num_occur(array[1..-1], target)
 end
+
+p num_occur([1,2,2,3,2,5,2,1,5,5,5,5,0,1,2,1], 2)
 
 # Problem 4: You have array of integers. Write a recursive solution to determine whether or not two adjacent elements of the array add to 12.
 def add_to_twelve?(array)
