@@ -3,7 +3,7 @@ require 'set'
 class WordChainer
   def initialize(dictionary_filename)
     @dictionary = create_dictionary(dictionary_filename)
-    p run("test", "word")
+    p run("market", "word")
   end
 
   def create_dictionary(filename)
@@ -18,28 +18,29 @@ class WordChainer
 
   def run(source, target)
     @current_words = [source]
-    @all_seen_words = [source]
+    @all_seen_words = { source => nil }
 
     while @current_words.any?
       explore_current_words
     end
-
-    @all_seen_words
   end
 
   def explore_current_words
     new_current_words = []
-    
+
     @current_words.each do |word|
       adjacent_words(word).each do |adjacent_word|
         next if @all_seen_words.include?(adjacent_word)
 
         new_current_words << adjacent_word
-        @all_seen_words << adjacent_word
+        @all_seen_words[adjacent_word] = word
       end
     end
 
     @current_words = new_current_words
+    new_current_words.each do |word|
+      puts "#{@all_seen_words[word]} => #{word}"
+    end
   end
 
   def adjacent_words(word)
