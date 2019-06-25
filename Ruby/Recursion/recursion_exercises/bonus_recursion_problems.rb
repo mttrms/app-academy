@@ -33,11 +33,28 @@ p num_occur([1,2,2,3,2,5,2,1,5,5,5,5,0,1,2,1], 2)
 
 # Problem 4: You have array of integers. Write a recursive solution to determine whether or not two adjacent elements of the array add to 12.
 def add_to_twelve?(array)
+  return false if array.length == 1
+  return true if array[0] + array[1] == 12
+
+  add_to_twelve?(array[1..-1])
 end
+
+p add_to_twelve?([5,4,6,2,9,11,0,4,8])
 
 # Problem 5: You have array of integers. Write a recursive solution to determine if the array is sorted.
 def sorted?(array)
+  if array.length == 2
+    return array[0] < array[1]
+  end
+
+  return false if array[0] > array[1]
+
+  sorted?(array[1..-1])
+  
 end
+
+p sorted?(["a","b","c","b"])
+p sorted?([0,1,2,3,4])
 
 # Problem 6: Write a recursive function to reverse a string. Don't use any built-in #reverse methods!
 def reverse(string)
