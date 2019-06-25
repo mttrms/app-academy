@@ -58,4 +58,10 @@ p sorted?([0,1,2,3,4])
 
 # Problem 6: Write a recursive function to reverse a string. Don't use any built-in #reverse methods!
 def reverse(string)
+  return string if string.length == 1
+  reversed = string[-1] + reverse(string[0...-1])
+
+  reversed
 end
+
+p reverse("hello world")
