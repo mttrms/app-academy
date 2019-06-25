@@ -3,7 +3,7 @@ require 'set'
 class WordChainer
   def initialize(dictionary_filename)
     @dictionary = create_dictionary(dictionary_filename)
-    p run("market", "word")
+    p run("market", "bummer")
   end
 
   def create_dictionary(filename)
@@ -23,6 +23,19 @@ class WordChainer
     while @current_words.any?
       explore_current_words
     end
+
+    build_path(target)
+  end
+  
+  def build_path(target)
+    path = [target]
+    
+    until @all_seen_words[path[0]].nil?
+      previous_word = @all_seen_words[path[0]]
+      path.unshift(previous_word)
+    end
+
+    path
   end
 
   def explore_current_words
@@ -38,9 +51,9 @@ class WordChainer
     end
 
     @current_words = new_current_words
-    new_current_words.each do |word|
-      puts "#{@all_seen_words[word]} => #{word}"
-    end
+    # new_current_words.each do |word|
+    #   puts "#{@all_seen_words[word]} => #{word}"
+    # end
   end
 
   def adjacent_words(word)
