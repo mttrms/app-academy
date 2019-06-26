@@ -14,6 +14,7 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 ### Ruby
 * [Enumerables & Debugging](https://github.com/mttrms/app-academy/tree/master/Ruby/Enumberables%20%26%20Debugging)
 * [Reference](https://github.com/mttrms/app-academy/tree/master/Ruby/Reference)
+* [Recursion](https://github.com/mttrms/app-academy/tree/master/Ruby/Recursion)
 
 ## Completed Projects
 View some of my completed projects
@@ -21,3 +22,5 @@ View some of my completed projects
 * [Maze Solvers](https://github.com/mttrms/app-academy/tree/master/Ruby/Enumberables%20%26%20Debugging/maze_project) – One recursive sover, and one A* implementation
 * [N-Queens](https://github.com/mttrms/app-academy/tree/master/Ruby/Enumberables%20%26%20Debugging/n_queens_project) – Simple backtracking algorithm to solve N-Queens 
 * [Sudoku](https://github.com/mttrms/app-academy/tree/master/Ruby/Reference/sudoku) – Playable Sudoku game (CLI), brute force solver
+* [Memory Puzzle](https://github.com/mttrms/app-academy/tree/master/Ruby/Reference/memory_puzzle) – Playable Match 2 game (CLI)
+* [WordChainer](https://github.com/mttrms/app-academy/tree/master/Ruby/Recursion/word_chains) – Given two words of equal length, build a chain of words connecting them.
