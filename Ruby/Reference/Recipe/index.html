@@ -52,6 +52,42 @@
       <li>Blend</li>
     </ol>
   </section>
+
+  <section>
+    <h2>Reviews</h2>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name">
+
+      <label for="rating">Rating:</label>
+      <label for="rating">1</label>
+      <input type="radio" name="rating" value="1" checked>
+      <label for="rating">2</label>
+      <input type="radio" name="rating" value="2">
+      <label for="rating">3</label>
+      <input type="radio" name="rating" value="3">
+      <label for="rating">4</label>
+      <input type="radio" name="rating" value="4">
+      <label for="rating">5</label>
+      <input type="radio" name="rating" value="5">
+    
+
+      <label for="expertise">Cooking Expertise</label>
+      <select id="expertise">
+        <option value="" disabled="true" selected="true">Select Cooking Expertise</option>
+        <option value="sometimes">Sometimes cook</option>
+        <option value="everyday">Cook everyday</option>
+        <option value="hobby">Cooking is a hobby</option>
+        <option value="professional">Professional Chef</option>
+      </select>
+    
+      <label>
+        Review
+        <textarea name="review" cols="30" rows="10"></textarea>
+      </label>
+      <button>Submit Review</button>
+    </form>
+  </section>
   
   <footer>
     <p>This recipe created over years via trial and error.</p>
