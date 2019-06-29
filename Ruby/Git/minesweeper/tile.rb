@@ -1,4 +1,6 @@
 class Tile
+  attr_reader :bombed
+
   def initialize
     @bombed = false
     @flagged = false

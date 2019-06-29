@@ -8,7 +8,7 @@ class Board
   end
 
   def create_grid(size)
-    Array.new(size) { Array.new(size) }
+    Array.new(size) { Array.new(size) { Tile.new } }
   end
 
   def seed_bombs(grid)
@@ -17,10 +17,8 @@ class Board
       row = rand(@grid.length)
       col = rand(@grid.length)
 
-      if @grid[row][col] == nil
-        tile = Tile.new
-        tile.place_bomb
-        @grid[row][col] = tile
+      if @grid[row][col].bombed == false
+        @grid[row][col].place_bomb
         bomb_count += 1
       end
 
