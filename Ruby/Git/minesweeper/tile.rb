@@ -4,4 +4,8 @@ class Tile
     @flagged = false
     @revealed = false
   end
+
+  def place_bomb
+    @bombed = true
+  end
 end
