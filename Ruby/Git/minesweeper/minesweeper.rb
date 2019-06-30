@@ -6,7 +6,7 @@ class Game
   end
 
   def play
-    until @board.solved? || game_over?
+    until solved? || game_over?
       @board.render
       puts "What position would you like to guess?"
       pos = get_position
@@ -14,6 +14,11 @@ class Game
       move = gets.chomp
       make_move(pos, move)
       puts `clear`
+    end
+    if game_over?
+      puts "Boom! You lose."
+    else
+      puts "You win!"
     end
   end
 
@@ -33,7 +38,23 @@ class Game
   end
 
   def game_over?
+    @board.grid.each do |row|
+      row.each do |tile|
+        return true if tile.bombed && tile.revealed
+      end
+    end
+
     false
+  end
+
+  def solved?
+    @board.grid.each do |row|
+      row.each do |tile|
+        return false if !tile.bombed && !tile.revealed
+      end
+    end
+
+    true
   end
 end
 

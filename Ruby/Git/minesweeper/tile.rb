@@ -12,8 +12,8 @@ class Tile
   end
 
   def reveal
-    @revealed = true
-    @flagged = false
+      @revealed = true
+      @flagged = false
   end
 
   def flag

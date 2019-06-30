@@ -1,6 +1,8 @@
 require_relative 'tile'
 
 class Board
+  attr_reader :grid
+
   def initialize(size)
     @grid = create_grid(size)
     seed_bombs(@grid)
@@ -40,9 +42,5 @@ class Board
   def [](pos)
     row, col = pos
     @grid[row][col]
-  end
-
-  def solved?
-    false
   end
 end
