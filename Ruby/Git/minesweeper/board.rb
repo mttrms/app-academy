@@ -40,4 +40,3 @@ class Board
 end
 
 b = Board.new(9)
-p b[[0,0]].bombed

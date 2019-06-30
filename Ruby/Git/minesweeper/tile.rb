@@ -1,5 +1,5 @@
 class Tile
-  attr_reader :bombed
+  attr_reader :bombed, :revealed, :flagged
 
   def initialize
     @bombed = false
@@ -9,5 +9,15 @@ class Tile
 
   def place_bomb
     @bombed = true
+  end
+
+  def inspect
+    if !self.revealed
+      "*"
+    elsif flagged
+      "F"
+    else
+      "_"
+    end
   end
 end
