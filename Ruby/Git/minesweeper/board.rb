@@ -16,9 +16,10 @@ class Board
     until bomb_count == 10
       row = rand(@grid.length)
       col = rand(@grid.length)
+      pos = [row, col]
 
-      if @grid[row][col].bombed == false
-        @grid[row][col].place_bomb
+      if self[pos].bombed == false
+        self[pos].place_bomb
         bomb_count += 1
       end
 
@@ -30,6 +31,13 @@ class Board
       p row
     end
   end
+
+  def [](pos)
+    row, col = pos
+    @grid[row][col]
+  end
+
 end
 
 b = Board.new(9)
+p b[[0,0]].bombed
