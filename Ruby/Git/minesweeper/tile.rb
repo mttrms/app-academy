@@ -11,11 +11,20 @@ class Tile
     @bombed = true
   end
 
+  def reveal
+    @revealed = true
+    @flagged = false
+  end
+
+  def flag
+    @flagged = true
+  end
+
   def inspect
-    if !self.revealed
-      "*"
-    elsif flagged
+    if flagged
       "F"
+    elsif !self.revealed
+      "*"
     else
       "_"
     end
