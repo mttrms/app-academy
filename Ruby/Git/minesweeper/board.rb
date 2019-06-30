@@ -26,8 +26,14 @@ class Board
   end
 
   def render
-    @grid.each do |row|
-      p row
+    puts `clear`
+    puts " #{(0..8).to_a.join("")}"
+    @grid.each_with_index do |row, idx|
+      print idx
+      row.each do |tile|
+        print tile.inspect
+      end
+      puts ""
     end
   end
 
