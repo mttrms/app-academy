@@ -4,7 +4,6 @@ class Board
   def initialize(size)
     @grid = create_grid(size)
     seed_bombs(@grid)
-    render
   end
 
   def create_grid(size)
@@ -37,6 +36,7 @@ class Board
     @grid[row][col]
   end
 
+  def solved?
+    false
+  end
 end
-
-b = Board.new(9)
