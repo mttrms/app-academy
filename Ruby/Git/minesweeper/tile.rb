@@ -1,10 +1,11 @@
 class Tile
   attr_reader :bombed, :revealed, :flagged
 
-  def initialize
+  def initialize(board)
     @bombed = false
     @flagged = false
     @revealed = false
+    @board = board
   end
 
   def place_bomb

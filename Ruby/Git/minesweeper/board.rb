@@ -9,7 +9,7 @@ class Board
   end
 
   def create_grid(size)
-    Array.new(size) { Array.new(size) { Tile.new } }
+    Array.new(size) { Array.new(size) { Tile.new(@board) } }
   end
 
   def seed_bombs(grid)
