@@ -16,6 +16,7 @@ class Game
     @board.grid.each do |row|
       row.each do |tile|
         tile.find_neighbors
+        tile.adjacent_bomb_count
       end
     end
   end

@@ -10,6 +10,7 @@ class Tile
     @board = board
     @position = []
     @neighbors = {}
+    @bomb_count = 0
   end
 
   def place_bomb
@@ -30,6 +31,8 @@ class Tile
       "F"
     elsif !self.revealed
       "*"
+    elsif revealed
+      @bomb_count
     else
       "_"
     end
@@ -66,5 +69,9 @@ class Tile
     end
 
     @neighbors
+  end
+
+  def adjacent_bomb_count
+    @bomb_count += @neighbors.each_value.select { |bomb| bomb == true }.length
   end
 end
