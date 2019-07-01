@@ -9,7 +9,7 @@ class Tile
     @revealed = false
     @board = board
     @position = []
-    @neighbors = []
+    @neighbors = {}
   end
 
   def place_bomb
@@ -39,6 +39,32 @@ class Tile
     @position = pos
   end
 
+  def valid_position?(pos)
+    row, col = pos
+    if row >= 0 && row < @board.grid.length && col >= 0 && col < @board.grid.length
+      return true
+    end
+
+    false
+  end
+
   def find_neighbors
+    row, col = @position
+    left            = [row, col - 1]
+    right           = [row, col + 1]
+    up              = [row - 1, col]
+    down            = [row + 1, col]
+    diag_left_up    = [row - 1, col - 1]
+    diag_left_down  = [row + 1, col - 1]
+    diag_right_up   = [row - 1, col + 1]
+    diag_right_down = [row + 1, col + 1]
+
+    directions = [left, right, up, down, diag_left_up, diag_left_down, diag_right_up, diag_right_down]
+
+    directions.each do |pos|
+      @neighbors[pos] = @board[pos].bombed if valid_position?(pos)
+    end
+
+    @neighbors
   end
 end

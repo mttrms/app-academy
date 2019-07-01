@@ -12,6 +12,12 @@ class Game
         tile.position([row_idx, col_idx])
       end
     end
+
+    @board.grid.each do |row|
+      row.each do |tile|
+        tile.find_neighbors
+      end
+    end
   end
 
   def play
