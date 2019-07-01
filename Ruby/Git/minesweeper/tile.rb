@@ -20,6 +20,11 @@ class Tile
   def reveal
     @revealed = true
     @flagged = false
+    if !@neighbors.has_value?(true)
+      @neighbors.each_key do |pos|
+        @board[pos].reveal if @board[pos].revealed == false
+      end
+    end
   end
 
   def flag
