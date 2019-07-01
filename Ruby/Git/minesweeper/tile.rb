@@ -1,3 +1,5 @@
+require "byebug"
+
 class Tile
   attr_reader :bombed, :revealed, :flagged
 
@@ -6,6 +8,8 @@ class Tile
     @flagged = false
     @revealed = false
     @board = board
+    @position = []
+    @neighbors = []
   end
 
   def place_bomb
@@ -13,8 +17,8 @@ class Tile
   end
 
   def reveal
-      @revealed = true
-      @flagged = false
+    @revealed = true
+    @flagged = false
   end
 
   def flag
@@ -29,5 +33,12 @@ class Tile
     else
       "_"
     end
+  end
+
+  def position(pos)
+    @position = pos
+  end
+
+  def find_neighbors
   end
 end

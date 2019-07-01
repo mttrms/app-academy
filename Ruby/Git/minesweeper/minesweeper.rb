@@ -3,6 +3,15 @@ require_relative "board"
 class Game
   def initialize(size)
     @board = Board.new(size)
+    tile_positions
+  end
+
+  def tile_positions
+    @board.grid.each_with_index do |row, row_idx|
+      row.each_with_index do |tile, col_idx|
+        tile.position([row_idx, col_idx])
+      end
+    end
   end
 
   def play
