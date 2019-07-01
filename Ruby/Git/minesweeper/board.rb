@@ -29,11 +29,11 @@ class Board
 
   def render
     puts `clear`
-    puts " #{(0..8).to_a.join("")}"
+    puts "  #{(0..8).to_a.join(" ")}".colorize(:red)
     @grid.each_with_index do |row, idx|
-      print idx
+      print idx.to_s.colorize(:red) + " "
       row.each do |tile|
-        print tile.inspect
+        print "#{tile.inspect} "
       end
       puts ""
     end
