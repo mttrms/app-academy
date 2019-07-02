@@ -43,6 +43,14 @@ class Map
   end
 
   def set(key, value)
+    @pairs.each do |pair|
+      if pair[0] == key
+        pair[1] = value 
+        return
+      end
+    end
+
+    @pairs << [key, value]
   end
 
   def get(key)
@@ -54,3 +62,9 @@ class Map
   def show
   end
 end
+
+m = Map.new
+m.set("hello", "world")
+p m
+m.set("hello", "WORLD")
+p m
