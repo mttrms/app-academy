@@ -54,17 +54,28 @@ class Map
   end
 
   def get(key)
+    @pairs.each do |pair|
+      return pair[1] if pair[0] == key
+    end
+
+    nil
   end
 
   def delete(key)
+    @pairs.each do |pair|
+      if pair[0] == key
+        @pairs.delete(pair)
+        return pair
+      end
+    end
+
+    nil
   end
 
   def show
+    @pairs.each do |pair|
+      print "#{pair[0]} => #{pair[1]}"
+      puts
+    end
   end
 end
-
-m = Map.new
-m.set("hello", "world")
-p m
-m.set("hello", "WORLD")
-p m
