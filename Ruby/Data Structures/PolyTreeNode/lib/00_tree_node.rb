@@ -43,4 +43,16 @@ class PolyTreeNode
 
     nil
   end
+
+  def bfs(target_value)
+    nodes = [self]
+    
+    until nodes.empty?
+      node = nodes.shift
+      return node if node.value == target_value
+      nodes += node.children
+    end
+    
+    nil
+  end
 end
