@@ -10,18 +10,10 @@ class PolyTreeNode
   end
 
   def parent=(node)
-    if @parent == node
-      return
-    elsif node.nil?
-      @parent = nil
-    elsif @parent && node
-      @parent.children.delete(self)
-      @parent = node
-      @parent.children << self
-    else
-      @parent = node
-      @parent.children << self
-    end
+    return @parent = nil if node.nil?
+    @parent.children.delete(self) if @parent && node
+    @parent = node
+    @parent.children << self
   end
 
   def children
