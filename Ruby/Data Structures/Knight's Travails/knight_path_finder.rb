@@ -2,8 +2,9 @@ require_relative 'poly_tree_node'
 
 class KnightPathFinder
   def initialize(start_pos)
-    @start_position = start_pos
+    @root_node = PolyTreeNode.new(start_pos)
     @considered_positions = [start_pos]
+    build_move_tree
   end
 
   def self.valid_moves(pos)
@@ -30,4 +31,13 @@ class KnightPathFinder
     new_moves = KnightPathFinder.valid_moves(pos).select{ |new_position| !@considered_positions.include?(new_position) }
     new_moves.each { |position| @considered_positions << position }
   end
+
+  def build_move_tree
+    @considered_positions.each do |position|
+      new_move_positions(position)
+      p position
+    end
+  end
 end
+
+kpf = KnightPathFinder.new([0,0])
