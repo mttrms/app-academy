@@ -23,8 +23,12 @@ class KnightPathFinder
 
     moves.select do |new_position|
       row, col = new_position
-      row >= 0 && row <= 8 && col >= 0 && col <= 8
+      KnightPathFinder.valid_position(row) && KnightPathFinder.valid_position(col)
     end
+  end
+
+  def self.valid_position(pos)
+    pos >= 0 && pos < 8
   end
 
   def new_move_positions(pos)
