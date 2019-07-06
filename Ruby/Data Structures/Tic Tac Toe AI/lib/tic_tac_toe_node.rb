@@ -10,6 +10,15 @@ class TicTacToeNode
   end
 
   def losing_node?(evaluator)
+    return true if @board.winner != evaluator && @board.winner != nil
+    return false if @board.winner == evaluator
+
+    self.children.each do |child_node|
+      result = child_node.losing_node?(evaluator)
+      return result if result == true
+    end
+
+    false
   end
 
   def winning_node?(evaluator)
