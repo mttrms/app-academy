@@ -17,6 +17,7 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 * [Recursion](https://github.com/mttrms/app-academy/tree/master/Ruby/Recursion)
 * [Git](https://github.com/mttrms/app-academy/tree/master/Ruby/Git)
 * [Data Structures](https://github.com/mttrms/app-academy/tree/master/Ruby/Data%20Structures)
+* [Object Oriented Programming](https://github.com/mttrms/app-academy/tree/master/Ruby/Object%20Oriented%20Programming)
 
 ## Completed Projects
 View some of my completed projects
@@ -25,5 +26,6 @@ View some of my completed projects
 * [N-Queens](https://github.com/mttrms/app-academy/tree/master/Ruby/Enumberables%20%26%20Debugging/n_queens_project) – Simple backtracking algorithm to solve N-Queens 
 * [Sudoku](https://github.com/mttrms/app-academy/tree/master/Ruby/Reference/sudoku) – Playable Sudoku game (CLI), brute force solver
 * [Memory Puzzle](https://github.com/mttrms/app-academy/tree/master/Ruby/Reference/memory_puzzle) – Playable Match 2 game (CLI)
-* [WordChainer](https://github.com/mttrms/app-academy/tree/master/Ruby/Recursion/word_chains) – Given two words of equal length, build a chain of words connecting them.
+* [WordChainer](https://github.com/mttrms/app-academy/tree/master/Ruby/Recursion/word_chains) – Given two words of equal length, build a chain of words connecting them
 * [Minesweeper](https://github.com/mttrms/app-academy/tree/master/Ruby/Git/minesweeper) – Playable Minesweeper (CLI)
+* [Tic Tac Toe AI](https://github.com/mttrms/app-academy/tree/master/Ruby/Data%20Structures/Tic%20Tac%20Toe%20AI) – AI that can't be beaten at Tic Tac Toe
