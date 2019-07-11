@@ -24,6 +24,14 @@ class Board
   end
 
   def make_move(start_pos, current_player_name)
+    stones = @cups[start_pos].length
+    @cups[start_pos].clear
+    
+    until stones == 0
+      start_pos += 1
+      @cups[start_pos] << :stone
+      stones -= 1
+    end
   end
 
   def next_turn(ending_cup_idx)
