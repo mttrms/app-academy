@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Board
   attr_accessor :cups
 
@@ -24,12 +26,19 @@ class Board
   end
 
   def make_move(start_pos, current_player_name)
+    # debugger
     stones = @cups[start_pos].length
     @cups[start_pos].clear
+    next_pos = start_pos + 1
     
     until stones == 0
-      start_pos += 1
-      @cups[start_pos] << :stone
+      if start_pos.between?(0,5) && next_pos == 13 || start_pos.between?(7,12) && next_pos == 6
+        next_pos += 1
+        next≠
+      end
+
+      @cups[next_pos] << :stone
+      next_pos += 1
       stones -= 1
     end
   end
