@@ -74,6 +74,11 @@ class Board
   end
 
   def winner
+    player1_score = @cups[6].length
+    player2_score = @cups[13].length
+    return :draw if player1_score == player2_score
+
+    player1_score > player2_score ? @name1 : @name2
   end
 
   def create_cups
