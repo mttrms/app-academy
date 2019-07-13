@@ -34,7 +34,7 @@ class Board
     until stones == 0
       if start_pos.between?(0,5) && next_pos == 13 || start_pos.between?(7,12) && next_pos == 6
         next_pos += 1
-        next≠
+        next
       end
 
       @cups[next_pos] << :stone
