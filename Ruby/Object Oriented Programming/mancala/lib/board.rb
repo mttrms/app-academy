@@ -26,19 +26,15 @@ class Board
   end
 
   def make_move(start_pos, current_player_name)
-    # debugger
     stones = @cups[start_pos].length
     @cups[start_pos].clear
-    next_pos = start_pos + 1
+    next_pos = start_pos
     
     until stones == 0
-      if start_pos.between?(0,5) && next_pos == 13 || start_pos.between?(7,12) && next_pos == 6
-        next_pos += 1
-        next
-      end
-
+      next_pos = (next_pos + 1) % 13
+      
+      next if start_pos.between?(0,5) && next_pos == 13 || start_pos.between?(7,12) && next_pos == 6
       @cups[next_pos] << :stone
-      next_pos += 1
       stones -= 1
     end
   end
