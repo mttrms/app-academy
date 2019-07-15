@@ -1,12 +1,14 @@
 require_relative 'Manager'
 require_relative 'Employee'
 
-m = Manager.new("Matt", "SEO", 100)
-e = Employee.new("Test", "SEO", 100)
-e2 = Employee.new("test2", "SEO", 5000)
+ned = Manager.new("Ned", "Founder", 1000000)
+darren = Manager.new("Darren", "TA Manager", 78000, ned)
+shawna = Employee.new("Shawna", "TA", 12000, darren)
+david = Employee.new("David", "TA", 10000, darren)
 
-p m
-m.employees << e
-m.employees << e2
-p m.employees
-p m.bonus(2)
+ned.employees << darren
+darren.employees.push(shawna, david)
+
+p ned.bonus(5)
+p darren.bonus(4)
+p david.bonus(3)

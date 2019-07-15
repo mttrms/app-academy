@@ -8,7 +8,17 @@ class Manager < Employee
     @employees = []
   end
 
-  def bonus(multiplier)
-    @employees.reduce(0) { |acc, el| acc + el.salary } * multiplier
-  end 
+  def bonus(multiplier) 
+    sub_salaries * multiplier
+  end
+
+  def sub_salaries
+    salaries = 0
+    @employees.each do |employee|
+      salaries += employee.salary
+      salaries += employee.sub_salaries if employee.class == Manager
+    end
+
+    salaries
+  end
 end
