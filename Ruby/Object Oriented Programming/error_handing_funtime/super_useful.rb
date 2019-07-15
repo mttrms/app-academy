@@ -1,6 +1,12 @@
 # PHASE 2
 def convert_to_int(str)
-  Integer(str)
+  begin
+    num = Integer(str)
+  rescue StandardError
+    puts "Can't convert to an Integer. Must be a valid numeric string"
+  end
+  
+  num || nil
 end
 
 # PHASE 3
@@ -10,7 +16,7 @@ def reaction(maybe_fruit)
   if FRUITS.include? maybe_fruit
     puts "OMG, thanks so much for the #{maybe_fruit}!"
   else 
-    raise StandardError 
+    raise ArgumentError 
   end 
 end
 
