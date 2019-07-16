@@ -1,9 +1,10 @@
 require_relative 'piece'
+require_relative 'slideable'
 
 class Rook < Piece
   include Slideable
 
   def move_dirs
-    ["horizontal"]
+    horizontal_dirs + diagonal_dirs
   end
 end

@@ -1,34 +1,26 @@
 module Slideable
-  def grow_unblocked_moves_in_dir(dx, dy)
-    moves_in_dir = []
-
-    current_position = pos
-    possible_move = [pos[0] + dy, pos[1] + dx]
-    while @board[possible_move].class == NullPiece
-      moves_in_dir << possible_move
-      possible_move[0] += dy
-      possible_move[1] += dx
-    end
-    
-    moves_in_dir
-  end
-
   def horizontal_dirs
-    horizontal_moves = []
-
-    HORIZONTAL_DIRS.each do |dir|
-      dy, dx = dir
-      horizontal_moves += grow_unblocked_moves_in_dir(dx, dy)
-    end
-
-    horizontal_moves
+    HORIZONTAL_DIRS
   end
 
   def diagonal_dirs
+    DIAGONAL_DIRS
   end
 
   def moves
-    
+    possible_moves = Array.new
+
+    move_dirs.each do |move|
+      dy, dx = move
+      possible_moves += grow_unblocked_moves_in_dir(dx, dy)
+    end
+
+    possible_moves
+  end
+  
+  def grow_unblocked_moves_in_dir(dx, dy)
+    # Method that returns an array of every valid move in a given dx, dy
+    # Example: grow_unblocked_moves_in_dir(0, 1) # => Valid moves going DOWN
   end
 
   private
