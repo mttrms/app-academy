@@ -1,5 +1,8 @@
 class Piece
-  def initialize
-    
+  def initialize(pos)
+    @pos = pos
+  end
+
+  def moves
   end
 end
