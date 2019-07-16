@@ -1,4 +1,5 @@
 require_relative 'piece'
+require_relative 'null_piece'
 
 class Board
   attr_reader :rows
@@ -6,7 +7,13 @@ class Board
   def initialize
     @rows = Array.new(8) { Array.new (8) }
     @rows.each_with_index do |row, row_idx|
-      row.map!.with_index { |square, col_idx| Piece.new([row_idx, col_idx], self) if STARTING_ROWS.include?(row_idx) }
+      row.map!.with_index do |square, col_idx|
+        if STARTING_ROWS.include?(row_idx)
+          Piece.new([row_idx, col_idx], self) 
+        else
+          NullPiece.new
+        end
+      end
     end
   end
 
