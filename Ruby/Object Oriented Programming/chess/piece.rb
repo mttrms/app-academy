@@ -1,6 +1,9 @@
+require_relative 'slideable'
+
 class Piece
-  def initialize(pos)
+  def initialize(pos, board)
     @pos = pos
+    @board = board
   end
 
   def moves
