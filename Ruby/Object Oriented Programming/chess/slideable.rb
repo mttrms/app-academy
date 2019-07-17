@@ -19,8 +19,18 @@ module Slideable
   end
   
   def grow_unblocked_moves_in_dir(dx, dy)
-    # Method that returns an array of every valid move in a given dx, dy
-    # Example: grow_unblocked_moves_in_dir(0, 1) # => Valid moves going DOWN
+    # Set possible_move to 1 square away, in the dx/dy given.
+    possible_move = [pos[0] + dy, pos[1] + dx]
+    valid_moves = Array.new
+
+    while @board[possible_move].class == NullPiece
+      valid_moves << possible_move.clone
+      possible_move[0] += dy
+      possible_move[1] += dx
+      break if possible_move[0] < 0 || possible_move[1] < 0
+    end
+
+    valid_moves
   end
 
   private
