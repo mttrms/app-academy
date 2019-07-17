@@ -1,5 +1,5 @@
 class Bishop < Piece
-  include  Slideable
+  include Slideable
   
   def move_dirs
     diagonal_dirs
