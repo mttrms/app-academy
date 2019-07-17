@@ -47,17 +47,17 @@ class Board
     color = :black if [6, 7].include?(pos[0])
 
     if piece == :rook
-      Rook.new(pos, color, self)
+      Rook.new(color, pos, self)
     elsif piece == :pawn
-      Pawn.new(pos, color, self)
+      Pawn.new(color, pos, self)
     elsif piece == :knight
-      Knight.new(pos, color, self)
+      Knight.new(color, pos, self)
     elsif piece == :queen
-      Queen.new(pos, color, self)
+      Queen.new(color, pos, self)
     elsif piece == :bishop
-      Bishop.new(pos, color, self)
+      Bishop.new(color, pos, self)
     elsif piece == :king
-      King.new(pos, color, self)
+      King.new(color, pos, self)
     end
   end
 
