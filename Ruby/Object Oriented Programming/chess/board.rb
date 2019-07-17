@@ -63,8 +63,9 @@ class Board
 
   def move_piece(start_pos, end_pos)
     raise ArgumentError.new("There is no piece at #{start_pos}") if self[start_pos] == nil
-    raise ArgumentError.new("This piece cannot move to #{end_pos}") if self[end_pos] != nil
+    raise ArgumentError.new("This piece cannot move to #{end_pos}") if self[end_pos].class != NullPiece
 
     self[start_pos], self[end_pos] = self[end_pos], self[start_pos]
+    self[end_pos].pos = end_pos
   end
 end

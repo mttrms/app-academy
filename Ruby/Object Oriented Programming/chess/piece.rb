@@ -1,7 +1,7 @@
 require_relative 'slideable'
 
 class Piece
-  attr_reader :pos
+  attr_accessor :pos
   
   def initialize(color, pos, board)
     @color = color
