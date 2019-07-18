@@ -4,7 +4,7 @@ class Board
   attr_reader :rows
 
   def initialize
-    @rows = Array.new(8) { Array.new (8) { NullPiece.new }}
+    @rows = Array.new(8) { Array.new (8) { NullPiece.instance }}
     @rows.each_with_index do |row, row_idx|
 
       if [1, 6].include?(row_idx)
