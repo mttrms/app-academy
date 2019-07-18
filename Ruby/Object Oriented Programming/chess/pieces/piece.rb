@@ -1,5 +1,3 @@
-require_relative 'slideable'
-
 class Piece
   attr_accessor :pos
   
