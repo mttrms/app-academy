@@ -41,6 +41,10 @@ class Board
     rows[row][col] = val
   end
 
+  def valid_pos?(pos)
+    pos.all? { |coord| coord.between?(1, 7) }
+  end
+
   def add_piece(piece, pos)
     color = :white if [0, 1].include?(pos[0])
     color = :black if [6, 7].include?(pos[0])

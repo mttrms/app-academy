@@ -1,15 +1,15 @@
 class Pawn < Piece
   def move_dirs
-    forward_steps
+    forward_steps + side_attacks
   end
 
   private
   def at_start_row?
-    pos[0] == 1 || pos[0] == 6
+    @color == :white && pos[0] == 1 || @color == :black && pos[0] == 6
   end
 
   def forward_dir
-    @color == :white ? -1 : 1
+    @color == :white ? 1 : -1
   end
 
   def forward_steps
@@ -22,5 +22,13 @@ class Pawn < Piece
   end
 
   def side_attacks
+    side_attack_1 = [pos[0] + forward_dir, pos[1] - 1]
+    side_attack_2 = [pos[0] + forward_dir, pos[1] + 1]
+    attacks = [side_attack_1, side_attack_2]
+
+    attacks.select do |attack_pos|
+      next if @board[attack_pos].class == NullPiece
+      @board.valid_pos?(attack_pos) && @board[attack_pos].color != @color
+    end
   end
 end
