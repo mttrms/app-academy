@@ -1,4 +1,9 @@
 class Pawn < Piece
+
+  def symbol
+    '♟'
+  end
+
   def move_dirs
     forward_steps + side_attacks
   end
