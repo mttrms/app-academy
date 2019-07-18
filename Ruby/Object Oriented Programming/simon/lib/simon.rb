@@ -4,7 +4,9 @@ class Simon
   attr_accessor :sequence_length, :game_over, :seq
 
   def initialize
-
+    @game_over = false
+    @seq = []
+    @sequence_length = 1
   end
 
   def play
