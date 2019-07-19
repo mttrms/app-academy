@@ -30,9 +30,38 @@ class Simon
 
   def show_sequence
     add_random_color
+    
+    
+    @seq.each do |color|
+      print `clear`
+      puts "Sequence:"
+      sleep 0.4
+      puts color
+      sleep 0.4
+      print `clear`
+    end
+    
   end
 
   def require_sequence
+    puts "Guess the sequence. Example: GBYBBGR"
+    guess = gets.chomp
+
+    clean_guess = guess.split("").map do |char|
+      if char.downcase == "r"
+        "red"
+      elsif char.downcase == "b"
+        "blue"
+      elsif char.downcase == "g"
+        "green"
+      elsif char.downcase == "y"
+        "yellow"
+    end
+  end
+
+    sleep 1
+    p clean_guess
+    sleep 1
 
   end
 
