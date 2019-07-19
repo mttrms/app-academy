@@ -1,5 +1,13 @@
+require 'colorize'
+
 class Simon
   COLORS = %w(red blue green yellow)
+  COLORED_TEXT = {
+    "red" => :red,
+    "blue" => :light_cyan,
+    "green" => :light_green,
+    "yellow" => :light_yellow
+  }
 
   attr_accessor :sequence_length, :game_over, :seq
 
@@ -34,10 +42,10 @@ class Simon
     
     @seq.each do |color|
       print `clear`
-      puts "Sequence:"
-      sleep 0.4
-      puts color
-      sleep 0.4
+      puts "Remember me:"
+      sleep 0.3
+      puts "#{color}".colorize(COLORED_TEXT[color])
+      sleep 0.3
       print `clear`
     end
     
@@ -59,10 +67,7 @@ class Simon
     end
   end
 
-    sleep 1
-    p clean_guess
-    sleep 1
-
+  @game_over = true if @seq != clean_guess
   end
 
   def add_random_color
@@ -70,16 +75,18 @@ class Simon
   end
 
   def round_success_message
-
+    puts "Round won!"
+    sleep 0.5
   end
 
   def game_over_message
-
+    puts "You lose!"
   end
 
   def reset_game
     @game_over = false
     @seq = []
     @sequence_length = 1
+    nil
   end
 end
