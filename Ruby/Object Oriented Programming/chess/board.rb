@@ -42,7 +42,7 @@ class Board
   end
 
   def valid_pos?(pos)
-    pos.all? { |coord| coord.between?(1, 7) }
+    pos.all? { |coord| coord.between?(0, 7) }
   end
 
   def add_piece(piece, pos)
