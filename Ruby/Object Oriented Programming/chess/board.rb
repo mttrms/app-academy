@@ -71,4 +71,19 @@ class Board
     self[start_pos], self[end_pos] = self[end_pos], self[start_pos]
     self[end_pos].pos = end_pos
   end
+
+  def in_check?(color)
+    king_pos = []
+    (0..7).each do |i|
+      (0..7).each do |j|
+        pos = self[[i, j]]
+        king_pos = [i, j] if pos.class == King && pos.color == color
+      end
+    end
+
+    king_pos
+  end
+
+  def checkmate?(color)
+  end
 end
