@@ -8,5 +8,20 @@ class Display
   end
 
   def render
+    print `clear`
+    
+    @board.rows.each.with_index do |row, i|
+      row.each.with_index do |square, j|
+        if [i, j] == @cursor.cursor_pos
+          print "X"
+        else
+          print " #{square.to_s} "
+        end
+      end
+      puts ""
+    end
+    @cursor.get_input
+
+    nil
   end
 end
