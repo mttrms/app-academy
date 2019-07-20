@@ -9,19 +9,24 @@ class Display
 
   def render
     print `clear`
-
     @board.rows.each.with_index do |row, i|
       row.each.with_index do |square, j|
+        background_color = set_background([i, j])
         if [i, j] == @cursor.cursor_pos
-          print "X"
+          print " X "
         else
-          print " #{square.to_s} ".colorize(:color => square.color, :background => :light_blue)
+          print " #{square.to_s} ".colorize(:color => square.color, :background => background_color)
         end
       end
-      puts ""
+      puts "\n"
     end
     @cursor.get_input
+  end
 
-    nil
+  def set_background(pos)
+    row, col = pos
+    return :red if row % 2 == col % 2
+    
+    :light_cyan
   end
 end
