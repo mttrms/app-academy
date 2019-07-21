@@ -1,5 +1,3 @@
-require 'byebug'
-
 module Slideable
   def horizontal_dirs
     HORIZONTAL_DIRS
