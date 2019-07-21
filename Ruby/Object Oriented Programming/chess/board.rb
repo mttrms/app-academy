@@ -32,11 +32,13 @@ class Board
   end
 
   def [](pos)
+    return nil unless valid_pos?(pos)
     row, col = pos
     rows[row][col]
   end
 
   def []=(pos, val)
+    return nil unless valid_pos?(pos)
     row, col = pos
     rows[row][col] = val
   end
@@ -73,15 +75,26 @@ class Board
   end
 
   def in_check?(color)
-    king_pos = []
+    king_pos = find_king(color)
     (0..7).each do |i|
       (0..7).each do |j|
-        pos = self[[i, j]]
-        king_pos = [i, j] if pos.class == King && pos.color == color
+        next unless self[[i, j]].class != NullPiece && self[[i, j]].color != color
+        return true if self[[i, j]].moves.any? { |move| move == king_pos }
       end
     end
 
-    king_pos
+    false
+  end
+
+  def find_king(color)
+    (0..7).each do |i|
+      (0..7).each do |j|
+        pos = self[[i, j]]
+        return [i, j] if pos.class == King && pos.color == color
+      end
+    end
+
+    nil
   end
 
   def checkmate?(color)

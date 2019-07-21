@@ -1,3 +1,5 @@
+require 'byebug'
+
 module Slideable
   def horizontal_dirs
     HORIZONTAL_DIRS
@@ -8,7 +10,8 @@ module Slideable
   end
 
   def moves
-    possible_moves = Array.new
+    # debugger
+    possible_moves = []
 
     move_dirs.each do |move|
       dy, dx = move
@@ -21,7 +24,7 @@ module Slideable
   def grow_unblocked_moves_in_dir(dx, dy)
     # Set possible_move to 1 square away, in the dx/dy given.
     possible_move = [pos[0] + dy, pos[1] + dx]
-    valid_moves = Array.new
+    valid_moves = []
 
     while @board[possible_move].class == NullPiece
       valid_moves << possible_move.clone
