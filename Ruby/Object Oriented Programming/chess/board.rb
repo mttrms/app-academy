@@ -98,5 +98,16 @@ class Board
   end
 
   def checkmate?(color)
+    return false unless in_check?(color)
+
+    (0..7).each do |i|
+      (0..7).each do |j|
+        pos = self[[i ,j]]
+        next if pos.class == NullPiece || pos.color == color
+        return true if pos.valid_moves.any?
+      end
+    end
+
+    false
   end
 end
