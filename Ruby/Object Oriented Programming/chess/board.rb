@@ -118,7 +118,10 @@ class Board
     (0..7).each do |i|
       (0..7).each do |j|
         next if self[[i, j]].class == NullPiece
-        duped_board[[i, j]] = self[[i, j]].dup
+        piece = self[[i, j]]
+        duped_board.add_piece(piece.color, piece.class.to_s.downcase.to_sym, [i, j])
+        
+        # duped_board[[i, j]] = self[[i, j]].dup
         duped_board
       end
     end
