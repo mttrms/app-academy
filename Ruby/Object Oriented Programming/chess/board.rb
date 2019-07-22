@@ -104,10 +104,10 @@ class Board
       (0..7).each do |j|
         pos = self[[i ,j]]
         next if pos.class == NullPiece || pos.color == color
-        return true if pos.valid_moves.any?
+        return false if pos.valid_moves.any?
       end
     end
 
-    false
+    true
   end
 end
