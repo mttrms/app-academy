@@ -47,9 +47,11 @@ class Board
     pos.all? { |coord| coord.between?(0, 7) }
   end
 
-  def add_piece(piece, pos)
-    color = :white if [0, 1].include?(pos[0])
-    color = :black if [6, 7].include?(pos[0])
+  def add_piece(color = nil, piece, pos)
+    if color == nil
+      color = :white if [0, 1].include?(pos[0])
+      color = :black if [6, 7].include?(pos[0])
+    end
 
     if piece == :rook
       Rook.new(color, pos, self)
@@ -112,5 +114,14 @@ class Board
   end
 
   def dup
+    duped_board = Board.new
+    (0..7).each do |i|
+      (0..7).each do |j|
+        next if self[[i, j]].class == NullPiece
+        duped_board[[i, j]] = self[[i, j]].dup
+        duped_board
+      end
+    end
+    duped_board
   end
 end
