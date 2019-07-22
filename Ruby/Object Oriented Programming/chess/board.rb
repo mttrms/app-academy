@@ -103,11 +103,14 @@ class Board
     (0..7).each do |i|
       (0..7).each do |j|
         pos = self[[i ,j]]
-        next if pos.class == NullPiece || pos.color == color
+        next if pos.class == NullPiece || pos.color != color
         return false if pos.valid_moves.any?
       end
     end
 
     true
+  end
+
+  def dup
   end
 end
