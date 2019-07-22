@@ -24,16 +24,17 @@ module Slideable
     possible_move = [pos[0] + dy, pos[1] + dx]
     valid_moves = []
 
-    # Slide piece until it meets another piece
-    while @board[possible_move].class == NullPiece && @board.valid_pos?(possible_move)
-      valid_moves << possible_move.clone
+    until @board.valid_pos?(possible_move) == false
+      if @board[possible_move].class == NullPiece
+        valid_moves << possible_move.clone
+      elsif @board[possible_move].color != color
+        valid_moves << possible_move.clone
+        break
+      else
+        break
+      end
       possible_move[0] += dy
       possible_move[1] += dx
-
-      # If the first piece it encounters is an opponent, consider it a valid move
-      if @board[possible_move].class != NullPiece && @board[possible_move].color != color
-        valid_moves << possible_move.clone
-      end
     end
 
     valid_moves
