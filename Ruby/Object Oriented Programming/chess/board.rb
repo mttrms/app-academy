@@ -85,22 +85,18 @@ class Board
 
   def in_check?(color)
     king_pos = find_king(color)
-    (0..7).each do |i|
-      (0..7).each do |j|
-        next unless self[[i, j]].class != NullPiece && self[[i, j]].color != color
-        return true if self[[i, j]].moves.any? { |move| move == king_pos }
-      end
+    
+    pieces.each do |piece|
+      next unless piece.class != NullPiece && piece.color != color
+      return true if piece.moves.any? { |move| move == king_pos }
     end
 
     false
   end
 
   def find_king(color)
-    (0..7).each do |i|
-      (0..7).each do |j|
-        pos = self[[i, j]]
-        return [i, j] if pos.class == King && pos.color == color
-      end
+    pieces(color).each do |piece|
+      return piece.pos if piece.class == King
     end
 
     nil
@@ -109,15 +105,11 @@ class Board
   def checkmate?(color)
     return false unless in_check?(color)
 
-    (0..7).each do |i|
-      (0..7).each do |j|
-        pos = self[[i ,j]]
-        next if pos.class == NullPiece || pos.color != color
-        return false if pos.valid_moves.any?
-      end
+    pieces.none? do |piece|
+      next if piece.class == NullPiece || piece.color != color
+      piece.valid_moves.any?
     end
 
-    true
   end
 
   def dup
@@ -132,6 +124,22 @@ class Board
         end
       end
     end
+    
     duped_board
+  end
+
+  def pieces(color = nil)
+    all_pieces = []
+    (0..7).each do |i|
+      (0..7).each do |j|
+        if color == nil
+          all_pieces << self[[i, j]]
+        else
+          all_pieces << self[[i, j]] if self[[i, j]].color == color
+        end
+      end
+    end
+
+    all_pieces
   end
 end
