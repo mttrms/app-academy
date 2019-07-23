@@ -25,7 +25,7 @@ class Pawn < Piece
     moves = []
     col, row = pos
     moves << [col + forward_dir, row]
-    moves << [col + (forward_dir * 2), row] if at_start_row?
+    moves << [col + (forward_dir * 2), row] if at_start_row? && @board[[col + (forward_dir * 2), row]].class == NullPiece
 
     moves
   end
