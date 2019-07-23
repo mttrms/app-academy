@@ -22,8 +22,8 @@ class Display
 
   def set_background(pos)
     row, col = pos
-    return :red if row % 2 == col % 2
+    return :light_black if row % 2 == col % 2
     
-    :light_cyan
+    :light_blue
   end
 end
