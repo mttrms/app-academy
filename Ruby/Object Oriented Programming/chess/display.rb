@@ -14,6 +14,9 @@ class Display
     @board.rows.each.with_index do |row, i|
       row.each.with_index do |square, j|
         background_color = (:yellow if [i, j] == @cursor.cursor_pos) || set_background([i, j])
+        if @cursor.selected && [i, j] == @cursor.cursor_pos
+          background_color = :green
+        end
         print " #{square.to_s} ".colorize(:color => square.color, :background => background_color)
       end
       puts "\n"
