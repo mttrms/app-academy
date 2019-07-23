@@ -2,6 +2,8 @@ require 'colorize'
 require_relative 'cursor'
 
 class Display
+  attr_reader :board, :cursor
+
   def initialize(board)
     @board = board
     @cursor = Cursor.new([0,0], @board)
@@ -16,7 +18,6 @@ class Display
       end
       puts "\n"
     end
-    @cursor.get_input
   end
 
   def set_background(pos)
