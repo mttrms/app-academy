@@ -24,7 +24,7 @@ class Pawn < Piece
   def forward_steps
     moves = []
     col, row = pos
-    moves << [col + forward_dir, row]
+    moves << [col + forward_dir, row] if @board[[col + forward_dir, row]].class == NullPiece
     moves << [col + (forward_dir * 2), row] if at_start_row? && @board[[col + (forward_dir * 2), row]].class == NullPiece
 
     moves

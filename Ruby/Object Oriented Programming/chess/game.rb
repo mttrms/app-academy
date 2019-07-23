@@ -14,10 +14,9 @@ class Game
   end
 
   def play
-    # puts @players[@current_player]
-    # p @current_player
     until @board.checkmate?(@current_player)
       start_pos, end_pos = @players[@current_player].make_move
+      next if @board[start_pos].color != @current_player
       @board.move_piece(start_pos, end_pos)
       swap_turn!
     end
