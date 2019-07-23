@@ -15,9 +15,15 @@ class Game
 
   def play
     until @board.checkmate?(@current_player)
+      begin
       start_pos, end_pos = @players[@current_player].make_move
-      next if @board[start_pos].color != @current_player
-      @board.move_piece(start_pos, end_pos)
+      # next if @board[start_pos].color != @current_player
+      @board.move_piece(@current_player, start_pos, end_pos)
+      rescue StandardError => e
+        puts "#{e.message} – Try again."
+        sleep 2.5
+        retry
+      end
       swap_turn!
     end
   end
