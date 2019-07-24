@@ -77,7 +77,7 @@ class Board
     elsif !piece.moves.include?(end_pos)
       raise "Piece does not move like that."
     elsif !piece.valid_moves.include?(end_pos)
-      raise "You cannot move into check."
+      raise "You cannot move into / remain in check."
     end
 
     move_piece!(start_pos, end_pos)

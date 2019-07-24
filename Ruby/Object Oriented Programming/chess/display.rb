@@ -1,4 +1,5 @@
 require 'colorize'
+require 'byebug'
 require_relative 'cursor'
 
 class Display
@@ -7,6 +8,7 @@ class Display
   def initialize(board)
     @board = board
     @cursor = Cursor.new([0,0], @board)
+    @in_check = false
   end
 
   def render
@@ -21,6 +23,7 @@ class Display
       end
       puts "\n"
     end
+    puts "You are currently in check." if @in_check == true
   end
 
   def set_background(pos)
@@ -28,5 +31,9 @@ class Display
     return :light_black if row % 2 == col % 2
     
     :light_blue
+  end
+
+  def in_check(boolean)
+    @in_check = boolean
   end
 end
