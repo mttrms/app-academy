@@ -29,4 +29,4 @@ View some of my completed projects
 * [WordChainer](https://github.com/mttrms/app-academy/tree/master/Ruby/Recursion/word_chains) – Given two words of equal length, build a chain of words connecting them
 * [Minesweeper](https://github.com/mttrms/app-academy/tree/master/Ruby/Git/minesweeper) – Playable Minesweeper (CLI)
 * [Tic Tac Toe AI](https://github.com/mttrms/app-academy/tree/master/Ruby/Data%20Structures/Tic%20Tac%20Toe%20AI) – AI that can't be beaten at Tic Tac Toe
-* [Chess](https://github.com/mttrms/app-academy/tree/master/Ruby/Object%20Oriented%20Programming/chess) – WIP: Playable Chess (CLI)
+* [Chess](https://github.com/mttrms/app-academy/tree/master/Ruby/Object%20Oriented%20Programming/chess) – Playable Chess (CLI)
