@@ -20,4 +20,17 @@ class Array
 
     pairs
   end
+
+  def my_transpose
+    transposed = []
+
+    i = 0
+    while i < self.length
+      transposed << []
+      self.each { |el| transposed[i] << el[i] }
+      i += 1
+    end
+
+    transposed
+  end
 end

@@ -39,3 +39,31 @@ describe "Array#two_sum" do
     expect(my_arr.two_sum).to eq([[0, 4], [2, 3]])
   end
 end
+
+describe "Array#my_transpose" do
+  my_grid = [
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8]
+  ]
+
+  it "exists as an Array method" do
+    expect(my_grid).to respond_to(:my_transpose)
+  end
+  
+  it "returns an array" do
+    expect(my_grid.my_transpose).to be_an_instance_of(Array)
+  end
+
+  it "returns a new array" do
+    expect(my_grid.my_transpose).not_to be(my_grid)
+  end
+
+  it "transposes the grid" do
+    expect(my_grid.my_transpose).to eq([
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8]
+    ])
+  end
+end
