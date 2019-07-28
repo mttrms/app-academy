@@ -50,7 +50,6 @@ describe Tower do
       expect(tower.won?).to be false 
     end
 
-
     it "returns true when the discs have been moved" do
       tower.instance_variable_set(:@columns, [[], [], [5,4,3,2,1]])
       expect(tower.won?).to be true
