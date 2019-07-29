@@ -2,6 +2,23 @@ require_relative 'card'
 
 class Deck
   def initialize
+    @cards = Deck.cards
+    shuffle
+  end
+
+  def count
+    @cards.count
+  end
+
+  def shuffle
+  end
+
+  def take
+    @cards.pop
+  end
+
+  def inspect
+    "A deck of playing cards"
   end
 
   def self.cards
