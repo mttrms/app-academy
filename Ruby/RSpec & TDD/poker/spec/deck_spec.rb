@@ -16,16 +16,8 @@ describe Deck do
   end
 
   describe "#initialize" do
-    it "calls Deck.cards" do
-      expect(Deck).to receive(:cards)
-      Deck.new
-    end
-
-    it "says how many cards it has" do
+    it "creates 52 cards" do
       expect(deck.count).to eq(52)
-    end
-
-    it "calls #shuffle" do
     end
 
     it "cannot be viewed" do
@@ -33,8 +25,30 @@ describe Deck do
     end
   end
 
-
   describe "#shuffle" do
+    let(:cards) { deck.instance_variable_get(:@cards) }
+
+    before(:each) do
+      card_1 = Card.new(10, "H")
+      card_2 = Card.new("J", "S")
+      card_3 = Card.new("A", "D")
+      deck.instance_variable_set(:@cards, [card_1, card_2, card_3])
+    end
+
+    it "returns a new Array" do
+      expect(deck.shuffle).not_to be(cards)
+    end
+
+    it "returns the same cards" do
+      expect(deck.shuffle.all? { |card| cards.include?(card) })
+    end
+
+    it "randomizes the order of the cards" do
+      non_shuffled = cards.map { |card| [card.value, card.suit] }
+      shuffled = deck.shuffle.map { |card| [card.value, card.suit] }
+
+      expect(shuffled).not_to eq(non_shuffled)
+    end
   end
 
   describe "#take" do
