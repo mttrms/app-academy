@@ -51,6 +51,19 @@ describe Deck do
     end
   end
 
+  describe "#shuffle!" do
+    let(:cards) { deck.instance_variable_get(:@cards) }
+
+    it "shuffles the cards" do
+      original_order = cards.dup
+      expect(deck.shuffle!).not_to eq(original_order)
+    end
+
+    it "returns @cards" do
+      expect(deck.shuffle!).to be(cards)
+    end
+  end
+
   describe "#take" do
     it "returns a card" do
       expect(deck.take).to be_an_instance_of(Card)

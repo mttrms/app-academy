@@ -23,6 +23,10 @@ class Deck
     duplicate_deck?(shuffled_cards, @cards) ? shuffle : shuffled_cards
   end
 
+  def shuffle!
+    @cards = shuffle
+  end
+
   def take
     @cards.pop
   end
