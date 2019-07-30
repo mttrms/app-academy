@@ -23,5 +23,9 @@ describe Card do
     it "should make the card suit readable" do
       expect(card.suit).to eq("C")
     end
+
+    it "should rank the card" do
+      expect(card.rank).to eq(9)
+    end
   end
 end
