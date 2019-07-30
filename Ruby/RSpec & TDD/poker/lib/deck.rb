@@ -27,6 +27,13 @@ class Deck
     @cards.pop
   end
 
+  def deal(amount)
+    dealt_cards = Array.new
+    amount.times { dealt_cards << take }
+
+    dealt_cards
+  end
+
   def inspect
     "A deck of playing cards"
   end

@@ -73,5 +73,18 @@ describe Deck do
   end
 
   describe "#deal" do
+    it "deals a hand" do
+      card_1 = Card.new(10, "H")
+      card_2 = Card.new("J", "S")
+      card_3 = Card.new("A", "D")
+      deck.instance_variable_set(:@cards, [card_1, card_3, card_2])
+
+      expect(deck.deal(2)).to eq([card_2, card_3])
+    end
+
+    it "removes dealt cards from the deck" do
+      deck.deal(2)
+      expect(deck.count).to eq(50)
+    end
   end
 end
