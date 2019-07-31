@@ -210,4 +210,10 @@ describe "Hand" do
       expect(Hand.winner(@hand1, @hand2)).to be(@hand1)
     end
   end
+
+  describe "#discard" do
+  end
+
+  describe "#add" do
+  end
 end
