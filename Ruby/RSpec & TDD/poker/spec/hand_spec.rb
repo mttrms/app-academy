@@ -182,4 +182,40 @@ describe "Hand" do
       expect(hand.high_card).to be(@card3)
     end
   end
+
+  describe "Hand::winner" do
+    before(:each) do
+      @card1 = Card.new(10, "H")
+      @card2 = Card.new(10, "D")
+      @card3 = Card.new(10, "C")
+      @card4 = Card.new(5, "S")
+      @card5 = Card.new("Q", "S")
+      @card6 = Card.new("Q", "D")
+      @card7 = Card.new(2, "H")
+      @card8 = Card.new("A", "C")
+      @card9 = Card.new(4, "D")
+      @card10 = Card.new(3, "C")
+    end
+
+    it "returns the winning hand" do
+      @hand1 = Hand.new([@card1, @card2, @card3, @card4, @card5])
+      @hand2 = Hand.new([@card1, @card6, @card3, @card4, @card5])
+
+      expect(Hand.winner(@hand1, @hand2)).to be(@hand1)
+    end
+
+    it "returns the better hand when comparing the same type of hand" do
+      @hand1 = Hand.new([@card1, @card2, @card7, @card4, @card5])
+      @hand2 = Hand.new([@card5, @card6, @card1, @card4, @card7])
+
+      expect(Hand.winner(@hand1, @hand2)).to be(@hand2)
+    end
+
+    it "returns the higher card when comparing high cards" do
+      @hand1 = Hand.new([@card10, @card9, @card8, @card7, @card6])
+      @hand2 = Hand.new([@card10, @card9, @card7, @card6, @card3])
+
+      expect(Hand.winner(@hand1, @hand2)).to be(@hand1)
+    end
+  end
 end
