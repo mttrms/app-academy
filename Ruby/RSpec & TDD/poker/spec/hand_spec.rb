@@ -21,9 +21,10 @@ describe "Hand" do
       expect { hand.cards }.to raise_error(NoMethodError)
     end
 
-    it "only accepts 5 cards" do
+    it "only accepts 1-5 cards" do
       dealt_cards << card6
       expect { Hand.new(dealt_cards) }.to raise_error(ArgumentError)
+      expect { Hand.new }.to raise_error(ArgumentError)
 
       # remove the extra card
       dealt_cards.pop
@@ -211,9 +212,30 @@ describe "Hand" do
     end
   end
 
-  describe "#discard" do
-  end
+  context "adding and removing cards" do
+    let(:cards) { @hand.instance_variable_get(:@cards) }
 
-  describe "#add" do
+    before(:each) do
+      @card1 = Card.new(3, "C")
+      @card2 = Card.new(2, "C")
+      @card3 = Card.new("J", "C")
+      @card4 = Card.new(5, "C")
+      @card5 = Card.new("Q", "S")
+      @hand = Hand.new([@card1, @card2, @card3, @card4])
+    end
+    
+    describe "#discard" do
+      it "removes a card from the hand" do
+        @hand.discard(@card2)
+        expect(cards.values.flatten).to eq([@card1, @card3, @card4])
+      end
+    end
+
+    describe "#add" do
+      it "adds a card to the hand" do
+        @hand.add(@card5)
+        expect(cards.values.flatten).to eq([@card1, @card2, @card3, @card4, @card5])
+      end
+    end
   end
 end

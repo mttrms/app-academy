@@ -1,7 +1,15 @@
 class Hand
   def initialize(cards)
-    raise ArgumentError, "Hands must contain 5 cards" unless cards.length == 5
+    raise ArgumentError, "Hands must contain 1-5 cards" if (cards.length == 0 || cards.length > 5)
     @cards = Hand.card_hash(cards)
+  end
+
+  def add(card)
+    @cards[card.value] << card
+  end
+
+  def discard(card)
+    @cards[card.value].delete(card)
   end
   
   def playable_hands
