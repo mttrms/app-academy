@@ -14,7 +14,7 @@ describe "Hand" do
 
   describe "#initialize" do
     it "initializes with an array of cards" do
-      expect(cards).to eq(dealt_cards)
+      expect(cards.values.flatten).to eq(dealt_cards)
     end
 
     it "is hidden" do
@@ -30,16 +30,31 @@ describe "Hand" do
     end
   end
 
-  describe "Hand::calculate" do
+  describe "calculate" do
     hands = [:straight_flush, :four_of_a_kind, :full_house, :flush, :straight, :three_of_a_kind, :two_pair, :one_pair]
 
     it "returns a symbol representing a hand's rank" do
-      expect(hands).to include(Hand.calculate(dealt_cards))
+      expect(hands).to include(hand.calculate)
     end
 
     it "returns the high card when no better hands are found" do
       high_card_hand = Hand.new([card2, card3, card4, card5, card6])
-      expect(Hand.calculate(high_card_hand)).to be(card5)
+      expect(high_card_hand.calculate).to be(card5)
+    end
+  end
+
+  describe "#is_one_pair?" do
+    it "is true when hand contains one pair" do
+      expect(hand.is_one_pair?).to be true
+    end
+  end
+
+  describe "#is_two_pairs?" do
+    card3 = Card.new(5, "D")
+    hand = Hand.new([card1, card2, card3, card4, card5])
+
+    it "is true when hand contains two pairs" do
+      expect(hand.is_two_pairs?).to be true
     end
   end
 end
