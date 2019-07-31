@@ -30,8 +30,16 @@ describe "Hand" do
     end
   end
 
-  describe "calculate" do
-    hands = [:straight_flush, :four_of_a_kind, :full_house, :flush, :straight, :three_of_a_kind, :two_pair, :one_pair]
+  describe "#calculate" do
+    before(:each) do
+      hands = [:straight_flush, :four_of_a_kind, :full_house, :flush, :straight, :three_of_a_kind, :two_pair, :one_pair]
+      card1 = Card.new(10, "H")
+      card2 = Card.new(10, "D")
+      card3 = Card.new(2, "C")
+      card4 = Card.new(5, "S")
+      card5 = Card.new("Q", "S")
+      hand = [card1, card2, card3, card4, card5]
+    end
 
     it "returns a symbol representing a hand's rank" do
       expect(hands).to include(hand.calculate)
@@ -78,54 +86,60 @@ describe "Hand" do
   end
 
   describe "#straight?" do
-    card1 = Card.new(3, "C")
-    card2 = Card.new(2, "C")
-    card3 = Card.new(4, "C")
-    card4 = Card.new(5, "C")
-    card5 = Card.new(6, "C")
-    hand = Hand.new([card1, card2, card3, card4, card5])
+    before(:each) do
+      @card1 = Card.new(3, "C")
+      @card2 = Card.new(2, "C")
+      @card3 = Card.new(4, "C")
+      @card4 = Card.new(5, "C")
+      @card5 = Card.new(6, "C")
+    end
 
     it "is true when the hand contains 5 sequential cards" do
-      expect(hand.straight?).to be true
+      straight_hand = Hand.new([@card1, @card2, @card3, @card4, @card5])
+      expect(straight_hand.straight?).to be true
     end
 
     it "is true when the hand contains a low ace" do
-      card5 = Card.new("A", "H")
-      hand = Hand.new([card1, card2, card3, card4, card5])
+      @card5 = Card.new("A", "H")
+      hand = Hand.new([@card1, @card2, @card3, @card4, @card5])
 
       expect(hand.straight?).to be true
     end
   end
 
   describe "#flush?" do
-    card1 = Card.new(3, "C")
-    card2 = Card.new(2, "C")
-    card3 = Card.new(4, "C")
-    card4 = Card.new(5, "C")
-    card5 = Card.new(6, "C")
-    hand = Hand.new([card1, card2, card3, card4, card5])
+    before(:each) do
+      @card1 = Card.new(3, "C")
+      @card2 = Card.new(2, "C")
+      @card3 = Card.new(4, "C")
+      @card4 = Card.new(5, "C")
+      @card5 = Card.new(6, "C")
+    end
 
     it "is true when the hand contains 5 cards of the same suit" do
+      hand = Hand.new([@card1, @card2, @card3, @card4, @card5])
       expect(hand.flush?).to be true
     end
 
     it "is false when the hand contains 4 of the same suit" do
-      card5 = Card.new(6, "D")
-      hand = Hand.new([card1, card2, card3, card4, card5])
+      @card5 = Card.new(6, "D")
+      hand = Hand.new([@card1, @card2, @card3, @card4, @card5])
 
       expect(hand.flush?).to be false 
     end
   end
 
   describe "#high_card" do
-    lowcard1 = Card.new(3, "C")
-    lowcard2 = Card.new(2, "C")
-    highcard1 = Card.new("J", "C")
-    lowcard3 = Card.new(5, "C")
-    lowcard4 = Card.new(6, "C")
-    hand = Hand.new([lowcard1, lowcard2, highcard1, lowcard3, lowcard4])
+    before(:each) do
+      @card1 = Card.new(3, "C")
+      @card2 = Card.new(2, "C")
+      @card3 = Card.new("J", "C")
+      @card4 = Card.new(5, "C")
+      @card5 = Card.new(6, "C")
+    end
     it "returns the highest value card in a hand" do
-      expect(hand.high_card).to be(highcard1)
+      hand = Hand.new([@card1, @card2, @card3, @card4, @card5])
+      expect(hand.high_card).to be(@card3)
     end
   end
 end
