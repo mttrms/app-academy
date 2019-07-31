@@ -10,6 +10,10 @@ class Hand
   def is_straight_flush?
   end
 
+  def high_card
+    @cards.values.flatten.reduce { |best_card, card| card.rank > best_card.rank ? card : best_card }
+  end
+
   def one_pair?
     @cards.keys.any? { |card| @cards[card].length == 2 }
   end

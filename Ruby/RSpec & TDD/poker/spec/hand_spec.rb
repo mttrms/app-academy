@@ -116,4 +116,16 @@ describe "Hand" do
       expect(hand.flush?).to be false 
     end
   end
+
+  describe "#high_card" do
+    lowcard1 = Card.new(3, "C")
+    lowcard2 = Card.new(2, "C")
+    highcard1 = Card.new("J", "C")
+    lowcard3 = Card.new(5, "C")
+    lowcard4 = Card.new(6, "C")
+    hand = Hand.new([lowcard1, lowcard2, highcard1, lowcard3, lowcard4])
+    it "returns the highest value card in a hand" do
+      expect(hand.high_card).to be(highcard1)
+    end
+  end
 end
