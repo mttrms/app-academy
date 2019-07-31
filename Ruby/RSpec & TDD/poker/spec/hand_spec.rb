@@ -51,6 +51,29 @@ describe "Hand" do
     end
   end
 
+  describe "#play" do
+    before(:each) do
+      @card1 = Card.new(10, "H")
+      @card2 = Card.new(10, "D")
+      @card3 = Card.new(5, "C")
+      @card4 = Card.new(5, "S")
+      @card5 = Card.new("Q", "S")
+      @hand = Hand.new([@card1, @card2, @card3, @card4, @card5])
+    end
+
+    it "returns the best hand that can be played" do
+      expect(@hand.play).to eq(:two_pairs)
+    end
+
+    it "returns the high card when no hands can be played" do
+      @card2 = Card.new(3, "C")
+      @card3 = Card.new(2, "H")
+      @hand = Hand.new([@card1, @card2, @card3, @card4, @card5])
+
+      expect(@hand.play).to be(@card5)
+    end
+  end
+
   describe "#one_pair?" do
     it "is true when hand contains one pair" do
       expect(hand.one_pair?).to be true

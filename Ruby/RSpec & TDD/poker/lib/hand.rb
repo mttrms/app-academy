@@ -17,6 +17,14 @@ class Hand
     }
   end
 
+  def play
+    playable_hands.each do |hand, playable|
+      return hand if playable == true
+    end
+
+    high_card
+  end
+
   def high_card
     @cards.values.flatten.reduce { |best_card, card| card.rank > best_card.rank ? card : best_card }
   end
