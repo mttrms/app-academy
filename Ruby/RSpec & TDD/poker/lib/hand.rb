@@ -6,14 +6,14 @@ class Hand
   
   def playable_hands
     hands = {
-      :one_pair => one_pair?,
-      :two_pairs => two_pairs?,
-      :three_of_a_kind => three_of_a_kind?,
-      :four_of_a_kind => four_of_a_kind?,
-      :straight => straight?,
-      :flush => flush?,
       :straight_flush => straight? && flush?,
-      :full_house => one_pair? && three_of_a_kind?
+      :four_of_a_kind => four_of_a_kind?,
+      :full_house => one_pair? && three_of_a_kind?,
+      :flush => flush?,
+      :straight => straight?,
+      :three_of_a_kind => three_of_a_kind?,
+      :two_pairs => two_pairs?,
+      :one_pair => one_pair?
     }
   end
 

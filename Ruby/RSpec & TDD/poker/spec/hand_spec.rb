@@ -32,7 +32,7 @@ describe "Hand" do
 
   describe "#playable_hands" do
     before(:each) do
-      @hands = [:one_pair, :two_pairs, :three_of_a_kind, :four_of_a_kind, :straight, :flush, :straight_flush, :full_house]
+      @hands = [:straight_flush, :four_of_a_kind, :full_house, :flush, :straight, :three_of_a_kind, :two_pairs, :one_pair]
       @card1 = Card.new(10, "H")
       @card2 = Card.new(10, "D")
       @card3 = Card.new(2, "C")
