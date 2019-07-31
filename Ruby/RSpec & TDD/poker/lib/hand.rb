@@ -28,15 +28,12 @@ class Hand
 
   def straight?
     card_ranks = @cards.values.flatten.map { |card| card.rank }
-    card_values = card_ranks.sort
-    straight = card_values.each_cons(2).all? { |i, j| j == i + 1 }
+    straight = card_ranks.sort.each_cons(2).all? { |i, j| j == i + 1 }
+    return straight if straight == true || !@cards.key?("A")
 
-    return straight if straight == true
-
-    if @cards.key?("A")
-      card_values.map! { |value| value == 13 ? 0 : value }
-      card_values.sort.each_cons(2).all? { |i, j| j == i + 1 }
-    end
+    # Map Ace to low, sort, check for Ace-low straight
+    card_ranks.map! { |value| value == 13 ? 0 : value }
+    card_ranks.sort.each_cons(2).all? { |i, j| j == i + 1 }
   end
 
   def self.card_hash(hand)
