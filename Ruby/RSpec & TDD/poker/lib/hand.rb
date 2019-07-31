@@ -1,6 +1,6 @@
 class Hand
-  def initialize(cards)
-    raise ArgumentError, "Hands must contain 1-5 cards" if (cards.length == 0 || cards.length > 5)
+  def initialize(cards = [])
+    raise ArgumentError, "Hands must contain 0-5 cards" if cards.length > 5
     @cards = Hand.card_hash(cards)
   end
 

@@ -24,7 +24,6 @@ describe "Hand" do
     it "only accepts 1-5 cards" do
       dealt_cards << card6
       expect { Hand.new(dealt_cards) }.to raise_error(ArgumentError)
-      expect { Hand.new }.to raise_error(ArgumentError)
 
       # remove the extra card
       dealt_cards.pop
