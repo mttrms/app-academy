@@ -4,10 +4,17 @@ class Hand
     @cards = Hand.card_hash(cards)
   end
   
-  def calculate
-  end
-
-  def is_straight_flush?
+  def playable_hands
+    hands = {
+      :one_pair => one_pair?,
+      :two_pairs => two_pairs?,
+      :three_of_a_kind => three_of_a_kind?,
+      :four_of_a_kind => four_of_a_kind?,
+      :straight => straight?,
+      :flush => flush?,
+      :straight_flush => straight? && flush?,
+      :full_house => one_pair? && three_of_a_kind?
+    }
   end
 
   def high_card

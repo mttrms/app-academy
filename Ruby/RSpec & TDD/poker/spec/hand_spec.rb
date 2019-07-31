@@ -30,24 +30,24 @@ describe "Hand" do
     end
   end
 
-  describe "#calculate" do
+  describe "#playable_hands" do
     before(:each) do
-      hands = [:straight_flush, :four_of_a_kind, :full_house, :flush, :straight, :three_of_a_kind, :two_pair, :one_pair]
-      card1 = Card.new(10, "H")
-      card2 = Card.new(10, "D")
-      card3 = Card.new(2, "C")
-      card4 = Card.new(5, "S")
-      card5 = Card.new("Q", "S")
-      hand = [card1, card2, card3, card4, card5]
+      @hands = [:one_pair, :two_pairs, :three_of_a_kind, :four_of_a_kind, :straight, :flush, :straight_flush, :full_house]
+      @card1 = Card.new(10, "H")
+      @card2 = Card.new(10, "D")
+      @card3 = Card.new(2, "C")
+      @card4 = Card.new(5, "S")
+      @card5 = Card.new("Q", "S")
+      @hand = Hand.new([@card1, @card2, @card3, @card4, @card5])
     end
 
-    it "returns a symbol representing a hand's rank" do
-      expect(hands).to include(hand.calculate)
+    it "returns a hash representing all possible hands" do
+      expect(@hand.playable_hands.keys).to eq(@hands)
     end
 
-    it "returns the high card when no better hands are found" do
-      high_card_hand = Hand.new([card2, card3, card4, card5, card6])
-      expect(high_card_hand.calculate).to be(card5)
+    it "sets a hand to true if it's playable" do
+      expect(@hand.playable_hands[:one_pair]).to be true
+      expect(@hand.playable_hands[:two_pairs]).to be false
     end
   end
 
