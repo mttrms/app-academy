@@ -36,6 +36,11 @@ class Hand
     card_ranks.sort.each_cons(2).all? { |i, j| j == i + 1 }
   end
 
+  def flush?
+    card_suits = @cards.values.flatten.map { |card| card.suit }
+    card_suits.uniq.size <= 1
+  end
+
   def self.card_hash(hand)
     card_hash = Hash.new { |h,k| h[k] = Array.new }
     hand.each do |card|

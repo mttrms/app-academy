@@ -98,5 +98,22 @@ describe "Hand" do
   end
 
   describe "#flush?" do
+    card1 = Card.new(3, "C")
+    card2 = Card.new(2, "C")
+    card3 = Card.new(4, "C")
+    card4 = Card.new(5, "C")
+    card5 = Card.new(6, "C")
+    hand = Hand.new([card1, card2, card3, card4, card5])
+
+    it "is true when the hand contains 5 cards of the same suit" do
+      expect(hand.flush?).to be true
+    end
+
+    it "is false when the hand contains 4 of the same suit" do
+      card5 = Card.new(6, "D")
+      hand = Hand.new([card1, card2, card3, card4, card5])
+
+      expect(hand.flush?).to be false 
+    end
   end
 end
