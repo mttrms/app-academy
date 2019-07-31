@@ -13,7 +13,8 @@ class Hand
       :straight => straight,
       :three_of_a_kind => three_of_a_kind,
       :two_pairs => two_pairs,
-      :one_pair => one_pair
+      :one_pair => one_pair,
+      :high_card => high_card
     }
   end
 
@@ -22,7 +23,7 @@ class Hand
       return hand if playable
     end
 
-    high_card
+    # high_card
   end
 
   def high_card
@@ -116,4 +117,37 @@ class Hand
 
     card_hash
   end
+
+  def self.winner(hand1, hand2)
+    hand1_play = hand1.play
+    hand2_play = hand2.play
+    if HAND_RANKINGS[hand1_play] > HAND_RANKINGS[hand2_play]
+      hand1
+    elsif HAND_RANKINGS[hand1_play] < HAND_RANKINGS[hand2_play]
+      hand2
+    elsif HAND_RANKINGS[hand1_play] == HAND_RANKINGS[hand2_play]
+      if hand1_play == :full_house
+        hand1.playable_hands[:three_of_a_kind].first.rank > hand2.playable_hands[:three_of_a_kind].first.rank ? hand1 : hand2
+      elsif hand1_play == :high_card
+        hand1.playable_hands[hand1_play].rank > hand2.playable_hands[hand2_play].rank ? hand1 : hand2
+      else
+        hand1_high = hand1.playable_hands[hand1_play].sort_by(&:rank).reverse.first
+        hand2_high = hand2.playable_hands[hand2_play].sort_by(&:rank).reverse.first
+
+        hand1_high.rank > hand2_high.rank ? hand1 : hand2
+      end
+    end
+  end
+
+  HAND_RANKINGS = {
+    :straight_flush => 8,
+    :four_of_a_kind => 7,
+    :full_house => 6,
+    :flush => 5,
+    :straight => 4,
+    :three_of_a_kind => 3,
+    :two_pairs => 2,
+    :one_pair => 1,
+    :high_card => 0
+  }
 end
