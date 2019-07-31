@@ -78,8 +78,8 @@ describe "Hand" do
   end
 
   describe "#straight?" do
-    card1 = Card.new(2, "C")
-    card2 = Card.new(3, "C")
+    card1 = Card.new(3, "C")
+    card2 = Card.new(2, "C")
     card3 = Card.new(4, "C")
     card4 = Card.new(5, "C")
     card5 = Card.new(6, "C")
