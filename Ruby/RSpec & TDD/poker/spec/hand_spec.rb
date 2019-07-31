@@ -43,18 +43,27 @@ describe "Hand" do
     end
   end
 
-  describe "#is_one_pair?" do
+  describe "#one_pair?" do
     it "is true when hand contains one pair" do
-      expect(hand.is_one_pair?).to be true
+      expect(hand.one_pair?).to be true
     end
   end
 
-  describe "#is_two_pairs?" do
+  describe "#two_pairs?" do
     card3 = Card.new(5, "D")
     hand = Hand.new([card1, card2, card3, card4, card5])
 
     it "is true when hand contains two pairs" do
-      expect(hand.is_two_pairs?).to be true
+      expect(hand.two_pairs?).to be true
+    end
+  end
+
+  describe "#three_of_a_kind?" do
+    card3 = Card.new(10, "C")
+    hand = Hand.new([card1, card2, card3, card4, card5])
+
+    it "is true when hand contains three of a kind" do
+      expect(hand.three_of_a_kind?).to be true
     end
   end
 end

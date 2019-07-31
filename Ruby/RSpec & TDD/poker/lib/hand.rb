@@ -10,12 +10,16 @@ class Hand
   def is_straight_flush?
   end
 
-  def is_one_pair?
+  def one_pair?
     @cards.keys.any? { |card| @cards[card].length == 2 }
   end
 
-  def is_two_pairs?
+  def two_pairs?
     @cards.keys.count { |card| @cards[card].length == 2 } == 2 
+  end
+
+  def three_of_a_kind?
+    @cards.keys.any? { |card| @cards[card].length == 3 } 
   end
 
   def self.card_hash(hand)
