@@ -4,6 +4,10 @@ class Hand
     @cards = Hand.card_hash(cards)
   end
 
+  def to_s
+    @cards.values.flatten.map { |card| [card.value, card.suit] }
+  end
+
   def add(card)
     @cards[card.value] << card
   end
