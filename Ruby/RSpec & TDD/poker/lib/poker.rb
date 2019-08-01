@@ -101,14 +101,30 @@ class Poker
 
   def end_round
     active_hands = Hash.new
+    winner = nil
 
     @players.each_with_index do |player, i|
       next if player.folded?
-
       active_hands[player] = player.hand
     end
 
-    active_hands
+    active_hands.each do |player, hand|
+      if winner == nil
+        winner = hand 
+        next
+      end
+
+      Hand.winner(winner, hand) == active_hands[winner] ? winner : winner = hand
+    end
+
+    @players.each_with_index do |player, i|
+      if player.hand == winner
+        puts "Player #{i} wins!"
+        puts player.hand.play
+      end
+    end
+
+    nil
   end
 
   def increase_pot(n)
