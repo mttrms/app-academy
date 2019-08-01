@@ -41,10 +41,11 @@ describe "Player" do
   end
 
   describe "#deal" do
-    it "should set the player's hand to the dealt cards" do
-      hand = double("Hand", :class => Hand)
-      player.deal(hand)
-      expect(player.hand).to be(hand)
+    it "should set the player's hand" do
+      player.instance_variable_set(:@hand, nil)
+      cards = []
+      player.deal(cards)
+      expect(player.hand).to be_a(Hand)
     end
   end
 

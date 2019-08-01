@@ -1,3 +1,5 @@
+require_relative 'hand'
+
 class Player
   attr_reader :name, :hand, :money, :folded
 
@@ -26,9 +28,9 @@ class Player
     @hand = nil
   end
 
-  def deal(hand)
-    raise ArgumentError, "must be a hand" unless hand.class == Hand
-    @hand = hand
+  def deal(cards)
+    raise ArgumentError, "must be an array" unless cards.class == Array
+    @hand = Hand.new(cards)
   end
 
   def pay(amount)
