@@ -27,7 +27,7 @@ class Player
   end
 
   def deal(hand)
-    raise ArgumentError("must be a hand") unless hand.class == Hand
+    raise ArgumentError, "must be a hand" unless hand.class == Hand
     @hand = hand
   end
 
@@ -35,6 +35,14 @@ class Player
     @money += amount
 
     amount
+  end
+
+  def trade_cards
+    puts "Trade up to 3 cards (1,3,4)"
+    traded_cards = gets.chomp.delete(' ').split(',').map(&:to_i).map { |idx| idx -= 1 }
+    raise ArgumentError, "Must trade 0-3 cards" if traded_cards.length > 3
+
+    traded_cards
   end
 end
 
