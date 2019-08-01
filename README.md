@@ -18,6 +18,7 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 * [Git](https://github.com/mttrms/app-academy/tree/master/Ruby/Git)
 * [Data Structures](https://github.com/mttrms/app-academy/tree/master/Ruby/Data%20Structures)
 * [Object Oriented Programming](https://github.com/mttrms/app-academy/tree/master/Ruby/Object%20Oriented%20Programming)
+* [RSpec & TDD](https://github.com/mttrms/app-academy/tree/master/Ruby/RSpec%20%26%20TDD)
 
 ## Completed Projects
 View some of my completed projects
@@ -30,3 +31,4 @@ View some of my completed projects
 * [Minesweeper](https://github.com/mttrms/app-academy/tree/master/Ruby/Git/minesweeper) – Playable Minesweeper (CLI)
 * [Tic Tac Toe AI](https://github.com/mttrms/app-academy/tree/master/Ruby/Data%20Structures/Tic%20Tac%20Toe%20AI) – AI that can't be beaten at Tic Tac Toe
 * [Chess](https://github.com/mttrms/app-academy/tree/master/Ruby/Object%20Oriented%20Programming/chess) – Playable Chess (CLI)
+* [Poker](https://github.com/mttrms/app-academy/tree/master/Ruby/RSpec%20%26%20TDD/poker) – TDD Poker (CLI)
