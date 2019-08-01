@@ -21,7 +21,7 @@ describe "Player" do
   describe "#fold" do
     it "should set the player to folded" do
       player.fold
-      expect(player.folded?).to be true
+      expect(player.folded).to be true
     end
   end
 
@@ -29,7 +29,7 @@ describe "Player" do
     it "should set the player as not folded" do
       player.fold
       player.unfold
-      expect(player.folded?).to be false
+      expect(player.folded).to be false
     end
   end
 
@@ -37,6 +37,14 @@ describe "Player" do
     it "should set the player's hand to nil" do
       player.give_cards
       expect(player.hand).to be_nil
+    end
+  end
+
+  describe "#deal" do
+    it "should set the player's hand to the dealt cards" do
+      hand = double("Hand", :class => Hand)
+      player.deal(hand)
+      expect(player.hand).to be(hand)
     end
   end
 
