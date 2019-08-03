@@ -43,4 +43,23 @@ ol {
   font-weight: bold;
 }
 
+input[type="radio"], input[type="submit"], select {
+	cursor: pointer;
+	outline: none;
+}
 
+input[type="submit"]:last-child {
+	background-color: gold;
+}
+
+input[type="submit"]:last-child:hover {
+	-webkit-filter: brightness(90%);
+}
+
+ol li:nth-child(2n) {
+	background-color: lightgray;
+}
+
+#reviews > h2 + div.user_review {
+	border-top: 1px solid #000;
+}
