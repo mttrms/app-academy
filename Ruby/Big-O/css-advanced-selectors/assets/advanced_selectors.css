@@ -48,6 +48,22 @@ input[type="radio"], input[type="submit"], select {
 	outline: none;
 }
 
+input[type="radio"] {
+	-webkit-appearance: none;
+	vertical-align: bottom;
+	background-image: url("stars.png");
+	height: 30px;
+	width: 30px;
+}
+
+input[type="radio"]:hover {
+	background-position: 0px 60px;
+}
+
+input[type="radio"]:checked {
+	background-position: 0px 30px;
+}
+
 input[type="submit"]:last-child {
 	background-color: gold;
 }
@@ -57,9 +73,9 @@ input[type="submit"]:last-child:hover {
 }
 
 ol li:nth-child(2n) {
-	background-color: lightgray;
+	background-color: whitesmoke;
 }
 
-#reviews > h2 + div.user_review {
+h2 + div.user_review {
 	border-top: 1px solid #000;
 }
