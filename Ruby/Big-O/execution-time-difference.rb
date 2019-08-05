@@ -27,8 +27,10 @@ p my_min(list)
 # list = [5, 3, -7]
 # largest_contiguous_subsum(list) # => 8
 
-# O(n^2)
+# O(n^3)
 list = [5, 3, -7]
+long_list = [2, 3, -6, 7, -6, 7]
+
 def largest_contiguous_subsum(list)
   subs = []
 
@@ -42,3 +44,23 @@ def largest_contiguous_subsum(list)
 end
 
 p largest_contiguous_subsum(list)
+
+# O(n) time w/ O(1) memory
+def lcs(list)
+  largest_sum = list[0]
+  current_sum = list[0]
+
+  return list.max if list.all? { |num| num < 0 }
+
+  list[1..-1].each do |num|
+   current_sum = 0 if current_sum < 0 
+   current_sum += num
+   largest_sum = current_sum if current_sum > largest_sum
+  end
+
+  largest_sum
+end
+
+p "lcs"
+p lcs(list)
+p lcs(long_list)
