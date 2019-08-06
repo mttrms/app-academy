@@ -74,8 +74,6 @@ class MyStack
 end
 
 class StackQueue
-  attr_reader :active_stack
-
   def initialize
     @queue_stack = MyStack.new
     @dequeue_stack = MyStack.new
@@ -106,5 +104,47 @@ class StackQueue
     end
 
     @dequeue_stack.pop
+  end
+end
+
+class MinMaxStack
+  def initialize
+    @store = []
+    @max_values = []
+    @min_values = []
+  end
+
+  def peek
+    @store.last
+  end
+
+  def size
+    @store.size
+  end
+
+  def empty?
+    @store.empty?
+  end
+
+  def max
+    @max_values.last
+  end
+
+  def min
+    @min_values.last
+  end
+
+  def pop
+    @max_values.pop if @store.last == max
+    @min_values.pop if @store.last == min
+
+    @store.pop
+  end
+
+  def push(num)
+    @max_values.push(num) if @store.empty? || num >= max
+    @min_values.push(num) if @store.empty? || num <= min
+
+    @store.push(num)
   end
 end
