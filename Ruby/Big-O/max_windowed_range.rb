@@ -110,12 +110,10 @@ end
 class MinMaxStack
   def initialize
     @store = []
-    @max_values = []
-    @min_values = []
   end
 
   def peek
-    @store.last
+    @store.last[:value]
   end
 
   def size
@@ -127,25 +125,31 @@ class MinMaxStack
   end
 
   def max
-    @max_values.last
+    @store.last[:max]
   end
 
   def min
-    @min_values.last
+    @store.last[:min]
+  end
+
+  def set_max(num)
+    empty? ? num : [num, max].max
+  end
+
+  def set_min(num)
+    empty? ? num : [num, min].min
   end
 
   def pop
-    @max_values.pop if @store.last == max
-    @min_values.pop if @store.last == min
-
     @store.pop
   end
 
   def push(num)
-    @max_values.push(num) if @store.empty? || num >= max
-    @min_values.push(num) if @store.empty? || num <= min
-
-    @store.push(num)
+    @store.push({
+      value: num,
+      min: set_min(num),
+      max: set_max(num),
+    })
   end
 end
 
