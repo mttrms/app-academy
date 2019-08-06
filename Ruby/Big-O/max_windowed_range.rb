@@ -72,3 +72,39 @@ class MyStack
     @store << element
   end
 end
+
+class StackQueue
+  attr_reader :active_stack
+
+  def initialize
+    @queue_stack = MyStack.new
+    @dequeue_stack = MyStack.new
+    @active_stack = @queue_stack
+  end
+
+  def size
+    @active_stack.size
+  end
+
+  def empty?
+    @active_stack.empty?
+  end
+
+  def enqueue(element)
+    @active_stack = @queue_stack
+    until @dequeue_stack.empty?
+      @queue_stack.push(@dequeue_stack.pop)
+    end
+
+    @queue_stack.push(element)
+  end
+
+  def dequeue
+    @active_stack = @dequeue_stack
+    until @queue_stack.empty?
+      @dequeue_stack.push(@queue_stack.pop)
+    end
+
+    @dequeue_stack.pop
+  end
+end
