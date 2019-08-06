@@ -148,3 +148,45 @@ class MinMaxStack
     @store.push(num)
   end
 end
+
+class MinMaxStackQueue
+  def initialize
+    @queue_stack = MinMaxStack.new
+    @dequeue_stack = MinMaxStack.new
+    @active_stack = @queue_stack
+  end
+
+  def size
+    @active_stack.size
+  end
+
+  def empty?
+    @active_stack.empty?
+  end
+
+  def enqueue(num)
+    @active_stack = @queue_stack
+    until @dequeue_stack.empty?
+      @queue_stack.push(@dequeue_stack.pop)
+    end
+
+    @queue_stack.push(num)
+  end
+
+  def dequeue
+    @active_stack = @dequeue_stack
+    until @queue_stack.empty?
+      @dequeue_stack.push(@queue_stack.pop)
+    end
+
+    @dequeue_stack.pop
+  end
+
+  def max
+    @active_stack.max
+  end
+
+  def min
+    @active_stack.min
+  end
+end
