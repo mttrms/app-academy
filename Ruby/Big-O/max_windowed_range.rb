@@ -1,26 +1,3 @@
-# Given an array, and a window size w, find the maximum range (max - min) within a set of w elements.
-
-def max_windowed_range(arr, window_size)
-  current_max_range = nil
-
-  (0..arr.length - window_size).each do |idx|
-    window = arr[idx...idx + window_size]
-    min = window.min
-    max = window.max
-    
-    if current_max_range.nil? || (max - min) > current_max_range
-      current_max_range = (max - min) 
-    end
-  end
-  
-  current_max_range
-end
-
-p max_windowed_range([1, 0, 2, 5, 4, 8], 2)
-p max_windowed_range([1, 0, 2, 5, 4, 8], 3)
-p max_windowed_range([1, 0, 2, 5, 4, 8], 4)
-p max_windowed_range([1, 3, 2, 5, 4, 8], 5)
-
 class MyQueue
   def initialize
     @store = []
@@ -187,3 +164,29 @@ class MinMaxStackQueue
     @queue_stack.min
   end
 end
+
+# Given an array, and a window size w, find the maximum range (max - min) within a set of w elements.
+
+def max_windowed_range(arr, window_size)
+  max_range = nil
+  queue = MinMaxStackQueue.new
+
+  arr.each do |num|
+    queue.enqueue(num)
+    queue.dequeue if queue.size > window_size
+
+    if queue.size == window_size
+      min = queue.min
+      max = queue.max
+      max_range = (max - min) if max_range.nil? || (max - min) > max_range
+    end
+  end
+  
+  max_range
+end
+
+puts "Max Windowed Range Tests"
+p max_windowed_range([1, 0, 2, 5, 4, 8], 2) == 4
+p max_windowed_range([1, 0, 2, 5, 4, 8], 3) == 5
+p max_windowed_range([1, 0, 2, 5, 4, 8], 4) == 6
+p max_windowed_range([1, 3, 2, 5, 4, 8], 5) == 6
