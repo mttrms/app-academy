@@ -19,6 +19,7 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 * [Data Structures](https://github.com/mttrms/app-academy/tree/master/Ruby/Data%20Structures)
 * [Object Oriented Programming](https://github.com/mttrms/app-academy/tree/master/Ruby/Object%20Oriented%20Programming)
 * [RSpec & TDD](https://github.com/mttrms/app-academy/tree/master/Ruby/RSpec%20%26%20TDD)
+* [Big-O](https://github.com/mttrms/app-academy/tree/master/Ruby/Big-O)
 
 ## Completed Projects
 View some of my completed projects
