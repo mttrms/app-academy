@@ -11,7 +11,7 @@ The required "pre-work" before the course begins. This is approx. 100 hours of p
 ## Course Work
 The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript, React, Full Stack Projects.
 
-### Ruby
+### Ruby (links to my notes & homework from each section)
 * [Enumerables & Debugging](https://github.com/mttrms/app-academy/tree/master/Ruby/Enumberables%20%26%20Debugging)
 * [Reference](https://github.com/mttrms/app-academy/tree/master/Ruby/Reference)
 * [Recursion](https://github.com/mttrms/app-academy/tree/master/Ruby/Recursion)
