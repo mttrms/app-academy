@@ -2,7 +2,7 @@ class MaxIntSet
   attr_reader :store
 
   def initialize(max)
-    @store = Array.new(max + 1)
+    @store = Array.new(max, false)
   end
 
   def insert(num)
@@ -26,18 +26,21 @@ class MaxIntSet
   private
 
   def is_valid?(num)
-    num >= 0 && num < @store.length
+    num >= 0 && num <= @store.length
   end
 end
 
 
 class IntSet
+  attr_reader :store
+
   def initialize(num_buckets = 20)
     @store = Array.new(num_buckets) { Array.new }
   end
 
   def insert(num)
     self[num] << num unless include?(num)
+    num
   end
 
   def remove(num)
@@ -60,7 +63,7 @@ class IntSet
 end
 
 class ResizingIntSet
-  attr_reader :count
+  attr_reader :store, :count
 
   def initialize(num_buckets = 20)
     @store = Array.new(num_buckets) { Array.new }
@@ -71,6 +74,8 @@ class ResizingIntSet
     unless include?(num)
       self[num] << num
       @count += 1
+
+      num
     end
 
     resize! if @count == num_buckets
@@ -98,14 +103,10 @@ class ResizingIntSet
   end
 
   def resize!
-    prev_buckets = @store.dup
+    prev_buckets = store.dup
     @store = Array.new(num_buckets * 2) { Array.new }
     @count = 0
 
-    prev_buckets.flatten.each do |num|
-      insert(num)
-    end
-
-    p @store
+    prev_buckets.flatten.each { |num| insert(num) }
   end
 end
