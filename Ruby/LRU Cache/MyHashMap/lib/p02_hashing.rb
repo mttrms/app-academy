@@ -4,18 +4,24 @@ end
 
 class Array
   def hash
+    self.each_with_index.reduce(0) do |hash, (ele, idx)|
+      (ele.hash + idx.hash) ^ hash
+    end
   end
 end
 
 class String
   def hash
+    self.split("").map do |char|
+      char.ord
+    end.hash
   end
 end
 
 class Hash
-  # This returns 0 because rspec will break if it returns nil
-  # Make sure to implement an actual Hash#hash method
   def hash
-    0
+    arr = Array.new
+    self.each { |k, v| arr << [k, v] }
+    arr.sort.hash
   end
 end
