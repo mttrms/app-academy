@@ -47,20 +47,16 @@ class LinkedList
   end
 
   def get(key)
-    current_node = last
-    until current_node == @head
-      return current_node.val if current_node.key == key
-      current_node = current_node.prev
+    self.each do |node|
+      return node.val if node.key == key
     end
 
     nil
   end
 
   def include?(key)
-    current_node = last
-    until current_node == @head
-      return true if current_node.key == key
-      current_node = current_node.prev
+    self.each do |node|
+      return true if node.key == key
     end
 
     false
@@ -75,26 +71,23 @@ class LinkedList
   end
 
   def update(key, val)
-    current_node = last
-
-    until current_node.key == key
-      return nil if current_node == @head
-      current_node = current_node.prev
+    self.each do |node|
+      if node.key == key
+        node.val = val
+        return node
+      end
     end
 
-    current_node.val = val
+      nil
   end
 
   def remove(key)
-    current_node = last
-
-    until current_node.key == key
-      return nil if current_node == @head
-      current_node = current_node.prev
+    self.each do |node|
+      if node.key == key
+        node.prev.next = node.next
+        node.next.prev = node.prev
+      end
     end
-
-    current_node.prev.next = current_node.next
-    current_node.next.prev = current_node.prev
   end
 
   def each(&prc)
