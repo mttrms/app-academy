@@ -55,6 +55,13 @@ class LinkedList
   end
 
   def include?(key)
+    current_node = last
+    until current_node == @head
+      return true if current_node.key == key
+      current_node = current_node.prev
+    end
+
+    false
   end
 
   def append(key, val)
