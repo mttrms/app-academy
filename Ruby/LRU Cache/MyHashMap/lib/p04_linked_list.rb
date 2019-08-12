@@ -90,7 +90,7 @@ class LinkedList
     end
   end
 
-  def each(&prc)
+  def each
     node = @head.next 
     until node == @tail
       yield(node)
