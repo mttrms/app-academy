@@ -59,6 +59,12 @@ class LinkedList
   end
 
   def update(key, val)
+    current_node = last
+    if current_node.key == key
+      current_node.val = val
+    else
+      current_node = current_node.prev
+    end
   end
 
   def remove(key)
