@@ -20,6 +20,8 @@ class Node
 end
 
 class LinkedList
+  include Enumerable
+
   def initialize
     @head = Node.new
     @tail = Node.new
@@ -95,11 +97,15 @@ class LinkedList
     current_node.next.prev = current_node.prev
   end
 
-  def each
+  def each(&prc)
+    node = @head.next 
+    until node == @tail
+      yield(node)
+      node = node.next
+    end
   end
 
-  # uncomment when you have `each` working and `Enumerable` included
-  # def to_s
-  #   inject([]) { |acc, link| acc << "[#{link.key}, #{link.val}]" }.join(", ")
-  # end
+  def to_s
+    inject([]) { |acc, link| acc << "[#{link.key}, #{link.val}]" }.join(", ")
+  end
 end
