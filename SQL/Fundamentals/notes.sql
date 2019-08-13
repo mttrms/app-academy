@@ -67,3 +67,34 @@ WHERE condition(s)
 ORDER BY column, … ASC/DESC
 LIMIT num_limit OFFSET num_offset;
 
+-- Common aggregate functions
+-- Count number of rows with non null values
+count(*)
+count(column)
+
+-- Find the smallest numerical value
+min(column)
+
+-- Find the largest numerical value
+max(column)
+
+-- Find the avgerage numerical value
+avg(column)
+
+-- Find the sum of all numerical values
+sum(column)
+
+-- HAVING clause. Used specifically with the GROUP BY clause to filter goruped rows
+-- from the result set
+
+SELECT group_by_column, AGG_FUNC(column_expression) AS aggregate_result_alias, …
+FROM mytable
+WHERE condition
+GROUP BY column
+HAVING group_condition;
+
+SELECT group_by_column, AGG_FUNC(column_expression) AS aggregate_result_alias, …
+FROM mytable
+WHERE condition
+GROUP BY column
+HAVING group_condition;
