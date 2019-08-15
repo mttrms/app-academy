@@ -8,10 +8,10 @@ The required "pre-work" before the course begins. This is approx. 100 hours of p
 * [Intro To Programming](https://github.com/mttrms/app-academy/tree/master/Intro%20To%20Programming)
 * [Software Engineering Foundations](https://github.com/mttrms/app-academy/tree/master/Software%20Engineering%20Foundations)
 
-## Course Work
+## Course Work (links to my notes & homework from each section)
 The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript, React, Full Stack Projects.
 
-### Ruby (links to my notes & homework from each section)
+### Ruby
 * [Enumerables & Debugging](https://github.com/mttrms/app-academy/tree/master/Ruby/Enumberables%20%26%20Debugging)
 * [Reference](https://github.com/mttrms/app-academy/tree/master/Ruby/Reference)
 * [Recursion](https://github.com/mttrms/app-academy/tree/master/Ruby/Recursion)
@@ -20,6 +20,10 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 * [Object Oriented Programming](https://github.com/mttrms/app-academy/tree/master/Ruby/Object%20Oriented%20Programming)
 * [RSpec & TDD](https://github.com/mttrms/app-academy/tree/master/Ruby/RSpec%20%26%20TDD)
 * [Big-O](https://github.com/mttrms/app-academy/tree/master/Ruby/Big-O)
+* [LRU Cache](https://github.com/mttrms/app-academy/tree/master/Ruby/LRU%20Cache)
+
+### SQL
+* [SQL Fundamentals](https://github.com/mttrms/app-academy/tree/master/SQL/Fundamentals)
 
 ## Completed Projects
 View some of my completed projects
@@ -33,3 +37,4 @@ View some of my completed projects
 * [Tic Tac Toe AI](https://github.com/mttrms/app-academy/tree/master/Ruby/Data%20Structures/Tic%20Tac%20Toe%20AI) – AI that can't be beaten at Tic Tac Toe
 * [Chess](https://github.com/mttrms/app-academy/tree/master/Ruby/Object%20Oriented%20Programming/chess) – Playable Chess (CLI)
 * [Poker](https://github.com/mttrms/app-academy/tree/master/Ruby/RSpec%20%26%20TDD/poker) – TDD Poker (CLI)
+* [HashMap + LRU Cache](https://github.com/mttrms/app-academy/tree/master/Ruby/LRU%20Cache/MyHashMap) – Built required data structures to make a cache
