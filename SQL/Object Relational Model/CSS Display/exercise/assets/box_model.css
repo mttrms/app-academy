@@ -4,6 +4,20 @@ body {
   /* If the user cannot load the Arial font, the sans-serif font is used */
   font-family: Arial, sans-serif;
   background-color: #FEFFF1;
+	width: 900px;
+	margin: 0 auto;
+}
+
+section#recipe-body {
+	display: inline-block;
+	width: 700px;
+}
+
+aside {
+	display: inline-block;
+	width: 180px;
+	vertical-align: top;
+	margin-right: 20px;
 }
 
 h1 {
@@ -43,6 +57,28 @@ ol {
   font-weight: bold;
 }
 
+#review-form label {
+	display: block;
+}
+
+textarea#review {
+	display:block;
+	width: 600px;
+}
+
+label[for=expertise] {
+	margin-bottom: 15px;
+}
+
+input#name {
+	margin-bottom: 15px;
+	width: 600px;
+}
+
+select#expertise {
+	margin-bottom: 15px;
+}
+
 input[type="radio"] {
     -webkit-appearance: none;
     width: 27px;
@@ -58,6 +94,10 @@ input[type="radio"]:checked {
 
 input:last-child {
     background: gold;
+		display: inline-block;
+		padding: 10px 20px;
+		margin-top: 15px;
+		border: 2px solid #e4c102;
 }
 
 input:last-child:hover {
@@ -72,3 +112,27 @@ h2 + .user_review {
     border-top: 1px solid black;
 }
 
+header img {
+	vertical-align: middle;
+}
+
+nav {
+	display: inline-block;
+}
+
+nav ul li {
+	display: inline-block;
+}
+
+nav ul li a {
+	display: block;
+	padding: 20px;
+}
+
+ul.ingredients-list li {
+	margin: 15px 0;
+}
+
+ol.directions-list li {
+	margin: 15px 0;
+}
