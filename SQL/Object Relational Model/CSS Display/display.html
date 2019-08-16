@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta chraset="utf-8">
+		<title>CSS Display</title>
+	<style>
+
+	/* 
+	DISPLAY
+		- NONE
+		- BLOCK
+		- INLINE
+	*/
+
+	body {
+		background-color: #aaa;
+	}
+
+	.none {
+		display: none;
+	}
+
+	.block {
+		display: block;
+		background-color: pink;
+	}
+
+	.inline {
+		display: inline;
+		background: orange;
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	</style>
+	</head>
+	<body>
+		<div class="none">I AM NONE</div>
+		<div class="block">I AM BLOCK</div>
+		<div class="block">I AM BLOCK</div>
+		<div class="block">I AM BLOCK</div>
+		<div class="inline">I AM INLINE AN INLINE BLOCK</div>
+		<div class="inline">I AM INLINE AN INLINE BLOCK</div>
+		<div class="inline">I AM INLINE AN INLINE BLOCK</div>
+		<div class="inline">I AM INLINE AN INLINE BLOCK</div>
+		<div class="inline">I AM INLINE AN INLINE BLOCK</div>
+		<div class="inline">I AM INLINE AN INLINE BLOCK</div>
+		<div class="inline">I AM INLINE AN INLINE BLOCK</div>
+		<div class="inline">I AM INLINE AN INLINE BLOCK</div>
+		<div class="inline">I AM INLINE AN INLINE BLOCK</div>
+
+		<div class="container">
+			<p>Testing</p>
+			<p>Testing</p>
+			<div class="block">BLOCK</div>
+			<p>Testing</p>
+			<div class="inline">I AM INLINE AN INLINE BLOCK</div>
+			<p>Testing</p>
+		</div>
+	</body>
+</html>
