@@ -2,7 +2,7 @@ PRAGMA foriegn_keys = ON;
 
 DROP TABLE IF EXISTS question_likes;
 DROP TABLE IF EXISTS replies;
-DROP TABLE IF EXISTS questions_follows;
+DROP TABLE IF EXISTS question_follows;
 DROP TABLE IF EXISTS questions;
 DROP TABLE IF EXISTS users;
 
@@ -11,7 +11,6 @@ CREATE TABLE users (
 	fname TEXT NOT NULL,
 	lname TEXT NOT NULL
 );
-
 
 CREATE TABLE questions (
 	id INTEGER PRIMARY KEY,
@@ -22,7 +21,7 @@ CREATE TABLE questions (
 	FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
-CREATE TABLE questions_follows (
+CREATE TABLE question_follows (
 	user_id INTEGER NOT NULL,
 	question_id INTEGER NOT NULL,
 
@@ -49,3 +48,23 @@ CREATE TABLE question_likes (
 	FOREIGN KEY (user_id) REFERENCES users(id),
 	FOREIGN KEY (question_id) REFERENCES questions(id)
 );
+
+INSERT INTO users (fname, lname) VALUES
+	('Jacob', 'Degrom'),
+	('Pete', 'Alonso'),
+	('Jeff', 'McNeil');
+
+INSERT INTO questions (title, body, user_id) VALUES
+	('Help', 'What is baseball?', 1),
+	('I have a question', 'Lorem Ipsum', 1),
+	('Testing 123', 'This is the final question', 3);
+
+INSERT INTO question_follows (user_id, question_id) VALUES
+	(2, 1);
+
+INSERT INTO replies (question_id, body, user_id, reply_id) VALUES
+	(1, "Baseball is fun", 2, NULL),
+	(1, "I agree", 3, 1);
+
+INSERT INTO question_likes (user_id, question_id) VALUES
+	(3, 1);
