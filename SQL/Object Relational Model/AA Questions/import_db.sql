@@ -62,7 +62,11 @@ INSERT INTO questions (title, body, user_id) VALUES
 	('Testing 123', 'This is the final question', 3);
 
 INSERT INTO question_follows (user_id, question_id) VALUES
-	(2, 1);
+	(2, 1),
+	(1, 1),
+	(3, 1),
+	(1, 2),
+	(3, 2);
 
 INSERT INTO replies (question_id, body, user_id, reply_id) VALUES
 	(1, "Baseball is fun", 2, NULL),
