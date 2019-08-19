@@ -47,6 +47,10 @@ class User
   def followed_questions
     QuestionFollow.followed_questions_for_user_id(self.id)
   end
+
+  def liked_questions
+    QuestionLike.liked_questions_for_user_id(self.id)
+  end
 end
 
 class Question
@@ -86,6 +90,22 @@ class Question
   def followers
     QuestionFollow.followers_for_question_id(self.id)
   end
+
+  def most_followed(num)
+    Question.most_followed_questions(num)
+  end
+
+  def likers
+    QuestionLike.likers_for_question_id(self.id)
+  end
+
+  def num_likes
+    QuestionLike.num_likes_for_question_id(self.id)
+  end
+  
+  def most_liked(num)
+    QuestionLike.most_liked_questions(num)
+  end
 end
 
 class QuestionFollow
@@ -117,15 +137,18 @@ class QuestionFollow
     questions = QuestionsDatabase.instance.execute(<<-SQL, num)
       SELECT questions.* FROM questions
       JOIN question_follows
-      ON questions.id = question_follows.user_id
+      ON questions.id = question_follows.question_id
       WHERE questions.id IN (
-        SELECT distinct question_id 
+        SELECT question_id 
         FROM   question_follows 
         GROUP  BY question_id 
         ORDER  BY count(question_id)
         LIMIT  ?
         )
+      GROUP BY question_id
     SQL
+
+    questions.map { |question| Question.new(question) }
   end
 
   def initialize(data)
@@ -193,6 +216,45 @@ end
 
 class QuestionLike
   attr_accessor :id, :user_id, :question_id
+
+  def self.likers_for_question_id(question_id)
+    users = QuestionsDatabase.instance.execute(<<-SQL, question_id)
+      SELECT * FROM users
+      JOIN question_likes
+      ON users.id = question_likes.user_id
+      WHERE question_id = ?
+    SQL
+
+    users.map { |user| User.new(user) }
+  end
+
+  def self.num_likes_for_question_id(question_id)
+    count = QuestionsDatabase.instance.execute(<<-SQL, question_id)
+      SELECT count(user_id) as num_likers
+      FROM question_likes
+      WHERE question_id = ?
+    SQL
+
+    count.first['num_likers']
+  end
+
+  def self.most_liked_questions(num)
+    questions = QuestionsDatabase.instance.execute(<<-SQL, num)
+      SELECT questions.* FROM questions
+      JOIN question_likes
+      ON questions.id = question_likes.question_id
+      WHERE questions.id IN (
+        SELECT question_id 
+        FROM   question_likes
+        GROUP  BY question_id 
+        ORDER  BY count(question_id)
+        LIMIT  ?
+        )
+      GROUP BY question_id
+    SQL
+
+    questions
+  end
 
   def initialize(data)
     @id = data['id']
