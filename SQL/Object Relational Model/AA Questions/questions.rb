@@ -43,6 +43,10 @@ class User
   def authored_replies
     Reply.find_by_user_id(self.id)
   end
+
+  def followed_questions
+    QuestionFollow.followed_questions_for_user_id(self.id)
+  end
 end
 
 class Question
@@ -78,10 +82,36 @@ class Question
   def replies
     Reply.find_by_question_id(id)
   end
+
+  def followers
+    QuestionFollow.followers_for_question_id(self.id)
+  end
 end
 
 class QuestionFollow
   attr_accessor :id, :user_id, :question_id
+
+  def self.followers_for_question_id(question_id)
+    users = QuestionsDatabase.instance.execute(<<-SQL, question_id)
+      SELECT users.* FROM users
+      JOIN question_follows
+      ON users.id = question_follows.user_id
+      WHERE question_follows.question_id = ?
+    SQL
+
+    users.map { |user| User.new(user) }
+  end
+
+  def self.followed_questions_for_user_id(user_id)
+    questions = QuestionsDatabase.instance.execute(<<-SQL, user_id)
+      SELECT questions.* FROM questions
+      JOIN question_follows
+      ON questions.id = question_follows.question_id
+      WHERE question_follows.user_id = ?
+    SQL
+
+    questions.map { |question| Question.new(question) }
+  end
 
   def initialize(data)
     @id = data['id']
