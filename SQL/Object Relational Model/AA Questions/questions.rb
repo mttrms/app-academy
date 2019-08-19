@@ -22,10 +22,26 @@ class User
     User.new(user.first)
   end
 
+  def self.find_by_name(fname, lname)
+    user = QuestionsDatabase.instance.execute(<<-SQL, fname, lname)
+      SELECT * FROM users WHERE fname = ? AND lname = ?
+    SQL
+
+    User.new(user.first)
+  end
+
   def initialize(data)
     @id = data['id']
     @fname = data['fname']
     @lname = data['lname']
+  end
+
+  def authored_questions
+    Question.find_by_user_id(self.id)
+  end
+
+  def authored_replies
+    Reply.find_by_user_id(self.id)
   end
 end
 
@@ -40,11 +56,27 @@ class Question
     Question.new(question.first)
   end
 
+  def self.find_by_user_id(user_id)
+    question = QuestionsDatabase.instance.execute(<<-SQL, user_id)
+      SELECT * FROM questions WHERE user_id = ?
+    SQL
+
+    Question.new(question.first)
+  end
+
   def initialize(data)
     @id = data['id']
     @title = data['title']
     @body = data['body']
     @user_id = data['user_id']
+  end
+
+  def author
+    User.find_by_id(self.user_id)
+  end
+
+  def replies
+    Reply.find_by_question_id(id)
   end
 end
 
@@ -69,12 +101,48 @@ class Reply
     Reply.new(reply.first)
   end
 
+  def self.find_by_user_id(user_id)
+    replies = QuestionsDatabase.instance.execute(<<-SQL, user_id)
+      SELECT * FROM replies WHERE user_id = ?
+    SQL
+
+    replies.map { |reply| Reply.new(reply) }
+  end
+
+  def self.find_by_question_id(question_id)
+    replies = QuestionsDatabase.instance.execute(<<-SQL, question_id)
+      SELECT * FROM replies WHERE question_id = ?
+    SQL
+
+    replies.map { |reply| Reply.new(reply) }
+  end
+
   def initialize(data)
     @id = data['id']
     @question_id = data['question_id']
     @body = data['body']
     @user_id = data['user_id']
     @reply_id = data['reply_id']
+  end
+
+  def author
+    User.find_by_id(self.user_id)
+  end
+
+  def question
+    Question.find_by_id(self.question_id)
+  end
+
+  def parent_reply
+    Reply.find_by_id(self.reply_id)
+  end
+
+  def child_replies
+    replies = QuestionsDatabase.instance.execute(<<-SQL, self.id)
+      SELECT * FROM replies WHERE reply_id = ?
+    SQL
+
+    replies.map { |reply| Reply.new(reply) }
   end
 end
 
