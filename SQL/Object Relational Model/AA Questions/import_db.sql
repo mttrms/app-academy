@@ -22,6 +22,7 @@ CREATE TABLE questions (
 );
 
 CREATE TABLE question_follows (
+	id INTEGER PRIMARY KEY,
 	user_id INTEGER NOT NULL,
 	question_id INTEGER NOT NULL,
 
@@ -42,6 +43,7 @@ CREATE TABLE replies (
 );
 
 CREATE TABLE question_likes (
+	id INTEGER PRIMARY KEY,
 	user_id INTEGER NOT NULL,
 	question_id INTEGER NOT NULL,
 
