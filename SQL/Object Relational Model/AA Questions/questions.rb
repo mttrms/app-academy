@@ -36,6 +36,25 @@ class User
     @lname = data['lname']
   end
 
+  def save
+    if self.id
+      QuestionsDatabase.instance.execute(<<-SQL, self.fname, self.lname, self.id)
+        UPDATE users
+        SET fname = ?, lname = ?
+        WHERE id = ?
+      SQL
+    else
+      QuestionsDatabase.instance.execute(<<-SQL, self.fname, self.lname)
+        INSERT INTO users (fname, lname)
+        VALUES (?, ?)
+      SQL
+
+      self.id = QuestionsDatabase.instance.last_insert_row_id
+    end
+
+    self
+  end
+
   def authored_questions
     Question.find_by_user_id(self.id)
   end
@@ -77,6 +96,25 @@ class Question
     @title = data['title']
     @body = data['body']
     @user_id = data['user_id']
+  end
+
+  def save
+    if self.id
+      QuestionsDatabase.instance.execute(<<-SQL, self.title, self.body, self.user_id, self.id)
+        UPDATE questions
+        SET title = ?, body = ?, user_id = ?
+        WHERE id = ?
+      SQL
+    else
+      QuestionsDatabase.instance.execute(<<-SQL, self.title, self.body, self.user_id)
+        INSERT INTO questions (title, body, user_id)
+        VALUES (?, ?, ?)
+      SQL
+
+      self.id = QuestionsDatabase.instance.last_insert_row_id
+
+      self
+    end
   end
 
   def author
@@ -191,6 +229,25 @@ class Reply
     @body = data['body']
     @user_id = data['user_id']
     @reply_id = data['reply_id']
+  end
+
+  def save
+    if self.id
+      QuestionsDatabase.instance.execute(<<-SQL, self.question_id, self.body, self.user_id, self.reply_id, self.id)
+        UPDATE replies
+        SET question_id = ?, body = ?, user_id = ?, reply_id = ?
+        WHERE id = ?
+      SQL
+    else
+      QuestionsDatabase.instance.execute(<<-SQL, self.question_id, self.body, self.user_id, self.reply_id)
+        INSERT INTO replies (question_id, body, user_id, reply_id)
+        VALUES (?, ?, ?, ?)
+      SQL
+
+      self.id = QuestionsDatabase.instance.last_insert_row_id
+    end
+
+    self
   end
 
   def author
