@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'launchy'
-
 puts "What is your email address?"
 email_address = gets.chomp
 user = User.find_by(email: email_address)

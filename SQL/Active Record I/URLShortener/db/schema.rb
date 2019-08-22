@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_010647) do
+ActiveRecord::Schema.define(version: 2019_08_22_121952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 2019_08_22_010647) do
     t.string "short_url"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_shortened_urls_on_user_id"
+  end
+
+  create_table "tag_topics", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.bigint "shortened_url_id"
+    t.bigint "tag_topic_id"
+    t.index ["shortened_url_id"], name: "index_taggings_on_shortened_url_id"
+    t.index ["tag_topic_id"], name: "index_taggings_on_tag_topic_id"
   end
 
   create_table "users", force: :cascade do |t|

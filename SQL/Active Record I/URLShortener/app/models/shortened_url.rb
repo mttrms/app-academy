@@ -20,6 +20,12 @@ class ShortenedUrl < ApplicationRecord
     through: :visits,
     source: :user
 
+  has_many :taggings
+
+  has_many :tag_topics,
+    through: :taggings,
+    source: :tag_topic
+
   validates :long_url, presence: true, uniqueness: true
 
   def num_clicks
