@@ -21,6 +21,17 @@ class ShortenedUrl < ApplicationRecord
 
   validates :long_url, presence: true, uniqueness: true
 
+  def num_clicks
+    Visit.where(shortened_url_id: self.id).count(:user_id)
+  end
+
+  def num_uniques
+    Visit.distinct.where(shortened_url_id: self.id).count(:user_id)
+  end
+
+  def num_recent_uniques
+  end
+
   def self.random_code
     code = nil
     while code == nil || ShortenedUrl.exists?(:short_url => code)
