@@ -1,7 +1,23 @@
+# == Schema Information
+#
+# Table name: shortened_urls
+#
+#  id        :bigint           not null, primary key
+#  long_url  :string
+#  short_url :string
+#  user_id   :bigint
+#
+
 class ShortenedUrl < ApplicationRecord
   belongs_to :submitter,
     class_name: 'User',
     foreign_key: :user_id
+
+  has_many :visits
+
+  has_many :visitors,
+    through: :visits,
+    source: :user
 
   validates :long_url, presence: true, uniqueness: true
 
