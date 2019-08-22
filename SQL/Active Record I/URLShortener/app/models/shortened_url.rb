@@ -16,6 +16,7 @@ class ShortenedUrl < ApplicationRecord
   has_many :visits
 
   has_many :visitors,
+    -> { distinct },
     through: :visits,
     source: :user
 
@@ -26,7 +27,7 @@ class ShortenedUrl < ApplicationRecord
   end
 
   def num_uniques
-    Visit.distinct.where(shortened_url_id: self.id).count(:user_id)
+    self.visitors.count
   end
 
   def num_recent_uniques
