@@ -30,6 +30,10 @@ class ShortenedUrl < ApplicationRecord
   end
 
   def num_recent_uniques
+    Visit.distinct.where(
+      shortened_url_id: self.id,
+      created_at: 10.minutes.ago..Time.now
+    ).count(:user_id)
   end
 
   def self.random_code
