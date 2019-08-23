@@ -24,6 +24,8 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 
 ### SQL
 * [SQL Fundamentals](https://github.com/mttrms/app-academy/tree/master/SQL/Fundamentals)
+* [Object Relational Model](https://github.com/mttrms/app-academy/tree/master/SQL/Object%20Relational%20Model)
+* [Active Record I](https://github.com/mttrms/app-academy/tree/master/SQL/Active%20Record%20I)
 
 ## Completed Projects
 View some of my completed projects
@@ -38,3 +40,4 @@ View some of my completed projects
 * [Chess](https://github.com/mttrms/app-academy/tree/master/Ruby/Object%20Oriented%20Programming/chess) – Playable Chess (CLI)
 * [Poker](https://github.com/mttrms/app-academy/tree/master/Ruby/RSpec%20%26%20TDD/poker) – TDD Poker (CLI)
 * [HashMap + LRU Cache](https://github.com/mttrms/app-academy/tree/master/Ruby/LRU%20Cache/MyHashMap) – Built required data structures to make a cache
+* [URL Shortener + Analytics](https://github.com/mttrms/app-academy/tree/master/SQL/Active%20Record%20I/URLShortener) – Shorten URLs and track visits
