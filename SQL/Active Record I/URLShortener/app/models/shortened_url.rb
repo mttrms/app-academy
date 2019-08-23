@@ -56,6 +56,8 @@ class ShortenedUrl < ApplicationRecord
   end
 
   def nonpremium_max
+    return if User.find(self.user_id).premium
+
     if submitter.shortened_urls.count >= 5
       errors[:user] << "is not premium and has a 5 URL limit"
     end
@@ -79,5 +81,8 @@ class ShortenedUrl < ApplicationRecord
       short_url: ShortenedUrl.random_code,
       user_id: user.id
     )
+  end
+
+  def self.prune(minutes)
   end
 end
