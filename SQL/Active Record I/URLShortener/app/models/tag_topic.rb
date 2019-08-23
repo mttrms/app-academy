@@ -16,8 +16,10 @@ class TagTopic < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   def popular_links
-    # ShortenedUrl.select(:id, :long_url).joins(:taggings, :visits).limit(5)
-    # long_url, click count, limit, sorted by click count desc
-    # ShortenedUrl.select('count(visits.user_id)').joins(:visits)
+    urls.joins(:visits)
+      .group(:short_url, :long_url)
+      .order('COUNT(visits.user_id) DESC')
+      .select('long_url, short_url, COUNT(visits.user_id) as number_of_visits')
+      .limit(5)
   end
 end
