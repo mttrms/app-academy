@@ -28,6 +28,7 @@ class ShortenedUrl < ApplicationRecord
 
   validates :long_url, presence: true, uniqueness: true
   validate :no_spamming
+  validate :nonpremium_max
 
   def num_clicks
     Visit.where(shortened_url_id: self.id).count(:user_id)
@@ -51,6 +52,12 @@ class ShortenedUrl < ApplicationRecord
 
     if submitted_urls >= 5
       errors[:base] << "You can't submit more than 5 URLs per minute"
+    end
+  end
+
+  def nonpremium_max
+    if submitter.shortened_urls.count >= 5
+      errors[:user] << "is not premium and has a 5 URL limit"
     end
   end
 
