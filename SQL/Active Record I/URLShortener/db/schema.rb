@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_121952) do
+ActiveRecord::Schema.define(version: 2019_08_23_015611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2019_08_22_121952) do
     t.string "long_url"
     t.string "short_url"
     t.bigint "user_id"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
     t.index ["user_id"], name: "index_shortened_urls_on_user_id"
   end
 

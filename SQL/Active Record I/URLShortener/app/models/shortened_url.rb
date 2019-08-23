@@ -27,6 +27,7 @@ class ShortenedUrl < ApplicationRecord
     source: :tag_topic
 
   validates :long_url, presence: true, uniqueness: true
+  validate :no_spamming
 
   def num_clicks
     Visit.where(shortened_url_id: self.id).count(:user_id)
@@ -41,6 +42,16 @@ class ShortenedUrl < ApplicationRecord
       shortened_url_id: self.id,
       created_at: 10.minutes.ago..Time.now
     ).count(:user_id)
+  end
+
+  def no_spamming
+    submitted_urls = submitter.shortened_urls.where(
+      created_at: 1.minute.ago..Time.now
+    ).count
+
+    if submitted_urls >= 5
+      errors[:base] << "You can't submit more than 5 URLs per minute"
+    end
   end
 
   def self.random_code
