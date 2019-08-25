@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FLOAT</title>
+		<style>
+h1 {
+	display: block;
+	background: yellow;
+}
+
+p {
+	display: block;
+	background: orange;
+}
+
+article {
+	clear: left;
+	background: blue;
+	margin: 50px;
+	border: 10px solid red;
+}
+
+img {
+	display: block;
+	float: left;
+	opacity: 0.9;
+	margin-right: 20px;
+}
+
+.stop-float {
+	display: block;
+	background: green;
+	clear: left;
+}
+
+.pseudo-stop-float:after {
+	content: "stop the float";
+	background: green;
+	display: block;
+	clear: both;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+		</style>
+	</head>
+	<body>
+		<article class="clearfix">
+		<h1>Cats Are Fun</h1>
+		<img src="http://placekitten.com/300/400" alt="Cat" />
+		<img src="http://placekitten.com/200/300" alt="Cat" />
+		<img src="http://placekitten.com/200/200" alt="Cat" />
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac nunc eget odio porta tincidunt hendrerit nec massa. Nunc placerat velit eu purus aliquam laoreet. Vestibulum gravida eros facilisis quam tincidunt eleifend. Etiam ligula felis, mattis in accumsan vel, eleifend a lectus. Nam eleifend ornare velit. Proin a risus fringilla, rhoncus ex ut, tincidunt nibh. Cras sodales urna in nulla pellentesque ornare et nec libero.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac nunc eget odio porta tincidunt hendrerit nec massa. Nunc placerat velit eu purus aliquam laoreet. Vestibulum gravida eros facilisis quam tincidunt eleifend. Etiam ligula felis, mattis in accumsan vel, eleifend a lectus. Nam eleifend ornare velit. Proin a risus fringilla, rhoncus ex ut, tincidunt nibh. Cras sodales urna in nulla pellentesque ornare et nec libero.</p>
+		</article>
+
+		<article>
+			<h1>Lasers</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac nunc eget odio porta tincidunt hendrerit nec massa. Nunc placerat velit eu purus aliquam laoreet. Vestibulum gravida eros facilisis quam tincidunt eleifend. Etiam ligula felis, mattis in accumsan vel, eleifend a lectus. Nam eleifend ornare velit. Proin a risus fringilla, rhoncus ex ut, tincidunt nibh. Cras sodales urna in nulla pellentesque ornare et nec libero.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac nunc eget odio porta tincidunt hendrerit nec massa. Nunc placerat velit eu purus aliquam laoreet. Vestibulum gravida eros facilisis quam tincidunt eleifend. Etiam ligula felis, mattis in accumsan vel, eleifend a lectus. Nam eleifend ornare velit. Proin a risus fringilla, rhoncus ex ut, tincidunt nibh. Cras sodales urna in nulla pellentesque ornare et nec libero.</p>
+		</article>
+	</body>
+</html>
