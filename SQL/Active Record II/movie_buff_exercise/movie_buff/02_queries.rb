@@ -49,7 +49,7 @@ def most_supportive
   Actor
     .select(:id, :name, 'COUNT(actor_id) as roles')
     .joins(:castings)
-    .where('castings.ord != 1')
+    .where('castings.ord != 1') #.where.not(castings: { ord: 1 })
     .group(:id)
     .order('roles DESC')
     .limit(2)
