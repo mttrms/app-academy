@@ -1,0 +1,3 @@
+class Response < ApplicationRecord
+  
+end
