@@ -15,4 +15,13 @@ class Question < ApplicationRecord
     source: :responses
 
   validates :text, presence: true
+
+  def results
+    results = {}
+    answer_choices.each do |answer|
+      results[answer.text] = answer.responses.count
+    end
+
+    results
+  end
 end
