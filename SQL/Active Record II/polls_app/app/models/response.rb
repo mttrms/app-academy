@@ -18,7 +18,7 @@ class Response < ApplicationRecord
     through: :answer_choice,
     source: :question
   
-  validate :respondent_already_answered?
+  validate :respondent_already_answered?, unless: -> { answer_choice.nil? }
   
   def sibling_responses
     self.question.responses.where.not(id: self.id)

@@ -30,5 +30,5 @@ Response.create(user_id: 4, answer_choice_id: 7)
 
 Response.create(user_id: 3, answer_choice_id: 14)
 Response.create(user_id: 3, answer_choice_id: 16)
-Response.create(user_id: 3, answer_choice_id: 17)
+Response.create(user_id: 3, answer_choice_id: 1)
 Response.create(user_id: 3, answer_choice_id: 19)
