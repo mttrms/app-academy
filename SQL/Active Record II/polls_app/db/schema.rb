@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_08_29_234118) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "question"
+    t.string "text"
     t.bigint "poll_id"
     t.index ["poll_id"], name: "index_questions_on_poll_id"
   end
