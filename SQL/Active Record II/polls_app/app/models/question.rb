@@ -18,8 +18,9 @@ class Question < ApplicationRecord
 
   def results
     results = {}
-    answer_choices.each do |answer|
-      results[answer.text] = answer.responses.count
+
+    answer_choices.includes(:responses).each do |answer|
+      results[answer.text] = answer.responses.length
     end
 
     results
