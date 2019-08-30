@@ -19,6 +19,7 @@ class Response < ApplicationRecord
     source: :question
   
   validate :respondent_already_answered?, unless: -> { answer_choice.nil? }
+  validate :respondent_is_author?, unless: -> { question.nil? }
   
   def sibling_responses
     self.question.responses.where.not(id: self.id)
@@ -27,6 +28,12 @@ class Response < ApplicationRecord
   def respondent_already_answered?
     if sibling_responses.any? { |response| response.user_id == self.user_id }
       errors[:respondent] << "has already answered"
+    end
+  end
+
+  def respondent_is_author?
+    if question.poll.author == respondent
+      errors[:respondent] << "cannot respond to own poll"
     end
   end
 end
