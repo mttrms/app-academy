@@ -14,7 +14,4 @@ class Response < ApplicationRecord
   belongs_to :respondent,
   class_name: 'User',
   foreign_key: :user_id
-  
-  validates :answer_choice, presence: true
-  validates :respondent, presence: true
 end

@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2019_08_29_234118) do
   create_table "questions", force: :cascade do |t|
     t.string "text"
     t.bigint "poll_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["poll_id"], name: "index_questions_on_poll_id"
   end
 
