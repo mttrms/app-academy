@@ -15,6 +15,8 @@ ActiveRecord::Base.transaction do
 
   u1 = User.create!(username: 'Markov')
   u2 = User.create!(username: 'Gizmo')
+  u3 = User.create!(username: 'Matt')
+  u4 = User.create!(username: 'mttrms')
 
   p1 = Poll.create!(title: 'Cats Poll', author: u1)
 
@@ -35,5 +37,23 @@ ActiveRecord::Base.transaction do
   r2 = Response.create!(
     respondent: u2,
     answer_choice: ac4
+  )
+
+  r3 = Response.create!(
+    respondent: u3,
+    answer_choice: ac1
+  )
+  r4 = Response.create!(
+    respondent: u3,
+    answer_choice: ac5
+  )
+
+  r5 = Response.create!(
+    respondent: u4,
+    answer_choice: ac3
+  )
+  r6 = Response.create!(
+    respondent: u4,
+    answer_choice: ac6
   )
 end

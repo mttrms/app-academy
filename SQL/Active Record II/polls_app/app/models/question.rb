@@ -19,8 +19,14 @@ class Question < ApplicationRecord
   def results
     results = {}
 
-    answer_choices.includes(:responses).each do |answer|
-      results[answer.text] = answer.responses.length
+    response_data = answer_choices
+      .select(:id, :'answer_choices.text', 'COUNT(answer_choice_id) AS response_count')
+      .joins('LEFT JOIN responses ON answer_choices.id = responses.answer_choice_id')
+      .where(question_id: self.id)
+      .group('answer_choices.id')
+    
+    response_data.each do |answer|
+      results[answer.text] = answer.response_count
     end
 
     results
