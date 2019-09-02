@@ -1,0 +1,30 @@
+h1, h2, ul {
+  margin :0;
+  vertical-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+header, aside, section, footer {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+
+header, footer {
+  margin: 20px 0;
+}
+
+header ul li {
+  margin-left: 50px;
+}
+
+article, aside li {
+  margin: 15px 0;
+}
