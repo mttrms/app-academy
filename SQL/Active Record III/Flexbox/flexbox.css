@@ -1,4 +1,4 @@
-h1, h2, ul {
+h1, h2, h3, ul {
   margin: 0;
   vertical-align: center;
 }
@@ -10,6 +10,9 @@ ul {
 
 body {
   font-family: sans-serif;
+  background: pink;
+  display: flex;
+  flex-wrap: wrap
 }
 
 header, aside, section, footer {
@@ -21,10 +24,43 @@ header, footer {
   margin: 20px 0;
 }
 
+header, footer, aside, section {
+  flex: 1 100%
+}
+
 header ul li {
   margin-left: 50px;
 }
 
 article, aside li {
   margin: 15px 0;
+}
+
+header, header ul, footer {
+  display: flex;
+}
+
+header, footer {
+  justify-content: space-between;
+}
+
+header ul, footer ul {
+  align-items: center;
+}
+
+@media all and (min-width: 600px) {
+  aside {
+    flex: 1;
+    order: 1;
+    margin-right: 20px;
+  }
+  
+  section {
+    flex: 3;
+    order: 2;
+  }
+
+  footer {
+    order: 3;
+  }
 }
