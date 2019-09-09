@@ -7,7 +7,17 @@ require 'pry-byebug'
 
 class SQLObject
   def self.columns
-    # ...
+    return @column_names unless @column_names.nil?
+
+    @column_names = 
+      DBConnection.execute2(<<-SQL)
+      SELECT *
+      FROM #{table_name}
+      LIMIT 1
+      SQL
+      .first
+
+    @column_names.map! { |column_name| column_name.to_sym }
   end
 
   def self.finalize!
