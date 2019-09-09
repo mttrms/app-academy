@@ -42,4 +42,5 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 * [Object Relational Model](https://github.com/mttrms/app-academy/tree/master/SQL/Object%20Relational%20Model)
 * [Active Record I](https://github.com/mttrms/app-academy/tree/master/SQL/Active%20Record%20I)
 * [Active Record II](https://github.com/mttrms/app-academy/tree/master/SQL/Active%20Record%20II)
+* [Active Record III](https://github.com/mttrms/app-academy/tree/master/SQL/Active%20Record%20III)
 
