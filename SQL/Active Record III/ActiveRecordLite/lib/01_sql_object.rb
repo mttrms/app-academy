@@ -86,7 +86,6 @@ class SQLObject
     columns = self.class.columns.drop(1)
     col_names = columns.join(", ")
     question_marks = (['?'] * columns.count).join(", ")
-    # binding.pry
 
     DBConnection.execute(<<-SQL, *attribute_values.drop(1))
       INSERT INTO
@@ -99,10 +98,21 @@ class SQLObject
   end
 
   def update
-    # ...
+    set = self.class.columns.drop(1).map do |column|
+      "#{column.to_s} = ?"
+    end.join(", ")
+    
+    DBConnection.execute(<<-SQL, *attribute_values.drop(1), self.id)
+      UPDATE
+        #{self.class.table_name}
+      SET
+        #{set}
+      WHERE
+        id = ?
+    SQL
   end
 
   def save
-    # ...
+    id.nil? ? insert : update
   end
 end
