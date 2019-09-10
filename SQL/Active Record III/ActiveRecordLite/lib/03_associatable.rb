@@ -20,7 +20,9 @@ end
 
 class BelongsToOptions < AssocOptions
   def initialize(name, options = {})
-    # ...
+    @class_name = ActiveSupport::Inflector.camelize((options[:class_name] || name))
+    @foreign_key = "#{ActiveSupport::Inflector.underscore(class_name)}_id".to_sym
+    @primary_key = options[:primary_key] || :id
   end
 end
 
