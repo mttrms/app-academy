@@ -52,11 +52,10 @@ module Associatable
     options = BelongsToOptions.new(name, options)
 
     define_method(name) do
-      foreign_key = options.send(:foreign_key)
-      model_class = options.model_class
+      key_value = self.send(options.foreign_key)
 
-      model_class
-        .where(id: self.attributes[foreign_key])
+      options.model_class
+        .where(options.primary_key => key_value)
         .first
     end
   end
