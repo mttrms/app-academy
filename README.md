@@ -17,6 +17,7 @@ You can find occasional updates & recaps [on my blog](https://mattramos.com/blog
 * [HashMap + LRU Cache](https://github.com/mttrms/app-academy/tree/master/Ruby/LRU%20Cache/MyHashMap) – Built required data structures to make a cache
 * [URL Shortener + Analytics](https://github.com/mttrms/app-academy/tree/master/SQL/Active%20Record%20I/URLShortener) – Shorten URLs and track visits
 * [Polls](https://github.com/mttrms/app-academy/tree/master/SQL/Active%20Record%20II/polls_app) – Database + Active Record setup for simple Polls App
+* [ActiveRecordLite](https://github.com/mttrms/app-academy/tree/master/SQL/Active%20Record%20III/ActiveRecordLite) – DIY Active Record that supports belongs_to, has_many, and has_one_through
 
 ## Pre-Work
 The required "pre-work" before the course begins. This is approx. 100 hours of programming foundational work to prepare students for the course.
@@ -43,4 +44,3 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 * [Active Record I](https://github.com/mttrms/app-academy/tree/master/SQL/Active%20Record%20I)
 * [Active Record II](https://github.com/mttrms/app-academy/tree/master/SQL/Active%20Record%20II)
 * [Active Record III](https://github.com/mttrms/app-academy/tree/master/SQL/Active%20Record%20III)
-
