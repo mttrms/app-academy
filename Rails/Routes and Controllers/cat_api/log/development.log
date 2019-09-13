@@ -1,0 +1,2 @@
+  [1m[35m (456.3ms)[0m  [1m[35mCREATE DATABASE "cat_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (397.0ms)[0m  [1m[35mCREATE DATABASE "cat_api_test" ENCODING = 'unicode'[0m
