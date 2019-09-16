@@ -6,13 +6,17 @@ class ToysController< ApplicationController
   end
 
   def show
+    # /cats/:cat_id/toys/:id
+    # /toys/:id << Prefer
     render json: Toy.find(params[:id])
   end
 
   def create
+    # POST /toys
     # self.params => Parameters < HashWithIndifferentAccess < Hash
     # .permit will whitelist attributes when mass assigning
     toy = Toy.new(toy_params)
+
 
     if toy.save
       render json: toy
@@ -40,6 +44,6 @@ class ToysController< ApplicationController
 
   private
   def toy_params
-    self.params[:toy].permit(:cat_id, :name, :ttype)
+    self.params[:toy].permit(:name, :ttype, :cat_id)
   end
 end
