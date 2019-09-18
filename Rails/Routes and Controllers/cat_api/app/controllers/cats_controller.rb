@@ -9,27 +9,30 @@ class CatsController < ApplicationController
     render :show
   end
 
-  # 1. GET /cat/news to fetch a form
+  # 1. GET /cat/new to fetch a form
   # 2. Fill out form, click submit
   # 3. POST /cats the data in the form
-  # 4. Invoke create action
-  # 5. Redirect to /cats/#{id}
+  # 3. Validation fails
+  # 4. Render new template again
+  # 5. Form is filled in with @cat data
 
   def new
     # /cats/new
     # show a form to create a new object
+    @cat = Cat.new
     render :new
   end
 
   def create
     # POST /cats
     # { "cat": { "name": "Sally" } }
-    @cat = Cat.new(name: params[:cat][:name])
+    @cat = Cat.new(params[:cat].permit(:name, :skill))
 
     if @cat.save
       redirect_to cat_url(@cat)
     else
-      render json: cat.errors.full_messages, status: :unprocessable_entity
+      render :new
+      # render json: cat.errors.full_messages, status: :unprocessable_entity
     end
   end
 
