@@ -11,17 +11,25 @@ class ToysController< ApplicationController
     render json: Toy.find(params[:id])
   end
 
+  def new
+    @cat = Cat.find(params[:cat_id])
+    @toy = Toy.new
+    render :new
+  end
+
   def create
     # POST /toys
     # self.params => Parameters < HashWithIndifferentAccess < Hash
     # .permit will whitelist attributes when mass assigning
-    toy = Toy.new(toy_params)
+    @toy = Toy.new(toy_params)
+    @cat = @toy.cat
 
 
-    if toy.save
-      render json: toy
+    if @toy.save
+      redirect_to cat_url(@cat)
     else
-      render json: toy.errors.full_messages, status: :unprocessable_entity
+      render :new
+      # render json: toy.errors.full_messages, status: :unprocessable_entity
     end
   end
 

@@ -1,0 +1,25 @@
+<h1><%= @cat.name %>'s New Toy</h1>
+
+<form action="/toys" method="POST">
+  <input type="hidden" name="toy[cat_id]" value="<%= @cat.id %>">
+
+  <label for="toy_name">Name</label>
+  <input
+    type="text"
+    name="toy[name]"
+    id="toy_name"
+    value="<%= @toy.name %>">
+  <br>
+
+  <label for="toy_ttype">Type</label>
+  <select name="toy[ttype]" id="toy_ttype">
+    <% Toy::TYPES.each do |type| %>
+      <option value="<%= type %>"
+              <%= "selected" if @toy.ttype == type %>>
+        <%= type.upcase%>
+      </option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="Create Toy">
+</form>
