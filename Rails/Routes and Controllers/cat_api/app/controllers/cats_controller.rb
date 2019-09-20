@@ -26,7 +26,7 @@ class CatsController < ApplicationController
   def create
     # POST /cats
     # { "cat": { "name": "Sally" } }
-    @cat = Cat.new(params[:cat].permit(:name, :skill))
+    @cat = Cat.new(cat_params)
 
     if @cat.save
       redirect_to cat_url(@cat)
@@ -39,9 +39,17 @@ class CatsController < ApplicationController
   def edit
     # /cats/:id/edit
     # show a form to edit an existing object
+    @cat = Cat.find(params[:id])
+    render :edit
   end
 
   def update
+    @cat = Cat.find(params[:id])
+    if @cat.update(cat_params)
+      redirect_to cat_url(@cat)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -51,5 +59,10 @@ class CatsController < ApplicationController
     cat.destroy
 
     redirect_to cats_url
+  end
+
+  private
+  def cat_params
+    params[:cat].permit(:name, :skill)
   end
 end

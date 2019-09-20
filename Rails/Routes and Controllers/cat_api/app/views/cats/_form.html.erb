@@ -1,0 +1,22 @@
+<% action_url = cat.persisted? ? cat_url(cat) : cats_url %>
+<% form_method = cat.persisted? ? "PATCH" : "POST" %>
+<% submit_text = cat.persisted? ? "Update Cat!" : "Create Cat!" %>
+
+<form action="<%= action_url %>" method="POST">
+  <input type="hidden" name="_method" value="<%= form_method %>">
+  <label for="cat_name">Name</label>
+  <input type="text"
+         name="cat[name]" 
+         id="cat_name" 
+         value="<%= cat.name %>">
+  <br />
+
+  <label for="cat_skill">Skill</label>
+  <input type="text"
+         name="cat[skill]" 
+         id="cat_skill" 
+         value="<%= cat.skill %>">
+  <br />
+
+  <input type="submit" value="<%= submit_text %>">
+</form>
