@@ -8,5 +8,7 @@ class User < ApplicationRecord
     through: :artwork_shares,
     source: :artwork
 
+  has_many :comments
+
   validates :username, presence: true, uniqueness: true
 end
