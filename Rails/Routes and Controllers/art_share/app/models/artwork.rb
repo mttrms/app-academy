@@ -3,14 +3,12 @@ class Artwork < ApplicationRecord
     class_name: 'User'
     # foreign_key: :artist_id
     # declaring foreign_key not necessary when it matches the association name
-
   has_many :artwork_shares
-
   has_many :shared_viewers,
     through: :artwork_shares,
     source: :viewer
-
   has_many :comments, dependent: :destroy
+  has_many :likes, as: :likeable
 
   validates :title, :image_url, :artist_id,  presence: true
   validates :title, uniqueness: { scope: :artist }
