@@ -11,4 +11,11 @@ class Artwork < ApplicationRecord
 
   validates :title, :image_url, :artist_id,  presence: true
   validates :title, uniqueness: { scope: :artist }
+
+  def self.artworks_for_user_id(user_id)
+    Artwork
+      .left_outer_joins(:artwork_shares)
+      # :user_id is similar to '?' in SQL fragments but it can be set + reused
+      .where('(artworks.artist_id = :user_id) OR (artwork_shares.viewer_id = :user_id)', user_id: user_id)
+  end
 end
