@@ -8,7 +8,7 @@ class User < ApplicationRecord
     through: :artwork_shares,
     source: :artwork
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   validates :username, presence: true, uniqueness: true
 end

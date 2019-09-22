@@ -10,7 +10,7 @@ class Artwork < ApplicationRecord
     through: :artwork_shares,
     source: :viewer
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   validates :title, :image_url, :artist_id,  presence: true
   validates :title, uniqueness: { scope: :artist }
