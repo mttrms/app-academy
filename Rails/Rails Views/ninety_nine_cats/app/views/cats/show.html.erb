@@ -1,0 +1,26 @@
+<h1><%= @cat.name %></h1>
+<img src="http://placekitten.com/<%= rand(500..700) %>/<%= rand(300..400) %>" />
+<table>
+  <thead>
+    <tr>
+      <th>Cattribute</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>Age</td>
+    <td><%= @cat.age %></td>
+  </tr>
+  <tr>
+    <td>Gender</td>
+    <td><%=@cat.sex %></td>
+  </tr>
+  <tr>
+    <td>Color</td>
+    <td><%= @cat.color %>
+  </tr>
+  <tr>
+    <td>Birthdate</td>
+    <td><%= @cat.birth_date %></td>
+  </tr>
+</table>

@@ -1,5 +1,5 @@
 <ul>
   <% @cats.each do |cat| %>
-  <li><%= cat.name %> (<%= cat.age %>) - <%= link_to "view", cat_url(cat) %></li>
+    <li><%= cat.name %> (<%= cat.age %>) - <%= link_to "view", cat_url(cat) %></li>
   <% end %>
 </ul>
