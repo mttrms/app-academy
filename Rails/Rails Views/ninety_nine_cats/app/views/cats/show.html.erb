@@ -29,7 +29,7 @@
 <h2>Rental Requests</h2>
 <%= "no current requests" if @cat_rental_requests.empty? %>
 <ul>
-<% @cat_rental_requests.each do |rental_request| %>
-<li><%= rental_request.start_date %> - <%= rental_request.end_date %><%= " (approved)" if rental_request.status == 'APPROVED' %></li>
-<% end %>
+  <% @cat_rental_requests.each do |rental_request| %>
+  <li><%= rental_request.start_date %> - <%= rental_request.end_date %> <%= render 'buttons', rental_request: rental_request if rental_request.pending? %></li>
+  <% end %>
 </ul>

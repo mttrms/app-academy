@@ -42,4 +42,8 @@ class CatRentalRequest < ApplicationRecord
   def deny!
     update(status: 'DENIED')
   end
+
+  def pending?
+    self.status == 'PENDING'
+  end
 end

@@ -1,0 +1,5 @@
+<form method="POST">
+<input type="hidden" name="cat_rental_request[id]" value=<%= rental_request.id %>>
+<button type="submit" formaction="<%= approve_cat_rental_request_path %>">Approve</button>
+<button type="submit" formaction="<%= deny_cat_rental_request_path %>">Deny</button>
+</form>
