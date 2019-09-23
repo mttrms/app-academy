@@ -1,34 +1,3 @@
 <h1>Edit <%= @cat.name %></h1>
 
-<form action="<%= cat_path(@cat) %>" method="POST">
-  <input type="hidden" name="_method" value="PATCH">
-  <label for="name">Name:</label>
-  <input type="text" name="cat[name]" id="name" value="<%= @cat.name %>">
-  <br>
-
-  <span>Gender:</span>
-  <label for="male">Male</label>
-  <input type="radio" name="cat[sex]" id="male" value="m" <%= "checked" if @cat.sex == "m" %>> 
-  <label for="female">Female</label>
-  <input type="radio" name="cat[sex]" id="female" value="f" <%= "checked" if @cat.sex == "f" %>>
-  <br>
-
-  <label for="color">Color:</label>
-  <select name="cat[color]" id="color">
-    <option disabled selected value="">Select a color</option>
-    <% Cat::COLORS.each do |color| %>
-      <option value="<%= color %>" <%= "selected" if @cat.color == color %>><%= color %></option>
-    <% end %>
-  </select>
-  <br>
-
-  <label for="birthdate">Birthdate:</label>
-  <input type="date" name="cat[birth_date]" id="birthdate" value="<%= @cat.birth_date %>">
-  <br>
-
-  <label for="description">Description:</label>
-  <textarea name="cat[description]" id="description"><%= @cat.description %></textarea>
-  <br>
-  
-  <input type="submit" value="Update Cat">
-</form>
+<%= render 'form', cat: @cat %>
