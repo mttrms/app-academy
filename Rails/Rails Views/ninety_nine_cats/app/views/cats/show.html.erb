@@ -25,3 +25,11 @@
     <td><%= @cat.birth_date %></td>
   </tr>
 </table>
+
+<h2>Rental Requests</h2>
+<%= "no current requests" if @cat_rental_requests.empty? %>
+<ul>
+<% @cat_rental_requests.each do |rental_request| %>
+<li><%= rental_request.start_date %> - <%= rental_request.end_date %><%= " (approved)" if rental_request.status == 'APPROVED' %></li>
+<% end %>
+</ul>
