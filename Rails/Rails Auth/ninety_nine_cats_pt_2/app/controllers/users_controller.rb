@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :redirect_logged_in_users, only: [:new, :create]
-  
+
   def new
     @user = User.new
     render :new
@@ -15,7 +15,6 @@ class UsersController < ApplicationController
     else
       render json: @user.errors.full_messages
     end
-    # render json: user_params
   end
 
   private
