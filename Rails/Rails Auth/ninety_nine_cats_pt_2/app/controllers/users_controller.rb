@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:session_token] = @user.session_token
-      redirect_to :cats
+      login_user!(user_params[:user_name], user_params[:password])
     else
       render json: @user.errors.full_messages
     end

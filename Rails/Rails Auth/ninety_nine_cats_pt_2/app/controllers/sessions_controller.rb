@@ -4,10 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_credentials(user_params[:username], user_params[:password])
-    user.reset_session_token!
-    session[:session_token] = user.session_token
-    redirect_to :cats
+    login_user!(user_params[:user_name], user_params[:password])
   end
 
   def destroy
@@ -18,6 +15,6 @@ class SessionsController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:user_name, :password)
   end
 end
