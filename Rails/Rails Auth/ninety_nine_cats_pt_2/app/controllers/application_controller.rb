@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
     session[:session_token] = user.session_token
     redirect_to :cats
   end
+
+  def redirect_logged_in_users
+    redirect_to :cats if current_user
+  end
 end

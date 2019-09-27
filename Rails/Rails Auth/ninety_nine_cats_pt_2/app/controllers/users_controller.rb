@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :redirect_logged_in_users, only: [:new, :create]
+  
   def new
     @user = User.new
     render :new
