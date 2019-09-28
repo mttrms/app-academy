@@ -1,6 +1,10 @@
 class CatsController < ApplicationController
-  before_action only: [:new, :create] do
+  before_action only: [:new, :create, :edit, :update] do
     redirect_to :new_user unless current_user
+  end
+
+  before_action only: [:edit, :update] do
+    redirect_to :cat unless current_user.cats.find_by(id: params[:id])
   end
 
   def index
@@ -30,12 +34,12 @@ class CatsController < ApplicationController
   end
 
   def edit
-    @cat = Cat.find(params[:id])
+    @cat = current_user.cats.find(params[:id])
     render :edit
   end
 
   def update
-    @cat = Cat.find(params[:id])
+    @cat = current_user.cats.find(params[:id])
     if @cat.update_attributes(cat_params)
       redirect_to cat_url(@cat)
     else
@@ -45,7 +49,6 @@ class CatsController < ApplicationController
   end
 
   private
-
   def cat_params
     params.require(:cat).permit(:age, :birth_date, :color, :description, :name, :sex)
   end

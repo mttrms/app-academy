@@ -1,7 +1,11 @@
 class CatRentalRequestsController < ApplicationController
   def approve
-    current_cat_rental_request.approve!
-    redirect_to cat_url(current_cat)
+    if current_user.cats.include?(current_cat)
+      current_cat_rental_request.approve!
+      redirect_to cat_url(current_cat)
+    else
+      redirect_to :cat
+    end
   end
 
   def create
@@ -15,8 +19,12 @@ class CatRentalRequestsController < ApplicationController
   end
 
   def deny
-    current_cat_rental_request.deny!
-    redirect_to cat_url(current_cat)
+    if current_user.cats.include?(current_cat)
+      current_cat_rental_request.deny!
+      redirect_to cat_url(current_cat)
+    else
+      redirect_to :cat
+    end
   end
 
   def new
