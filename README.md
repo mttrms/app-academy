@@ -19,6 +19,7 @@ You can find occasional updates & recaps [on my blog](https://mattramos.com/blog
 * [Polls](https://github.com/mttrms/app-academy/tree/master/SQL/Active%20Record%20II/polls_app) – Database + Active Record setup for simple Polls App
 * [ActiveRecordLite](https://github.com/mttrms/app-academy/tree/master/SQL/Active%20Record%20III/ActiveRecordLite) – DIY Active Record that supports belongs_to, has_many, and has_one_through
 * [ArtShare API](https://github.com/mttrms/app-academy/tree/master/Rails/Routes%20and%20Controllers/art_share) – Simple API for creating, sharing, commenting and liking art
+* [99Cats](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Auth/ninety_nine_cats_pt_2) – Create + rent cats
 
 ## Pre-Work
 The required "pre-work" before the course begins. This is approx. 100 hours of programming foundational work to prepare students for the course.
@@ -48,3 +49,5 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 
 ### Rails
 * [Routes & Controllers](https://github.com/mttrms/app-academy/tree/master/Rails/Routes%20and%20Controllers)
+* [Views](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Views)
+* [Auth I](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Auth)
