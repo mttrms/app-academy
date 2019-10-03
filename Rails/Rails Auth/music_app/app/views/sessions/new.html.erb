@@ -1,0 +1,17 @@
+<h1>Sign in to Music App!</h1>
+<form action="<%= session_path %>" method="POST">
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>"
+  />
+
+  <label for="user_email">Email:</label>
+  <input type="text" id="user_email" name="user[email]">
+  <br>
+
+  <label for="user_password">Password:</label>
+  <input type="password" id="user_password" name="user[password]">
+  <br>
+
+  <input type="submit" value="Sign in">
+</form>
