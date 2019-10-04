@@ -12,13 +12,13 @@ class SessionsController < ApplicationController
     if @user.nil?
       render :new
     else
-      session[:session_token] = @user.reset_session_token!
+      log_in_user!(@user)
       redirect_to @user
     end
   end
 
   def destroy
-    user = User.find_by_session_token(session[:session_token])
+    user = current_user
     user.reset_session_token!
     session[:session_token] = nil
 
