@@ -1,0 +1,6 @@
+<h2>View all bands</h2>
+<% @bands.each do |band| %>
+  <p><%= link_to band.name, band %></p>
+<% end %>
+
+<%= link_to "Add a band", new_band_path %>
