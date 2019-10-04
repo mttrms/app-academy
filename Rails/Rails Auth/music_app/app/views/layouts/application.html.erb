@@ -7,9 +7,18 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
   </head>
 
   <body>
+    <h1 id="logo">MusicApp</h1>
+    <nav>
+      <% if current_user %>
+        <p><%= link_to "Sign out", session_path, method: :delete %></p>
+      <% else %>
+      <p><%= link_to "Sign up", new_user_path %> – <%= link_to "Sign in", new_session_path %></p>
+    <% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>
