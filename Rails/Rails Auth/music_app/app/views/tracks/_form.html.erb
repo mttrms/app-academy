@@ -15,11 +15,11 @@
 <br>
 
 <label for="track_title">Title</label>
-<input type="text" id="track_title" name="track[title]">
+<input type="text" id="track_title" name="track[title]" value="<%= track.title %>">
 <br>
 
 <label for="track_ord">Track order</label>
-<input type="number" id="track_ord" name="track[ord]">
+<input type="number" id="track_ord" name="track[ord]" value="<%= track.ord %>">
 <br>
 
 <p style="display: inline-block;">Bonus Track?</p>
@@ -32,6 +32,7 @@
 
 <label for="track_lyrics">Lyrics</label>
 <textarea id="track_lyrics" name="track[lyrics]">
+<%= @track.lyrics %>
 </textarea>
 <br>
 
