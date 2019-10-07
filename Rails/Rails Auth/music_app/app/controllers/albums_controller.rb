@@ -17,12 +17,24 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    @album = Album.find(params[:id])
+    @band = @album.band
   end
 
   def edit
+    @album = Album.find(params[:id])
+    @band = @album.band
+    @bands = Band.all
   end
 
   def update
+    @album = Album.find(params[:id])
+
+    if @album.update_attributes(album_params)
+      redirect_to album_path(@album)
+    else
+      render :edit
+    end
   end
 
   private

@@ -15,18 +15,18 @@
 <br>
 
 <label for="album_title">Title</label>
-<input type="text" id="album_title" name="album[title]">
+<input type="text" id="album_title" name="album[title]" value="<%= album.title %>">
 <br>
 
 <label for="album_year">Year</label>
-<input type="number" id="album_year" name="album[year]">
+<input type="number" id="album_year" name="album[year]" value="<%= album.year %>">
 <br>
 
 <label for="album_studio">Studio</label>
-<input type="radio" id="album_studio" name="album[live]" value="false" checked>
+<input type="radio" id="album_studio" name="album[live]" value="false" <%= "checked" if !@album.live %>>
 
 <label for="album_live">Live</label>
-<input type="radio" id="album_live" name="album[live]" value="false">
+<input type="radio" id="album_live" name="album[live]" value="true" <%= "checked" if @album.live %>>
 <br>
 
 <input type="submit" value="<%= button_text %>">
