@@ -13,10 +13,11 @@
   <body>
     <h1 id="logo">MusicApp</h1>
     <nav>
+    <%= link_to "Home", bands_path, class: "button" %>
       <% if current_user %>
-        <p><%= link_to "Sign out", session_path, method: :delete %></p>
+        <%= link_to "Sign out", session_path, class: "button", method: :delete %>
       <% else %>
-      <p><%= link_to "Sign up", new_user_path %> – <%= link_to "Sign in", new_session_path %></p>
+      <%= link_to "Sign up", new_user_path, class: "button" %> <%= link_to "Sign in", new_session_path, class: "button" %>
     <% end %>
     </nav>
     <%= yield %>

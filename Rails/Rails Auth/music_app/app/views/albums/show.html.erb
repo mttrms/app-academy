@@ -1,4 +1,10 @@
 <h2><%= @album.title %></h2>
 <h3>by <%= @band.name %></h3>
+<p>Recorded: <%= @album.year %></p>
 
-<%= link_to "Edit album", edit_album_path(@album) %>
+<%= link_to "View " + @band.name, band_path(@band) %>
+
+<div style="margin: 20px 0;">
+  <%= link_to "Edit album", edit_album_path(@album), class: "button" %>
+  <%= link_to "Delete album", album_path(@album), method: :delete, class: "button" %>
+</div>

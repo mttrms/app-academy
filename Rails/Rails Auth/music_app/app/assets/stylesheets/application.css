@@ -28,9 +28,10 @@ nav {
 	justify-content: flex-end;
 }
 
-a {
+a.button {
 	background-color: #f38181;
 	padding: 5px 10px;
+	margin: 0 10px;
 	text-decoration: none;
 	border-radius: 5px;
 	color: #fff;
