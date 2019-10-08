@@ -1,11 +1,10 @@
 module ApplicationHelper
   def ugly_lyrics(lyrics)
-    html = '<div class="lyrics">'
-    lyrics.split("\r\n").each do |line|
-      html += "<p>&#9835; #{h(line)}</p>"
+    formatted_lyrics = ""
+    lyrics.lines.each do |line|
+      formatted_lyrics += "&#9835; #{h(line)}"
     end
-    html += '</div>'
 
-    html.html_safe
+    "<pre class='lyrics'>#{formatted_lyrics}</pre>".html_safe
   end
 end
