@@ -1,12 +1,13 @@
 <h2><%= @track.title %></h2>
 
 <p><strong>Lyrics:</strong></p>
-<%= @track.lyrics %>
+<%= ugly_lyrics @track.lyrics %>
 
 <p><strong>Notes:</strong></p>
 <% @track.notes.each do |note| %>
 <%= render 'notes/note', note: note %>
 <% end %>
+
 
 <%= render 'notes/form', track: @track %>
 

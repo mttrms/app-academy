@@ -36,3 +36,8 @@ a.button {
 	border-radius: 5px;
 	color: #fff;
 }
+
+div.lyrics {
+	background-color: #eee;
+	padding: 10px;
+}
