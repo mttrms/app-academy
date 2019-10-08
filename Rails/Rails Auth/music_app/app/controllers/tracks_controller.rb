@@ -1,4 +1,6 @@
 class TracksController < ApplicationController
+  before_action :require_user!
+
   def show
     @track = Track.find(params[:id])
   end

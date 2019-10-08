@@ -13,7 +13,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to :index
+      log_in_user!(@user)
+      redirect_to :bands
     else
       render :new
     end
