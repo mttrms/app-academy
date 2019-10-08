@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :tracks, only: [:create, :edit, :update, :destroy, :show]
+
+  resources :notes, only: [:create, :destroy]
   
   resource :session, only: [:new, :create, :destroy]
 end
