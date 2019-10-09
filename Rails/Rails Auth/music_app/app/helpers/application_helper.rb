@@ -12,6 +12,7 @@ module ApplicationHelper
     if object.errors.full_messages.any?
       errors = "<div class='errors'>"
       object.errors.full_messages.each { |error| errors << "<p>#{error}</p>" }
+      errors += "</div>"
 
       errors.html_safe
     end

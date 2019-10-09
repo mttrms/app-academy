@@ -8,7 +8,6 @@ class TracksController < ApplicationController
   def new
     @track = Track.new
     @album = Album.find(params[:album_id])
-    @albums = Album.all
   end
 
   def create
@@ -17,6 +16,7 @@ class TracksController < ApplicationController
     if @track.save
       redirect_to track_path(@track)
     else
+      @album = @track.album
       render :new
     end
   end

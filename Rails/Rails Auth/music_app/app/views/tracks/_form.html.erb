@@ -2,13 +2,15 @@
 <% form_method = track.persisted? ? "PATCH" : "POST" %>
 <% button_text = track.persisted? ? "Update track" : "Create track" %>
 
+<%= error_messages track %>
+
 <form action="<%= action_path %>" method="POST">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 <input type="hidden" name="_method" value="<%= form_method %>">
 
 <label for="track_album">Album</label>
 <select name="track[album_id]" id="track_album">
-  <% @albums.each do |album| %>
+  <% Album.all.each do |album| %>
     <option value="<%= album.id %>" <%= "selected" if @album.title == album.title %>><%= album.title %></option>
   <% end %>
 </select>
