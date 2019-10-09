@@ -41,3 +41,7 @@ pre.lyrics {
 	background-color: #eee;
 	padding: 10px;
 }
+
+p.error {
+	color: red;
+}
