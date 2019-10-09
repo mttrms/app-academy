@@ -42,6 +42,6 @@ pre.lyrics {
 	padding: 10px;
 }
 
-p.error {
+div.errors p {
 	color: red;
 }

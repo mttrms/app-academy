@@ -7,4 +7,13 @@ module ApplicationHelper
 
     "<pre class='lyrics'>#{formatted_lyrics}</pre>".html_safe
   end
+
+  def error_messages(object)
+    if object.errors.full_messages.any?
+      errors = "<div class='errors'>"
+      object.errors.full_messages.each { |error| errors << "<p>#{error}</p>" }
+
+      errors.html_safe
+    end
+  end
 end
