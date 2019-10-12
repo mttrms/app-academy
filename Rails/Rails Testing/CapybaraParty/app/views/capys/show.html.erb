@@ -1,0 +1,12 @@
+<img src="https://media.giphy.com/media/hi2kPofVMW70k/giphy.gif">
+
+<br><br>
+
+<h1><%= @capy.name %>'s Party Page</h1>
+
+<h2>My current parties are:</h2>
+<ul>
+  <% @capy.parties.each do |party| %>
+    <li><a href="<%= party_url(party) %>"><%= party.occasion %></a></li>
+  <% end %>
+</ul>

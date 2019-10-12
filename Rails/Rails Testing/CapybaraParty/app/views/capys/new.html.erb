@@ -1,0 +1,16 @@
+<h1>New Capybara</h1>
+<%= flash[:errors].join(", ") if flash[:errors] %>
+
+<form action="<%= capys_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>name
+    <input type="text" value="<%= @capy.name %>" name="capy[name]" />
+  </label>
+
+  <label>color
+    <input type="text" value="<%= @capy.color %>" name="capy[color]" />
+  </label>
+
+  <input type="submit" value="Create Capy">
+</form>
