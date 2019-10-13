@@ -1,0 +1,12 @@
+<h3><%= @band.name %></h3>
+
+<p>Albums:</p>
+<ul>
+  <% @band.albums.each do |album| %>
+    <li><%= link_to album.title, album_path(album) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Add album", new_band_album_path(@band), class: "button" %>
+<%= link_to "Edit band", edit_band_path(@band), class: "button" %>
+<%= link_to "Delete band", band_path(@band), method: :delete, class: "button" %>

@@ -1,0 +1,6 @@
+<p><%= note.body %></p>
+<p>– <%= note.user.email %></p>
+
+<% if current_user.notes.include?(note) %>
+  <%= link_to "Delete note", note_path(note), method: :delete %>
+<% end %>

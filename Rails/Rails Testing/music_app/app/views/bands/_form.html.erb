@@ -1,0 +1,16 @@
+<% action_path = band.persisted? ? band_path(band) : bands_path %>
+<% form_method = band.persisted? ? "PATCH" : "POST" %>
+<% button_text = band.persisted? ? "Update Band" : "Create Band" %>
+
+<%= error_messages @band %>
+
+<form action="<%= action_path %>" method="POST">
+  <input type="hidden" name="_method" value="<%= form_method %>">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="band_name">Band Name:</label>
+  <input type="text" id="band_name" name="band[name]">
+  <br>
+
+  <input type="submit" value="<%= button_text %>">
+</form>

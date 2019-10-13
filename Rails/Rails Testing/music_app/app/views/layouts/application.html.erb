@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <h1 id="logo">MusicApp</h1>
+    <nav>
+    <%= link_to "Home", bands_path, class: "button" %>
+      <% if current_user %>
+        <%= link_to "Sign out", session_path, class: "button", method: :delete %>
+      <% else %>
+      <%= link_to "Sign up", new_user_path, class: "button" %> <%= link_to "Sign in", new_session_path, class: "button" %>
+    <% end %>
+    </nav>
+    <%= yield %>
+  </body>
+</html>

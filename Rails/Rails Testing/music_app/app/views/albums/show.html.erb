@@ -1,0 +1,18 @@
+<h2><%= @album.title %></h2>
+<h3>by <%= @band.name %></h3>
+<p>Recorded: <%= @album.year %></p>
+<p><%= @album.tracks.any? ? "Tracks:" : "No tracks yet" %></p>
+
+<ul>
+  <% @album.tracks.each do |track| %>
+    <li><%= link_to track.title, track_path(track) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "View " + @band.name, band_path(@band) %>
+
+<div style="margin: 20px 0;">
+  <%= link_to "Add track", new_album_track_path(@album), class: "button" %>
+  <%= link_to "Edit album", edit_album_path(@album), class: "button" %>
+  <%= link_to "Delete album", album_path(@album), method: :delete, class: "button" %>
+</div>

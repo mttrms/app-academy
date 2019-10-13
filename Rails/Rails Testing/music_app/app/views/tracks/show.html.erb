@@ -1,0 +1,17 @@
+<h2><%= @track.title %></h2>
+
+<p><strong>Lyrics:</strong></p>
+<%= ugly_lyrics @track.lyrics %>
+
+<p><strong>Notes:</strong></p>
+<% @track.notes.each do |note| %>
+<%= render 'notes/note', note: note %>
+<% end %>
+
+
+<%= render 'notes/form', track: @track %>
+
+<div style="margin: 20px 0;">
+  <%= link_to "Edit track", edit_track_path(@track), class: "button" %>
+  <%= link_to "Delete track", track_path(@track), method: :delete, class: "button" %>
+</div>

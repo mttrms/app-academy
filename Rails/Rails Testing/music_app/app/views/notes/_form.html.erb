@@ -1,0 +1,12 @@
+<h3>Add a note</h3>
+
+<form action="<%= notes_path %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+  <input type="hidden" name="note[track_id]" value="<%= params[:id] %>">
+
+  <label for="note_body">Note:</label><br>
+  <textarea id="note_body" name="note[body]"></textarea>
+  <br>
+
+  <input type="submit" value="Save Note">
+</form>
