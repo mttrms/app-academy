@@ -1,18 +1,43 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:invalid_user) { User.new(password: 'Hunter12') }
-  let(:valid_user) { User.new(email: 'hunter12@hunter.com', password: 'Hunter12') }
-  let(:no_password) { User.new(email: 'hunter12@hunter12.com') }
+  subject(:user) { User.create(
+    email: 'test@test.com',
+    password: 'Hunter12'
+  ) }
 
-  # it 'validates presence of email' do
-    # expect(invalid_user).not_to be_valid
-    # expect(valid_user).to be_valid
-  # end
+  describe "validations" do
+    it { should validate_presence_of(:email) }
+    it { should validate_presence_of(:password_digest) }
+    it { should validate_length_of(:password).is_at_least(6) } 
+  end
 
-  it { should validate_presence_of(:email) }
+  describe "#is_password?" do
+    it "returns true with correct password" do
+      expect(user.is_password?('Hunter12')).to be true
+    end
 
-  it 'validates presence of password' do
-    expect(no_password).not_to be_valid
+    it "returns false with incorrect password" do
+      expect(user.is_password?('Warlock13')).to be false
+    end
+  end
+
+  describe "#reset_session_token" do
+    it "resets the session token" do
+      session_token = user.session_token
+      user.reset_session_token!
+      expect(session_token).not_to eq(user.session_token)
+    end
+  end
+
+  xdescribe "::find_by_credentials" do
+    it "returns the user if credentials match" do
+      found_user = User.find_by_credentials(
+        'test@test.com',
+        'Hunter12'
+      )
+
+      expect(found_user).to be(user)
+    end
   end
 end
