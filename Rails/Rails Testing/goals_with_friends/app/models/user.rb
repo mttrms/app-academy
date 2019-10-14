@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  after_initialize :ensure_session_token
+
   attr_reader :password
 
   validates :email, :session_token, :password_digest, presence: true
@@ -12,6 +14,21 @@ class User < ApplicationRecord
 
   def is_password?(password)
     password_digest = BCrypt::Password.new(self.password_digest)
+
     password_digest == password
+  end
+
+  def ensure_session_token
+    self.session_token ||= User.generate_session_token
+  end
+
+  def self.generate_session_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def reset_session_token!
+    self.session_token = User.generate_session_token
+
+    self.session_token
   end
 end
