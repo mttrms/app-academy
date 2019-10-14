@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject(:user) { User.create(
+  subject(:user) { User.new(
     email: 'test@test.com',
     password: 'Hunter12'
   ) }
@@ -26,18 +26,24 @@ RSpec.describe User, type: :model do
     it "resets the session token" do
       session_token = user.session_token
       user.reset_session_token!
+
       expect(session_token).not_to eq(user.session_token)
+    end
+
+    it "returns the new session token" do
+      expect(user.reset_session_token!).to eq(user.session_token)
     end
   end
 
-  xdescribe "::find_by_credentials" do
-    it "returns the user if credentials match" do
-      found_user = User.find_by_credentials(
-        'test@test.com',
-        'Hunter12'
-      )
+  describe "::find_by_credentials" do
+    before { user.save! }
 
-      expect(found_user).to be(user)
+    it "returns the user if credentials match" do
+      expect(User.find_by_credentials('test@test.com', 'Hunter12')).to eq(user)
+    end
+
+    it "returns nil when given bad credentials" do
+      expect(User.find_by_credentials('test@test.com', 'Warlock13')).to be_nil
     end
   end
 end
