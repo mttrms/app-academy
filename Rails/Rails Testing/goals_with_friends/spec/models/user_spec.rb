@@ -13,8 +13,8 @@ RSpec.describe User, type: :model do
   end
 
   describe "#is_password?" do
-    it "returns nil when password is incorrect" do
-      expect(user.is_password?('Warlock13')).to be_nil
+    it "returns false when password is incorrect" do
+      expect(user.is_password?('Warlock13')).to be false
     end
 
     it "returns true when password is correct" do
