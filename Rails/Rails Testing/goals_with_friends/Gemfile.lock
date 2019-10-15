@@ -1,3 +1,17 @@
+GIT
+  remote: https://github.com/rspec/rspec-rails
+  revision: 9e48616e684dd37cdc858e88f3058e5788acc47c
+  branch: 4-0-dev
+  specs:
+    rspec-rails (4.0.0.beta2)
+      actionpack (>= 4.2)
+      activesupport (>= 4.2)
+      railties (>= 4.2)
+      rspec-core (~> 3.8)
+      rspec-expectations (~> 3.8)
+      rspec-mocks (~> 3.8)
+      rspec-support (~> 3.8)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -199,14 +213,6 @@ GEM
     rspec-mocks (3.9.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
-    rspec-rails (3.9.0)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-core (~> 3.9.0)
-      rspec-expectations (~> 3.9.0)
-      rspec-mocks (~> 3.9.0)
-      rspec-support (~> 3.9.0)
     rspec-support (3.9.0)
     ruby_dep (1.5.0)
     rubyzip (2.0.0)
@@ -286,7 +292,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 6.0.0)
   rails-controller-testing
-  rspec-rails
+  rspec-rails!
   sass-rails (~> 5)
   selenium-webdriver
   shoulda-matchers
