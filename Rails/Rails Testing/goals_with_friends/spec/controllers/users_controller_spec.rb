@@ -29,11 +29,9 @@ RSpec.describe UsersController, type: :controller do
 
     context 'with valid credentials' do
       it 'redirects the user' do
-        expect(response).to have_http_status(302)
-      end
+        post :create, params: { user: { email: 'fake@email.com', password: 'Hunter12' }}
 
-      it 'signs in the user' do
-        expect(session[:session_token]).not_to be_nil
+        expect(response).to have_http_status(302)
       end
     end
   end
