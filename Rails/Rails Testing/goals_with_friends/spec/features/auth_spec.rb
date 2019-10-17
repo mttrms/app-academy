@@ -20,7 +20,15 @@ feature 'the signup process' do
   end
 
   feature 'logging in' do
-    scenario 'shows username on the home page after login'
+    scenario 'shows username on the home page after login' do
+      # valid user in test db: { email: 'valid@email.com', password: 'Hunter12' }
+      visit new_session_path
+      fill_in 'Email', with: 'valid@email.com'
+      fill_in 'Password', with: 'Hunter12'
+      click_button 'Sign in'
+
+      expect(page).to have_content 'valid@email.com'
+    end
   end
 
   feature 'logging out' do
