@@ -22,6 +22,6 @@ class SessionsController < ApplicationController
     @user.reset_session_token!
     session[:session_token] = nil
 
-    render plain: 'Logged out'
+    redirect_to root_path
   end
 end
