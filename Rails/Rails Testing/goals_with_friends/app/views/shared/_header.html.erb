@@ -1,0 +1,7 @@
+<nav>
+  <% if current_user %>
+    <p>Welcome <%= current_user.email %>! <%= link_to 'Sign out', session_path, method: :delete %></p>
+  <% else %>
+    <p>Welcome anonymous user! <%= link_to 'Sign up', new_user_path %> or <%= link_to 'Sign in', new_session_path %></p>
+  <% end %>
+</nav>

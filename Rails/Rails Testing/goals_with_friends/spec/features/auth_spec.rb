@@ -32,8 +32,18 @@ feature 'the signup process' do
   end
 
   feature 'logging out' do
-    scenario 'begins with a logged out state'
+    scenario 'begins with a logged out state' do
+      visit root_url
+      expect(page).to have_content "Sign in"
+    end
 
-    scenario 'doesn\'t show username on the homepage after logout'
+    scenario 'doesn\'t show username on the homepage after logout' do
+      visit new_session_path
+      fill_in 'Email', with: 'valid@email.com'
+      fill_in 'Password', with: 'Hunter12'
+      click_button 'Sign in'
+      click_link 'Sign out'
+      expect(page).not_to have_content 'valid@email.com'
+    end
   end
 end
