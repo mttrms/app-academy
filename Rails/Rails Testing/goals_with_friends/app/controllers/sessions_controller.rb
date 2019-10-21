@@ -22,6 +22,6 @@ class SessionsController < ApplicationController
     @user.reset_session_token!
     session[:session_token] = nil
 
-    render text: 'Logged out'
+    render plain: 'Logged out'
   end
 end
