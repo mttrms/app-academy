@@ -9,7 +9,14 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
-    render json: goal_params
+    @goal.user = current_user
+
+    if @goal.save
+      redirect_to goal_path(@goal)
+    else
+      flash.now[:errors] = @goal.errors.full_messages
+      render :new
+    end
   end
 
   def edit

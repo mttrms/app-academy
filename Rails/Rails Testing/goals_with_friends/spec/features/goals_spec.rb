@@ -6,8 +6,8 @@ feature 'creating goals' do
     visit new_goal_path
     expect(page).to have_content 'New Goal'
     expect(page).to have_button 'Add Goal'
-    expect(page).to have_field '#goal_details'
-    expect(page).to have_field '#goal_private'
+    expect(page).to have_field 'goal_details'
+    expect(page).to have_field 'goal_private'
   end
   scenario 'should redirect to goal after it has been created' do
     visit new_goal_path
