@@ -2,9 +2,28 @@ require 'spec_helper'
 require 'rails_helper'
 
 feature 'creating goals' do
-  scenario 'should have a goal creation page'
-  scenario 'should redirect to goal after it has been created'
-  scenario 'should start uncompleted'
+  scenario 'should have a goal creation page' do
+    visit new_goal_path
+    expect(page).to have_content 'New Goal'
+    expect(page).to have_button 'Add Goal'
+    expect(page).to have_field '#goal_details'
+    expect(page).to have_field '#goal_private'
+  end
+  scenario 'should redirect to goal after it has been created' do
+    visit new_goal_path
+    fill_in 'Title', with: 'My Goal'
+    fill_in 'Details', with: 'Details about my goal'
+    click_button 'Add Goal'
+    expect(page).to have_content 'My Goal'
+  end
+
+  scenario 'should start uncompleted' do
+    visit new_goal_path
+    fill_in 'Title', with: 'My Goal'
+    fill_in 'Details', with: 'Details about my goal'
+    click_button 'Add Goal'
+    expect(page).to have_content 'Ongoing'
+  end
 end
 
 feature 'viewing your own goals' do
