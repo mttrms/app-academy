@@ -10,11 +10,10 @@ feature 'creating goals' do
     expect(page).to have_field 'goal_private'
   end
   scenario 'should redirect to goal after it has been created' do
+    sign_up_as('capy@test.com')
     visit new_goal_path
     fill_in 'Title', with: 'My Goal'
     fill_in 'Details', with: 'Details about my goal'
-    expect(page).to have_button 'Add Goal'
-
     click_button 'Add Goal'
     expect(page).to have_content 'My Goal'
   end
