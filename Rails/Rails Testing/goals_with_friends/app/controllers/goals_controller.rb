@@ -17,7 +17,7 @@ class GoalsController < ApplicationController
       redirect_to goal_path(@goal)
     else
       flash.now[:errors] = @goal.errors.full_messages
-      render :new
+      render json: flash
     end
   end
 
