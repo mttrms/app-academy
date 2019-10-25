@@ -19,6 +19,7 @@ feature 'creating goals' do
   end
 
   scenario 'should start uncompleted' do
+    sign_up_as('capy@test.com')
     visit new_goal_path
     fill_in 'Title', with: 'My Goal'
     fill_in 'Details', with: 'Details about my goal'
