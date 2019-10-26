@@ -9,6 +9,7 @@ feature 'creating goals' do
     expect(page).to have_field 'goal_details'
     expect(page).to have_field 'goal_private'
   end
+  
   scenario 'should redirect to goal after it has been created' do
     sign_up_as('capy@test.com')
     visit new_goal_path
@@ -29,7 +30,19 @@ feature 'creating goals' do
 end
 
 feature 'viewing your own goals' do
-  scenario 'should list goals on user page'
+  before(:each) do
+    sign_up_as('capy@test.com')
+    create_goal('first goal', 'some details')
+    create_goal('other goal', 'some details')
+    @user = User.find_by(email: 'capy@test.com')
+  end
+
+  scenario 'should list goals on user page' do
+    visit user_path(@user)
+    expect(page).to have_content 'first goal'
+    expect(page).to have_content 'other goal'
+  end
+
   scenario 'should have a page to view a specific goal'
 end
 

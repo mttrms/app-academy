@@ -11,4 +11,10 @@ module GoalsHelper
     fill_in 'Password', with: 'Hunter12'
     click_button 'Sign in'
   end
+  def create_goal(title, details)
+    visit new_goal_path
+    fill_in 'Title', with: title
+    fill_in 'Details', with: details
+    click_button 'Add Goal'
+  end
 end
