@@ -73,15 +73,59 @@ feature 'viewing goals of other users' do
 end
 
 feature 'completing a goal' do
-  scenario 'when the goal has not been completed'
-  scenario 'when the goal has been completed'
+  before(:each) do
+    sign_up_as('capy@test.com')
+    create_goal('first goal', 'some details about goal 1')
+    create_goal('other goal', 'some details')
+    @user = User.find_by(email: 'capy@test.com')
+  end
+
+  scenario 'when the goal has not been completed' do
+    visit user_path(@user)
+    click_link 'first goal'
+    expect(page).not_to have_content('Completed')
+  end
+
+  scenario 'when the goal has been completed' do
+    visit user_path(@user)
+    click_link 'first goal'
+    click_button 'complete'
+    expect(page).to have_content('Completed')
+  end
 end
 
 feature 'editing goals' do
-  scenario 'should have an edit goal page'
-  scenario 'should have updated goal info after editing'
+  before(:each) do
+    sign_up_as('capy@test.com')
+    create_goal('first goal', 'some details about goal 1')
+    create_goal('other goal', 'some details')
+    @user = User.find_by(email: 'capy@test.com')
+  end
+
+  scenario 'should have an edit goal page' do
+    visit user_path(@user)
+    click_link 'first goal'
+    expect(page).to have_link('Edit goal')
+    click_link 'Edit goal'
+    expect(page).to have_content('Edit first goal')
+  end
+
+  scenario 'should have updated goal info after editing' do
+    visit user_path(@user)
+    click_link 'first goal'
+    click_link 'Edit goal'
+    fill_in 'Title', with: 'My New Goal'
+    click_button 'Edit goal'
+    expect(page).to have_content 'My New Goal'
+  end
 end
 
 feature 'deleting goals' do
-  scenario 'should allow deletion of a goal'
+  scenario 'should allow deletion of a goal' do
+    sign_up_as('capy@test.com')
+    create_goal('soon to be deleted goal', 'some details about goal 1')
+    click_link 'Delete goal'
+    visit user_path(User.find_by(email: 'capy@test.com'))
+    expect(page).not_to have_content 'soon to be deleted goal'
+  end
 end
