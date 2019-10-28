@@ -53,8 +53,23 @@ feature 'viewing your own goals' do
 end
 
 feature 'viewing goals of other users' do
-  scenario 'when the goal is public'
-  scenario 'when the goal is private'
+  before(:each) do
+    sign_up_as('capy@test.com')
+    create_goal('first goal', 'some details about goal 1')
+    create_goal('other goal', 'some details', true)
+    @user = User.find_by(email: 'capy@test.com')
+    logout
+  end
+
+  scenario 'when the goal is public' do
+    visit user_path(@user)
+    expect(page).to have_content 'first goal'
+  end
+
+  scenario 'when the goal is private' do
+    visit user_path(@user)
+    expect(page).not_to have_content 'other goal'
+  end
 end
 
 feature 'completing a goal' do
