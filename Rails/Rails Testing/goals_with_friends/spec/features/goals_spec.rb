@@ -32,7 +32,7 @@ end
 feature 'viewing your own goals' do
   before(:each) do
     sign_up_as('capy@test.com')
-    create_goal('first goal', 'some details')
+    create_goal('first goal', 'some details about goal 1')
     create_goal('other goal', 'some details')
     @user = User.find_by(email: 'capy@test.com')
   end
@@ -43,7 +43,13 @@ feature 'viewing your own goals' do
     expect(page).to have_content 'other goal'
   end
 
-  scenario 'should have a page to view a specific goal'
+  scenario 'should have a page to view a specific goal' do
+    visit user_path(@user)
+    click_link 'first goal'
+    expect(page).to have_content 'first goal'
+    expect(page).to have_content 'some details about goal 1'
+    expect(page).to have_content 'Ongoing'
+  end
 end
 
 feature 'viewing goals of other users' do
