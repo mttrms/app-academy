@@ -89,7 +89,7 @@ feature 'completing a goal' do
   scenario 'when the goal has been completed' do
     visit user_path(@user)
     click_link 'first goal'
-    click_button 'complete'
+    click_button 'Complete goal'
     expect(page).to have_content('Completed')
   end
 end

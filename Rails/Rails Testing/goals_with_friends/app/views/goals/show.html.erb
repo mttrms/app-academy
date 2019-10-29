@@ -1,3 +1,4 @@
 <h1 class="goal_title"><%= @goal.title %></h1>
 <p><%= @goal.details %></p>
 <p>Status: <%= @goal.completed ? 'Completed' : 'Ongoing' %></p>
+<%= render 'shared/goal_complete' if current_user == @goal.user %>
