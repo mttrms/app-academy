@@ -4,3 +4,4 @@
 <%= render 'shared/goal_complete' if current_user == @goal.user %>
 
 <%= link_to 'Edit goal', edit_goal_path(@goal) if current_user == @goal.user %>
+<%= link_to 'Delete goal', goal_path(@goal), method: :delete if current_user == @goal.user %>

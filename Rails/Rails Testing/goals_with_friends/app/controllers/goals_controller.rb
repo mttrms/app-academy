@@ -38,6 +38,13 @@ class GoalsController < ApplicationController
   end
 
   def destroy
+    @goal = Goal.find(params[:id])
+    user = @goal.user
+    if @goal.destroy
+      redirect_to user
+    else
+      redirect_to goal
+    end
   end
 
   private
