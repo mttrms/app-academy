@@ -115,7 +115,7 @@ feature 'editing goals' do
     click_link 'first goal'
     click_link 'Edit goal'
     fill_in 'Title', with: 'My New Goal'
-    click_button 'Edit goal'
+    click_button 'Update Goal'
     expect(page).to have_content 'My New Goal'
   end
 end

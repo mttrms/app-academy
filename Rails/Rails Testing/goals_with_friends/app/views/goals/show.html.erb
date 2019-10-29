@@ -2,3 +2,5 @@
 <p><%= @goal.details %></p>
 <p>Status: <%= @goal.completed ? 'Completed' : 'Ongoing' %></p>
 <%= render 'shared/goal_complete' if current_user == @goal.user %>
+
+<%= link_to 'Edit goal', edit_goal_path(@goal) if current_user == @goal.user %>

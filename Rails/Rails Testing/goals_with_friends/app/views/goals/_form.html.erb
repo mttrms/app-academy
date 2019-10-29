@@ -1,0 +1,24 @@
+<% action = goal.persisted? ? goal_url(goal) : goals_url %>
+<% method = goal.persisted? ? "patch" : "post" %>
+<% submit_text = goal.persisted? ? 'Update Goal' : 'Add Goal' %>
+
+<form action="<%= action %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="<%= method %>">
+
+  <label for="goal_title">Title</label>
+  <input type="text" name="goal[title]" id="goal_title" value="<%= goal.title %>">
+  <br>
+
+  <label for="goal_details">Details</label>
+  <input type="text" name="goal[details]" id="goal_details" value="<%= goal.details %>">
+  <br>
+
+  <label for="goal_private">Private?</label>
+  <input type="hidden" name="goal[private]" value="false">
+  <input type="checkbox" name="goal[private]" id="goal_private" value="true">
+  <br>
+
+
+  <input type="submit" value="<%= submit_text %>">
+</form>
