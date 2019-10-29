@@ -2,6 +2,6 @@
 <p>Signed up <%= time_ago_in_words(@user.created_at) %> ago</p>
 
 <h2><%= @user.email %>'s Goals:</h2>
-<% @user.goals.each do |goal| %>
+<% @goals.each do |goal| %>
   <%= link_to goal.title, goal_path(goal) %> 
 <% end %>

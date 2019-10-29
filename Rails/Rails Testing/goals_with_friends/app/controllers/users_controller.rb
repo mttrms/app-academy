@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @goals = current_user == @user ? @user.goals : @user.goals.where(private: false)
   end
 
   private
