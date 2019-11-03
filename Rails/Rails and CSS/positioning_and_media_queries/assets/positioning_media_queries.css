@@ -133,13 +133,16 @@ label {
 	}
 
 	.hamburger-dropdown:hover ul {
-		display: block;
+		visibility: visible;
+		opacity: 1;
 	}
 
 	.hamburger-dropdown ul {
-		display: none;
+		visibility: hidden;
+		opacity: 0;
 		position: absolute;
 		background: #ddd;
 		top: 50px;
+		transition: opacity .3s ease-in-out;
 	}
 }
