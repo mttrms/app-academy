@@ -47,6 +47,7 @@ Started GET "/assets/application.self-a91216bc7ffef180757e1aefd611a9b882a25d0a54
 Started GET "/assets/application.self-a91216bc7ffef180757e1aefd611a9b882a25d0a54063492f157c7babaeb0508.css?body=1&livereload=1572841951961" for ::1 at 2019-11-03 23:32:31 -0500
 Started GET "/assets/application.self-a91216bc7ffef180757e1aefd611a9b882a25d0a54063492f157c7babaeb0508.css?body=1&livereload=1572841957510" for ::1 at 2019-11-03 23:32:37 -0500
 Started GET "/assets/application.self-a91216bc7ffef180757e1aefd611a9b882a25d0a54063492f157c7babaeb0508.css?body=1&livereload=1572841957511" for ::1 at 2019-11-03 23:32:37 -0500
+<<<<<<< HEAD
 Started GET "/" for ::1 at 2019-11-03 23:36:00 -0500
 Processing by StaticPagesController#index as HTML
   Rendering static_pages/index.html.erb within layouts/application
@@ -89,3 +90,5 @@ Processing by StaticPagesController#index as HTML
 Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.0ms)
 
 
+=======
+>>>>>>> 72fa1e07cbba1ef0a5f4a55fa7871db7f98928fb
