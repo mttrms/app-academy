@@ -1,7 +1,8 @@
 /* PHASE 3: Content */
 
 .content {
-	width: 900px;
+	width: 902px;
+	box-sizing: border-box;
 	margin: 0 auto;
 	background-color: #fff;
 	border: 1px solid #ccc;
