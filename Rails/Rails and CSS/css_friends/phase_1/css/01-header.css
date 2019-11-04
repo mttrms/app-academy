@@ -3,4 +3,48 @@
 body {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
+	background-color: #eee;
+}
+
+.header {
+	background-color: #f00;
+	color: #fff;
+	border-bottom: 1px solid #ccc;
+}
+
+.header a {
+	display: block;
+	padding: 10px 20px;
+}
+
+.header-nav {
+	width: 900px;
+	margin: 0 auto;
+}
+
+.header-logo {
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	font-weight: 700;
+	float: left;
+}
+
+.header-list {
+	float: right;
+	border-right: 1px solid #ccc;
+}
+
+.header-list > li {
+	float: left;
+	border-left: 1px solid #ccc;
+}
+
+.header-nav a:hover {
+	background-color: #000;
+}
+
+.cf:after {
+	content: "";
+	display: block;
+	clear: both;
 }
