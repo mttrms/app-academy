@@ -1,0 +1,30 @@
+.sections-nav {
+	border-bottom: 1px solid $light-gray;
+	padding: 10px 0;
+	font-family: $sans-serif;
+}
+
+.sections-nav ul {
+	display: flex;
+	justify-content: center;
+}
+
+.sections-nav a {
+	margin-right: 20px;
+}
+
+.sections-nav a:hover {
+	text-decoration: none;
+	background-color: $light-gray;
+}
+
+.sections-nav .all {
+	margin-right: 0;
+	text-transform: uppercase;
+	font-size: 10px;
+}
+
+.sections-nav .all:hover {
+	background: none;
+	text-decoration: underline;
+}
