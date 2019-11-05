@@ -25,6 +25,10 @@
 	color: $dark-gray;
 }
 
+.language-nav li:first-child a {
+	font-weight: bold;
+}
+
 .language-nav ul {
 	display: flex;
 }
@@ -45,6 +49,10 @@
 .masthead-links li {
 	margin-left: 10px;
 	border-right: 1px solid $light-gray;
+}
+
+.masthead-links li:last-of-type {
+	border: none;
 }
 
 .masthead-links button {
