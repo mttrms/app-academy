@@ -17,6 +17,10 @@
 	margin-top: 18px;
 }
 
+.main-story section, .email-signup {
+	margin-bottom: 20px;
+}
+
 .video p {
 	margin-top: 10px;
 }
@@ -76,4 +80,12 @@ section p a {
 
 .thumbnail img {
 	object-fit: cover;
+}
+
+article {
+	margin-top: 10px;
+}
+
+article hr {
+	width: 50%;
 }
