@@ -1,0 +1,30 @@
+.byline {
+	color: $gray;
+	line-height: 140%;
+	margin-bottom: 10px;
+}
+
+main {
+	margin-top: 20px;
+}
+
+.video p {
+	margin-top: 10px;
+}
+
+section ul {
+	list-style: outside disc;
+	font-size: 12px;
+}
+
+section ul li {
+	margin-left: 16px;
+	margin-bottom: 10px;
+	line-height: 150%;
+}
+
+section p a {
+	font-size: 10px;
+	color: $blue;
+	font-family: $sans-serif;
+}
