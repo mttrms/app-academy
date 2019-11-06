@@ -1,0 +1,35 @@
+.sections-sidebar {
+	width: 200px;
+	background-color: #fff;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	z-index: 1;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	text-transform: none;
+	box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+	visibility: hidden;
+}
+
+.sections-sidebar.expand {
+	visibility: visible;
+	opacity: 1;
+}
+
+.sections-sidebar li {
+}
+
+.sections-sidebar a {
+	display: block;
+	font-size: 12px;
+	padding: 5px;
+}
+
+.sections-sidebar a:hover {
+	text-decoration: none;
+	background-color: $lightest-blue;
+	border-radius: 5px;
+}
