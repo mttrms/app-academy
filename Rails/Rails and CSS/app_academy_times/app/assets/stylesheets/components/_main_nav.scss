@@ -49,3 +49,21 @@
 .right-nav i {
 	font-size: 14px;
 }
+
+@media all and (max-width: 1000px) {
+	.sections-nav {
+		display: none;
+	}
+
+	.main-nav {
+		padding: 21px 0;
+	}
+
+	.left-nav > ul > li {
+		margin-left: 0;
+	}
+
+	.right-nav button {
+		display: none;
+	}
+}
