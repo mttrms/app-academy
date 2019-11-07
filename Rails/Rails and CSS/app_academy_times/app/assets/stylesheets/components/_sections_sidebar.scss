@@ -22,13 +22,13 @@
 .sections-sidebar li {
 }
 
-.sections-sidebar a {
+.sections-sidebar li {
 	display: block;
 	font-size: 12px;
 	padding: 5px;
 }
 
-.sections-sidebar a:hover {
+.sections-sidebar li:hover {
 	text-decoration: none;
 	background-color: $lightest-blue;
 	border-radius: 5px;
@@ -43,5 +43,23 @@
 }
 
 .dropdown:hover > ul {
+	position: absolute;
 	display: block;
+	box-sizing: border-box;
+	padding: 10px 20px;
+	padding-bottom: 19px;
+	box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+	width: 200px;
+	background-color: #fff;
+	top: -26px;
+	left: 165px;
+	box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+	border: 1px solid $light-gray;
+}
+
+.sections-sidebar .dropdown-label {
+	font-size: 10px;
+	color: $gray;
+	text-transform: uppercase;
+	margin-bottom: 5px;
 }
