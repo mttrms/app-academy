@@ -33,3 +33,15 @@
 	background-color: $lightest-blue;
 	border-radius: 5px;
 }
+
+.dropdown {
+	position: relative;
+}
+
+.dropdown > ul {
+	display:none;
+}
+
+.dropdown:hover > ul {
+	display: block;
+}
