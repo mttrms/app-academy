@@ -1,0 +1,17 @@
+.search-modal {
+	max-height: 0;
+	position: relative;
+	width: 100vw;
+	left: calc(-50vw + 50%);
+	text-align: center;
+	overflow: hidden;
+}
+
+.search-modal.expand {
+	max-height: 300px;
+}
+
+.search-modal .input-wrapper {
+	width: 40%;
+	margin: 25px auto;
+}
