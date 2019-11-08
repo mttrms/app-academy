@@ -12,6 +12,21 @@
 }
 
 .search-modal .input-wrapper {
-	width: 40%;
+	width: 64%;
 	margin: 25px auto;
+}
+
+.search-modal input {
+	background-color: #fff;
+	border: 1px solid $light-gray;
+	border-radius: 3px;
+	font-family: $serif;
+}
+
+.search-modal button {
+	background-color: #fff;
+	border: 1px solid $light-gray;
+	margin-left: 10px;
+	color: $gray;
+	border-radius: 4px;
 }
