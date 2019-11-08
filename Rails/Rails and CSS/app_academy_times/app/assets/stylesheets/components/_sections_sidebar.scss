@@ -1,10 +1,10 @@
 .sections-sidebar {
 	width: 200px;
 	background-color: #fff;
-	height: 100%;
 	position: absolute;
 	left: 0;
 	top: 0;
+	bottom: 0;
 	opacity: 0;
 	z-index: 1;
 	padding: 10px 20px;
@@ -28,7 +28,7 @@
 	padding: 5px;
 }
 
-.sections-sidebar li:hover {
+.sections-sidebar > ul > li:hover, .dropdown > ul > li:hover:not(:first-child) {
 	text-decoration: none;
 	background-color: $lightest-blue;
 	border-radius: 5px;
@@ -64,14 +64,25 @@
 	margin-bottom: 5px;
 }
 
-.sections-sidebar .dropdown ul:before {
+.dropdown ul:before, .dropdown ul:after {
 	display: block;
 	content: "";
-	width: 10px;
-	height: 10px;
-	background-color: #0f0;
+	width: 0;
+	height: 0;
+	border-right: 22px solid $light-gray;
+	border-bottom: 22px solid transparent;
+	border-top: 22px solid transparent;
 	z-index: 1;
 	position: absolute;
+	top: 15px;
+	left: -22px;
+	z-index: 1;
+}
+
+.dropdown ul:after {
+	border-right: 22px solid white;
+	z-index: 2;
+	left: -20px;
 }
 
 .sections-sidebar .dropdown:after {
