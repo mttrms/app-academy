@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+.comment {
+	background: #eee;
+}
+
+.comment p:first-of-type {
+	font-style: italic;
+}
+
+.comment p:last-of-type {
+	font-weight: bold;
+}

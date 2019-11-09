@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   has_many :subs,
     through: :post_subs,
     source: :sub
+  has_many :comments
 
   validates :title, presence: true
   validates :subs, presence: true
