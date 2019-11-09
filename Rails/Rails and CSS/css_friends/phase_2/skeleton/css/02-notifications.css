@@ -5,7 +5,7 @@
 	background-color: #000;
 	border-radius: 50%;
 	font-size: 14px;
-	padding: 2px 6px;
+	padding: 1px 6px;
 }
 
 .header-list li:first-of-type:hover .badge {
@@ -17,12 +17,36 @@
 }
 
 .notification-list {
+	display: none;
 	position: absolute;
-	left: 0px;
-	display: block;
+	left: -1px;
 	box-sizing: border-box;
-	width: 235px;
+	width: 240px;
 	background: #fff;
 	color: #000;
 	border: 1px solid #ccc;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
+
+.notification-list li {
+	border-bottom: 1px solid #ccc;
+	padding: 12px 20px;
+	font-size: 14px;
+}
+
+.notification-list li:hover {
+	cursor: pointer;
+	background-color: #eee;
+}
+
+.notification-list li:last-of-type {
+	border-bottom: 0;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.header-list li:first-of-type:hover .notification-list {
+	display: block;
+}
+
