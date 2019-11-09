@@ -1,18 +1,23 @@
 .search-modal {
 	max-height: 0;
 	position: relative;
+	top: -1px;
 	width: 100vw;
 	left: calc(-50vw + 50%);
 	text-align: center;
 	overflow: hidden;
+	transition: max-height 0.5s ease;
 }
 
 .search-modal.expand {
+	border-top: 1px solid $light-gray;
+	border-bottom: 1px solid $light-gray;
 	max-height: 300px;
+	box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
 }
 
 .search-modal .input-wrapper {
-	width: 64%;
+	width: 61%;
 	margin: 25px auto;
 }
 
@@ -21,6 +26,7 @@
 	border: 1px solid $light-gray;
 	border-radius: 3px;
 	font-family: $serif;
+	box-shadow: inset 2px 3px 3px rgba(0,0,0,0.07);
 }
 
 .search-modal button {
@@ -29,4 +35,14 @@
 	margin-left: 10px;
 	color: $gray;
 	border-radius: 4px;
+	font-weight: normal;
+}
+
+.overlay {
+	position: absolute;
+	left: calc(-50vw + 50%);
+	background-color: #fff;
+	opacity: .5;
+	width: 100vw;
+	height: 100%;
 }
