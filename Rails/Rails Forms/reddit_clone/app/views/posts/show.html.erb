@@ -12,11 +12,10 @@
 <p>URL: <%= @post.url %></p>
 
 <p>Comments:</p>
-<% @post.comments.each do |comment| %>
-  <section class="comment">
-    <p><%= comment.content %></p>
-    <p>Written by: <%= comment.author.username %></p>
-  </section>
+<ul>
+<% @post.comments.where(parent_comment_id: nil).each do |comment| %>
+  <%= render 'comment', comment: comment %>
 <% end %>
+</ul>
 
 <%= link_to "Add comment", new_post_comment_path(@post) %>

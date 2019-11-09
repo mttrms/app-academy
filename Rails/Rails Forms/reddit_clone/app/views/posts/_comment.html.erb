@@ -1,0 +1,8 @@
+<li><%= link_to comment.content, comment_path(comment) %></li>
+<% if comment.child_comments.any? %>
+  <ul>
+    <% comment.child_comments.each do |child_comment| %>
+      <%= render 'comment', comment: child_comment %>
+    <% end %>
+  </ul>
+<% end %>

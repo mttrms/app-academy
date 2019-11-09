@@ -1,0 +1,15 @@
+<%= @comment.content %>
+
+<p>Reply to this comment:</p>
+<form action="<%= comments_path %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="comment[post_id]" value="<%= @comment.post.id %>">
+  <input type="hidden" name="comment[parent_comment_id]" value="<%= @comment.id %>">
+
+  <label for="comment_content">Body:</label>
+  <br>
+  <textarea id="comment_content" name="comment[content]"></textarea>
+  <br>
+
+  <input type="submit" value="Submit">
+</form>
