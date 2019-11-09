@@ -18,14 +18,21 @@
   <textarea name="post[content]" id="post_content"><%= post.content %></textarea>
   <br>
 
-  <label for="post_sub">Sub</label>
-  <select name="post[sub_id]" id="post_sub">
-    <option value="" disabled selected>Choose a sub</option>
-    <% Sub.all.each do |sub| %>
-      <option value="<%= sub.id %>" <%= "selected" if post.sub_id == sub.id %>><%= sub.title %></option>
-    <% end %>
-  </select>
-  <br>
+  <h3>Subs:</h3>
+  <input type="hidden" name="post[sub_ids][]" value="">
+
+  <% Sub.all.each do |sub| %>
+    <label>
+      <input 
+        type="checkbox"
+        name="post[sub_ids][]" 
+        value="<%= sub.id %>"
+        <%= "checked" if post.sub_ids.include?(sub.id) %>
+        >
+      <%= sub.title %>
+    </label>
+    <br>
+  <% end %>
 
   <input type="submit" value="<%= button_text %>">
 </form>
