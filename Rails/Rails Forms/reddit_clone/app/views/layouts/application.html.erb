@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <ul>
+      <% if current_user %>
+        <li><%= link_to current_user.username, user_path(current_user) %></li>
+        <li><%= link_to 'Sign out', session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to 'Sign in', new_session_path %></li>
+        <li><%= link_to 'Sign up', new_user_path %></li>
+      <% end %>
+    </ul>
     <%= yield %>
   </body>
 </html>
