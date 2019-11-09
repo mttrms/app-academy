@@ -1,0 +1,31 @@
+<% action_path = post.persisted? ? post_path(post) : posts_path %>
+<% form_method = post.persisted? ? "PATCH" : "POST" %>
+<% button_text = post.persisted? ? "Update Post" : "Submit Post" %>
+
+<form action="<%= action_path  %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="<%= form_method %>">
+
+  <label for="post_title">Title</label>
+  <input type="text" name="post[title]" id="post_title" value="<%= post.title %>">
+  <br>
+
+  <label for="post_url">URL</label>
+  <input type="text" name="post[url]" id="post_url" value="<%= post.url %>">
+  <br>
+
+  <label for="post_content">Content</label>
+  <textarea name="post[content]" id="post_content"><%= post.content %></textarea>
+  <br>
+
+  <label for="post_sub">Sub</label>
+  <select name="post[sub_id]" id="post_sub">
+    <option value="" disabled selected>Choose a sub</option>
+    <% Sub.all.each do |sub| %>
+      <option value="<%= sub.id %>" <%= "selected" if post.sub_id == sub.id %>><%= sub.title %></option>
+    <% end %>
+  </select>
+  <br>
+
+  <input type="submit" value="<%= button_text %>">
+</form>
