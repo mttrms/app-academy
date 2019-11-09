@@ -13,6 +13,7 @@ class SubsController < ApplicationController
   end
 
   def edit
+    @sub = Sub.find(params[:id])
   end
   
   def create
@@ -27,6 +28,10 @@ class SubsController < ApplicationController
   end
 
   def update
+    @sub = Sub.find(params[:id])
+    @sub.update(sub_params)
+
+    redirect_to sub_path(@sub)
   end
 
   private
