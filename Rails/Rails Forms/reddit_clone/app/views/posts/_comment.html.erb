@@ -1,8 +1,8 @@
-<li><%= link_to parent_comment.content, comment_path(parent_comment) %></li>
-<ul>
-<% @all_comments.each do |child_comment| %>
-  <% if child_comment.parent_comment_id == parent_comment.id %>
-    <%= render 'comment', parent_comment: child_comment %>
-  <% end %>
+<li><%= link_to comment.content, comment_path(comment) %></li>
+<% if @comments[comment.id] %>
+  <ul>
+    <% @comments[comment.id].each do |child_comment| %>
+      <%= render 'comment', comment: child_comment %>
+    <% end %>
+  </ul>
 <% end %>
-</ul>

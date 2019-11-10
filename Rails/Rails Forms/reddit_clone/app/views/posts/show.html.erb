@@ -13,8 +13,8 @@
 
 <p>Comments:</p>
 <ul>
-<% @all_comments.where(parent_comment_id: nil).each do |parent_comment| %>
-  <%= render 'comment', parent_comment: parent_comment %>
+<% @comments[nil].each do |comment| %>
+  <%= render 'comment', comment: comment %>
 <% end %>
 </ul>
 
