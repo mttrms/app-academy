@@ -20,13 +20,18 @@ class ControllerBase
 
   # Set the response status code and header
   def redirect_to(url)
+    raise "Already Built Response" if already_built_response?
+
+    @res.status = 302
+    @res['Location'] = url
+    @already_built_response = true
   end
 
   # Populate the response with content.
   # Set the response's content type to the given type.
   # Raise an error if the developer tries to double render.
   def render_content(content, content_type)
-    raise "DoubleRenderError" if already_built_response?
+    raise "Already Built Response" if already_built_response?
 
     @res['Content-Type'] = content_type
     @res.write(content)
