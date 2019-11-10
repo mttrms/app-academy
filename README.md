@@ -22,6 +22,8 @@ You can find occasional updates & recaps [on my blog](https://mattramos.com/blog
 * [99Cats](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Auth/ninety_nine_cats_pt_2) – Create + rent cats ([Ver. 2](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Auth/ninety_nine_cats_pt_2) & [Ver. 3](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Auth/ninety_nine_cats_pt_3))
 * [MusicApp](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Auth/music_app) – Manage bands, albums and tracks
 * [Goals With Friends](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Testing/goals_with_friends) – Sign up and create public & private goals
+* [App Academy Times](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20and%20CSS/app_academy_times) – Frontend project where I cloned the NY Times front page
+* [Reddit on Rails](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Forms/reddit_clone) – Basic reddit clone with posts, subs and commenting.
 
 ## Pre-Work
 The required "pre-work" before the course begins. This is approx. 100 hours of programming foundational work to prepare students for the course.
@@ -55,3 +57,4 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 * [Auth I & II](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Auth)
 * [Testing](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Testing)
 * [CSS](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20and%20CSS)
+* [Rails Forms](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Forms)
