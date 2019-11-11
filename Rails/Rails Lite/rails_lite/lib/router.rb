@@ -20,7 +20,7 @@ class Route
   def run(req, res)
     route_params = {}
 
-    match_data = Regexp.new(pattern)
+    match_data = @pattern.match(req.path)
     match_data.names.each { |key| route_params[key] = match_data[key] }
 
     controller = @controller_class.new(req, res, route_params)
