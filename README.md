@@ -23,7 +23,8 @@ You can find occasional updates & recaps [on my blog](https://mattramos.com/blog
 * [MusicApp](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Auth/music_app) – Manage bands, albums and tracks
 * [Goals With Friends](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Testing/goals_with_friends) – Sign up and create public & private goals
 * [App Academy Times](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20and%20CSS/app_academy_times) – Frontend project where I cloned the NY Times front page
-* [Reddit on Rails](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Forms/reddit_clone) – Basic reddit clone with posts, subs and commenting.
+* [Reddit on Rails](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Forms/reddit_clone) – Basic reddit clone with posts, subs and commenting
+* [Rails Lite](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Lite/rails_lite) – DIY Rails
 
 ## Pre-Work
 The required "pre-work" before the course begins. This is approx. 100 hours of programming foundational work to prepare students for the course.
