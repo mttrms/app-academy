@@ -69,10 +69,9 @@ class Router
 
     if route.nil?
       res.status = 404
-      res.write("Page not found")
-      return
+    else
+      route.run(req, res)
     end
 
-    route.run(req, res)
   end
 end

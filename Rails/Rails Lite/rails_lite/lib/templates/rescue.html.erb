@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>You've encountered an error.</h1>
+
+    <p>Exception Class: <%= e.class.name %></p>
+    <p>Exception Message: <%= e.message %></p>
+
+    <p>File with error: <%= error_source_file(e) %></p>
+    <p>Line number with error: <%= error_source_line_num(e) %></p>
+
+    <p>Source code:</p>
+    <% extract_source_code(e).each do |line| %>
+      <pre><%= line %></pre>
+    <% end %>
+
+    <p>Exception Backtrace:</p>
+    <pre>
+      <%= e.backtrace %>
+    </pre>
+  </body>
+</html>
