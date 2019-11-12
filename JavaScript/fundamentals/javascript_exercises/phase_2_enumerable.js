@@ -5,11 +5,24 @@ Array.prototype.myEach = function(cb) {
   }
 }
 
+// Monkey patch Array#myMap
 Array.prototype.myMap = function(cb) {
-  mapped = [];
+  let mapped = [];
   for (let i = 0; i < this.length; i++) {
     mapped.push(cb(this[i]));
   }
 
   return mapped;
 }
+
+// Monkey patch Array#myReduce
+Array.prototype.myReduce = function(cb, initialValue) {
+  let accumulator = initialValue || this[0];
+
+  for (let i = 0; i < this.length; i++) {
+    if (!arguments[1] && i === 0) { continue };
+    accumulator = cb(accumulator, this[i])
+  };
+
+  return accumulator;
+};
