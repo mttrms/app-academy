@@ -13,7 +13,7 @@ Array.prototype.uniq = function () {
 
 // Monkey patch Array#twoSum
 Array.prototype.twoSum = function () {
-	pairs = []
+	let pairs = []
 
 	for (let i = 0; i < this.length; i++) {
 		for (let j = i+1; j < this.length; j++) {
@@ -24,4 +24,24 @@ Array.prototype.twoSum = function () {
 	}
 
 	return pairs;
+}
+
+// Monkey patch Array#transpose
+Array.prototype.transpose = function () {
+	let transposed = [];
+
+	// Alternative way to construct the transposed array:
+	const columns = Array.from(
+    { length: this[0].length },
+    () => Array.from({ length: this.length })
+  );
+
+	for (let i = 0; i < this.length; i++) {
+		for (let j = 0; j < this[i].length; j++) {
+			if (transposed[j] == null) { transposed.push([]) }
+			transposed[j][i] = this[i][j];
+		}
+	}
+
+	return transposed;
 }
