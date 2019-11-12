@@ -17,12 +17,18 @@ Array.prototype.myMap = function(cb) {
 
 // Monkey patch Array#myReduce
 Array.prototype.myReduce = function(cb, initialValue) {
-  let accumulator = initialValue || this[0];
+  let arr = this;
 
-  for (let i = 0; i < this.length; i++) {
-    if (!arguments[1] && i === 0) { continue };
-    accumulator = cb(accumulator, this[i])
-  };
+  if (initialValue === undefined) {
+    initialValue = this[0];
+    arr = arr.slice(1);
+  }
 
-  return accumulator;
+  let result = initialValue;
+
+  arr.myEach(function(ele) {
+    result = cb(result, ele);
+  });
+
+  return result;
 };
