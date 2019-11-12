@@ -10,3 +10,18 @@ Array.prototype.uniq = function () {
 		return acc;
 	}, [])
 };
+
+// Monkey patch Array#twoSum
+Array.prototype.twoSum = function () {
+	pairs = []
+
+	for (let i = 0; i < this.length; i++) {
+		for (let j = i+1; j < this.length; j++) {
+			if (this[i] + this[j] === 0) {
+				twoSumPairs.push([i, j])
+			}
+		}
+	}
+
+	return pairs;
+}
