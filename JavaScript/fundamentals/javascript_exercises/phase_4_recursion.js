@@ -39,3 +39,19 @@ const funExponent = (base, exp) => {
     return base * (exponent(base, (exp - 1) / 2) ** 2)
   }
 }
+
+// fibonacci(n) - receives an integer, n, and returns the first n Fibonacci numbers
+const fibonacci = (n) => {
+  if (n === 1) {
+    return [0];
+  } else if (n === 2) {
+    return [0, 1]
+  }
+
+  let fibs = fibonacci(n - 1);
+  fibs.push(fibs[fibs.length - 2] + fibs[fibs.length - 1])
+
+  return fibs;
+}
+
+console.log(fibonacci(3));
