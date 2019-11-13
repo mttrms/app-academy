@@ -31,13 +31,28 @@ Student.prototype.courseLoad = function () {
   return courseLoad;
 }
 
-function Course(name, department, credits) {
+function Course(name, department, credits, schedule) {
   this.name = name;
   this.department = department;
+  this.schedule = schedule;
   this.credits = credits;
   this.students = [];
 }
 
 Course.prototype.addStudent = function (student) {
   student.enroll(this);
+}
+
+Course.prototype.conflictsWith = function (otherCourse) {
+  courseTime = this.schedule.time;
+
+  for (let i = 0; i < this.schedule.days.length; i++) {
+    courseDay = this.schedule.days[i];
+
+    if (otherCourse.schedule.days.includes(courseDay) && otherCourse.schedule.time === courseTime) {
+      return true;
+    }
+  }
+
+  return false;
 }
