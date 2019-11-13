@@ -9,3 +9,12 @@ const range = (start, end) => {
 
   return numRange
 }
+
+// sumRec(arr) - receives an array of numbers and recursively sums them
+const sumRec = (arr) => {
+  if (arr.length === 1) {
+    return arr[0];
+  }
+
+  return arr[0] + sumRec(arr.slice(1))
+}
