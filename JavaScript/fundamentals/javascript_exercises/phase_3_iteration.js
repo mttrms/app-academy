@@ -16,3 +16,16 @@ Array.prototype.bubbleSort = function () {
 
   return arr;
 };
+
+// String#substrings
+String.prototype.substrings = function () {
+  let substrings = [];
+
+  for (let i = 0; i <= this.length; i++) {
+    for (let j = i + 1; j <= this.length; j++) {
+      substrings.push(this.substring(i, j));
+    }  
+  }
+
+  return substrings;
+}
