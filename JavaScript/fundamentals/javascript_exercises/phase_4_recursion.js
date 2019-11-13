@@ -85,3 +85,33 @@ const binarySearch = (arr, target) => {
     return upperSearch === -1 ? -1 : upperSearch + (middleIdx + 1);
   }
 }
+
+// mergeSort(arr)
+const mergeSort = (arr) => {
+  if (arr.length === 1) {
+    return arr;
+  } else {
+    const midPoint = Math.floor(arr.length / 2);
+    const left = mergeSort(arr.slice(0, midPoint));
+    const right = mergeSort(arr.slice(midPoint));
+
+    return merge(left, right)
+  }
+}
+
+const merge = (left, right) => {
+  const merged = [];
+
+  while (left.length > 0 && right.length > 0) {
+    if (left[0] < right[0]) {
+      merged.push(left.shift());
+    } else {
+      merged.push(right.shift());
+    }
+    // Better merge
+    // let nextEle = (left[0] < right[0]) ? left.shift() : right.shift();
+    // merged.push(nextEle);
+  }
+
+  return merged.concat(left, right);
+}
