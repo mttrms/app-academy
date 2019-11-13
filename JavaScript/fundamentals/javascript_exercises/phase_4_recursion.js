@@ -18,3 +18,24 @@ const sumRec = (arr) => {
 
   return arr[0] + sumRec(arr.slice(1))
 }
+
+// exponent(base, exp) - receives a base and exponent, returns the base raise to the power of the exponent (base ^ exp)
+const exponent = (base, exp) => {
+  if (exp === 0) {
+    return 1;
+  }
+
+  return base * exponent(base, exp - 1)
+};
+
+const funExponent = (base, exp) => {
+  if (exp === 0) {
+    return 1;
+  }
+
+  if (exp % 2 === 0) {
+    return exponent(base, exp / 2) ** 2;
+  } else {
+    return base * (exponent(base, (exp - 1) / 2) ** 2)
+  }
+}
