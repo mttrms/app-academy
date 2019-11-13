@@ -63,3 +63,25 @@ const deepDup = (arr) => {
     return deepDup(el);
   });
 }
+
+// binarySearch(arr, target)
+const binarySearch = (arr, target) => {
+  if (arr.length === 0 ) {
+    return -1;
+  }
+
+  let middleIdx = Math.floor(arr.length / 2);
+  let middleVal = arr[middleIdx];
+
+  if (middleVal === target) {
+    return middleIdx;
+  } else if (middleVal > target) {
+    const lowerArr = arr.slice(0, middleIdx);
+    return binarySearch(lowerArr, target);
+  } else {
+    const upperArr = arr.slice(middleIdx + 1);
+    const upperSearch = binarySearch(upperArr, target);
+
+    return upperSearch === -1 ? -1 : upperSearch + (middleIdx + 1);
+  }
+}
