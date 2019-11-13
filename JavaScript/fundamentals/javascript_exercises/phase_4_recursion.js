@@ -56,22 +56,10 @@ const fibonacci = (n) => {
 
 // deepDup(arr) - deep dup of an Array!
 const deepDup = (arr) => {
-  if (!arr instanceof Array) {
+  if (!(arr instanceof Array)) {
     return arr;
   }
-
-  let dupedArray = []
-
-  for (let i = 0; i < arr.length; i++) {
-    let ele;
-    if (arr[i] instanceof Array) {
-      ele = deepDup(arr[i]);
-    } else {
-      ele = arr[i]
-    }
-
-    dupedArray.push(ele);
-  }
-
-  return dupedArray;
+  return arr.map(function (el) {
+    return deepDup(el);
+  });
 }
