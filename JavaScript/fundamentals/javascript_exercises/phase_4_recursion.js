@@ -115,3 +115,19 @@ const merge = (left, right) => {
 
   return merged.concat(left, right);
 }
+
+// subsets(arr)
+const subsets = (arr) => {
+  if (arr.length === 0) {
+    return [[]];
+  }
+
+  const last = arr[arr.length -1];
+  const withoutLast = subsets(arr.slice(0, arr.length - 1));
+
+  const withLast = withoutLast.map(function (ele) {
+    return ele.concat([last]);
+  })
+
+  return withoutLast.concat(withLast);
+}
