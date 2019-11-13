@@ -15,6 +15,8 @@ Student.prototype.enroll = function (course) {
     this.courses.push(course);
     course.students.push(this);
   }
+
+  return this.hasConflict() ? 'Schedule has conflicted courses.' : 'Schedule looks good!'
 }
 
 Student.prototype.courseLoad = function () {
@@ -29,6 +31,21 @@ Student.prototype.courseLoad = function () {
   })
 
   return courseLoad;
+}
+
+Student.prototype.hasConflict = function () {
+  for (let i = 0; i < this.courses.length; i++) {
+    for (let j = i + 1; j < this.courses.length; j++) {
+      let firstCourse = this.courses[i];
+      let secondCourse = this.courses[j];
+
+      if (firstCourse.conflictsWith(secondCourse)) {
+        return true;
+      }
+    }
+  }
+
+  return false;
 }
 
 function Course(name, department, credits, schedule) {
