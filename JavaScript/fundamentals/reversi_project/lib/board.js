@@ -106,40 +106,17 @@ Board.prototype.isValidPos = function (pos) {
  */
 function _positionsToFlip (board, pos, color, dir, piecesToFlip) {
   pos = [pos[0] + dir[0], pos[1] + dir[1]]
-  // debugger
-  // debugger;
 
-  // base case - this is not a valid path to take. null out
   if (!board.isOccupied(pos) || !board.isValidPos(pos)) {
     return null;
-  // if we're at my color, return everything that has to be flipped
   } else if (board.isMine(pos, color)) {
-    return piecesToFlip;
-  // keep going - we don't know what to do yet
+    return piecesToFlip.length === 0 ? null : piecesToFlip;
   } else {
-    
-    // const nextPos = [pos[0] + dir[0], pos[1] + dir[1]]
-
-    if (_positionsToFlip(board, pos, color, dir, piecesToFlip)) {
-      piecesToFlip.push(pos);
-      return _positionsToFlip(board, pos, color, dir, piecesToFlip)
-    } else {
-      return null;
-    }
-
-
-    
+  
+    piecesToFlip.push(pos);
+    return _positionsToFlip(board, pos, color, dir, piecesToFlip);
   }
-}
-
-// trigger debugger
-let board = new Board
-board.grid[3][4] = new Piece('white')
-board.grid[3][5] = new Piece('white')
-board.grid[2][3] = new Piece('black')
-board.grid[3][3].color = 'black'
-let flipped =_positionsToFlip(board, [3,6], 'black', [0, -1], []);
-debugger;
+};
 
 /**
  * Adds a new piece of the given color to the given position, flipping the
