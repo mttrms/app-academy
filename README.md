@@ -60,3 +60,6 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 * [CSS](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20and%20CSS)
 * [Rails Forms](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Forms)
 * [Rails Lite](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Lite)
+
+### JavaScript
+* [Fundamentals](https://github.com/mttrms/app-academy/tree/master/JavaScript/fundamentals)
