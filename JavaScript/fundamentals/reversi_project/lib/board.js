@@ -139,6 +139,14 @@ Board.prototype.print = function () {
  * color being flipped.
  */
 Board.prototype.validMove = function (pos, color) {
+  for (let i = 0; i < Board.DIRS.length; i++) {
+    const dir = Board.DIRS[i];
+    if (_positionsToFlip(this, pos, color, dir, [])) {
+      return true;
+    }
+  }
+
+  return false;
 };
 
 /**
