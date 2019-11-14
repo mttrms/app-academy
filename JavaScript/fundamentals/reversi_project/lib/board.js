@@ -52,6 +52,7 @@ Board.prototype.getPiece = function (pos) {
  * Checks if there are any valid moves for the given color.
  */
 Board.prototype.hasMove = function (color) {
+  return this.validMoves(color).length > 0 ? true : false;
 };
 
 /**
@@ -61,7 +62,11 @@ Board.prototype.hasMove = function (color) {
 Board.prototype.isMine = function (pos, color) {
   const [row, col] = pos;
 
-  return this.grid[row][col].color === color;
+  if (this.isOccupied(pos) && this.grid[row][col].color === color) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /**
@@ -78,6 +83,11 @@ Board.prototype.isOccupied = function (pos) {
  * the black player are out of moves.
  */
 Board.prototype.isOver = function () {
+  if (this.hasMove('white') || this.hasMove('black')) {
+    return false;
+  } else {
+    return true;
+  }
 };
 
 /**
@@ -125,6 +135,31 @@ function _positionsToFlip (board, pos, color, dir, piecesToFlip) {
  * Throws an error if the position represents an invalid move.
  */
 Board.prototype.placePiece = function (pos, color) {
+  if (this.validMove(pos, color)) {
+    let row = pos[0]
+    let col = pos[1]
+    this.grid[row][col] = new Piece(color);
+
+    let piecesToFlip = [];
+
+    Board.DIRS.forEach((dir) => {
+      // note to self: look into `this` scoping and ES5/ES6 function differences
+      let result = _positionsToFlip(this, pos, color, dir, [])
+
+      if (result) {
+        result.forEach(function (pos) {
+          piecesToFlip.push(pos)
+        })
+      }
+    })
+
+    for (let i = 0; i < piecesToFlip.length; i++) {
+      let [row, col] = piecesToFlip[i];
+      this.grid[row][col].flip(); 
+    }
+  } else {
+    throw new Error("Invalid move.");
+  } 
 };
 
 /**
