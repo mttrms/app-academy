@@ -5,6 +5,21 @@ let Piece = require("./piece");
  * and two white pieces at [3, 3] and [4, 4]
  */
 function _makeGrid () {
+  const grid = []
+
+  for (let i = 0; i < 8; i++) {
+    grid.push([]);
+    for (let j = 0; j < 8; j++) {
+      grid[i].push(undefined);
+    }
+  }
+
+  grid[3][3] = new Piece('white');
+  grid[3][4] = new Piece('black');
+  grid[4][3] = new Piece('black');
+  grid[4][4] = new Piece('white');
+
+  return grid;
 }
 
 /**
@@ -25,6 +40,14 @@ Board.DIRS = [
  * throwing an Error if the position is invalid.
  */
 Board.prototype.getPiece = function (pos) {
+  pos.forEach(function (coordinate) {
+    if (coordinate < 0 || coordinate > 7) {
+      throw new Error("Not valid pos!");
+    }
+  })
+
+  const [row, col] = pos;
+  return this.grid[row][col];
 };
 
 /**
