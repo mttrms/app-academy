@@ -166,6 +166,20 @@ Board.prototype.placePiece = function (pos, color) {
  * Prints a string representation of the Board to the console.
  */
 Board.prototype.print = function () {
+  // gameHeader = [' ', '0', '1', '2', '3', '4', '5', '6', '7']
+  let gameHeader = "  0 1 2 3 4 5 6 7"
+  console.log(gameHeader)
+  for (let i = 0; i < this.grid.length; i++) {
+    row = ""
+    row += String(i);
+    for (let j = 0; j < this.grid.length; j++) {
+      let piece = this.grid[i][j];
+      row += (
+        piece ? ` ${piece.toString()}` : ' _'
+      );
+    }
+    console.log(row);
+  }
 };
 
 /**
