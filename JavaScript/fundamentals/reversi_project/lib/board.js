@@ -107,7 +107,7 @@ Board.prototype.isValidPos = function (pos) {
 function _positionsToFlip (board, pos, color, dir, piecesToFlip) {
   pos = [pos[0] + dir[0], pos[1] + dir[1]]
 
-  if (!board.isOccupied(pos) || !board.isValidPos(pos)) {
+  if (!board.isValidPos(pos) || !board.isOccupied(pos)) {
     return null;
   } else if (board.isMine(pos, color)) {
     return piecesToFlip.length === 0 ? null : piecesToFlip;
@@ -154,6 +154,21 @@ Board.prototype.validMove = function (pos, color) {
  * the Board for a given color.
  */
 Board.prototype.validMoves = function (color) {
+  let moves = [];
+
+  for (let i = 0; i < this.grid.length; i++) {
+    for (let j = 0; j < this.grid.length; j++) {
+      let pos = [i, j];
+      
+      if (this.isOccupied(pos)) {
+        continue;
+      } else if (this.validMove(pos, color)) {
+        moves.push(pos)
+      }
+    }
+  }
+
+  return moves
 };
 
 module.exports = Board;
