@@ -61,12 +61,18 @@ Board.prototype.hasMove = function (color) {
  * matches a given color.
  */
 Board.prototype.isMine = function (pos, color) {
+  const [row, col] = pos;
+
+  return this.grid[row][col].color === color;
 };
 
 /**
  * Checks if a given position has a piece on it.
  */
 Board.prototype.isOccupied = function (pos) {
+  const [row, col] = pos;
+
+  return this.grid[row][col] instanceof Piece;
 };
 
 /**
@@ -80,6 +86,13 @@ Board.prototype.isOver = function () {
  * Checks if a given position is on the Board.
  */
 Board.prototype.isValidPos = function (pos) {
+  pos.forEach(function (coordinate) {
+    if (coordinate < 0 || coordinate > 7) {
+      return false;
+    }
+  })
+
+  return true;
 };
 
 /**
