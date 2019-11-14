@@ -40,14 +40,12 @@ Board.DIRS = [
  * throwing an Error if the position is invalid.
  */
 Board.prototype.getPiece = function (pos) {
-  pos.forEach(function (coordinate) {
-    if (coordinate < 0 || coordinate > 7) {
-      throw new Error("Not valid pos!");
-    }
-  })
-
-  const [row, col] = pos;
-  return this.grid[row][col];
+  if (!this.isValidPos(pos)) {
+    throw new Error("Not valid pos!");
+  } else {
+    const [row, col] = pos;
+    return this.grid[row][col];
+  }
 };
 
 /**
@@ -86,13 +84,11 @@ Board.prototype.isOver = function () {
  * Checks if a given position is on the Board.
  */
 Board.prototype.isValidPos = function (pos) {
-  pos.forEach(function (coordinate) {
-    if (coordinate < 0 || coordinate > 7) {
-      return false;
-    }
+  const invalidCoords = pos.filter(function(coordinate) {
+    return (coordinate < 0 || coordinate > 7)
   })
 
-  return true;
+  return (invalidCoords.length > 0) ? false : true;
 };
 
 /**
