@@ -7,7 +7,8 @@ const reader = readline.createInterface({
 
 class Game {
   constructor(numOfDiscs) {
-    this.towers = _makeTowers(numOfDiscs);
+    this.towers = _makeTowers(numOfDiscs),
+    this.numOfDiscs = numOfDiscs
   }
 }
 
@@ -16,7 +17,7 @@ Game.prototype.promptMove = function () {
   console.log('Pick towers to move a disc from -> to (Example: 1, 3)')
   reader.question('Make your move: ', (response) => {
     move = response.replace(/ /g,'').split(',').map((num) => parseInt(num));
-    this.isValidMove(move[0], move[1]);
+    this.move(move[0], move[1]);
   })
 }
 
@@ -27,16 +28,29 @@ Game.prototype.print = function () {
 }
 
 Game.prototype.isValidMove = function(startIdx, endIdx) {
-  startTower = this.towers[startIdx];
-  endTower = this.towers[endIdx];
-  startTowerDisc = startTower[startTower.length - 1]
-  endTowerDisc = endTower[endTower.length - 1] || 0
+  const startTower = this.towers[startIdx];
+  const endTower = this.towers[endIdx];
+  const startTowerDisc = startTower[startTower.length - 1]
+  const endTowerDisc = endTower[endTower.length - 1] || 0
   
   if (startTower.length === 0 || endTowerDisc > startTowerDisc) {
     return false;
   } else {
     return true;
   }
+}
+
+Game.prototype.move = function(startIdx, endIdx) {
+  if (this.isValidMove(startIdx, endIdx)) {
+    let towers = this.towers;
+    towers[endIdx].push(towers[startIdx].pop());
+  } else {
+    console.log('Not a valid move.');
+  }
+}
+
+Game.prototype.isWon = function () {
+  return this.towers.slice(1).some((tower) => tower.length === this.numOfDiscs)
 }
 
 const _makeTowers = (numOfDiscs) => {
@@ -48,4 +62,3 @@ const _makeTowers = (numOfDiscs) => {
 }
 
 const game = new Game(4);
-game.promptMove();
