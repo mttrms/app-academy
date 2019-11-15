@@ -6,22 +6,20 @@ const reader = readline.createInterface({
 });
 
 const askIfGreaterThan = (ele1, ele2, callback) => {
-  reader.question(`Is ${ele1} > ${ele2}?`, function(response) {
+  reader.question(`Is ${ele1} > ${ele2}? (yes / no) `, function(response) {
     response === 'yes' ? callback(true) : callback(false);
   })
 }
 
 const innerBubbleSortLoop = (arr, i, madeAnySwaps, outerBubbleSortLoop) => {
   if (i === (arr.length - 1)) {
-    outerBubbleSortLoop();
+    outerBubbleSortLoop(madeAnySwaps);
   } else {
     askIfGreaterThan(arr[i], arr[i + 1], (isGreaterThan) => {
       if (isGreaterThan) {
         [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
-        console.log('swapped')
         madeAnySwaps = true;
       } else {
-        console.log('not swapped')
         madeAnySwaps = false;
       }
       innerBubbleSortLoop(arr, i + 1, madeAnySwaps, outerBubbleSortLoop);
@@ -29,18 +27,20 @@ const innerBubbleSortLoop = (arr, i, madeAnySwaps, outerBubbleSortLoop) => {
   }
 }
 
-
-
 const absurdBubbleSort = (arr, sortCompletionCallback) => {
+  console.log(`Starting array is: ${JSON.stringify(arr)}`);
+  const outerBubbleSortLoop = (madeAnySwaps) => {
+    if (madeAnySwaps === true) {
+      innerBubbleSortLoop(arr, 0, false, outerBubbleSortLoop);
+    } else {
+      sortCompletionCallback(arr);
+    }
+  }
+
+  outerBubbleSortLoop(true);
 }
 
-let arr = [5, 1, 3, 2, 0, 4, 7];
-
-innerBubbleSortLoop(arr, 0, false, function() {
-  console.log('outer callback');
-})
-
-
-// askIfGreaterThan(10, 5, function(answer) {
-//   console.log(answer);
-// })
+absurdBubbleSort([5, 0, 2, 1, 4], function(arr) {
+  console.log("Sorted array: " + JSON.stringify(arr));
+  reader.close();
+});
