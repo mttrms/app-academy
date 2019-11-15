@@ -15,7 +15,8 @@ Game.prototype.promptMove = function () {
   this.print();
   console.log('Pick towers to move a disc from -> to (Example: 1, 3)')
   reader.question('Make your move: ', (response) => {
-    this.isValidMove(response);
+    move = response.replace(/ /g,'').split(',').map((num) => parseInt(num));
+    this.isValidMove(move[0], move[1]);
   })
 }
 
@@ -25,11 +26,9 @@ Game.prototype.print = function () {
   })
 }
 
-Game.prototype.isValidMove = function(move) {
-  move = move.replace(/ /g,'').split(',').map((num) => parseInt(num));
-
-  startTower = this.towers[move[0]]
-  endTower = this.towers[move[1]]
+Game.prototype.isValidMove = function(startIdx, endIdx) {
+  startTower = this.towers[startIdx];
+  endTower = this.towers[endIdx];
   startTowerDisc = startTower[startTower.length - 1]
   endTowerDisc = endTower[endTower.length - 1] || 0
   
