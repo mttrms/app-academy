@@ -48,6 +48,12 @@ class Board {
     }
   }
 
+  print() {
+    this._grid.forEach((row) => {
+      console.log(row);
+    })
+  }
+
   _rows(){ 
     return this._grid;
   }
@@ -76,3 +82,5 @@ class Board {
     })
   }
 }
+
+module.exports = Board;
