@@ -1,4 +1,3 @@
-// Remove later - but needed for debugging:
 const readline = require('readline');
 const reader = readline.createInterface({
   input: process.stdin,
@@ -14,7 +13,8 @@ class Game {
 
 Game.prototype.promptMove = function (callback) {
   this.print();
-  console.log('Pick towers to move a disc from -> to (Example: 1, 3)')
+  
+  console.log('Pick towers to move a disc from -> to (Example: 0, 2)')
   reader.question('Make your move: ', (response) => {
     move = response.replace(/ /g,'').split(',').map((num) => parseInt(num));
     callback(move);
@@ -41,7 +41,6 @@ Game.prototype.isValidMove = function(startIdx, endIdx) {
 }
 
 Game.prototype.move = function(startIdx, endIdx) {
-  debugger;
   if (this.isValidMove(startIdx, endIdx)) {
     let towers = this.towers;
     towers[endIdx].push(towers[startIdx].pop());
@@ -57,14 +56,13 @@ Game.prototype.isWon = function () {
 Game.prototype.run = function(completionCallback) {
   this.promptMove((move) => {
     this.move(move[0], move[1]);
-    console.log('moved!')
+
     if (this.isWon()) {
-      debugger;
       completionCallback();
     } else {
       this.run(completionCallback);
     }
-  }) 
+  })
 }
 
 const _makeTowers = (numOfDiscs) => {
@@ -78,6 +76,6 @@ const _makeTowers = (numOfDiscs) => {
 const game = new Game(4);
 
 game.run(function() {
-  console.log('congrast, you win!')
+  console.log('Congrats, you win!')
   reader.close(0);
 })
