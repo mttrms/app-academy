@@ -1,8 +1,11 @@
 const Board = require('./board');
 
 class Game {
-  constructor(reader) {
+  constructor(reader, playerX, playerO) {
     this.reader = reader,
+    this.playerX = playerX,
+    this.playerO = playerO,
+    this.currentPlayer = playerX,
     this.board = new Board
   }
 
@@ -20,14 +23,22 @@ class Game {
   run(reader, completionCallback) {
     this.board.print();
     game.promptMove((response) => {
-      this.board.place_mark(response, "x")
+      this.board.place_mark(response, this.currentPlayer.mark);
       if (this.board.won()) {
         completionCallback();
       } else {
-        this.run(reader, completionCallback)
+        this.swap_players();
+        this.run(reader, completionCallback);
       }
     });
+  }
 
+  swap_players() {
+    if (this.currentPlayer === this.playerX) {
+      this.currentPlayer = this.playerO;
+    } else {
+      this.currentPlayer = this.playerX;
+    }
   }
 }
 
@@ -37,7 +48,16 @@ const reader = readline.createInterface({
   output: process.stdout
 });
 
-const game = new Game(reader);
+class Player {
+  constructor(mark) {
+    this.mark = mark
+  }
+}
+
+const player1 = new Player("x");
+const player2 = new Player("o");
+
+const game = new Game(reader, player1, player2);
 game.run(reader, () => {
   console.log("game over")
 });
