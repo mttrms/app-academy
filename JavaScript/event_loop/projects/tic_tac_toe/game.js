@@ -25,7 +25,8 @@ class Game {
     game.promptMove((response) => {
       this.board.place_mark(response, this.currentPlayer.mark);
       if (this.board.won()) {
-        completionCallback();
+        this.board.print();
+        completionCallback(this.currentPlayer.mark);
       } else {
         this.swap_players();
         this.run(reader, completionCallback);
@@ -58,6 +59,6 @@ const player1 = new Player("x");
 const player2 = new Player("o");
 
 const game = new Game(reader, player1, player2);
-game.run(reader, () => {
+game.run(reader, (winner) => {
   console.log("game over")
 });

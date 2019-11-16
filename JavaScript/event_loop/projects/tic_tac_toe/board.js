@@ -8,25 +8,53 @@ class Board {
   }
 
   winner() {
-    let winner = false;
+    const posSeqs = [
+      // rows
+      [[0, 0], [0, 1], [0, 2]],
+      [[1, 0], [1, 1], [1, 2]],
+      [[2, 0], [2, 1], [2, 2]],
+      // cols
+      [[0, 0], [1, 0], [2, 0]],
+      [[0, 1], [1, 1], [2, 1]],
+      [[0, 2], [1, 2], [2, 2]],
+      // diagonals
+      [[0, 0], [1, 1], [2, 2]],
+      [[2, 0], [1, 1], [0, 2]]
+    ];
 
-    const triples = this._diagonals().concat(this._rows(), this._cols());
-    for (let i = 0; i < triples.length; i++) {
-      let triple = triples[i];
-
-      if (triple.every((v) => {
-        return v === 'x' || v === 'o'
-      })) {
-        winner = triple[0];
-        break;
+    for (let i = 0; i < posSeqs.length; i++) {
+      const winner = this.winnerHelper(posSeqs[i]);
+      if (winner != null) {
+        return winner;
       }
     }
 
-    return winner;
+    return null;
+  }
+
+  winnerHelper(posSeq) {
+    for (let markIdx = 0; markIdx < Board.marks.length; markIdx++) {
+      const targetMark = Board.marks[markIdx];
+      let winner = true;
+      for (let posIdx = 0; posIdx < 3; posIdx++) {
+        const pos = posSeq[posIdx];
+        const mark = this._grid[pos[0]][pos[1]];
+
+        if (mark != targetMark) {
+          winner = false;
+        }
+      }
+
+      if (winner) {
+        return targetMark;
+      }
+    }
+
+    return null;
   }
 
   won() {
-    return this.winner() === false ? false : true;
+    return this.winner() === null ? false : true;
   }
 
   empty(pos) {
@@ -53,34 +81,8 @@ class Board {
       console.log(row);
     })
   }
-
-  _rows(){ 
-    return this._grid;
-  }
-
-  _cols() {
-    const cols = [[], [], []]
-
-    for (let i = 0; i < 3; i++) {
-      for (let j = 0; j < 3; j++) {
-        cols[j].push(this._grid[i][j])
-      }
-    }
-
-    return cols;
-  }
-
-  _diagonals() {
-    const diagonal_down = [[0, 0], [1, 1], [2, 2]];
-    const diagonal_up = [[2, 0], [1, 1], [0, 2]];
-    const diagonals = [diagonal_down, diagonal_up];
-
-    return diagonals.map((diagonal) => {
-      return diagonal.map((space) => {
-        return this._grid[space[0]][space[1]];
-      })
-    })
-  }
 }
+
+Board.marks = ['x', 'o'];
 
 module.exports = Board;
