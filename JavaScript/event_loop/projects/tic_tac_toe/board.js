@@ -8,10 +8,25 @@ class Board {
   }
 
   winner() {
+    let winner = false;
 
+    const triples = this._diagonals().concat(this._rows(), this._cols());
+    for (let i = 0; i < triples.length; i++) {
+      let triple = triples[i];
+
+      if (triple.every((v) => {
+        return v === 'x' || v === 'o'
+      })) {
+        winner = triple[0];
+        break;
+      }
+    }
+
+    return winner;
   }
 
   won() {
+    return this.winner() === false ? false : true;
   }
 
   empty(pos) {
