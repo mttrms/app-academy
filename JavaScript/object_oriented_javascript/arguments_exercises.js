@@ -39,3 +39,25 @@ markov.says.myBind(pavlov, "meow")("Markov");
 
 const notMarkovSays = markov.says.myBind(pavlov);
 notMarkovSays("meow", "me");
+
+// curriedSum
+const curriedSum = (numArgs) => {
+	let numbers = [];
+
+	const _curriedSum = (num) => {
+		numbers.push(num);
+		if (numbers.length === numArgs) {
+			return numbers.reduce((sum, num) => sum + num);
+		} else {
+			return _curriedSum
+		}
+	}
+
+	return _curriedSum;
+}
+
+// wait until 3 arguments are given before summng them.
+let sumThree = curriedSum(3);
+console.log(sumThree = sumThree(20));
+console.log(sumThree = sumThree(2));
+console.log(sumThree = sumThree(5));
