@@ -61,3 +61,20 @@ let sumThree = curriedSum(3);
 console.log(sumThree = sumThree(20));
 console.log(sumThree = sumThree(2));
 console.log(sumThree = sumThree(5));
+
+// Function.prototype.curry
+Function.prototype.curry = function(numArgs) {
+	const args = [];
+
+	const _curriedFn = (arg) => {
+		args.push(arg);
+
+		if (args.length === numArgs) {
+			return this(...args);
+		} else {
+			return _curriedFn;
+		}
+	}
+
+	return _curriedFn;
+}
