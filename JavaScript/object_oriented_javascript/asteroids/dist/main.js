@@ -91,9 +91,20 @@
   !*** ./src/index.js ***!
   \**********************/
 /*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\n\nwindow.MovingObject = MovingObject;\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/moving_object.js":
+/*!******************************!*\
+  !*** ./src/moving_object.js ***!
+  \******************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("function MovingObject(options) {\n  this.pos = options.pos;\n  this.vel = options.vel;\n  this.radius = options.radius;\n  this.color = options.color;\n}\n\nmodule.exports = MovingObject;\n\n//# sourceURL=webpack:///./src/moving_object.js?");
 
 /***/ })
 
