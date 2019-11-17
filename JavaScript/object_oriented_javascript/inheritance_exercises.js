@@ -5,6 +5,11 @@ Function.prototype.inherits = function(superClass) {
   this.prototype.constructor = this;
 }
 
+Function.prototype.betterInherits = function(superclass) {
+  this.prototype = Object.create(superclass.prototype);
+  this.prototype.constructor = this;
+}
+
 function MovingObject (name) {
   this.name = name;
 }
@@ -18,7 +23,7 @@ function Ship (name, model) {
   this.model = model;
 }
 
-Ship.inherits(MovingObject);
+Ship.betterInherits(MovingObject);
 
 Ship.prototype.fly = function() {
   console.log(`${this.name} screams by!`)
