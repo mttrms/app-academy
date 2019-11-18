@@ -6,10 +6,11 @@ const DEFAULTS = {
   radius: 25
 }
 
-function Asteroid(pos) {
+function Asteroid(options) {
   MovingObject.call(this, {
-    pos: pos,
-    vel: Util.randomVec(5),
+    game: options.game,
+    pos: options.pos,
+    vel: Util.randomVec(1),
     radius: DEFAULTS.radius,
     color: DEFAULTS.color
   })

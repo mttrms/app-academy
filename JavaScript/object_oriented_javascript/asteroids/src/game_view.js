@@ -9,7 +9,7 @@ GameView.prototype.start = function() {
   setInterval(() => {
     this.game.moveObjects();
     this.game.draw(ctx);
-  }, 10)
+  }, 2)
 }
 
 module.exports = GameView;
