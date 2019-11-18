@@ -1,7 +1,7 @@
 const Util = {
   inherits(childClass, parentClass) {
-    this.prototype = Object.create(parentClass.prototype);
-    this.prototype.constructor = this;
+    childClass.prototype = Object.create(parentClass.prototype);
+    childClass.prototype.constructor = childClass;
   }
 };
 
