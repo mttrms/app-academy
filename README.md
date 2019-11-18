@@ -64,3 +64,5 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 
 ### JavaScript
 * [Fundamentals](https://github.com/mttrms/app-academy/tree/master/JavaScript/fundamentals)
+* [Event Loop](https://github.com/mttrms/app-academy/tree/master/JavaScript/event_loop)
+* [Object Oriented JavaScript](https://github.com/mttrms/app-academy/tree/master/JavaScript/object_oriented_javascript)
