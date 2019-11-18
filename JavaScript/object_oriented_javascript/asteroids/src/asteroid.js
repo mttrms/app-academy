@@ -1,17 +1,19 @@
 const Util = require("./util.js");
 const MovingObject = require("./moving_object.js");
 
+const DEFAULTS = {
+  color: "#ff6ec7",
+  radius: 25
+}
+
 function Asteroid(pos) {
   MovingObject.call(this, {
     pos: pos,
     vel: Util.randomVec(5),
-    radius: Asteroid.RADIUS,
-    color: Asteroid.COLOR,
+    radius: DEFAULTS.radius,
+    color: DEFAULTS.color
   })
 }
-
-Asteroid.COLOR = "#ff6ec7";
-Asteroid.RADIUS = 25;
 
 Util.inherits(Asteroid, MovingObject);
 
