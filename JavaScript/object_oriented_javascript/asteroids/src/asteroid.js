@@ -4,7 +4,7 @@ const MovingObject = require("./moving_object.js");
 function Asteroid(pos) {
   MovingObject.call(this, {
     pos: pos,
-    vel: [10, 10],
+    vel: Util.randomVec(5),
     radius: Asteroid.RADIUS,
     color: Asteroid.COLOR,
   })
