@@ -51,6 +51,29 @@ Game.prototype.wrap = function(pos) {
   return [x_pos, y_pos]
 }
 
+Game.prototype.checkCollisions = function() {
+  for (let i = 0; i < this.asteroids.length; i++) {
+    for (let j = i + 1; j < this.asteroids.length; j++) {
+      const ast_1 = this.asteroids[i];
+      const ast_2 = this.asteroids[j];
+
+      if (ast_1.isCollidedWith(ast_2)) {
+        ast_1.collideWith(ast_2);
+      }
+    }
+  }
+}
+
+Game.prototype.step = function() {
+  this.moveObjects();
+  this.checkCollisions();
+}
+
+Game.prototype.remove = function(asteroid) {
+  const asteroidIdx = this.asteroids.indexOf(asteroid);
+  this.asteroids.splice(asteroidIdx, 1);
+}
+
 Game.DIM_X = 1200;
 Game.DIM_Y = 800;
 Game.NUM_ASTEROIDS = 15;

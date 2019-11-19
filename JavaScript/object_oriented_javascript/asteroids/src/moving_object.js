@@ -35,6 +35,11 @@ MovingObject.prototype.isCollidedWith = function(otherObject) {
   return distanceNeeded > distanceBetween;
 }
 
+MovingObject.prototype.collideWith = function(otherObject) {
+  this.game.remove(this);
+  this.game.remove(otherObject);
+}
+
 MovingObject.distanceBetween = function(obj1, obj2) {
   const x1_pos = obj1.pos[0];
   const y1_pos = obj1.pos[1];
