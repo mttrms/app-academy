@@ -7,5 +7,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const gameCanvas = document.getElementById('game-canvas');
   const ctx = gameCanvas.getContext('2d');
   const gameView = new GameView(ctx);
+  window.Asteroid = Asteroid;
+  window.MovingObject = MovingObject;
   gameView.start();
 });
