@@ -28,13 +28,12 @@ You can find occasional updates & recaps [on my blog](https://mattramos.com/blog
 * [Reversi](https://github.com/mttrms/app-academy/tree/master/JavaScript/fundamentals/reversi_project) – Playable Reversi (Othello?)
 * [Asteroids](https://github.com/mttrms/app-academy/tree/master/JavaScript/object_oriented_javascript/asteroids) – Playable Asteroids (Vanilla JS / Canvas)
 
-## Pre-Work
-The required "pre-work" before the course begins. This is approx. 100 hours of programming foundational work to prepare students for the course.
-* [Intro To Programming](https://github.com/mttrms/app-academy/tree/master/Intro%20To%20Programming)
-* [Software Engineering Foundations](https://github.com/mttrms/app-academy/tree/master/Software%20Engineering%20Foundations)
-
 ## Course Work (links to my notes & homework from each section)
 The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript, React, Full Stack Projects.
+
+### Pre-Work
+* [Intro To Programming](https://github.com/mttrms/app-academy/tree/master/Intro%20To%20Programming)
+* [Software Engineering Foundations](https://github.com/mttrms/app-academy/tree/master/Software%20Engineering%20Foundations)
 
 ### Ruby
 * [Enumerables & Debugging](https://github.com/mttrms/app-academy/tree/master/Ruby/Enumberables%20%26%20Debugging)
