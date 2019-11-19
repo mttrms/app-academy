@@ -90,6 +90,16 @@ Game.prototype.allObjects = function() {
   return this.asteroids.concat([this.ship], this.bullets);
 }
 
+Game.prototype.isOutOfBounds = function(pos) {
+  if (pos[0] < 0 || pos[0] > Game.DIM_X) {
+    return true;
+  } else if (pos[1] < 0 || pos[1] > Game.DIM_Y) {
+    return true;
+  }
+
+  return false;
+}
+
 Game.DIM_X = 1200;
 Game.DIM_Y = 800;
 Game.NUM_ASTEROIDS = 15;
