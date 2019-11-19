@@ -83,7 +83,7 @@ Game.prototype.step = function() {
 
 Game.prototype.remove = function(asteroid) {
   const asteroidIdx = this.asteroids.indexOf(asteroid);
-  this.allObjects().splice(asteroidIdx, 1);
+  this.asteroids.splice(asteroidIdx, 1);
 }
 
 Game.prototype.allObjects = function() {
