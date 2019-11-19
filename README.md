@@ -26,6 +26,7 @@ You can find occasional updates & recaps [on my blog](https://mattramos.com/blog
 * [Reddit on Rails](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Forms/reddit_clone) – Basic reddit clone with posts, subs and commenting
 * [Rails Lite](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Lite/rails_lite) – DIY Rails that contains ActionController::Base functionality, routing, session, flash and exception handling
 * [Reversi](https://github.com/mttrms/app-academy/tree/master/JavaScript/fundamentals/reversi_project) – Playable Reversi (Othello?)
+* [Asteroids](https://github.com/mttrms/app-academy/tree/master/JavaScript/object_oriented_javascript/asteroids) – Playable Asteroids (Vanilla JS / Canvas)
 
 ## Pre-Work
 The required "pre-work" before the course begins. This is approx. 100 hours of programming foundational work to prepare students for the course.
