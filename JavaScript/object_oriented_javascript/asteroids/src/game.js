@@ -85,6 +85,24 @@ Game.prototype.allObjects = function() {
   return this.asteroids.concat([this.ship]);
 }
 
+Game.prototype.bindKeyHandlers = function() {
+  if (key.isPressed("a") || key.isPressed("left") || key.isPressed("h")) {
+    this.ship.impulse([-.05, 0]);
+  }
+
+  if (key.isPressed("d") || key.isPressed("right") || key.isPressed("l")) {
+    this.ship.impulse([.05, 0]);
+  }
+
+  if (key.isPressed("w") || key.isPressed("up") || key.isPressed("k")) {
+    this.ship.impulse([0, -.05]);
+  }
+
+  if (key.isPressed("s") || key.isPressed("down") || key.isPressed("j")) {
+    this.ship.impulse([0, .05]);
+  }
+}
+
 Game.DIM_X = 1200;
 Game.DIM_Y = 800;
 Game.NUM_ASTEROIDS = 15;

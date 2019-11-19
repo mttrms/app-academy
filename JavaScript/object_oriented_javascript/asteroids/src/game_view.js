@@ -9,6 +9,7 @@ GameView.prototype.start = function() {
   setInterval(() => {
     this.game.step();
     this.game.draw(this.ctx);
+    this.game.bindKeyHandlers();
   }, 2)
 }
 
