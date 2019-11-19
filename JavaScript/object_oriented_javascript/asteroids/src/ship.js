@@ -1,5 +1,6 @@
 const Util = require('./util.js')
 const MovingObject = require("./moving_object.js");
+const Bullet = require("./bullet.js");
 
 const DEFAULTS = {
   color: "#3fc1c9",
@@ -28,5 +29,14 @@ Ship.prototype.impulse = function(impulse) {
   this.vel[1] += impulse[1];
 }
 
+Ship.prototype.fireBullet = function() {
+  const bullet = new Bullet({
+    game: this.game,
+    pos: this.pos,
+    vel: [this.vel[0], this.vel[1]]
+  })
+
+  this.game.addBullets(bullet);
+}
 
 module.exports = Ship;

@@ -8,6 +8,7 @@ const DEFAULTS = {
 
 const Bullet = function(options) {
   MovingObject.call(this, {
+    game: options.game,
     pos: options.pos,
     vel: options.vel,
     radius: DEFAULTS.radius,

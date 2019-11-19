@@ -3,6 +3,7 @@ const Ship = require("./ship.js");
 
 function Game() {
   this.asteroids = [],
+  this.bullets = [],
   this.addAsteroids(),
   this.ship = new Ship({
     game: this,
@@ -17,6 +18,10 @@ Game.prototype.addAsteroids = function() {
   }
 }
 
+Game.prototype.addBullets = function(bullet) {
+  this.bullets.push(bullet);
+}
+
 Game.prototype.randomPosition = function() {
   const random_x = Math.random() * Game.DIM_X;
   const random_y = Math.random() * Game.DIM_Y;
@@ -28,14 +33,14 @@ Game.prototype.draw = function(ctx) {
   ctx.clearRect(0, 0, Game.DIM_X, Game.DIM_Y);
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, Game.DIM_X, Game.DIM_Y);
-  this.allObjects().forEach((asteroid) => {
-    asteroid.draw(ctx);
+  this.allObjects().forEach((object) => {
+    object.draw(ctx);
   })
 }
 
 Game.prototype.moveObjects = function() {
-  this.allObjects().forEach((asteroid) => {
-    asteroid.move();
+  this.allObjects().forEach((object) => {
+      object.move();
   })
 }
 
@@ -82,7 +87,7 @@ Game.prototype.remove = function(asteroid) {
 }
 
 Game.prototype.allObjects = function() {
-  return this.asteroids.concat([this.ship]);
+  return this.asteroids.concat([this.ship], this.bullets);
 }
 
 Game.prototype.bindKeyHandlers = function() {
@@ -100,6 +105,10 @@ Game.prototype.bindKeyHandlers = function() {
 
   if (key.isPressed("s") || key.isPressed("down") || key.isPressed("j")) {
     this.ship.impulse([0, .05]);
+  }
+
+  if (key.isPressed("space")) {
+    this.ship.fireBullet();
   }
 }
 
