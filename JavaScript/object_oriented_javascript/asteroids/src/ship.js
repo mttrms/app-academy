@@ -30,10 +30,19 @@ Ship.prototype.impulse = function(impulse) {
 }
 
 Ship.prototype.fireBullet = function() {
+  const relativeVelocity = Util.scale(
+    Util.dir(this.vel),
+    Bullet.SPEED
+  );
+
+  const bulletVelocity = [
+    relativeVelocity[0] + this.vel[0], relativeVelocity[1] + this.vel[1]
+  ];
+
   const bullet = new Bullet({
     game: this.game,
     pos: this.pos,
-    vel: [this.vel[0], this.vel[1]]
+    vel: bulletVelocity
   })
 
   this.game.addBullets(bullet);

@@ -16,6 +16,8 @@ const Bullet = function(options) {
   })
 }
 
+Bullet.SPEED = 1;
+
 Util.inherits(Bullet, MovingObject);
 
 module.exports = Bullet;

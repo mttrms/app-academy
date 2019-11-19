@@ -11,6 +11,19 @@ const Util = {
 
   scale(vec, m) {
     return [vec[0] * m, vec[1] * m];
+  },
+
+  norm(vec) {
+    return Util.distanceBetween([0, 0], vec);
+  },
+
+  dir(vec) {
+    const norm = Util.norm(vec);
+    return Util.scale(vec, 1 / norm);
+  },
+
+  distanceBetween(pos1, pos2) {
+    return Math.sqrt((pos2[0] - pos1[0]) ** 2 + (pos2[1] - pos1[1]) ** 2);
   }
 };
 

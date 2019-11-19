@@ -1,3 +1,5 @@
+const Util = require("./util.js");
+
 function MovingObject(options) {
   this.game = options.game;
   this.pos = options.pos;
@@ -30,21 +32,12 @@ MovingObject.prototype.move = function() {
 
 MovingObject.prototype.isCollidedWith = function(otherObject) {
   const distanceNeeded = (this.radius + otherObject.radius);
-  const distanceBetween = MovingObject.distanceBetween(this, otherObject);
+  const distanceBetween = Util.distanceBetween(this.pos, otherObject.pos);
 
   return distanceNeeded > distanceBetween;
 }
 
 MovingObject.prototype.collideWith = function(otherObject) {
-}
-
-MovingObject.distanceBetween = function(obj1, obj2) {
-  const x1_pos = obj1.pos[0];
-  const y1_pos = obj1.pos[1];
-  const x2_pos = obj2.pos[0];
-  const y2_pos = obj2.pos[1];
-
-  return Math.sqrt((x2_pos - x1_pos)**2 + (y2_pos - y1_pos)**2);
 }
 
 module.exports = MovingObject;
