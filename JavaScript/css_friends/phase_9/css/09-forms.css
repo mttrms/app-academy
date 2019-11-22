@@ -1,1 +1,13 @@
 /* PHASE 9: Forms */
+
+.wall .thumb {
+	float: left;
+}
+
+.wall .wall-form {
+	float: right;
+	width: 540px;
+	background-color: #eee;
+	border: 2px solid #ddd;
+	border-radius: 5px;
+}
