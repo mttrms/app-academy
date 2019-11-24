@@ -1,1 +1,43 @@
 /* PHASE 10: Posts */
+
+.post {
+  display: flex;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+}
+
+.post-content {
+  width: 540px;
+  margin-left: 20px;
+}
+
+.post-content h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.post-content p {
+  margin-bottom: 20px;
+}
+
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-metadata {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.post-metadata span:not(:last-child)::after {
+  content: "•";
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.post-actions a {
+  margin-left: 6px;
+}
