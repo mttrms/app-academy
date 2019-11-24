@@ -61,7 +61,9 @@ View.prototype.exercise5 = function () {
   //hint: checkout the addRow function at the bottom of the file: we set the
   //  'data-pos' of every square
 
-  //your code here!
+  $('li').on('click', function(event) {
+    alert($(this).data("pos"));
+  })
 };
 
 View.prototype.exercise6 = function () {
@@ -71,7 +73,11 @@ View.prototype.exercise6 = function () {
 
   //hint: use window._randomColorString() (defined at top) to get a random color!
 
-  //your code here!
+  const squares = $("#easel li");
+  squares.each(function(i, val) {
+    let square = $(val)
+    square.css("background-color", window._randomColorString)
+  })
 };
 
 View.prototype.exercise7 = function(){
@@ -81,7 +87,9 @@ View.prototype.exercise7 = function(){
   //You should push the button for exercise 6 first to try it on the
   //rainbow.
 
-  //your code here!
+  $('li').on('mouseover', function(event) {
+    console.log($(this).css("background-color"));
+  })
 };
 
 
