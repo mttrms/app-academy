@@ -22,28 +22,35 @@ View.prototype.exercise1 = function () {
   //Challenge: Give every square the class 'orange'
   //Result: Every square should turn orange (we already have a CSS rule)
 
-  //your code here!
+  $('li').addClass("orange");
 };
 
 View.prototype.exercise2 = function () {
   //Challenge: Remove every square
   //Result: Every square vanishes
 
-  //your code here!
+  $('.square').remove();
 };
 
 View.prototype.exercise3 = function () {
   //Challenge: Add an <h1> with the text 'i love jquery' under the grid.
   //Result: An <h1> with the text 'i love jquery' appears under the grid.
 
-  //your code here!
+  const headline = $('<h1></h1>');
+  headline.text('i love jquery');
+  $('#easel').append(headline);
 };
 
 View.prototype.exercise4 = function () {
   //Challenge: Write your first name in every other square.
   //Result: Your name appears in every other square.
 
-  //your code here!
+  const squares = $("#easel li");
+  squares.each(function(i, val) {
+    if (i % 2 !== 0) {
+      $(squares[i]).text('matt');
+    }
+  })
 };
 
 View.prototype.exercise5 = function () {
