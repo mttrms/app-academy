@@ -8,6 +8,57 @@
 	float: right;
 	width: 540px;
 	background-color: #eee;
-	border: 2px solid #ddd;
+	border: 1px solid #ccc;
 	border-radius: 5px;
+	padding: 19px;
+	box-sizing: border-box;
+}
+
+.wall-form .input {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.wall-form label {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.wall-form .input:nth-child(2n) {
+	margin-top: 15px;
+}
+
+.wall-form button {
+	position: relative;
+	padding: 10px 15px;
+	background-color: #00cc00;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 5px;
+	box-shadow: 0 3px 0 0 #070;
+}
+
+.wall-form input, .wall-form textarea {
+	background: #fff;
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+.wall-form .input:last-of-type {
+	margin-top: 15px;
+}
+
+.wall-form .input:last-of-type span {
+	margin-left: 10px;
+}
+
+.wall-form .input:last-of-type a {
+	font-weight: bold;
+}
+
+.wall-form .input:last-of-type a:hover {
+	color: red;
 }
