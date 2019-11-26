@@ -24,7 +24,7 @@ class Game {
     this.board.print();
     game.promptMove((response) => {
       this.board.place_mark(response, this.currentPlayer.mark);
-      if (this.board.won()) {
+      if (this.board.winner()) {
         this.board.print();
         completionCallback(this.currentPlayer.mark);
       } else {

@@ -8,53 +8,26 @@ class Board {
   }
 
   winner() {
-    const posSeqs = [
-      // rows
-      [[0, 0], [0, 1], [0, 2]],
-      [[1, 0], [1, 1], [1, 2]],
-      [[2, 0], [2, 1], [2, 2]],
-      // cols
-      [[0, 0], [1, 0], [2, 0]],
-      [[0, 1], [1, 1], [2, 1]],
-      [[0, 2], [1, 2], [2, 2]],
-      // diagonals
-      [[0, 0], [1, 1], [2, 2]],
-      [[2, 0], [1, 1], [0, 2]]
-    ];
+    for (let i = 0; i < Board.posSeqs.length; i++) {
+      for (let markIdx = 0; markIdx < Board.marks.length; markIdx++) {
+        const targetMark = Board.marks[markIdx];
+        let winner = true;
+        for (let posIdx = 0; posIdx < 3; posIdx++) {
+          const pos = Board.posSeqs[i][posIdx];
+          const mark = this._grid[pos[0]][pos[1]];
 
-    for (let i = 0; i < posSeqs.length; i++) {
-      const winner = this.winnerHelper(posSeqs[i]);
-      if (winner != null) {
-        return winner;
-      }
-    }
+          if (mark != targetMark) {
+            winner = false;
+          }
+        }
 
-    return null;
-  }
-
-  winnerHelper(posSeq) {
-    for (let markIdx = 0; markIdx < Board.marks.length; markIdx++) {
-      const targetMark = Board.marks[markIdx];
-      let winner = true;
-      for (let posIdx = 0; posIdx < 3; posIdx++) {
-        const pos = posSeq[posIdx];
-        const mark = this._grid[pos[0]][pos[1]];
-
-        if (mark != targetMark) {
-          winner = false;
+        if (winner) {
+          return targetMark;
         }
       }
-
-      if (winner) {
-        return targetMark;
-      }
     }
 
     return null;
-  }
-
-  won() {
-    return this.winner() === null ? false : true;
   }
 
   empty(pos) {
@@ -64,7 +37,7 @@ class Board {
   }
 
   valid(pos) {
-    return !pos.some(coord => coord < 0 || coord > 2 );
+    return !pos.some(coord => coord < 0 || coord > 2);
   }
 
   place_mark(pos, mark) {
@@ -79,10 +52,23 @@ class Board {
   print() {
     this._grid.forEach((row) => {
       console.log(row);
-    })
+    });
   }
 }
 
 Board.marks = ['x', 'o'];
+Board.posSeqs = [
+  // rows
+  [[0, 0], [0, 1], [0, 2]],
+  [[1, 0], [1, 1], [1, 2]],
+  [[2, 0], [2, 1], [2, 2]],
+  // cols
+  [[0, 0], [1, 0], [2, 0]],
+  [[0, 1], [1, 1], [2, 1]],
+  [[0, 2], [1, 2], [2, 2]],
+  // diagonals
+  [[0, 0], [1, 1], [2, 2]],
+  [[2, 0], [1, 1], [0, 2]]
+];
 
 module.exports = Board;
