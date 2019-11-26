@@ -1,0 +1,33 @@
+h1 {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 60px;
+  margin: 30px;
+}
+.ttt {
+  margin: 0 auto;
+  width: 300px;
+  border: 5px solid #000;
+}
+.ttt ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ttt ul li {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border: 5px solid #000;
+  box-sizing: border-box;
+  background: #ccc;
+}
+
+.ttt ul li:hover {
+  background-color: yellow;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
