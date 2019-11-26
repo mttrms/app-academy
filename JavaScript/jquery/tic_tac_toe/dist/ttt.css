@@ -31,3 +31,15 @@ h1 {
   cursor: pointer;
   transition: all 0.25s ease-in-out;
 }
+
+.ttt .x, .ttt .o {
+  background: #fff;
+}
+
+.x::before {
+  content: "x";
+}
+
+.o::before {
+  content: "o";
+}

@@ -3,22 +3,40 @@ class View {
     this.game = game;
     this.$el = $el;
     this.setupBoard();
+    this.bindEvents();
   }
 
-  bindEvents() {}
+  bindEvents() {
+    const $ul = $('ul');
+    const view = this;
 
-  makeMove($square) {}
+    $ul.on("click", "li", function() {
+      view.makeMove($(this))
+    })
+  }
+
+  makeMove($square) {
+    const idx = $('ul li').index($square);
+    const y = Math.floor (idx / 3);
+    const x = idx % 3;
+
+    try {
+      let currentPlayer = this.game.currentPlayer;
+      this.game.playMove([y, x]);
+      $square.toggleClass(currentPlayer);
+    } catch (err) {
+      alert(err.msg)
+    }
+  }
 
   setupBoard() {
-    const $ul = $("<ul><li></li></ul>")
-    for (let i = 0; i < 8; i++) {
+    const $ul = $("<ul></ul>")
+    for (let i = 0; i < 9; i++) {
       const $li = $("<li></li>")
       $ul.append($li);
     }
 
     this.$el.append($ul)
-
-    console.log($ul);
   }
 }
 
