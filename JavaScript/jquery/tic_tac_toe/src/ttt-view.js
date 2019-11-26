@@ -27,6 +27,10 @@ class View {
     } catch (err) {
       alert(err.msg)
     }
+
+    if (this.game.isOver()) {
+      this.endGame();
+    }
   }
 
   setupBoard() {
@@ -37,6 +41,11 @@ class View {
     }
 
     this.$el.append($ul)
+  }
+
+  endGame() {
+    let winner = this.game.winner();
+    $('ul').unbind();
   }
 }
 
