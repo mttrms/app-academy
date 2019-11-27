@@ -6,15 +6,19 @@ h1 {
 }
 .ttt {
   margin: 0 auto;
-  width: 300px;
-  border: 5px solid #000;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
 }
+
 .ttt ul {
+  width: 300px;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: 0;
+  margin: 30px auto;
   padding: 0;
+  border: 5px solid #000;
 }
 
 .ttt ul li {
@@ -29,11 +33,25 @@ h1 {
 .ttt ul li:hover {
   background-color: yellow;
   cursor: pointer;
-  transition: all 0.25s ease-in-out;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.ttt .winner:hover, .ttt .loser:hover {
+  cursor: default;
 }
 
 .ttt .x, .ttt .o {
   background: #fff;
+  font-size: 60px;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-align:center;
+}
+
+.x::before, .o::before {
+  display: block;
+  width: 100%;
+  line-height: 80px;
 }
 
 .x::before {
@@ -42,4 +60,21 @@ h1 {
 
 .o::before {
   content: "o";
+}
+
+.ttt .winner, .ttt .winner:hover {
+  background-color: green;
+  color: #fff;
+}
+
+.ttt .loser, .ttt .loser:hover {
+  background-color: #fff;
+  color: #f00;
+}
+
+figcaption {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 30px;
+  font-weight: bold;
 }

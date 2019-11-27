@@ -46,6 +46,23 @@ class View {
   endGame() {
     let winner = this.game.winner();
     $('ul').unbind();
+
+    $('li').each(function() {
+      if ($(this).hasClass(winner)) {
+        $(this).addClass('winner');
+      } else {
+        $(this).addClass('loser');
+      }
+    })
+
+    const $message = $("<figcaption></figcaption>")
+    if (winner == null) {
+      $message.text("It's a draw.");
+    } else {
+      $message.text(`You win, ${winner}!`);
+    }
+    this.$el.append($message);
+    console.log($message)
   }
 }
 
