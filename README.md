@@ -27,6 +27,7 @@ You can find occasional updates & recaps [on my blog](https://mattramos.com/blog
 * [Rails Lite](https://github.com/mttrms/app-academy/tree/master/Rails/Rails%20Lite/rails_lite) – DIY Rails that contains ActionController::Base functionality, routing, session, flash and exception handling
 * [Reversi](https://github.com/mttrms/app-academy/tree/master/JavaScript/fundamentals/reversi_project) – Playable Reversi (Othello?)
 * [Asteroids](https://github.com/mttrms/app-academy/tree/master/JavaScript/object_oriented_javascript/asteroids) – Playable Asteroids (Vanilla JS / Canvas)
+* [jQuery Tic Tac Toe](https://github.com/mttrms/app-academy/tree/master/JavaScript/jquery/tic_tac_toe) – jQuery TTT that interacts with a prior TTT JavaScript project
 
 ## Course Work (links to my notes & homework from each section)
 The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript, React, Full Stack Projects.
