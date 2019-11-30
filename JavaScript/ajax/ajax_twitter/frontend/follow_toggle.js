@@ -1,3 +1,5 @@
+const APIUtil = require('./api_util.js');
+
 class FollowToggle {
   constructor($el) {
     this.userId = $el.data("user-id");
@@ -9,42 +11,43 @@ class FollowToggle {
 
   render() {
     if (this.followState === 'unfollowed') {
+			this.el.prop('disabled', false);
       this.el.text('Follow!');
-    } else {
+    } else if (this.followState === 'followed') {
+			this.el.prop('disabled', false);
       this.el.text('Unfollow!');
-    }
+    } else if (this.followState === 'unfollowing') {
+			this.el.prop('disabled', true);
+			this.el.text('Unfollowing');
+		} else if (this.followState === 'following') {
+			this.el.prop('disabled', true);
+			this.el.text('Following');
+		}
   }
 
-  handleClick() {
-    this.el.on("click", function(e) {
-      e.preventDefault();
-      if (this.followState === 'unfollowed') {
-        $.ajax({
-          url: `/users/${this.userId}/follow`,
-          type: 'POST',
-          dataType: 'JSON',
-          success: this._swapFollowState()
-        })
-      } else {
-        $.ajax({
-          url: `/users/${this.userId}/follow`,
-          type: 'DELETE',
-          dataType: 'JSON',
-          success: this._swapFollowState()
-        })
-      }
-    }.bind(this))
-  }
+	handleClick() {
+		this.el.on("click", function(e) {
+			e.preventDefault();
 
-  _swapFollowState() {
-    if (this.followState === 'unfollowed') {
-      this.followState = 'followed';
-      this.el.text('Unfollow!');
-    } else {
-      this.followState = 'unfollowed';
-      this.el.text('Follow!');
-    }
-  }
+			if (this.followState === 'unfollowed') {
+				this.followState = 'following';
+				this.render();
+				APIUtil.followUser(this.userId)
+					.then(() => {
+						this.followState = 'followed';
+						this.render();
+					});
+			} else {
+				this.followState = 'unfollowing';
+				this.render();
+				APIUtil.unfollowUser(this.userId)
+					.then(() => {
+						this.followState = 'unfollowed';
+						this.render();
+					});
+			}
+		}.bind(this));
+	}
 }
 
 module.exports = FollowToggle;
