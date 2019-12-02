@@ -22,6 +22,11 @@ const APIUtil = {
 			dataType: 'JSON',
 			data: {query: queryVal}
 		})
+	},
+
+	createTweet: data => {
+		console.log("ajax req to /tweets");
+		console.log(data);
 	}
 };
 
