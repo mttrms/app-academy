@@ -20,7 +20,7 @@ const APIUtil = {
 			url: '/users/search',
 			type: 'GET',
 			dataType: 'JSON',
-			data: JSON.stringify({query: queryVal}),
+			data: {query: queryVal}
 		})
 	}
 };
