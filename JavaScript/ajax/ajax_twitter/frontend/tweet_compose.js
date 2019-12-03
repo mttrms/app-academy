@@ -4,6 +4,7 @@ class TweetCompose {
 	constructor($el) {
 		this.$el = $el;
 		this.$el.on("submit", this.submit.bind(this));
+		this.$ul = $($el.data("tweets-ul"));
 	}
 
 	submit(event) {
@@ -22,7 +23,10 @@ class TweetCompose {
 	}
 
 	handleSuccess(res) {
+		console.log(res);
 		this.clearInput();
+		const $li = $(`<li>${JSON.stringify(res)}</li>`);
+		this.$ul.prepend($li);
 
 		this.$el.find(":input").not(":input[type=submit]").each((idx, el) => {
 			$(el).prop("disabled", false);
