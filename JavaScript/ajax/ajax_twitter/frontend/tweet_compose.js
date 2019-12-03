@@ -53,6 +53,8 @@ class TweetCompose {
     $formInputs.each((idx, el) => {
       $(el).val('');
     })
+    this.$el.find('.mentioned-users').empty();
+    this.$el.find('.chars-left').empty();
   }
 
   newUserSelect() {
