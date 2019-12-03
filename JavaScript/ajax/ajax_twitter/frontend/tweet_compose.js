@@ -53,7 +53,10 @@ class TweetCompose {
 
 	newUserSelect() {
 		const $mentionedUsers = $(this.$el.find(".mentioned-users"));
+		const $userSelectDiv = $("<div>")
 		const $select = $("<select name='tweet[mentioned_user_ids][]'>");
+		const $removeMentionedUserLink = $('<a href="#" class="remove-mentioned-user">Remove</a>');
+		
 
 		window.users.forEach((user) => {
 			$select
@@ -62,8 +65,13 @@ class TweetCompose {
 				.text(user.username));
 		})
 
+		$userSelectDiv.append($select);
+		$userSelectDiv.append($removeMentionedUserLink);
 
-		$mentionedUsers.append($select);
+		$mentionedUsers.append($userSelectDiv);
+
+
+		// $mentionedUsers.append($('<div/>')).append($select);
 	}
 }
 
