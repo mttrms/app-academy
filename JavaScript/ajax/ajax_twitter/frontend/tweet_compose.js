@@ -3,8 +3,13 @@ const APIUtil = require('./api_util.js');
 class TweetCompose {
 	constructor($el) {
 		this.$el = $el;
-		this.$el.on("submit", this.submit.bind(this));
 		this.$ul = $($el.data("tweets-ul"));
+		this.$el.on("submit", this.submit.bind(this));
+		this.$el.find("textarea").on('input', (e) => {
+			const $charsLeftCount = $(this.$el.find(".chars-left"));
+			const charsLeft = 140 - e.currentTarget.value.length;
+			$charsLeftCount.text(`${charsLeft} characters left`)
+		})
 	}
 
 	submit(event) {
