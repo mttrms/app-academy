@@ -25,8 +25,12 @@ const APIUtil = {
 	},
 
 	createTweet: data => {
-		console.log("ajax req to /tweets");
-		console.log(data);
+		return $.ajax({
+			url: '/tweets',
+			type: 'POST',
+			dataType: 'JSON',
+			data: data
+		})
 	}
 };
 

@@ -9,7 +9,9 @@ class TweetCompose {
 	submit(event) {
 		event.preventDefault();
 		const formData = this.$el.serializeJSON();
-		APIUtil.createTweet(formData);
+		APIUtil.createTweet(formData).then(res => {
+			console.log(res);
+		})
 	}
 }
 
