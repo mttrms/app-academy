@@ -9,7 +9,18 @@ class TweetCompose {
 	submit(event) {
 		event.preventDefault();
 		const formData = this.$el.serializeJSON();
+		const $formInputs = this.$el.find(":input");
+
+		$formInputs.each((idx, el) => {
+			const $formInput = $(el);
+			$formInput.prop("disabled", true);
+		})
+
 		APIUtil.createTweet(formData).then(res => {
+			$formInputs.each((idx, el) => {
+				const $formInput = $(el);
+				$formInput.prop("disabled", false);
+			})
 			console.log(res);
 		})
 	}
