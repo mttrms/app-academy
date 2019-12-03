@@ -17,13 +17,25 @@ class TweetCompose {
 		})
 
 		APIUtil.createTweet(formData).then(res => {
-			$formInputs.each((idx, el) => {
-				const $formInput = $(el);
-				$formInput.prop("disabled", false);
-			})
-			console.log(res);
+			this.handleSuccess(res);
 		})
 	}
+
+	handleSuccess(res) {
+		this.clearInput();
+
+		this.$el.find(":input").not(":input[type=submit]").each((idx, el) => {
+			$(el).prop("disabled", false);
+		})
+	}
+
+	clearInput() {
+		const $formInputs = this.$el.find(":input:not(input[type='Submit'], :hidden)");
+		$formInputs.each((idx, el) => {
+			$(el).val('');
+		})
+	}
+
 }
 
 module.exports = TweetCompose;
