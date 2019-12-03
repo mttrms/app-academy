@@ -6,6 +6,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <script type="text/javascript">
+      window.users = <%= render("users/users.json.jbuilder").html_safe %>
+    </script>
   </head>
 
   <body>

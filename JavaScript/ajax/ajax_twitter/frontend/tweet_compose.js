@@ -4,11 +4,17 @@ class TweetCompose {
 	constructor($el) {
 		this.$el = $el;
 		this.$ul = $($el.data("tweets-ul"));
+
 		this.$el.on("submit", this.submit.bind(this));
+
 		this.$el.find("textarea").on('input', (e) => {
 			const $charsLeftCount = $(this.$el.find(".chars-left"));
 			const charsLeft = 140 - e.currentTarget.value.length;
 			$charsLeftCount.text(`${charsLeft} characters left`)
+		});
+
+		this.$el.find(".add-mentioned-user").on('click', (e) => {
+			this.newUserSelect();
 		})
 	}
 
@@ -45,6 +51,20 @@ class TweetCompose {
 		})
 	}
 
+	newUserSelect() {
+		const $mentionedUsers = $(this.$el.find(".mentioned-users"));
+		const $select = $("<select name='tweet[mentioned_user_ids][]'>");
+
+		window.users.forEach((user) => {
+			$select
+				.append($("<option></option>")
+				.attr("value", user.id)
+				.text(user.username));
+		})
+
+
+		$mentionedUsers.append($select);
+	}
 }
 
 module.exports = TweetCompose;
