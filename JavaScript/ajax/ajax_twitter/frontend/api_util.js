@@ -31,7 +31,16 @@ const APIUtil = {
 			dataType: 'JSON',
 			data: data
 		})
-	}
+	},
+
+  getTweets: data => {
+    return $.ajax({
+      url: '/feed',
+      type: 'GET',
+      dataType: 'JSON',
+      data
+    })
+  }
 };
 
 module.exports = APIUtil;
