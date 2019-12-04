@@ -28,6 +28,7 @@ You can find occasional updates & recaps [on my blog](https://mattramos.com/blog
 * [Reversi](https://github.com/mttrms/app-academy/tree/master/JavaScript/fundamentals/reversi_project) – Playable Reversi (Othello?)
 * [Asteroids](https://github.com/mttrms/app-academy/tree/master/JavaScript/object_oriented_javascript/asteroids) – Playable Asteroids (Vanilla JS / Canvas)
 * [jQuery Tic Tac Toe](https://github.com/mttrms/app-academy/tree/master/JavaScript/jquery/tic_tac_toe) – jQuery TTT that interacts with a prior TTT JavaScript project
+* [Ajax Twitter](https://github.com/mttrms/app-academy/tree/master/JavaScript/ajax/ajax_twitter) – jQuery frontend that interfaces with a simple Rails Twitter app
 
 ## Course Work (links to my notes & homework from each section)
 The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript, React, Full Stack Projects.
@@ -68,3 +69,4 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 * [Event Loop](https://github.com/mttrms/app-academy/tree/master/JavaScript/event_loop)
 * [Object Oriented JavaScript](https://github.com/mttrms/app-academy/tree/master/JavaScript/object_oriented_javascript)
 * [jQuery](https://github.com/mttrms/app-academy/tree/master/JavaScript/jquery)
+* [AJAX](https://github.com/mttrms/app-academy/tree/master/JavaScript/ajax)
