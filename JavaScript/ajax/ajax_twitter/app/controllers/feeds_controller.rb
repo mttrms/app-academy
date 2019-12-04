@@ -1,3 +1,4 @@
+require 'pry'
 class FeedsController < ApplicationController
   before_action :require_logged_in!
 

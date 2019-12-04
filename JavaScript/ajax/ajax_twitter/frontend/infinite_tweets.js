@@ -4,6 +4,7 @@ class InfiniteTweets {
   constructor($el) {
     this.$el = $el;
     this.$feed = $el.find('#feed');
+    this.lastCreatedAt = null;
 
     this.$el.find('.fetch-more').on('click', () => {
       this.fetchTweets();
@@ -11,8 +12,20 @@ class InfiniteTweets {
   }
 
   fetchTweets() {
-    APIUtil.getTweets().then(res => {
+    const data = {};
+
+    if (this.lastCreatedAt) {
+      data.max_created_at = this.lastCreatedAt;
+    }
+
+    APIUtil.getTweets(data).then(res => {
       this.insertTweets(res);
+      this.lastCreatedAt = res[res.length-1].created_at
+
+      if (res.length < 20) {
+        this.$el.find('.fetch-more').remove();
+        this.$el.append('<p>No more tweets to load.</p>');
+      }
     });
   }
 
