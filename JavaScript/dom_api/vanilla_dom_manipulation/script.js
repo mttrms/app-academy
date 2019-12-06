@@ -26,5 +26,29 @@ document.addEventListener("DOMContentLoaded", () => {
     li.textContent = favoritePlace.value;
     ul.appendChild(li);
     favoritePlace.value = '';
+  });
+
+
+  const newPhotoButton = document.querySelector('.photo-show-button');
+
+  newPhotoButton.addEventListener('click', (e) => {
+    const newPhotoForm = document.querySelector('.photo-form-container');
+    newPhotoForm.classList.remove('hidden');
+  });
+
+  const newPhotoForm = document.querySelector('.photo-form-container form');
+
+  newPhotoForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const imgUrlInput = document.querySelector('.photo-url-input');
+    const ul = document.querySelector('.dog-photos');
+    const li = document.createElement('li');
+    const img = document.createElement('img');
+
+    li.appendChild(img);
+    img.src = imgUrlInput.value;
+    ul.appendChild(li);
+    imgUrlInput.value = '';
   })
 });
