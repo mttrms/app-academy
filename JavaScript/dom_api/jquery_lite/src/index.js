@@ -1,3 +1,9 @@
 window.$l = (arg) => {
-  // fun stuff coming soon
+  if (typeof arg !== 'string') return undefined;
+
+  const nodeList = document.querySelectorAll(arg);
+  const nodes = Array.from(nodeList);
+
+  return nodes;
 }
+
