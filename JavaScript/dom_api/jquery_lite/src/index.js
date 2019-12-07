@@ -1,9 +1,17 @@
+const DOMNodeCollection = require('./dom_node_collection.js');
+
 window.$l = (arg) => {
-  if (typeof arg !== 'string') return undefined;
+  if (typeof arg === 'string') {
+    const nodeList = document.querySelectorAll(arg);
+    const nodes = new DOMNodeCollection(Array.from(nodeList));
 
-  const nodeList = document.querySelectorAll(arg);
-  const nodes = Array.from(nodeList);
+    return nodes;
+  } else if (arg instanceof HTMLElement) {
+    const nodes = new DOMNodeCollection([arg]);
 
-  return nodes;
+    return nodes;
+  }
+
+  return undefined;
 }
 
