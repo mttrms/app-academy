@@ -24,6 +24,10 @@ class DOMNodeCollection {
       this.elements.forEach(element => element.innerHTML += children);
     } else if (children instanceof DOMNodeCollection) {
       this.elements.forEach((element) => {
+        for (let i = 0; i < children.elements.length; i++) {
+          const childElement = children.elements[i];
+          element.innerHTML += childElement.outerHTML;
+        }
       })
     }
   }
