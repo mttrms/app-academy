@@ -82,6 +82,20 @@ class DOMNodeCollection {
   remove() {
     this.elements.forEach(element => element.remove());
   }
+
+  on(type, cb) {
+    this.elements.forEach((element) => {
+      element[`jQueryLiteEvent-${type}`] = cb;
+      element.addEventListener(type, cb);
+    })
+  }
+
+  off(type) {
+    this.elements.forEach((element) => {
+      const cb = element[`jQueryLiteEvent-${type}`];
+      element.removeEventListener(type, cb);
+    })
+  }
 }
 
 module.exports = DOMNodeCollection;
