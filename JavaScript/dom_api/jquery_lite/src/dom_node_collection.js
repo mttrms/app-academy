@@ -47,6 +47,16 @@ class DOMNodeCollection {
   removeClass(className) {
     this.elements.forEach(element => element.classList.remove(className));
   }
+
+  children() {
+    const childElements = [];
+
+    this.elements.forEach((element) => {
+      childElements.push(element.children);
+    })
+
+    return new DOMNodeCollection(childElements);
+  }
 }
 
 module.exports = DOMNodeCollection;
