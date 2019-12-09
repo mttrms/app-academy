@@ -1,9 +1,9 @@
 class Message {
   constructor(from, to, subject, body) {
-    this.from = from;
-    this.to = to;
-    this.subject = subject;
-    this.body = body;
+    this.from = from || '';
+    this.to = to || '';
+    this.subject = subject || '';
+    this.body = body || '';
   }
 }
 
@@ -42,6 +42,10 @@ const MessageStore = {
 
   getSentMessages: () => {
     return messages.sent;
+  },
+
+  getMessageDraft: () => {
+    return messageDraft;
   },
 
   updateDraftField: (field, value) => {
