@@ -31,6 +31,22 @@ class DOMNodeCollection {
       })
     }
   }
+
+  attr(prop, val) {
+    if (val) {
+      this.elements.forEach(element => element.setAttribute(prop, val));
+    } else {
+      this.elements[0].getAttribute(prop);
+    }
+  }
+
+  addClass(className) {
+    this.elements.forEach(element => element.classList.add(className));
+  }
+
+  removeClass(className) {
+    this.elements.forEach(element => element.classList.remove(className));
+  }
 }
 
 module.exports = DOMNodeCollection;
