@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const node = document.getElementsByClassName('content')[0];
   const router = new Router(node, routes);
   router.start();
+  window.location.hash = '#inbox';
 
   sidebarNavLinks.forEach((element) => {
     element.addEventListener('click', () => {
