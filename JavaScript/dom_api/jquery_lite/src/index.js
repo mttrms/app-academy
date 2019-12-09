@@ -1,5 +1,8 @@
 const DOMNodeCollection = require('./dom_node_collection.js');
 
+const _documentReadyCallbacks = [];
+let _documentReady = false;
+
 window.$l = (arg) => {
   if (typeof arg === 'string') {
     const nodeList = document.querySelectorAll(arg);
@@ -10,8 +13,20 @@ window.$l = (arg) => {
     const nodes = new DOMNodeCollection([arg]);
 
     return nodes;
+  } else if (typeof arg === 'function') {
+    registerCallback(arg);
   }
-
-  return undefined;
 }
 
+const registerCallback = (func) => {
+  if (_documentReady) {
+    func();
+  } else {
+    _documentReadyCallbacks.push(func);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  _documentReady = true;
+  _documentReadyCallbacks.forEach(func => func());
+})
