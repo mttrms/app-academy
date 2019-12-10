@@ -29,6 +29,8 @@ You can find occasional updates & recaps [on my blog](https://mattramos.com/blog
 * [Asteroids](https://github.com/mttrms/app-academy/tree/master/JavaScript/object_oriented_javascript/asteroids) – Playable Asteroids (Vanilla JS / Canvas)
 * [jQuery Tic Tac Toe](https://github.com/mttrms/app-academy/tree/master/JavaScript/jquery/tic_tac_toe) – jQuery TTT that interacts with a prior TTT JavaScript project
 * [Ajax Twitter](https://github.com/mttrms/app-academy/tree/master/JavaScript/ajax/ajax_twitter) – jQuery frontend that interfaces with a simple Rails Twitter app
+* [jQuery Lite](https://github.com/mttrms/app-academy/tree/master/JavaScript/dom_api/jquery_lite) – Vanilla JS recreation of the $() function as $l()
+* [Single Page Mail](https://github.com/mttrms/app-academy/tree/master/JavaScript/dom_api/single_page_mail) – Simple vanilla JS single page app for checking inbox, outbox and composing messages
 
 ## Course Work (links to my notes & homework from each section)
 The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript, React, Full Stack Projects.
@@ -70,3 +72,4 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 * [Object Oriented JavaScript](https://github.com/mttrms/app-academy/tree/master/JavaScript/object_oriented_javascript)
 * [jQuery](https://github.com/mttrms/app-academy/tree/master/JavaScript/jquery)
 * [AJAX](https://github.com/mttrms/app-academy/tree/master/JavaScript/ajax)
+* [DOM API](https://github.com/mttrms/app-academy/tree/master/JavaScript/dom_api)
