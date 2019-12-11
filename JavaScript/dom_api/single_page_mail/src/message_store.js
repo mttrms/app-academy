@@ -53,7 +53,7 @@ const MessageStore = {
   },
 
   sendDraft: () => {
-    messages.sent.push(messageDraft);
+    messages.sent.unshift(messageDraft);
     messageDraft = new Message;
   }
 }
