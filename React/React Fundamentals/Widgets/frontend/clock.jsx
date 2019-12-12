@@ -26,7 +26,7 @@ class Clock extends React.Component {
 
     return(
     <div className="clock">
-      <h1>React Clock<span class="emoji" role="img" aria-label="clock">🕰️</span></h1>
+      <h1>React Clock<span className="emoji" role="img" aria-label="clock">🕰️</span></h1>
       <span>{ `${time.getMonth() + 1}/${time.getDate()}/${time.getFullYear()} ` }</span>
       <span>{ `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}` }</span>
     </div>
