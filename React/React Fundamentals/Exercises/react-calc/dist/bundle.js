@@ -131,9 +131,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -147,15 +147,114 @@ function (_React$Component) {
   _inherits(Calculator, _React$Component);
 
   function Calculator(props) {
+    var _this;
+
     _classCallCheck(this, Calculator);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Calculator).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Calculator).call(this, props));
+    _this.state = {
+      num1: '',
+      num2: '',
+      result: 0
+    };
+    _this.setNum1 = _this.setNum1.bind(_assertThisInitialized(_this));
+    _this.setNum2 = _this.setNum2.bind(_assertThisInitialized(_this));
+    _this.add = _this.add.bind(_assertThisInitialized(_this));
+    _this.subtract = _this.subtract.bind(_assertThisInitialized(_this));
+    _this.multiply = _this.multiply.bind(_assertThisInitialized(_this));
+    _this.divide = _this.divide.bind(_assertThisInitialized(_this));
+    _this.clear = _this.clear.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Calculator, [{
+    key: "setNum1",
+    value: function setNum1(e) {
+      this.setState({
+        num1: e.target.value
+      });
+    }
+  }, {
+    key: "setNum2",
+    value: function setNum2(e) {
+      this.setState({
+        num2: e.target.value
+      });
+    }
+  }, {
+    key: "add",
+    value: function add(e) {
+      e.preventDefault();
+      var num1 = Number(this.state.num1);
+      var num2 = Number(this.state.num2);
+      this.setState({
+        result: num1 + num2
+      });
+    }
+  }, {
+    key: "subtract",
+    value: function subtract(e) {
+      e.preventDefault();
+      var num1 = Number(this.state.num1);
+      var num2 = Number(this.state.num2);
+      this.setState({
+        result: num1 - num2
+      });
+    }
+  }, {
+    key: "divide",
+    value: function divide(e) {
+      e.preventDefault();
+      var num1 = Number(this.state.num1);
+      var num2 = Number(this.state.num2);
+      this.setState({
+        result: num1 / num2
+      });
+    }
+  }, {
+    key: "multiply",
+    value: function multiply(e) {
+      e.preventDefault();
+      var num1 = Number(this.state.num1);
+      var num2 = Number(this.state.num2);
+      this.setState({
+        result: num1 * num2
+      });
+    }
+  }, {
+    key: "clear",
+    value: function clear(e) {
+      e.preventDefault();
+      this.setState({
+        result: 0,
+        num1: '',
+        num2: ''
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hello World"));
+      var _this$state = this.state,
+          num1 = _this$state.num1,
+          num2 = _this$state.num2,
+          result = _this$state.result;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, result), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Num 1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.setNum1,
+        value: num1
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Num 2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.setNum2,
+        value: num2
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.add
+      }, "+"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.subtract
+      }, "-"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.multiply
+      }, "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.divide
+      }, "/"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.clear
+      }, "Clear"));
     }
   }]);
 
