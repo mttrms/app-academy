@@ -17,6 +17,25 @@
   <link rel="stylesheet" href="css/10-posts.css" type="text/css">
   <link rel="stylesheet" href="css/11-icons.css" type="text/css">
   <link rel="stylesheet" href="css/12-modal.css" type="text/css">
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script>
+    $(function(){
+
+      $("body").on("click", ".js-modal-open", function(event){
+        event.preventDefault();
+        $(".modal").addClass("is-open");
+      });
+
+      $("body").on("click", ".js-modal-close", function(event){
+        event.preventDefault();
+        $(".modal").removeClass("is-open");
+      });
+
+    });
+  </script>
 </head>
 <body>
 
@@ -232,5 +251,29 @@
 
   </footer>
 
+  <section class="modal is-open">
+    <section class="modal-screen">
+      <form class="modal-form">
+        <span class="modal-close" class="js-modal-close">&times;</span>
+        <h3>Welcome</h3>
+        <p>Please sign in to continue.</p>
+            <div class="input">
+              <label for="modal-email">Email</label>
+              <input type="text" name="email" id="modal-email">
+            </div>
+
+            <div class="input">
+              <label for="modal-password">Password</label>
+              <input type="password" name="password" id="modal-password">
+              </input>
+            </div>
+
+              <div class="submit">
+                <button>Sign In</button>
+                <span class="button-alternative">or <a class="js-modal-close" href="#">Cancel</a></span>
+              </div>
+      </form>
+    </section>
+  </section>
 </body>
 </html>
