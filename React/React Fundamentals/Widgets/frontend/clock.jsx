@@ -10,17 +10,25 @@ class Clock extends React.Component {
   tick() {
     const time = this.state.time;
     time.setSeconds(time.getSeconds() + 1);
-    this.setState({ time })
+    this.setState({ time });
   }
 
   componentDidMount() {
-    window.setInterval(this.tick, 1000)
+    this.handle = window.setInterval(this.tick, 1000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.handle);
   }
 
   render() {
+    const { time } = this.state;
+
     return(
-    <div>
-      <h1>Clock</h1>
+    <div className="clock">
+      <h1>React Clock<span class="emoji" role="img" aria-label="clock">🕰️</span></h1>
+      <span>{ `${time.getMonth() + 1}/${time.getDate()}/${time.getFullYear()} ` }</span>
+      <span>{ `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}` }</span>
     </div>
     )
   }

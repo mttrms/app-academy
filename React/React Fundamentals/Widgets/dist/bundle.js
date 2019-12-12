@@ -147,12 +147,24 @@ function (_React$Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      window.setInterval(this.tick, 1000);
+      this.handle = window.setInterval(this.tick, 1000);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      clearInterval(this.handle);
     }
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Clock"));
+      var time = this.state.time;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "clock"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "React Clock", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "class": "emoji",
+        role: "img",
+        "aria-label": "clock"
+      }, "\uD83D\uDD70\uFE0F")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "".concat(time.getMonth() + 1, "/").concat(time.getDate(), "/").concat(time.getFullYear(), " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "".concat(time.getHours(), ":").concat(time.getMinutes(), ":").concat(time.getSeconds())));
     }
   }]);
 
