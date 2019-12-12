@@ -4,16 +4,15 @@ class Tabs extends React.Component {
   constructor(props) {
     super(props);
     this.state = { tabIndex: 0 };
-    this.selectTab = this.selectTab.bind(this);
   }
 
-  selectTab(e) {
-    console.log(e);
+  selectTab(idx) {
+    this.setState({ tabIndex: idx })
   }
 
   render() {
     const titles = this.props.tabData.map((tab, idx) =>
-      <li onClick={this.selectTab} key={idx}>{tab.title}</li>
+      <li onClick={this.selectTab.bind(this, idx)} key={idx} className={this.state.tabIndex === idx ? 'active' : ''}>{tab.title}</li>
     );
 
     const articleIdx = this.state.tabIndex;
@@ -21,7 +20,7 @@ class Tabs extends React.Component {
 
     return (
       <div className="tabs">
-        <ul>
+        <ul className="tab-titles">
           { titles }
         </ul>
         <article>

@@ -31,6 +31,47 @@ img {
   border-radius: 5px;
 }
 
+.tabs {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.tabs article {
+  border: 1px solid #000;
+  border-top: none;
+  padding: 10px;
+}
+
+.tab-titles {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+}
+
+.tab-titles li {
+  padding: 5px;
+  border: 1px solid #000;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+  background: #eee;
+}
+
+.tab-titles li:nth-of-type(2) {
+  border-left: none;
+  border-right: none;
+}
+
+.tab-titles li:hover {
+  cursor: pointer;
+  background: #eea;
+}
+
+.tab-titles .active {
+  background: #fff;
+  border-bottom: none;
+}
+
 .emoji {
   margin: 0 10px;
 }

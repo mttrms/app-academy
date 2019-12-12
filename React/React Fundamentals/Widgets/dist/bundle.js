@@ -224,18 +224,31 @@ function (_React$Component) {
   }
 
   _createClass(Tabs, [{
+    key: "selectTab",
+    value: function selectTab(idx) {
+      this.setState({
+        tabIndex: idx
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var titles = this.props.tabData.map(function (tab, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: idx
+          onClick: _this2.selectTab.bind(_this2, idx),
+          key: idx,
+          className: _this2.state.tabIndex === idx ? 'active' : ''
         }, tab.title);
       });
       var articleIdx = this.state.tabIndex;
       var article = this.props.tabData[articleIdx].content;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tabs"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, titles), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", null, article));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "tab-titles"
+      }, titles), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", null, article));
     }
   }]);
 
