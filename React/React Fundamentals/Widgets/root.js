@@ -20,7 +20,7 @@ const tabData = [
 const Root = () => (
   <div>
     <Clock />
-    <Tabs tabData={tabData} />
+    <Tabs tabData={ tabData } />
   </div>
 )
 
