@@ -75,3 +75,10 @@ img {
 .emoji {
   margin: 0 10px;
 }
+
+.weather {
+  margin: 10px auto;
+  background: #77CCA4;
+  width: 300px;
+  padding: 10px;
+}
