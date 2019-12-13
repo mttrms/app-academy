@@ -82,3 +82,17 @@ img {
   width: 300px;
   padding: 10px;
 }
+
+.autocomplete {
+  width: 300px;
+  background: #acf;
+  padding: 10px;
+  margin: 10px auto;
+}
+
+.autocomplete input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+

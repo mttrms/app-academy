@@ -33,6 +33,7 @@ class Autocomplete extends React.Component {
 
     return(
       <div className="autocomplete">
+        <h1>Autocomplete</h1>
         <input type="text" onChange={this.handleInput} value={this.state.inputVal}/>
         <ul onClick={this.handleClick}>{names}</ul>
       </div>
