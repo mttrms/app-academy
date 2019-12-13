@@ -2,6 +2,7 @@ import React from 'react';
 import Clock from './frontend/clock';
 import Tabs from './frontend/tabs';
 import Weather from './frontend/weather';
+import Autocomplete from './frontend/autocomplete';
 
 const tabData = [
   {
@@ -23,6 +24,7 @@ const Root = () => (
     <Clock />
     <Tabs tabData={ tabData } />
     <Weather />
+    <Autocomplete />
   </div>
 )
 
