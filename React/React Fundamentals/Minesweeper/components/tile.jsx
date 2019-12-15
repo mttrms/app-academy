@@ -4,7 +4,14 @@ class Tile extends React.Component {
   constructor(props) {
     super(props);
     this.tile = this.props.tileObject;
+    this.updateGame = this.props.updateGame;
+    this.handleClick = this.handleClick.bind(this);
     this.classes = this.classes.bind(this);
+  }
+
+  handleClick(e) {
+    isAltPushed = e.altKey;
+    this.updateGame(this.tile, isAltPushed);
   }
 
   classes() {
@@ -29,6 +36,7 @@ class Tile extends React.Component {
     return(
       <div
         className={ this.classes().join(' ') }
+        onClick={ this.handleClick }
       >
         {this.tile.explored ? this.tile.adjacentBombCount() : ""}
       </div>
