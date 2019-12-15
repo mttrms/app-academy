@@ -57,3 +57,11 @@ img {
 .tile.explored {
   border-style: inset;
 }
+
+.tile.flagged {
+  background: orange;
+}
+
+.tile.bombed {
+  background: red;
+}
