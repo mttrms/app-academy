@@ -15,7 +15,7 @@ class Game extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="game">
         <Board boardState={this.state.board} update={this.updateGame} />
       </div>
     )

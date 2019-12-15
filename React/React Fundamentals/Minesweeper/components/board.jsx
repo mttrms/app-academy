@@ -10,7 +10,7 @@ class Board extends React.Component {
     const grid = this.props.boardState.grid;
     const update = this.props.update;
     const tiles = grid.map((row, rowIdx) => (
-      <div key={rowIdx}>
+      <div className="row" key={rowIdx}>
         {row.map((tile, tileIdx) => (
           <Tile tileObject={tile} updateGame={update} key={tileIdx}/>
         ))}
@@ -18,7 +18,7 @@ class Board extends React.Component {
     ));
 
     return(
-      <div>
+      <div className="board">
         {tiles}
       </div>
     )
