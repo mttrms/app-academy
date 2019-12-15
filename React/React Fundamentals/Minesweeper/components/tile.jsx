@@ -10,7 +10,7 @@ class Tile extends React.Component {
   }
 
   handleClick(e) {
-    isAltPushed = e.altKey;
+    const isAltPushed = e.altKey;
     this.updateGame(this.tile, isAltPushed);
   }
 
@@ -19,7 +19,8 @@ class Tile extends React.Component {
       tile: true,
       explored: this.tile.explored,
       hidden: !this.tile.explored,
-      flagged: this.tile.flagged
+      flagged: this.tile.flagged,
+      bombed: this.tile.explored && this.tile.bombed
     }
 
     return Object.keys(classList).reduce((arr, className) => {
