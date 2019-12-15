@@ -31,6 +31,7 @@ You can find occasional updates & recaps [on my blog](https://mattramos.com/blog
 * [Ajax Twitter](https://github.com/mttrms/app-academy/tree/master/JavaScript/ajax/ajax_twitter) – jQuery frontend that interfaces with a simple Rails Twitter app
 * [jQuery Lite](https://github.com/mttrms/app-academy/tree/master/JavaScript/dom_api/jquery_lite) – Vanilla JS recreation of the $() function as $l()
 * [Single Page Mail](https://github.com/mttrms/app-academy/tree/master/JavaScript/dom_api/single_page_mail) – Simple vanilla JS single page app for checking inbox, outbox and composing messages
+* [Minesweeper](https://github.com/mttrms/app-academy/tree/master/React/React%20Fundamentals/Minesweeper) – Minesweeper in React
 
 ## Course Work (links to my notes & homework from each section)
 The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript, React, Full Stack Projects.
@@ -73,3 +74,6 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 * [jQuery](https://github.com/mttrms/app-academy/tree/master/JavaScript/jquery)
 * [AJAX](https://github.com/mttrms/app-academy/tree/master/JavaScript/ajax)
 * [DOM API](https://github.com/mttrms/app-academy/tree/master/JavaScript/dom_api)
+
+### React
+* [Fundamentals](https://github.com/mttrms/app-academy/tree/master/React/React%20Fundamentals)
