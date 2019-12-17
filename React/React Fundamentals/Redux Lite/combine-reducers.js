@@ -1,20 +1,10 @@
 const combineReducers = (reducers) => (
-  (prevState = null, action) => {
-    const keys = Object.keys(prevState);
-    const newState = Object.assign(prevState);
+  (prevState, action) => {
+    const newState = {};
 
-    for (let i = 0; i < keys.length; i++) {
-      let key = keys[i]
-
-      if (reducers[key]) {
-        let reducer = reducers[key];
-        let value = reducer(prevState, action);
-
-        if (value !== prevState) {
-          newState[key] = value;
-        }
-      }
-    }
+    Object.keys(reducers).forEach(key => {
+      newState[key] = reducers[key](prevState[key], action);
+    })
 
     return newState;
   }
