@@ -1,6 +1,24 @@
-const combineReducers = (reducers) => {
+const combineReducers = (reducers) => (
+  (prevState = null, action) => {
+    const keys = Object.keys(prevState);
+    const newState = Object.assign(prevState);
 
-}
+    for (let i = 0; i < keys.length; i++) {
+      let key = keys[i]
+
+      if (reducers[key]) {
+        let reducer = reducers[key];
+        let value = reducer(prevState, action);
+
+        if (value !== prevState) {
+          newState[key] = value;
+        }
+      }
+    }
+
+    return newState;
+  }
+)
 
 const myNoiseReducer = (prevState = "peace and quiet", action) => {
   switch(action.type) {
@@ -32,10 +50,13 @@ const myRootReducer = combineReducers({
 });
 
 let newState = myRootReducer(myInitialState, myInconsequentialAction);
+console.log(newState);
 // => { noise: "peace and quiet" }
 
 newState = myRootReducer(newState, myNoisyAction)
+console.log(newState);
 // => { noise: "Car alarm" }
 
-myRootReducer(newState, myInconsequentialAction)
+console.log(myRootReducer(newState, myInconsequentialAction));
+
 // => { noise: "Car alarm" }
