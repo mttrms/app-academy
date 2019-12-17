@@ -2,6 +2,7 @@ class Store {
   constructor(rootReducer) {
     this.rootReducer = rootReducer;
     this.state = rootReducer({});
+    this.subscriptions = [];
   }
 
   getState() {
@@ -9,13 +10,18 @@ class Store {
   }
 
   dispatch(action) {
-    this.state = this.rootReducer(this.state, action);
+    this.state = this.rootReducer(this.state, action, this.subscriptions);
+  }
+
+  subscribe(cb) {
+    this.subscriptions.push(cb);
   }
 }
 
 const combineReducers = (reducers) => {
-  return (prevState, action) => {
+  return (prevState, action, subscriptions = []) => {
     const newState = {};
+    let stateChanged = false;
 
     Object.keys(reducers).forEach(key => {
       if (!action) {
@@ -24,7 +30,17 @@ const combineReducers = (reducers) => {
       } else {
         newState[key] = reducers[key](prevState[key], action);
       }
+
+      if (prevState[key] !== newState[key]) {
+        stateChanged = true;
+      }
     })
+
+    if (stateChanged) {
+      subscriptions.forEach((cb) => {
+        cb(newState);
+      })
+    }
 
     return newState;
   }
