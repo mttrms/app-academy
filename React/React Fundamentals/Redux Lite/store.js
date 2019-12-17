@@ -1,19 +1,15 @@
 class Store {
   constructor(rootReducer) {
     this.rootReducer = rootReducer;
-    this.globalState = {};
+    this.state = rootReducer({});
   }
 
   getState() {
-    return Object.assign(this.globalState);
+    return Object.assign(this.state);
   }
 
   dispatch(action) {
-    const rootReducer = this.rootReducer;
-    const prevState = this.globalState;
-    const nextState = rootReducer(prevState, action);
-
-    this.globalState = nextState;
+    this.state = this.rootReducer(this.state, action);
   }
 }
 
@@ -22,7 +18,12 @@ const combineReducers = (reducers) => {
     const newState = {};
 
     Object.keys(reducers).forEach(key => {
-      newState[key] = reducers[key](prevState[key], action);
+      if (!action) {
+        const args = [ , { type: "__initialize" }];
+        newState[key] = reducers[key](...args);
+      } else {
+        newState[key] = reducers[key](prevState[key], action);
+      }
     })
 
     return newState;
