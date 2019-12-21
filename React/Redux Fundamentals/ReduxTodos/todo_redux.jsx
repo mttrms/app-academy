@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { receiveTodos, RECEIVE_TODOS } from './frontend/actions/todo_actions.js';
+import rootReducer from './frontend/reducers/root_reducer';
 
 const TodoApp = () => (
   <h1>Todos App</h1>
