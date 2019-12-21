@@ -4,14 +4,15 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  const newState = Object.assign(state);
+  const newState = {};
 
   switch(action.type) {
     case 'SWITCH_LOCATION':
-      newState[city] = action.city;
+      newState.city = action.city;
+      newState.jobs = [];
       return newState;
     default:
-      return newState;
+      return state;
   }
 };
 
