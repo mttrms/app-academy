@@ -1,3 +1,18 @@
 import React from 'react';
 
-export default () => <h3>Todo List goes here</h3>
+const Todos = ({ todos  }) => {
+  const todoItems = todos.map((todo, idx) => (
+    <li key={idx}>{todo.title}</li>
+  ));
+
+  return (
+    <div>
+      <h3>Todo Items:</h3>
+      <ul>
+        { todoItems }
+      </ul>
+    </div>
+  );
+};
+
+export default Todos;
