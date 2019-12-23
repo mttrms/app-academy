@@ -1,8 +1,10 @@
 import React from 'react';
+import TodoListItem from './todo_list_item.jsx';
 
 const Todos = ({ todos  }) => {
   const todoItems = todos.map((todo, idx) => (
-    <li key={idx}>{todo.title}</li>
+    <TodoListItem key={idx} todo={todo} />
+    // <li key={idx}>{todo.title}</li>
   ));
 
   return (
