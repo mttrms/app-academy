@@ -9,7 +9,7 @@ class TodoListItem extends React.Component {
     const todo = this.props.todo;
 
     return (
-      <li>{todo.title}</li>
+      <li>{todo.title} <input type="button" value="Delete" onClick={() => this.props.removeTodo(todo)}/></li>
     )
   }
 }
