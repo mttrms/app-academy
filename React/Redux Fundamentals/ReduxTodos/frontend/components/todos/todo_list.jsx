@@ -1,10 +1,11 @@
 import React from 'react';
-import TodoListItem from './todo_list_item.jsx';
+import TodoListItem from './todo_list_item';
+import TodoForm from '../todo_list/todo_form';
 
-const Todos = ({ todos  }) => {
+
+const Todos = ({ todos, receiveTodo }) => {
   const todoItems = todos.map((todo, idx) => (
     <TodoListItem key={idx} todo={todo} />
-    // <li key={idx}>{todo.title}</li>
   ));
 
   return (
@@ -13,6 +14,7 @@ const Todos = ({ todos  }) => {
       <ul>
         { todoItems }
       </ul>
+      <TodoForm receiveTodo={receiveTodo} />
     </div>
   );
 };
