@@ -1,4 +1,5 @@
 import React from 'react';
+import uniqueId from '../../util/util';
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class TodoForm extends React.Component {
 
     const title = this.state.title;
     this.props.receiveTodo({
-      id: new Date().getTime(),
+      id: uniqueId(),
       title: this.state.title
     });
 
