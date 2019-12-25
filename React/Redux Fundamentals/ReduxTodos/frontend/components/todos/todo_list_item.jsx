@@ -20,12 +20,7 @@ class TodoListItem extends React.Component {
         {todo.title}
         <input
           type="button"
-          value="Delete"
-          onClick={() => this.props.removeTodo(todo)}
-        />
-        <input
-          type="button"
-          value= {todo.done ? "Undo" : "Done"}
+          value={todo.done ? "Undo" : "Done"}
           onClick={() => this.updateTodo(todo)}
         />
       </li>

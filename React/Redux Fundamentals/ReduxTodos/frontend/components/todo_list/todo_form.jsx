@@ -20,7 +20,9 @@ class TodoForm extends React.Component {
     const title = this.state.title;
     this.props.receiveTodo({
       id: uniqueId(),
-      title: this.state.title
+      title: this.state.title,
+      done: false,
+      detail: false
     });
 
     this.setState({title: ''});
