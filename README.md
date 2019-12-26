@@ -32,6 +32,7 @@ You can find occasional updates & recaps [on my blog](https://mattramos.com/blog
 * [jQuery Lite](https://github.com/mttrms/app-academy/tree/master/JavaScript/dom_api/jquery_lite) – Vanilla JS recreation of the $() function as $l()
 * [Single Page Mail](https://github.com/mttrms/app-academy/tree/master/JavaScript/dom_api/single_page_mail) – Simple vanilla JS single page app for checking inbox, outbox and composing messages
 * [Minesweeper](https://github.com/mttrms/app-academy/tree/master/React/React%20Fundamentals/Minesweeper) – Minesweeper in React
+* [Todos](https://github.com/mttrms/app-academy/tree/master/React/Redux%20Fundamentals/ReduxTodos) – Todos App (React/Redux)
 
 ## Course Work (links to my notes & homework from each section)
 The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript, React, Full Stack Projects.
