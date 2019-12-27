@@ -2,9 +2,11 @@ import React from 'react';
 
 const TodoDetailView = ({ todo, removeTodo }) => {
   return (
-    <ul>
-      <li>DetailView info coming soon</li>
-    </ul>
+    todo.detail ?
+      <ul>
+        <li>{ todo.body }</li>
+      </ul>:
+    ""
   )
 };
 
