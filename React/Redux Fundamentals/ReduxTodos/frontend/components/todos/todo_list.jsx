@@ -13,10 +13,7 @@ const Todos = ({ todos, receiveTodo, removeTodo }) => {
         receiveTodo={receiveTodo}
       />
 
-      <TodoDetailView
-        todo={todo}
-      />
-
+      {todo.detail ? <TodoDetailView todo={todo} /> : ""}
     </div>
   ));
 
