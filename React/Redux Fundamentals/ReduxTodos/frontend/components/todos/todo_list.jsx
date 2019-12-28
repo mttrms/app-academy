@@ -1,6 +1,5 @@
 import React from 'react';
 import TodoListItem from './todo_list_item';
-import TodoDetailView from './todo_detail_view';
 import TodoForm from '../todo_list/todo_form';
 
 
@@ -12,8 +11,6 @@ const Todos = ({ todos, receiveTodo, removeTodo }) => {
         removeTodo={removeTodo}
         receiveTodo={receiveTodo}
       />
-
-      {todo.detail ? <TodoDetailView todo={todo} /> : ""}
     </div>
   ));
 
