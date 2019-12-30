@@ -8,7 +8,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = (state, { todoId }) => ({
-  steps: stepsByTodoId(state, todoId)
+  steps: stepsByTodoId(state, todoId),
   todoId
 });
 
