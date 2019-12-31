@@ -12,7 +12,7 @@ export const stepsByTodoId = (state, todoId) => {
     if (step.id === todoId) {
       steps.push(step);
     };
-  })
+  });
 
   return steps;
 };

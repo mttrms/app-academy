@@ -8,6 +8,6 @@ function App() {
       <TodoListContainer />
     </div>
   )
-}
+};
 
 export default App;
