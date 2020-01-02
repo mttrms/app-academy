@@ -2,7 +2,7 @@ import React from 'react';
 
 const StepListItem = ({step, removeStep, receiveStep}) => {
   return (
-    <p>{step.title}</p>
+    <li>{step.title}</li>
   )
 };
 

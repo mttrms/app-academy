@@ -4,13 +4,13 @@ import { stepsByTodoId } from '../../reducers/selectors'
 
 const TodoDetailView = ({ todo, removeTodo }) => {
   const todoId = todo.id;
-  console.log(todoId);
+
   return (
-    <ul>
-      <li>{ todo.body }</li>
+    <div>
       <StepListContainer
+        todoId={todoId}
       />
-    </ul>
+    </div>
   )
 };
 
