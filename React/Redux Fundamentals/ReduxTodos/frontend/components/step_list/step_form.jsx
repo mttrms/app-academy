@@ -23,6 +23,8 @@ class StepForm extends React.Component {
       title: this.state.stepTitle,
       done: false
     });
+
+    this.setState({stepTitle: ''});
   }
 
   render() {
