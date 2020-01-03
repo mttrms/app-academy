@@ -1,5 +1,6 @@
 import React from 'react';
 import StepListItemContainer from './step_list_item_container';
+import StepForm from './step_form';
 
 const StepList = ({steps, todoId, receiveStep}) => {
   const stepItems = steps.map(step => (
@@ -10,9 +11,14 @@ const StepList = ({steps, todoId, receiveStep}) => {
   ));
 
   return (
-    <ul>
-      { stepItems }
-    </ul>
+    <div>
+      <ul>
+        { stepItems }
+      </ul>
+      <StepForm
+        todoId={todoId}
+      />
+    </div>
   )
 };
 
