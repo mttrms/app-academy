@@ -1,9 +1,16 @@
 import React from 'react';
 
-const StepListItem = ({step, removeStep, receiveStep}) => {
-  return (
-    <li>{step.title}</li>
-  )
-};
+class StepListItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.step = this.props.step;
+  }
+
+  render() {
+    return (
+      <li>{this.step.title}</li>
+    )
+  }
+}
 
 export default StepListItem;
