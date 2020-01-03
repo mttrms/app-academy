@@ -4,6 +4,7 @@ class StepListItem extends React.Component {
   constructor(props) {
     super(props);
     this.receiveStep = this.props.receiveStep;
+    this.removeStep = this.props.removeStep;
     this.updateStep = this.updateStep.bind(this);
   }
 
@@ -21,10 +22,17 @@ class StepListItem extends React.Component {
         <span>
           {step.title}
         </span>
+
         <input
           type="button"
           value={step.done ? "Undo" : "Done"}
           onClick={() => this.updateStep(step)}
+        />
+
+        <input
+          type="button"
+          value="Remove"
+          onClick={() => this.removeStep(step)}
         />
       </li>
     )
