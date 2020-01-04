@@ -79,3 +79,4 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 ### React
 * [Fundamentals](https://github.com/mttrms/app-academy/tree/master/React/React%20Fundamentals)
 * [Redux](https://github.com/mttrms/app-academy/tree/master/React/Redux%20Fundamentals)
+* Middleware and Thunks
