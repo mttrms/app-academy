@@ -3,22 +3,32 @@ import ReactDOM from 'react-dom';
 import Root from './frontend/components/root';
 import { configureStore } from './frontend/store/store';
 
-const addLoggingToDispatch = (store) => {
-  const dispatch = store.dispatch;
+const addLoggingToDispatch = store => next => action => {
+  console.log(action);
+  console.log(store.getState());
 
-  return function(action) {
-    console.log(store.getState());
-    console.log(action);
-    dispatch(action);
-    console.log(store.getState());
-  };
+  let result = next(action);
+
+  console.log(store.getState());
+
+  return result;
+};
+
+const applyMiddlewares = (store, middlewares) => {
+  let dispatch = store.dispatch;
+
+  middlewares.forEach((middleware) => {
+    dispatch = middleware(store)(dispatch);
+  });
+
+  return Object.assign({}, store, { dispatch });
 };
 
 document.addEventListener('DOMContentLoaded', () => {
   const rootElement = document.getElementById('content');
 
-  const store = configureStore();
-  store.dispatch = addLoggingToDispatch(store);
+  let store = configureStore();
+  store = applyMiddlewares(store, [addLoggingToDispatch]);
   window.store = store;
 
   ReactDOM.render(
