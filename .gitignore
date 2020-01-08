@@ -4,3 +4,7 @@ bundle.js.map
 
 /log/*
 /tmp/*
+
+/public/packs
+/public/packs-test
+/public/assets
