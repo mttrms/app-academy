@@ -10,11 +10,35 @@ class Api::TodosController < ApplicationController
   end
 
   def create
+    @todo = Todo.new(todo_params)
+    if @todo.save
+      render json: @todo
+    else
+      render json: @todo.errors.full_messages
+    end
   end
 
   def update
+    @todo = Todo.find(params[:id])
+    if @todo.update(todo_params)
+      render json: @todo
+    else
+      render json: @todo.errors.full_messages
+    end
   end
 
   def destroy
+    @todo = Todo.find(params[:id])
+    if @todo.destroy
+      render json: 'Delete successful.'
+    else
+      render json: @todo
+    end
+  end
+
+  private
+
+  def todo_params
+    params.require(:todo).permit(:title, :body, :done)
   end
 end
