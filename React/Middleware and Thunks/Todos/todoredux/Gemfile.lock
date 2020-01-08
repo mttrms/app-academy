@@ -61,6 +61,10 @@ GEM
     annotate (3.0.3)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     better_errors (2.5.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -86,6 +90,7 @@ GEM
     crass (1.0.5)
     debug_inspector (0.0.3)
     erubi (1.9.0)
+    execjs (2.7.0)
     ffi (1.11.3)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -214,6 +219,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  babel-transpiler
   better_errors
   binding_of_caller
   bootsnap (>= 1.4.2)
