@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from '../frontend/components/root';
 import { configureStore } from '../frontend/store/store';
+import { fetchTodos } from '../frontend/util/todo_api_util';
+
+window.fetchTodos = fetchTodos;
 
 const addLoggingToDispatch = store => next => action => {
   console.log(action);
