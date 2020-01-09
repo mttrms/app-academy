@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const rootElement = document.getElementById('content');
 
   let store = configureStore();
-  store = applyMiddlewares(store, [addLoggingToDispatch]);
   window.store = store;
 
   ReactDOM.render(
