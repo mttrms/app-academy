@@ -7,6 +7,10 @@ class TodoList extends React.Component {
     super(props)
   }
 
+  componentDidMount() {
+    this.props.fetchTodos();
+  }
+
   render() {
     const todoItems = this.props.todos.map((todo, idx) => (
       <div key={idx}>
