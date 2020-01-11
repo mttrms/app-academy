@@ -18,3 +18,14 @@ export const removeTodo = (todo) => ({
   type: REMOVE_TODO,
   todo: todo
 });
+
+export const fetchTodos = () => {
+  return (dispatch) => {
+    TodoAPI.fetchTodos()
+      .then((todos) => {
+        dispatch(receiveTodos(todos))
+      });
+  };
+};
+
+window.fetchTodos = fetchTodos;
