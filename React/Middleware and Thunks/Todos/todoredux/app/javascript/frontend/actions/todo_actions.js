@@ -19,13 +19,7 @@ export const removeTodo = (todo) => ({
   todo: todo
 });
 
-export const fetchTodos = () => {
-  return (dispatch) => {
-    TodoAPI.fetchTodos()
-      .then((todos) => {
-        dispatch(receiveTodos(todos))
-      });
-  };
-};
+export const fetchTodos = () => dispatch => (
+  TodoAPI.fetchTodos().then(todos => dispatch(receiveTodos(todos)))
+);
 
-window.fetchTodos = fetchTodos;
