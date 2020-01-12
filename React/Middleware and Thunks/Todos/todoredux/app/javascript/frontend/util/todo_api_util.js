@@ -25,3 +25,14 @@ export const updateTodo = todo => {
       }
     })
 };
+
+export const removeTodo = todo => {
+  const todoId = todo.id;
+  return fetch(`/api/todos/${todoId}`,
+    {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+};
