@@ -4,14 +4,15 @@ import uniqueId from '../../util/util';
 class TodoForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {title: '', body: 'TODO: Add Input Field.'};
+    this.state = {title: '', body: ''};
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInput(e) {
-    const title = e.target.value;
-    this.setState({title});
+    const inputProp = e.target.id;
+    const inputValue = e.target.value;
+    this.setState({[inputProp]: inputValue});
   }
 
   handleSubmit(e) {
@@ -25,16 +26,36 @@ class TodoForm extends React.Component {
       detail: false
     });
 
-    this.setState({title: ''});
+    this.setState({title: '', body: ''});
   }
 
   render() {
 
     return(
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" value={this.state.title} onChange={this.handleInput} />
-        <input type="submit" value="Add todo" />
-      </form>
+      <div>
+        <h2>Add a todo:</h2>
+        <form onSubmit={this.handleSubmit}>
+          <label>Title:
+            <input
+              id="title"
+              type="text"
+              value={this.state.title}
+              onChange={this.handleInput} />
+          </label>
+          <br />
+
+          <label>Body:
+            <textarea
+              id="body"
+              onChange={this.handleInput}
+              value={this.state.body}
+            ></textarea>
+          </label>
+          <br />
+
+          <input type="submit" value="Add todo" />
+        </form>
+      </div>
     )
   }
 }
