@@ -1,4 +1,5 @@
 import * as TodoAPI from '../util/todo_api_util';
+import { receiveErrors } from './error_actions';
 
 export const RECEIVE_TODOS = 'RECEIVE_TODOS';
 export const RECEIVE_TODO = 'RECEIVE_TODO';
@@ -25,7 +26,15 @@ export const fetchTodos = () => dispatch => (
 
 export const createTodo = todo => dispatch => (
   TodoAPI.createTodo(todo)
-  .then(todo =>  dispatch(receiveTodo(todo)))
+  .then(
+    response => {
+      if (response.status === 200) {
+        response.json().then(todo => dispatch(receiveTodo(todo)))
+      } else {
+        response.json().then(err => dispatch(receiveErrors(err)))
+      }
+    }
+  )
 );
 
 window.createTodo = createTodo;
