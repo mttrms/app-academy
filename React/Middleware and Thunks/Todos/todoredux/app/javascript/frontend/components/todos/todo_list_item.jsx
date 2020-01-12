@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoDetailView from './todo_detail_view';
+import TodoDetailViewContainer from './todo_detail_view_container';
 
 class TodoListItem extends React.Component {
   constructor(props) {
@@ -35,7 +35,7 @@ class TodoListItem extends React.Component {
           value={todo.done ? "Undo" : "Done"}
           onClick={() => this.updateTodo(todo)}
         />
-        {this.state.detail ? <TodoDetailView todo={todo} /> : ""}
+        {this.state.detail ? <TodoDetailViewContainer todo={todo} /> : ""}
       </li>
     )
   }
