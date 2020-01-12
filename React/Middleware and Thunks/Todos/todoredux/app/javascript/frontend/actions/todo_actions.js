@@ -38,4 +38,17 @@ export const createTodo = todo => dispatch => (
   )
 );
 
+export const updateTodo = todo => dispatch => (
+  TodoAPI.updateTodo(todo)
+  .then(
+    response => {
+      if (response.status === 200) {
+        response.json().then(todo => {dispatch(receiveTodo(todo)); dispatch(clearErrors())})
+      } else {
+        response.json().then(err => dispatch(receiveErrors(err)))
+      }
+    }
+  )
+)
+
 window.createTodo = createTodo;

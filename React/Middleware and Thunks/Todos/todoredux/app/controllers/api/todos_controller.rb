@@ -23,7 +23,7 @@ class Api::TodosController < ApplicationController
     if @todo.update(todo_params)
       render json: @todo
     else
-      render json: @todo.errors.full_messages
+      render json: @todo.errors.full_messages, status: :bad_request
     end
   end
 
