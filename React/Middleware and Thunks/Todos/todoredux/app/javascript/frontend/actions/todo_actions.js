@@ -23,3 +23,9 @@ export const fetchTodos = () => dispatch => (
   TodoAPI.fetchTodos().then(todos => dispatch(receiveTodos(todos)))
 );
 
+export const createTodo = todo => dispatch => (
+  TodoAPI.createTodo(todo)
+  .then(todo =>  dispatch(receiveTodo(todo)))
+);
+
+window.createTodo = createTodo;
