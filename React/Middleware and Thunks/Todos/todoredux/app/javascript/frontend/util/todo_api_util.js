@@ -13,3 +13,15 @@ export const createTodo = (todo) => {
       }
     })
 };
+
+export const updateTodo = todo => {
+  const todoId = todo.id;
+  return fetch(`/api/todos/${todoId}`,
+    {
+      method: 'PATCH',
+      body: JSON.stringify(todo),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+};
