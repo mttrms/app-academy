@@ -30,6 +30,7 @@ class TodoList extends React.Component {
         <TodoForm
           receiveTodo={this.props.receiveTodo}
           createTodo={this.props.createTodo}
+          errors={this.props.errors}
         />
       </div>
     );

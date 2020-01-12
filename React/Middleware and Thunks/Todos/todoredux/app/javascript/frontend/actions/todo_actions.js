@@ -1,5 +1,5 @@
 import * as TodoAPI from '../util/todo_api_util';
-import { receiveErrors } from './error_actions';
+import { receiveErrors, clearErrors } from './error_actions';
 
 export const RECEIVE_TODOS = 'RECEIVE_TODOS';
 export const RECEIVE_TODO = 'RECEIVE_TODO';
@@ -29,9 +29,10 @@ export const createTodo = todo => dispatch => (
   .then(
     response => {
       if (response.status === 200) {
-        response.json().then(todo => dispatch(receiveTodo(todo)))
+        response.json().then(todo => {dispatch(receiveTodo(todo)); dispatch(clearErrors())})
       } else {
         response.json().then(err => dispatch(receiveErrors(err)))
+        throw new Error;
       }
     }
   )
