@@ -5,7 +5,7 @@ class Api::StepsController < ApplicationController
   end
 
   def index
-    @steps = Step.all
+    @steps = Step.where(todo_id: params[:todo_id])
     render json: @steps
   end
 
