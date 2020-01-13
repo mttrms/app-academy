@@ -49,6 +49,18 @@ export const updateTodo = todo => dispatch => (
       }
     }
   )
-)
+);
 
-window.createTodo = createTodo;
+export const deleteTodo = todo => dispatch => (
+  TodoAPI.removeTodo(todo)
+  .then(
+    response => {
+      if (response.status === 200) {
+        dispatch(removeTodo(todo));
+        dispatch(clearErrors());
+      } else {
+        response.json().then(err => dispatch(receiveErrors(err)))
+      }
+    }
+  )
+);

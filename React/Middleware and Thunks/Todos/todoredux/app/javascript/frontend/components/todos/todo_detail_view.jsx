@@ -8,7 +8,7 @@ class TodoDetailView extends React.Component {
   }
 
   render() {
-    const {todo, removeTodo} = this.props;
+    const {todo, deleteTodo} = this.props;
 
     return(
       <div>
@@ -16,7 +16,7 @@ class TodoDetailView extends React.Component {
         <StepListContainer
           todoId={todo.id}
         />
-        <button onClick={ () => removeTodo(todo) }>
+        <button onClick={ () => deleteTodo(todo) }>
           Remove Todo
         </button>
       </div>
