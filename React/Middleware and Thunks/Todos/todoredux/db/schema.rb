@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_07_043931) do
+ActiveRecord::Schema.define(version: 2020_01_13_030007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "steps", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body", null: false
+    t.boolean "done", null: false
+    t.bigint "todo_id", null: false
+    t.index ["todo_id"], name: "index_steps_on_todo_id"
+  end
 
   create_table "todos", force: :cascade do |t|
     t.string "title", null: false
@@ -21,4 +29,5 @@ ActiveRecord::Schema.define(version: 2020_01_07_043931) do
     t.boolean "done", null: false
   end
 
+  add_foreign_key "steps", "todos"
 end
