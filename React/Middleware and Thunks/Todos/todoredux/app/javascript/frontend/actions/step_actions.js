@@ -18,3 +18,7 @@ export const removeStep = (step) => ({
   type: REMOVE_STEP,
   step: step
 });
+
+export const fetchSteps = todoId => dispatch => (
+  StepAPI.fetchStepsByTodoId(todoId).then(steps => dispatch(receiveSteps(steps)))
+);
