@@ -9,7 +9,7 @@ export const stepsByTodoId = (state, todoId) => {
 
   Object.keys(state.steps).forEach((stepId) => {
     const step = state.steps[stepId];
-    if (step.todoId === todoId) {
+    if (step.todo_id === todoId) {
       steps.push(step);
     };
   });
