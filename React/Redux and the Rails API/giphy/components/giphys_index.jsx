@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 
 class GiphysIndex extends React.Component {
   render() {
-    console.log(this.props.giphys);
-
     const gifs = this.props.giphys.map(gif => {
       return (
-        <GiphysIndexItem
+        <div
           key={gif.id}
-          gif={gif}
-        />
+        >
+          <GiphysIndexItem
+            gif={gif}
+          />
+        </div>
       )
     });
 
