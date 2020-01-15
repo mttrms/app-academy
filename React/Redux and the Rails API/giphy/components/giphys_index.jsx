@@ -5,8 +5,19 @@ class GiphysIndex extends React.Component {
   render() {
     console.log(this.props.giphys);
 
+    const gifs = this.props.giphys.map(gif => {
+      return (
+        <GiphysIndexItem
+          key={gif.id}
+          gif={gif}
+        />
+      )
+    });
+
     return (
-      <p>Gifs coming soon!</p>
+      <div>
+        { gifs }
+      </div>
     )
   }
 }
