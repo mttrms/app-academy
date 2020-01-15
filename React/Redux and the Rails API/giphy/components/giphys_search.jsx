@@ -23,6 +23,7 @@ class GiphysSearch extends React.Component {
 
   render() {
     return (
+      <div>
       <form onSubmit={ this.handleSubmit }>
         <label htmlFor="searchterm">Find gifs:</label>
         <input
@@ -34,12 +35,17 @@ class GiphysSearch extends React.Component {
         />
         <button>Search Giphy</button>
       </form>
+        <GiphysIndex
+          giphys={this.props.giphys}
+        />
+      </div>
     )
   }
 }
 
 GiphysSearch.propTypes = {
-  fetchSearchGiphys: PropTypes.func
+  fetchSearchGiphys: PropTypes.func,
+  giphys: PropTypes.array
 }
 
 export default GiphysSearch;
