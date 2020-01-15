@@ -11,8 +11,7 @@ export const receiveSearchGiphys = giphys => {
 export const fetchSearchGiphys = searchTerm => {
   return (dispatch) => {
     APIUtil.fetchSearchGiphys(searchTerm)
-      .then(response => response.json())
-      .then(giphys => dispatch(receiveSearchGiphys(giphys.data)))
+      .then(giphys => dispatch(receiveSearchGiphys(giphys)))
       .catch(error => console.log(error))
   }
 };
