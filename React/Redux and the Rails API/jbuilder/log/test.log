@@ -223,3 +223,711 @@ Started GET "/api/parties" for 127.0.0.1 at 2020-01-15 23:40:42 -0500
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
 Started GET "/api/guests" for 127.0.0.1 at 2020-01-15 23:40:42 -0500
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/1" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::GuestsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mGuest Load (0.2ms)[0m  [1m[34mSELECT  "guests".* FROM "guests" WHERE "guests"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/guests/show.json.jbuilder
+  Rendered api/guests/_guest.json.jbuilder (0.2ms)
+  [1m[36mGift Load (0.2ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1[0m  [["guest_id", 1]]
+  Rendered api/guests/show.json.jbuilder (19.8ms)
+Completed 200 OK in 38ms (Views: 21.4ms | ActiveRecord: 4.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/1" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::GuestsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT  "guests".* FROM "guests" WHERE "guests"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/guests/show.json.jbuilder
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  [1m[36mGift Load (0.1ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1[0m  [["guest_id", 1]]
+  Rendered api/guests/show.json.jbuilder (0.9ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/1" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::GuestsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT  "guests".* FROM "guests" WHERE "guests"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/guests/show.json.jbuilder
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  [1m[36mGift Load (0.2ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1[0m  [["guest_id", 1]]
+  Rendered api/guests/show.json.jbuilder (0.7ms)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::GuestsController#index as JSON
+  Rendering api/guests/index.json.jbuilder
+  [1m[36mGuest Load (0.2ms)[0m  [1m[34mSELECT "guests".* FROM "guests"[0m
+  Rendered api/guests/_guest.json.jbuilder (0.1ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/index.json.jbuilder (1.8ms)
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::GuestsController#index as JSON
+  Rendering api/guests/index.json.jbuilder
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests"[0m
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/index.json.jbuilder (1.0ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::GuestsController#index as JSON
+  Rendering api/guests/index.json.jbuilder
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests"[0m
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/index.json.jbuilder (0.9ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/1" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::GuestsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mGuest Load (0.2ms)[0m  [1m[34mSELECT  "guests".* FROM "guests" WHERE "guests"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/guests/show.json.jbuilder
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  [1m[36mGift Load (0.3ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1[0m  [["guest_id", 1]]
+  Rendered api/guests/show.json.jbuilder (1.1ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::GuestsController#index as JSON
+  Rendering api/guests/index.json.jbuilder
+  [1m[36mGuest Load (0.4ms)[0m  [1m[34mSELECT "guests".* FROM "guests"[0m
+  Rendered api/guests/_guest.json.jbuilder (0.1ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/index.json.jbuilder (1.6ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/gifts/3" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::GiftsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mGift Load (0.2ms)[0m  [1m[34mSELECT  "gifts".* FROM "gifts" WHERE "gifts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering api/gifts/show.json.jbuilder
+  Rendered api/gifts/show.json.jbuilder (0.2ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/gifts/3" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::GiftsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mGift Load (0.2ms)[0m  [1m[34mSELECT  "gifts".* FROM "gifts" WHERE "gifts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering api/gifts/show.json.jbuilder
+  Rendered api/gifts/show.json.jbuilder (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/gifts/3" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::GiftsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mGift Load (0.2ms)[0m  [1m[34mSELECT  "gifts".* FROM "gifts" WHERE "gifts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering api/gifts/show.json.jbuilder
+  Rendered api/gifts/show.json.jbuilder (0.1ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/3/gifts" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::GiftsController#index as JSON
+  Parameters: {"guest_id"=>"3"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/3/gifts" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::GiftsController#index as JSON
+  Parameters: {"guest_id"=>"3"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/3/gifts" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::GiftsController#index as JSON
+  Parameters: {"guest_id"=>"3"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/3/gifts" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::GiftsController#index as JSON
+  Parameters: {"guest_id"=>"3"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/1" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mParty Load (0.5ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.7ms)
+Completed 200 OK in 29ms (Views: 3.5ms | ActiveRecord: 3.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/1" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mParty Load (0.3ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/1" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mParty Load (0.5ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.1ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/2" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mParty Load (0.2ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/2" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mParty Load (0.2ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/2" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mParty Load (0.1ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/1" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mParty Load (0.3ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.1ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests" for 127.0.0.1 at 2020-01-16 00:21:46 -0500
+Processing by Api::GuestsController#index as JSON
+  Rendering api/guests/index.json.jbuilder
+  [1m[36mGuest Load (0.4ms)[0m  [1m[34mSELECT "guests".* FROM "guests"[0m
+  Rendered api/guests/_guest.json.jbuilder (0.1ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/index.json.jbuilder (1.6ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/1" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::GuestsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mGuest Load (0.4ms)[0m  [1m[34mSELECT  "guests".* FROM "guests" WHERE "guests"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/guests/show.json.jbuilder
+  Rendered api/guests/_guest.json.jbuilder (0.2ms)
+  [1m[36mGift Load (0.2ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1[0m  [["guest_id", 1]]
+  Rendered api/guests/show.json.jbuilder (20.0ms)
+Completed 200 OK in 39ms (Views: 22.7ms | ActiveRecord: 4.7ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/1" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::GuestsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT  "guests".* FROM "guests" WHERE "guests"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/guests/show.json.jbuilder
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  [1m[36mGift Load (0.1ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1[0m  [["guest_id", 1]]
+  Rendered api/guests/show.json.jbuilder (0.8ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/1" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::GuestsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT  "guests".* FROM "guests" WHERE "guests"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/guests/show.json.jbuilder
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  [1m[36mGift Load (0.2ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1[0m  [["guest_id", 1]]
+  Rendered api/guests/show.json.jbuilder (0.8ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::GuestsController#index as JSON
+  Rendering api/guests/index.json.jbuilder
+  [1m[36mGuest Load (0.3ms)[0m  [1m[34mSELECT "guests".* FROM "guests"[0m
+  Rendered api/guests/_guest.json.jbuilder (0.1ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/index.json.jbuilder (1.6ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::GuestsController#index as JSON
+  Rendering api/guests/index.json.jbuilder
+  [1m[36mGuest Load (0.2ms)[0m  [1m[34mSELECT "guests".* FROM "guests"[0m
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/index.json.jbuilder (0.9ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::GuestsController#index as JSON
+  Rendering api/guests/index.json.jbuilder
+  [1m[36mGuest Load (0.2ms)[0m  [1m[34mSELECT "guests".* FROM "guests"[0m
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/index.json.jbuilder (0.9ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/1" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::GuestsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT  "guests".* FROM "guests" WHERE "guests"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/guests/show.json.jbuilder
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  [1m[36mGift Load (0.1ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1[0m  [["guest_id", 1]]
+  Rendered api/guests/show.json.jbuilder (0.7ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::GuestsController#index as JSON
+  Rendering api/guests/index.json.jbuilder
+  [1m[36mGuest Load (0.4ms)[0m  [1m[34mSELECT "guests".* FROM "guests"[0m
+  Rendered api/guests/_guest.json.jbuilder (0.1ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/index.json.jbuilder (1.5ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/gifts/3" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::GiftsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mGift Load (0.2ms)[0m  [1m[34mSELECT  "gifts".* FROM "gifts" WHERE "gifts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering api/gifts/show.json.jbuilder
+  Rendered api/gifts/show.json.jbuilder (0.4ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/gifts/3" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::GiftsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mGift Load (0.2ms)[0m  [1m[34mSELECT  "gifts".* FROM "gifts" WHERE "gifts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering api/gifts/show.json.jbuilder
+  Rendered api/gifts/show.json.jbuilder (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/gifts/3" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::GiftsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mGift Load (0.3ms)[0m  [1m[34mSELECT  "gifts".* FROM "gifts" WHERE "gifts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering api/gifts/show.json.jbuilder
+  Rendered api/gifts/show.json.jbuilder (0.1ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/3/gifts" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::GiftsController#index as JSON
+  Parameters: {"guest_id"=>"3"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/3/gifts" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::GiftsController#index as JSON
+  Parameters: {"guest_id"=>"3"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/3/gifts" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::GiftsController#index as JSON
+  Parameters: {"guest_id"=>"3"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/3/gifts" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::GiftsController#index as JSON
+  Parameters: {"guest_id"=>"3"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/1" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mParty Load (0.3ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.3ms)
+Completed 200 OK in 26ms (Views: 1.9ms | ActiveRecord: 2.5ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/1" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mParty Load (0.4ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.1ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/1" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mParty Load (0.4ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.1ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/2" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mParty Load (0.2ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/2" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mParty Load (0.1ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/2" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mParty Load (0.2ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/1" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mParty Load (0.2ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests" for 127.0.0.1 at 2020-01-16 00:23:14 -0500
+Processing by Api::GuestsController#index as JSON
+  Rendering api/guests/index.json.jbuilder
+  [1m[36mGuest Load (0.3ms)[0m  [1m[34mSELECT "guests".* FROM "guests"[0m
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/index.json.jbuilder (1.2ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/1" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::GuestsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mGuest Load (0.2ms)[0m  [1m[34mSELECT  "guests".* FROM "guests" WHERE "guests"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/guests/show.json.jbuilder
+  Rendered api/guests/_guest.json.jbuilder (0.2ms)
+  [1m[36mGift Load (0.2ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1[0m  [["guest_id", 1]]
+  Rendered api/guests/show.json.jbuilder (21.8ms)
+Completed 200 OK in 39ms (Views: 23.1ms | ActiveRecord: 5.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/1" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::GuestsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT  "guests".* FROM "guests" WHERE "guests"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/guests/show.json.jbuilder
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  [1m[36mGift Load (0.2ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1[0m  [["guest_id", 1]]
+  Rendered api/guests/show.json.jbuilder (0.9ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/1" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::GuestsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT  "guests".* FROM "guests" WHERE "guests"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/guests/show.json.jbuilder
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  [1m[36mGift Load (0.2ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1[0m  [["guest_id", 1]]
+  Rendered api/guests/show.json.jbuilder (0.7ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::GuestsController#index as JSON
+  Rendering api/guests/index.json.jbuilder
+  [1m[36mGuest Load (0.2ms)[0m  [1m[34mSELECT "guests".* FROM "guests"[0m
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/index.json.jbuilder (1.1ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::GuestsController#index as JSON
+  Rendering api/guests/index.json.jbuilder
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests"[0m
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/index.json.jbuilder (0.9ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::GuestsController#index as JSON
+  Rendering api/guests/index.json.jbuilder
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests"[0m
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/index.json.jbuilder (0.9ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/1" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::GuestsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT  "guests".* FROM "guests" WHERE "guests"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/guests/show.json.jbuilder
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  [1m[36mGift Load (0.1ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" WHERE "gifts"."guest_id" = $1[0m  [["guest_id", 1]]
+  Rendered api/guests/show.json.jbuilder (0.7ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::GuestsController#index as JSON
+  Rendering api/guests/index.json.jbuilder
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests"[0m
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/index.json.jbuilder (0.9ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/gifts/3" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::GiftsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mGift Load (0.2ms)[0m  [1m[34mSELECT  "gifts".* FROM "gifts" WHERE "gifts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering api/gifts/show.json.jbuilder
+  Rendered api/gifts/show.json.jbuilder (0.4ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/gifts/3" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::GiftsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mGift Load (0.4ms)[0m  [1m[34mSELECT  "gifts".* FROM "gifts" WHERE "gifts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering api/gifts/show.json.jbuilder
+  Rendered api/gifts/show.json.jbuilder (0.1ms)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/gifts/3" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::GiftsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mGift Load (0.2ms)[0m  [1m[34mSELECT  "gifts".* FROM "gifts" WHERE "gifts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering api/gifts/show.json.jbuilder
+  Rendered api/gifts/show.json.jbuilder (0.1ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/3/gifts" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::GiftsController#index as JSON
+  Parameters: {"guest_id"=>"3"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/3/gifts" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::GiftsController#index as JSON
+  Parameters: {"guest_id"=>"3"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/3/gifts" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::GiftsController#index as JSON
+  Parameters: {"guest_id"=>"3"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests/3/gifts" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::GiftsController#index as JSON
+  Parameters: {"guest_id"=>"3"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/1" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mParty Load (0.2ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.2ms)
+Completed 200 OK in 8ms (Views: 1.2ms | ActiveRecord: 1.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/1" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mParty Load (0.2ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/1" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mParty Load (0.2ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/2" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mParty Load (0.1ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/2" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mParty Load (0.1ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/2" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mParty Load (0.3ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.1ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties/1" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::PartiesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mParty Load (0.2ms)[0m  [1m[34mSELECT  "parties".* FROM "parties" WHERE "parties"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/parties/show.json.jbuilder
+  Rendered api/parties/show.json.jbuilder (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/parties" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/guests" for 127.0.0.1 at 2020-01-16 00:24:27 -0500
+Processing by Api::GuestsController#index as JSON
+  Rendering api/guests/index.json.jbuilder
+  [1m[36mGuest Load (0.1ms)[0m  [1m[34mSELECT "guests".* FROM "guests"[0m
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/_guest.json.jbuilder (0.0ms)
+  Rendered api/guests/index.json.jbuilder (1.0ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
