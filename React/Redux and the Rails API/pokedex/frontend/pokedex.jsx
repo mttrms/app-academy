@@ -4,7 +4,7 @@ import { configureStore } from './store/store'
 
 // TODO: Remove
 import { fetchAllPokemon } from './util/api_util';
-import { receiveAllPokemon } from './actions/pokemon_actions';
+import { receiveAllPokemon, requestAllPokemon } from './actions/pokemon_actions';
 import pokemonReducer from './reducers/pokemon_reducer';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,4 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // TODO: Remove
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+  window.receiveAllPokemon = receiveAllPokemon;
+  window.requestAllPokemon = requestAllPokemon;
 });
