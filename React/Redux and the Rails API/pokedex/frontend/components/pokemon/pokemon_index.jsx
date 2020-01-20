@@ -7,9 +7,22 @@ class PokemonIndex extends React.Component {
     this.props.requestAllPokemon();
   }
 
-  render() {
+  pokeDetails(pokemon) {
     return (
-      <p>I am a poke</p>
+      <li
+        key={pokemon.id}
+        className='pokemon'
+      >
+        <p>{pokemon.name}</p>
+        <img src={pokemon.image_url} />
+      </li>
+    )
+  };
+
+  render() {
+    const { pokemon } = this.props;
+    return (
+      <ul>{ pokemon.map(poke => this.pokeDetails(poke)) }</ul>
     )
   }
 };
