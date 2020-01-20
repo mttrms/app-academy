@@ -27,4 +27,9 @@ class PokemonIndex extends React.Component {
   }
 };
 
+PokemonIndex.propTypes = {
+  requestAllPokemon: PropTypes.func.isRequired,
+  pokemon: PropTypes.array.isRequired
+}
+
 export default PokemonIndex;
