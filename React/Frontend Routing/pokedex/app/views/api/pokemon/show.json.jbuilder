@@ -13,7 +13,7 @@ json.pokemon do
 end
 
 json.items do
-  json.array! @pokemon.items do |item|
+  @pokemon.items.each do |item|
     json.set! item.id do
       json.extract! item,
         :id,
