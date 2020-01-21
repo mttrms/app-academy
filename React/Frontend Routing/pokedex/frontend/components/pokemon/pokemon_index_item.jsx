@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 const PokemonIndexItem = ({pokemon}) => (
   <li className='pokemon'>
     <Link to={`/pokemon/${pokemon.id}`}>
-      <p>{pokemon.name}</p>
       <img src={pokemon.image_url} />
+      <p>{pokemon.name}</p>
     </Link>
   </li>
 );

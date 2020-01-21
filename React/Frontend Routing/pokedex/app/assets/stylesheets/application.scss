@@ -104,6 +104,32 @@
    color: $black;
  }
 
+ .pokemon a {
+   display: flex;
+ }
+
+ .pokedex ul {
+   list-style-type: none;
+ }
+
  .pokemon img {
-   max-width: 100px;
+   max-width: 25px;
+   margin-right: 10px;
+ }
+
+ .pokemon-detail {
+   background: #eee;
+   padding: 20px;
+ }
+
+ .pokemon-detail img {
+   max-height: 200px;
+ }
+
+ .pokemon-detail h3 {
+   text-align: left;
+ }
+
+ .pokemon-detail ul {
+   padding-left: 0;
  }
