@@ -14,7 +14,6 @@ class PokemonDetail extends React.Component {
 
   render() {
     const {pokemon} = this.props;
-    console.log(pokemon.moves);
 
     return (
       <section className="pokemon-detail">
