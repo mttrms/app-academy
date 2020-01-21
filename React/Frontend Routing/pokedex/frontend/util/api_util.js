@@ -5,6 +5,13 @@ export const fetchAllPokemon = () => (
   .catch(error => console.log(error))
 );
 
+export const fetchPokemon = pokemonId => (
+  fetch(`/api/pokemon/${pokemonId}`)
+  .then(handleErrors)
+  .then(response => response.json())
+  .catch(error => console.log(error))
+);
+
 const handleErrors = response => {
   if (!response.ok){ 
     throw Error(response.statusText);
