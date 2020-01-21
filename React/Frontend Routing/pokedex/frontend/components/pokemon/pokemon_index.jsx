@@ -1,28 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PokemonIndexContainer from './pokemon_index_container';
+import PokemonIndexItem from './pokemon_index_item';
 
 class PokemonIndex extends React.Component {
   componentDidMount() {
     this.props.requestAllPokemon();
   }
 
-  pokeDetails(pokemon) {
-    return (
-      <li
-        key={pokemon.id}
-        className='pokemon'
-      >
-        <p>{pokemon.name}</p>
-        <img src={pokemon.image_url} />
-      </li>
-    )
-  };
-
   render() {
     const { pokemon } = this.props;
+    const pokemonItems = pokemon.map(poke => (
+      <PokemonIndexItem key={poke.id} pokemon={poke} />
+    ));
+
     return (
-      <ul>{ pokemon.map(poke => this.pokeDetails(poke)) }</ul>
+      <section className="pokedex">
+        <ul>{pokemonItems}</ul>
+      </section>
     )
   }
 };
