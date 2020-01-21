@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const PokemonIndexItem = ({pokemon}) => (
   <li className='pokemon'>
-    <p>{pokemon.name}</p>
-    <img src={pokemon.image_url} />
+    <Link to={`/pokemon/${pokemon.id}`}>
+      <p>{pokemon.name}</p>
+      <img src={pokemon.image_url} />
+    </Link>
   </li>
 );
 
