@@ -133,3 +133,17 @@
  .pokemon-detail ul {
    padding-left: 0;
  }
+
+ .pokemon-items ul {
+   display: flex;
+   justify-content: space-around;
+   align-items: baseline;
+ }
+
+ .pokemon-items ul li {
+   text-align: center;
+ }
+
+ .pokemon-items img {
+   max-width: 85px;
+ }

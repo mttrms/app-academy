@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Item from '../items/item';
 
 class PokemonDetail extends React.Component {
   componentDidMount() {
@@ -17,8 +18,6 @@ class PokemonDetail extends React.Component {
 
     if (!pokemon) return null;
 
-    const pokemonItems = items.map(item => <li key={item.id}>{item.name}</li>);
-
     return (
       <section className="pokemon-detail">
         <h2>{pokemon.name}</h2>
@@ -30,10 +29,12 @@ class PokemonDetail extends React.Component {
           <li>Defense: {pokemon.defense}</li>
           <li>Moves: {pokemon.moves.join(', ')}</li>
         </ul>
-        <h3>Items</h3>
-        <ul>
-          {pokemonItems}
-        </ul>
+        <section className="pokemon-items">
+          <h3>Items</h3>
+          <ul>
+            {items.map(item => <Item key={item.id} item={item} />)}
+          </ul>
+        </section>
       </section>
     )
   };
