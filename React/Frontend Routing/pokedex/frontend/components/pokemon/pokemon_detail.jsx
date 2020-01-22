@@ -1,6 +1,8 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Item from '../items/item';
+import ItemDetailContainer from '../items/item_detail_container';
 
 class PokemonDetail extends React.Component {
   componentDidMount() {
@@ -34,6 +36,10 @@ class PokemonDetail extends React.Component {
           <ul>
             {items.map(item => <Item key={item.id} item={item} />)}
           </ul>
+          <Route
+            path="/pokemon/:pokemonId/item/:itemId"
+            component={ItemDetailContainer}
+          />
         </section>
       </section>
     )

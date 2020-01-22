@@ -126,7 +126,7 @@
    max-height: 200px;
  }
 
- .pokemon-detail h3 {
+ .pokemon-detail > h3 {
    text-align: left;
  }
 
@@ -134,7 +134,7 @@
    padding-left: 0;
  }
 
- .pokemon-items ul {
+ .pokemon-items > ul {
    display: flex;
    justify-content: space-around;
    align-items: baseline;

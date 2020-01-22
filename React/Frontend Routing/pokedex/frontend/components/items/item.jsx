@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ItemDetailContainer from './item_detail_container';
 
 const Item = ({item}) => (
   <li>
-    <img src={item.image_url} />
-    <p>{item.name}</p>
-    <ItemDetailContainer />
+    <Link to={`/pokemon/${item.pokemon_id}/item/${item.id}`}>
+      <img src={item.image_url} />
+      <p>{item.name}</p>
+    </Link>
   </li>
 );
 
