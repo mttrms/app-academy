@@ -34,6 +34,7 @@ You can find occasional updates & recaps [on my blog](https://mattramos.com/blog
 * [Minesweeper](https://github.com/mttrms/app-academy/tree/master/React/React%20Fundamentals/Minesweeper) – Minesweeper in React
 * [Todos](https://github.com/mttrms/app-academy/tree/master/React/Redux%20Fundamentals/ReduxTodos) – Todos App (React/Redux), [Ver. 2](https://github.com/mttrms/app-academy/tree/master/React/Middleware%20and%20Thunks/Todos/todoredux)
 * [Giphy Search](https://github.com/mttrms/app-academy/tree/master/React/Redux%20and%20the%20Rails%20API/giphy) – Find fun GIFs via Giphy API + React + Redux
+* [Pokedex](https://github.com/mttrms/app-academy/tree/master/React/Frontend%20Routing/pokedex) – Pokemon Pokedex built with React, Redux, React Router & Rails
 
 ## Course Work (links to my notes & homework from each section)
 The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript, React, Full Stack Projects.
@@ -82,3 +83,4 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 * [Redux](https://github.com/mttrms/app-academy/tree/master/React/Redux%20Fundamentals)
 * [Middleware and Thunks](https://github.com/mttrms/app-academy/tree/master/React/Middleware%20and%20Thunks)
 * [Redux & The Rails API](https://github.com/mttrms/app-academy/tree/master/React/Redux%20and%20the%20Rails%20API)
+* [Frontend Routing](https://github.com/mttrms/app-academy/tree/master/React/Frontend%20Routing)
