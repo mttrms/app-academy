@@ -13,14 +13,20 @@ export const receiveSinglePokemon = pokemonData => ({
   pokemonData
 });
 
-export const requestAllPokemon = () => dispatch => (
-  APIUtil.fetchAllPokemon()
-  .then(pokemon => dispatch(receiveAllPokemon(pokemon)))
-  .catch(error => console.log(error))
-);
+export const requestAllPokemon = () => dispatch => {
+  return APIUtil.fetchAllPokemon()
+  .then(pokemon => {
+    dispatch(receiveAllPokemon(pokemon));
+    return pokemon;
+  })
+  .catch(error => console.log(error));
+};
 
-export const requestSinglePokemon = pokemonId => dispatch => (
-  APIUtil.fetchSinglePokemon(pokemonId)
-  .then(pokemon => dispatch(receiveSinglePokemon(pokemon)))
-  .catch(error => console.log(error))
-);
+export const requestSinglePokemon = pokemonId => dispatch => {
+  return APIUtil.fetchSinglePokemon(pokemonId)
+  .then(pokemon => {
+    dispatch(receiveSinglePokemon(pokemon));
+    return pokemon;
+  })
+  .catch(error => console.log(error));
+};
