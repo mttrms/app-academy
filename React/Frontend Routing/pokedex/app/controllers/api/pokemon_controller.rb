@@ -28,8 +28,8 @@ class Api::PokemonController < ApplicationController
       :attack,
       :defense,
       :poke_type,
-      :moves,
-      :image_url
+      :image_url,
+      :moves => [],
     )
   end
 end
