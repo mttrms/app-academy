@@ -147,3 +147,13 @@
  .pokemon-items img {
    max-width: 85px;
  }
+
+ .pokemon-form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+
+ .pokemon-form label {
+   margin: 10px;
+ }
