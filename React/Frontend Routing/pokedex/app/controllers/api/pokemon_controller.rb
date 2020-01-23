@@ -16,7 +16,7 @@ class Api::PokemonController < ApplicationController
     if @pokemon.save
       render json: @pokemon
     else
-      render json: @pokemon.errors.full_messages
+      render json: @pokemon.errors.full_messages, status: :unprocessable_entity
     end
   end
 
