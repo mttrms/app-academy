@@ -16,7 +16,7 @@ class Api::PokemonController < ApplicationController
     if @pokemon.save
       render json: @pokemon
     else
-      render json: 'error'
+      render json: @pokemon.errors.full_messages
     end
   end
 
