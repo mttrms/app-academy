@@ -30,3 +30,12 @@ export const requestSinglePokemon = pokemonId => dispatch => {
   })
   .catch(error => console.log(error));
 };
+
+export const createPokemon = pokemonData => dispatch => {
+  return APIUtil.createNewPoke(pokemonData)
+    .then(pokemon => {
+      dispatch(receiveSinglePokemon(pokemon));
+      return pokemon;
+    })
+    .catch(error => console.log(error));
+};

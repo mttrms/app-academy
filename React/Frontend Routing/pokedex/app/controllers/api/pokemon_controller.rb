@@ -14,7 +14,7 @@ class Api::PokemonController < ApplicationController
   def create
     @pokemon = Pokemon.new(pokemon_params)
     if @pokemon.save
-      render json: @pokemon
+      render :show
     else
       render json: @pokemon.errors.full_messages, status: :unprocessable_entity
     end
