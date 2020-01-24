@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import PokemonFormContainer from './pokemon_form_container';
 
 class PokemonForm extends React.Component {
@@ -37,7 +38,11 @@ class PokemonForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPokemon(this.state);
+    this.props.createPokemon(this.state)
+      .then(pokemonData => {
+        const newPokemon = pokemonData.pokemon;
+        this.props.history.push(`/pokemon/${newPokemon.id}`);
+      });
   };
 
   render() {
@@ -128,4 +133,4 @@ class PokemonForm extends React.Component {
   };
 };
 
-export default PokemonForm;
+export default withRouter(PokemonForm);
