@@ -12,8 +12,10 @@ export const fetchSinglePokemon = pokemonId => (
   .catch(error => console.log(error))
 );
 
-export const createNewPoke = pokemonData => (
-  fetch('/api/pokemon/', {
+export const createNewPoke = pokemonData => {
+  pokemonData.moves = Object.values(pokemonData.moves);
+
+  return fetch('/api/pokemon/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -23,7 +25,7 @@ export const createNewPoke = pokemonData => (
   .then(handleErrors)
   .then(response => response.json())
   .catch(error => console.log(error))
-);
+};
 
 const handleErrors = response => {
   if (!response.ok){ 

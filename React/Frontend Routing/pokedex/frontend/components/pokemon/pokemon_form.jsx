@@ -9,20 +9,30 @@ class PokemonForm extends React.Component {
       attack: '',
       defense: '',
       poke_type: '',
-      moves: [],
+      moves: {},
       image_url: ''
     };
 
     this.handleInput = this.handleInput.bind(this);
+    this.handleMoves = this.handleMoves.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
   handleInput(e) {
-    console.log(this.state);
     const property = e.target.name;
-    const value = e.target.value;
 
     return this.setState({ [property]: e.target.value });
+  };
+
+  handleMoves(e) {
+    const move = e.target.name;
+    const value = e.target.value;
+
+    return this.setState({
+      moves: Object.assign({}, this.state.moves, {
+        [move]: value
+      })
+    });
   };
 
   handleSubmit(e) {
@@ -66,6 +76,7 @@ class PokemonForm extends React.Component {
             name="poke_type"
             onChange={this.handleInput}
           >
+            <option defaultValue=''>--- Select a Poke Type ---</option>
             <option value='fire'>fire</option>
             <option value='electric'>electric</option>
             <option value='normal'>normal</option>
@@ -91,6 +102,24 @@ class PokemonForm extends React.Component {
             value={this.state.image_url}
             type="text"
             onChange={this.handleInput}
+          />
+        </label>
+        <label>Move 1:
+          <input
+            id="pokemonMove1"
+            name="move1"
+            value={this.state.moves.move1 || ''}
+            type="text"
+            onChange={this.handleMoves}
+          />
+        </label>
+        <label>Move 2:
+          <input
+            id="pokemonMove2"
+            name="move2"
+            value={this.state.moves.move2 || ''}
+            type="text"
+            onChange={this.handleMoves}
           />
         </label>
         <input type="Submit" defaultValue="Add Pokemon" />
