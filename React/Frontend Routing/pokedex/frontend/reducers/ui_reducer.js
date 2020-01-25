@@ -1,5 +1,6 @@
-const uiReducer = {
+import { combineReducers } from 'redux';
+import errorsReducer from './errors_reducer';
 
-};
-
-export default uiReducer;
+export default combineReducers({
+  errors: errorsReducer,
+});

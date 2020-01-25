@@ -17,6 +17,7 @@ class PokemonForm extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleMoves = this.handleMoves.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.errors = this.errors.bind(this);
   };
 
   handleInput(e) {
@@ -45,9 +46,20 @@ class PokemonForm extends React.Component {
       });
   };
 
+  errors() {
+    if (this.props.errors) {
+      return this.props.errors.map(error => {
+        return (
+          <li className="error" key={error}>{error}</li>
+        )
+      })
+    }
+  };
+
   render() {
     return (
       <form className="pokemon-form" onSubmit={this.handleSubmit}>
+        <ul>{ this.errors() }</ul>
         <label>Name:
           <input
             id="pokemonName"
