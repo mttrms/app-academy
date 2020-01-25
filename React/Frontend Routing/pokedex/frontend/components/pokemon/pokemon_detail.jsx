@@ -16,9 +16,12 @@ class PokemonDetail extends React.Component {
   };
 
   render() {
-    const {pokemon, items} = this.props;
+    const {pokemon, items, loading} = this.props;
 
     if (!pokemon) return null;
+    if (loading) {
+      return <p>Loading!</p>
+    }
 
     return (
       <section className="pokemon-detail">

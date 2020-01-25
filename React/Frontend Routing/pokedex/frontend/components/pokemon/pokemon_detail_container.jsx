@@ -10,6 +10,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     pokemon: pokemon,
     items: items,
+    loading: state.ui.loading.detailLoading,
   };
 };
 
