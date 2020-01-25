@@ -11,7 +11,7 @@ class PokemonForm extends React.Component {
       defense: '',
       poke_type: '',
       moves: {},
-      image_url: ''
+      image_url: '1.svg'
     };
 
     this.handleInput = this.handleInput.bind(this);
@@ -113,7 +113,7 @@ class PokemonForm extends React.Component {
             <option value='steel'>steel</option>
           </select>
         </label>
-        <label>Image URL:
+        <label>Image URL (1-151.svg):
           <input
             id="pokemonImageUrl"
             name="image_url"

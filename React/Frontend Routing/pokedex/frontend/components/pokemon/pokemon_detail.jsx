@@ -32,7 +32,7 @@ class PokemonDetail extends React.Component {
           <li>Moves: {pokemon.moves.join(', ')}</li>
         </ul>
         <section className="pokemon-items">
-          <h3>Items</h3>
+          { items.length > 0 ? <h3>Items</h3> : '' }
           <ul>
             {items.map(item => <Item key={item.id} item={item} />)}
           </ul>
