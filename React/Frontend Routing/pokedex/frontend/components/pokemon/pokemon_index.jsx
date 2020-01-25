@@ -19,7 +19,11 @@ class PokemonIndex extends React.Component {
 
     return (
       <section className="pokedex">
-        <PokemonFormContainer />
+        <Route
+          path="/"
+          exact
+          component={PokemonFormContainer}
+        />
         <Route
           path="/pokemon/:pokemonId"
           component={PokemonDetailContainer}
