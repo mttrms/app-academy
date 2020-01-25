@@ -13,13 +13,13 @@ const initialState = {
 const loadingReducer = (state = initialState, action) => {
   switch(action.type) {
     case RECEIVE_ALL_POKEMON:
-      return Object.assign({}, initialState, { indexLoading: false });
+      return Object.assign({}, state, { indexLoading: false });
     case RECEIVE_SINGLE_POKEMON:
-      return Object.assign({}, initialState, { detailLoading: false });
+      return Object.assign({}, state, { detailLoading: false });
     case START_LOADING_ALL_POKEMON:
-      return Object.assign({}, initialState, { indexLoading: true });
+      return Object.assign({}, state, { indexLoading: true });
     case START_LOADING_SINGLE_POKEMON:
-      return Object.assign({}, initialState, { detailLoading: true });
+      return Object.assign({}, state, { detailLoading: true });
     default: 
       return state;
   }
