@@ -21,7 +21,7 @@
 
  body {
    font-family: sans-serif;
-   background: white;
+   background: #eee;
    color: $grey;
    font-size: 12px;
    height: 100%;
@@ -90,8 +90,7 @@
  }
 
  #root {
-   height: 100%;
-   padding-top: 20px;
+   height: 94%;
  }
 
  h2 {
@@ -108,8 +107,17 @@
    display: flex;
  }
 
- .pokedex ul {
+ .pokedex {
+   display: flex;
+   height: 100%;
+ }
+
+ .pokedex > ul {
+   background-color: #fff;
    list-style-type: none;
+   overflow: scroll;
+   width: 20%;
+   margin: 0;
  }
 
  .pokemon img {
@@ -117,17 +125,24 @@
    margin-right: 10px;
  }
 
- .pokemon-detail {
+ .pokemon-view {
    background: #eee;
+   margin: 0 40px;
+   width: 100%;
    padding: 20px;
+   overflow: hidden;
+ }
+
+ .pokemon-detail {
+   text-align: center;
+ }
+
+ .pokemon-detail ul {
+   list-style-type: none;
  }
 
  .pokemon-detail img {
    max-height: 200px;
- }
-
- .pokemon-detail > h3 {
-   text-align: left;
  }
 
  .pokemon-detail ul {

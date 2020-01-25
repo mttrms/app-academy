@@ -59,6 +59,7 @@ class PokemonForm extends React.Component {
   render() {
     return (
       <form className="pokemon-form" onSubmit={this.handleSubmit}>
+        <h2>Add a pokemon</h2>
         <ul>{ this.errors() }</ul>
         <label>Name:
           <input
