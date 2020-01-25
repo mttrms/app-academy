@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Item from '../items/item';
 import ItemDetailContainer from '../items/item_detail_container';
+import Loader from '../loader';
 
 class PokemonDetail extends React.Component {
   componentDidMount() {
@@ -17,7 +18,7 @@ class PokemonDetail extends React.Component {
 
   render() {
     const {pokemon, items, loading} = this.props;
-    if (loading) return <p>Loading!</p> 
+    if (loading) return <Loader />
     if (!pokemon) return null;
 
     return (

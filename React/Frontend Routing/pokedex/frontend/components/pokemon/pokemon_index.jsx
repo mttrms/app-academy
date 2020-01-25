@@ -5,6 +5,7 @@ import PokemonIndexContainer from './pokemon_index_container';
 import PokemonDetailContainer from './pokemon_detail_container';
 import PokemonIndexItem from './pokemon_index_item';
 import PokemonFormContainer from './pokemon_form_container';
+import Loader from '../loader';
 
 class PokemonIndex extends React.Component {
   componentDidMount() {
@@ -14,9 +15,7 @@ class PokemonIndex extends React.Component {
   render() {
     const { pokemon, loading } = this.props;
 
-    if (loading) {
-      return <p>loading!</p>
-    }
+    if (loading) return <Loader />
 
     const pokemonItems = pokemon.map(poke => (
       <PokemonIndexItem key={poke.id} pokemon={poke} />

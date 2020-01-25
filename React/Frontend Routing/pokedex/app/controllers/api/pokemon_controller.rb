@@ -2,11 +2,13 @@ class Api::PokemonController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
+    sleep 0.5
     @pokemons = Pokemon.all
     render :index
   end
 
   def show
+    sleep 0.5
     @pokemon = Pokemon.find(params[:id])
     render :show
   end
