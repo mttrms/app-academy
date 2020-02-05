@@ -84,3 +84,4 @@ The a/A course is split into a few major sections: Ruby, SQL, Rails, JavaScript,
 * [Middleware and Thunks](https://github.com/mttrms/app-academy/tree/master/React/Middleware%20and%20Thunks)
 * [Redux & The Rails API](https://github.com/mttrms/app-academy/tree/master/React/Redux%20and%20the%20Rails%20API)
 * [Frontend Routing](https://github.com/mttrms/app-academy/tree/master/React/Frontend%20Routing)
+* [Frontend Auth](https://github.com/mttrms/app-academy/tree/master/React/Frontend%20Auth)
