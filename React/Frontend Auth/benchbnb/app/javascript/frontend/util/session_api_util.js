@@ -6,6 +6,7 @@ export const signup = user => (
     },
     body: JSON.stringify({user: user})
   })
+  .then(handleErrors)
   .then(response => response.json())
 )
 
@@ -17,6 +18,7 @@ export const login = user => (
     },
     body: JSON.stringify(user)
   })
+  .then(handleErrors)
   .then(response => response.json())
 )
 
@@ -26,3 +28,10 @@ export const logout = () => (
   })
   .then(response => response.json())
 )
+
+const handleErrors = response => {
+  if (!response.ok) {
+    throw response;
+  }
+  return response;
+};
