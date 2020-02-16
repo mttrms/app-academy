@@ -13,12 +13,12 @@ class SessionForm extends React.Component {
 
   update(field) {
     return e => this.setState({
-      [field]: e.currentTargert.value
+      [field]: e.currentTarget.value
     });
   }
 
   handleSubmit(e) {
-    e.preventDefault;
+    e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
   }
@@ -38,6 +38,8 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div>
+        <p>Welcome to BenchBnB. Please { this.props.formType } or { this.props.navLink }.</p>
+        { this.renderErrors() }
         <form onSubmit={this.handleSubmit}>
           <label>Username:
             <input
@@ -65,7 +67,8 @@ class SessionForm extends React.Component {
 SessionForm.propTypes = {
   errors: PropTypes.array.isRequired,
   processForm: PropTypes.func.isRequired,
-  formType: PropTypes.string.isRequired
+  formType: PropTypes.string.isRequired,
+  navLink: PropTypes.element.isRequired
 }
 
 export default SessionForm;
