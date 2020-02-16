@@ -16,7 +16,7 @@ export const login = user => (
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(user)
+    body: JSON.stringify({user: user})
   })
   .then(handleErrors)
   .then(response => response.json())
