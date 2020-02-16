@@ -22,12 +22,18 @@ export const signup = user => dispatch => (
   APIUtil.signup(user).then(user => (
     dispatch(receiveCurrentUser(user))
   ))
+  .catch(err => {
+    err.json().then(errors => dispatch(receiveErrors(errors)))
+  })
 );
 
 export const login = user => dispatch => (
-  APIUtil.receiveCurrentUser(user).then(user => (
+  APIUtil.login(user).then(user => (
     dispatch(receiveCurrentUser(user))
   ))
+  .catch(err => {
+    err.json().then(errors => dispatch(receiveErrors(errors)))
+  })
 );
 
 export const logout = () => dispatch => (
