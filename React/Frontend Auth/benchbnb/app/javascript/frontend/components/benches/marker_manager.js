@@ -19,6 +19,5 @@ export default class MarkerManager {
     });
 
     this.markers[marker.benchId] = marker;
-    console.log(this.markers)
   }
 }
