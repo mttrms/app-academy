@@ -4,9 +4,7 @@ class BenchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      description: '',
-      lat: '',
-      lng: ''
+      description: ''
     }
   }
   
@@ -22,7 +20,8 @@ class BenchForm extends React.Component {
   }
 
   render() {
-    const { description, lat, lng } = this.state;
+    const { description } = this.state;
+    const { lat, lng } = this.props;
 
     return (
       <div>
@@ -39,14 +38,14 @@ class BenchForm extends React.Component {
           <input
             type="text"
             value={lat}
-            onChange={this.update("lat")}
+            disabled
           />
 
           <label>Longitude</label>
           <input
             type="text"
             value={lng}
-            onChange={this.update("lng")}
+            disabled
           />
 
           <input
