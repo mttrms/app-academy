@@ -15,9 +15,6 @@ export default class MarkerManager {
     Object.keys(this.markers)
       .filter(benchId => !benchesObj[benchId])
       .forEach((benchId) => this.removeMarker(this.markers[benchId]))
-
-    console.log(this.markers)
-    console.log(benchesObj)
   }
 
   createMarkerFromBench(bench) {
@@ -32,8 +29,6 @@ export default class MarkerManager {
   }
 
   removeMarker(marker) {
-    console.log('hi')
-    console.log(marker)
     this.markers[marker.benchId].setMap(null);
     delete this.markers[marker.benchId];
   }
