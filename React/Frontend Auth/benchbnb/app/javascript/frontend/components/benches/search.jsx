@@ -2,12 +2,18 @@ import React from 'react';
 
 import BenchIndex from './bench_index';
 import BenchMap from './bench_map';
+import FilterForm from './filter_form';
 
-const Search = ({ benches, fetchBenches, updateFilter }) => {
+const Search = ({ benches, minSeating, maxSeating, updateFilter }) => {
   return (
     <div>
       <BenchMap benches={benches} updateFilter={updateFilter} />
-      <BenchIndex benches={benches}  fetchBenches={fetchBenches}/>
+      <BenchIndex benches={benches} />
+      <FilterForm
+        minSeating={minSeating}
+        maxSeating={maxSeating}
+        updateFilter={updateFilter}
+      />
     </div>
   )
 };
