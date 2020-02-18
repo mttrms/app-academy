@@ -24,6 +24,7 @@ class BenchForm extends React.Component {
     }
 
     this.props.createBench(benchData);
+    this.props.history.push('/');
   }
 
   render() {
