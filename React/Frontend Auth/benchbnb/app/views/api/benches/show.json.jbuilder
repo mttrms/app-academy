@@ -1,3 +1,1 @@
-json.bench do
-  json.partial! '/api/benches/bench', bench: @bench
-end
+json.extract! @bench, :id, :description, :lat, :lng

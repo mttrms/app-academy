@@ -6,6 +6,7 @@ class BenchForm extends React.Component {
     this.state = {
       description: ''
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   
   update(property) {
@@ -16,7 +17,13 @@ class BenchForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('Coming soon');
+    const benchData = {
+      description: this.state.description,
+      lat: this.props.lat,
+      lng: this.props.lng
+    }
+
+    this.props.createBench(benchData);
   }
 
   render() {

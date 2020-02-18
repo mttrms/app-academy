@@ -9,7 +9,7 @@ const mapStateToProps = (state, { location }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createBench: bench => dispatch(createBench(bench))
+  createBench: benchData => dispatch(createBench(benchData))
 });
 
 export default connect(

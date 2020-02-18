@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from './store/store';
 import { login } from './actions/session_actions';
-import { fetchBenches } from './util/bench_api_util';
+import { createBench } from './util/bench_api_util';
 
 import Root from './components/root';
 
@@ -28,5 +28,5 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   window.login = login;
-  window.fetchBenches = fetchBenches;
+  window.createBench = createBench;
 });
