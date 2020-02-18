@@ -2,7 +2,6 @@ export default class MarkerManager {
   constructor(map) {
     this.map = map;
     this.markers = {};
-    console.log(this.map);
   }
 
   updateMarkers(benches) {

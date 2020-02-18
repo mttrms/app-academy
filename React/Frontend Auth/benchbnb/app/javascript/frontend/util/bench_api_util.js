@@ -1,12 +1,8 @@
 export const fetchBenches = filters => (
-  fetch(`/api/benches`)
-  .then(handleErrors)
-  .then(response => response.json())
+  $.ajax({
+    method: 'GET',
+    url: 'api/benches',
+    data: filters
+  })
 );
 
-const handleErrors = response => {
-  if (!response.ok) {
-    throw response;
-  }
-  return response;
-};
