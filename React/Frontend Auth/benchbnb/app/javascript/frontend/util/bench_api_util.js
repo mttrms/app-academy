@@ -1,5 +1,5 @@
-export const fetchBenches = () => (
-  fetch('/api/benches')
+export const fetchBenches = filters => (
+  fetch(`/api/benches`)
   .then(handleErrors)
   .then(response => response.json())
 );
