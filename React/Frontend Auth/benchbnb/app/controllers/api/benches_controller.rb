@@ -4,10 +4,14 @@ class Api::BenchesController < ApplicationController
     render :index
   end
 
+  def show
+    @bench = Bench.find(params[:id])
+  end
+
   def create
     @bench = Bench.new(bench_params)
     if @bench.save
-      render :index
+      render :show
     else
       render json: @bench.errors.full_messages, status: 422
     end
