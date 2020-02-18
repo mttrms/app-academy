@@ -1,0 +1,62 @@
+import React from 'react';
+
+class BenchForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      description: '',
+      lat: '',
+      lng: ''
+    }
+  }
+  
+  update(property) {
+    return e => this.setState({
+      [property]: e.target.value
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log('Coming soon');
+  }
+
+  render() {
+    const { description, lat, lng } = this.state;
+
+    return (
+      <div>
+        <h3>Add a new Bench</h3>
+        <form onSubmit={this.handleSubmit}>
+          <label>Description</label>
+          <input
+            type="text"
+            value={description}
+            onChange={this.update("description")}
+          />
+
+          <label>Latitude</label>
+          <input
+            type="text"
+            value={lat}
+            onChange={this.update("lat")}
+          />
+
+          <label>Longitude</label>
+          <input
+            type="text"
+            value={lng}
+            onChange={this.update("lng")}
+          />
+
+          <input
+            type="submit"
+            value="Create Bench"
+          />
+        </form>
+      </div>
+    )
+  }
+}
+
+export default BenchForm;
