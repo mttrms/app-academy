@@ -6,8 +6,6 @@ const benchesReducer = (state = {}, action) => {
     case RECEIVE_BENCHES:
       return action.benches;
     case RECEIVE_BENCH:
-      console.log('old state', state)
-      console.log(action.bench, 'le bench');
       return Object.assign({}, state, { [action.bench.id]: action.bench });
     default:
       return state;

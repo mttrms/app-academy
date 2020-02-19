@@ -6,6 +6,11 @@ export const fetchBenches = filters => (
   })
 );
 
+export const fetchBench = id => (
+  fetch(`api/benches/${id}`)
+  .then(response => response.json())
+);
+
 export const createBench = benchData => (
   fetch('api/benches', {
     method: 'POST',

@@ -20,10 +20,17 @@ export const fetchBenches = filters => dispatch => (
   ))
 );
 
+export const fetchBench = id => dispatch => (
+  APIUtil.fetchBench(id)
+  .then(bench => (
+    dispatch(receiveBench(bench))
+  ))
+);
+
 export const createBench = benchData => dispatch => (
   APIUtil.createBench(benchData)
   .then(bench => {
     dispatch(receiveBench(bench));
     return bench;
   })
-)
+);

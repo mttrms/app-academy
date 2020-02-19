@@ -3,25 +3,35 @@ import { withRouter } from 'react-router-dom';
 
 import MarkerManager from './marker_manager';
 
+const mapOptions = {
+  center: { lat: 40.720135, lng: -74.042943 },
+  zoom: 15 
+};
+
 class BenchMap extends React.Component {
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    const mapOptions = {
-      center: { lat: 40.720135, lng: -74.042943 },
-      zoom: 15 
-    };
-
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
-    this.registerListeners();
-    this.MarkerManager.updateMarkers(this.props.benches);
+    if (this.props.singleBench) {
+      this.props.fetchBench(this.props.benchId);
+    } else {
+      this.registerListeners();
+      this.MarkerManager.updateMarkers(this.props.benches);
+    }
   }
 
   componentDidUpdate() {
-    this.MarkerManager.updateMarkers(this.props.benches);
+    if (this.props.singleBench) {
+      const singleBenchKey = Object.keys(this.props.benches)[0];
+      const singleBench = this.props.benches[singleBenchKey];
+      this.MarkerManager.updateMarkers([singleBench]);
+    } else {
+      this.MarkerManager.updateMarkers(this.props.benches);
+    }
   }
 
   registerListeners() {
