@@ -28,8 +28,7 @@ class Api::BenchesController < ApplicationController
       :description,
       :lat,
       :lng,
-      :minSeating,
-      :maxSeating
+      :seating
     )
   end
 

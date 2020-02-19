@@ -4,7 +4,8 @@ class BenchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      description: ''
+      description: '',
+      seating: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -19,6 +20,7 @@ class BenchForm extends React.Component {
     e.preventDefault();
     const benchData = {
       description: this.state.description,
+      seating: this.state.seating,
       lat: this.props.lat,
       lng: this.props.lng
     }
@@ -28,7 +30,7 @@ class BenchForm extends React.Component {
   }
 
   render() {
-    const { description } = this.state;
+    const { description, seating } = this.state;
     const { lat, lng } = this.props;
 
     return (
@@ -40,6 +42,13 @@ class BenchForm extends React.Component {
             type="text"
             value={description}
             onChange={this.update("description")}
+          />
+
+          <label>Seats</label>
+          <input
+            type="number"
+            value={seating}
+            onChange={this.update("seating")}
           />
 
           <label>Latitude</label>
