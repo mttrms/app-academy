@@ -8,6 +8,11 @@ class BenchForm extends React.Component {
       seating: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.navigateToIndex = this.navigateToIndex.bind(this);
+  }
+
+  navigateToIndex() {
+    this.props.history.push('/');
   }
   
   update(property) {
@@ -26,7 +31,7 @@ class BenchForm extends React.Component {
     }
 
     this.props.createBench(benchData);
-    this.props.history.push('/');
+    this.navigateToIndex();
   }
 
   render() {
@@ -70,6 +75,8 @@ class BenchForm extends React.Component {
             value="Create Bench"
           />
         </form>
+        <br />
+        <button onClick={this.navigateToIndex}>Go Back</button>
       </div>
     )
   }
