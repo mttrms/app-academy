@@ -1,7 +1,8 @@
 export default class MarkerManager {
-  constructor(map) {
+  constructor(map, handleClick) {
     this.map = map;
     this.markers = {};
+    this.handleClick = handleClick;
   }
 
   updateMarkers(benches) {
@@ -25,6 +26,7 @@ export default class MarkerManager {
       benchId: bench.id
     });
 
+    marker.addListener('click', () => this.handleClick(bench));
     this.markers[marker.benchId] = marker;
   }
 
